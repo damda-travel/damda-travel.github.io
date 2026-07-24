@@ -307,16 +307,20 @@ body {
 /* 5. Main Content Layout (Grid) */
 .content-layout {
   max-width: 1440px;
+  min-width: 0;
   margin: 1.25rem auto;
   padding: 0 1.5rem;
   display: grid;
-  grid-template-columns: 1fr 400px;
+  grid-template-columns: minmax(0, 0.92fr) minmax(520px, 1.08fr);
   gap: 1.25rem;
   align-items: start;
 }
 
 /* 6. Map Section */
 .map-section {
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
   background: var(--bg-card);
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-light);
@@ -324,7 +328,8 @@ body {
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
-  position: relative;
+  position: sticky;
+  top: 80px;
   animation: fadeInUp 0.5s ease;
 }
 
@@ -382,8 +387,8 @@ body {
   border-radius: var(--radius-md);
   overflow: hidden;
   border: 1px solid var(--border-light);
-  box-shadow: var(--shadow-md);
-  background: #F0FDF4;
+  box-shadow: 0 14px 35px rgba(15, 72, 62, 0.1);
+  background: #F7F3EA;
 }
 
 .illust-map-container {
@@ -393,6 +398,8 @@ body {
 
 .illust-map-img {
   width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
   display: block;
   border-radius: var(--radius-md);
 }
@@ -423,14 +430,14 @@ body {
 }
 
 .pin-head {
-  background: var(--primary);
-  color: white;
+  background: rgba(255, 255, 255, 0.96);
+  color: #185A4D;
   font-weight: 700;
-  font-size: 0.72rem;
-  padding: 0.25rem 0.6rem;
+  font-size: 0.7rem;
+  padding: 0.24rem 0.48rem;
   border-radius: var(--radius-full);
-  border: 2px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 0 3px 12px rgba(5, 150, 105, 0.4);
+  border: 1px solid rgba(47, 111, 98, 0.32);
+  box-shadow: 0 4px 12px rgba(30, 77, 68, 0.18);
   white-space: nowrap;
   display: flex;
   align-items: center;
@@ -439,14 +446,20 @@ body {
 }
 
 .pin-head i {
-  font-size: 0.65rem;
+  color: var(--primary);
+  font-size: 0.64rem;
 }
 
 .illust-pin.core-pin .pin-head {
-  background: linear-gradient(135deg, #047857, #059669);
-  font-size: 0.78rem;
-  padding: 0.3rem 0.7rem;
-  box-shadow: 0 4px 16px rgba(4, 120, 87, 0.5);
+  background: #185A4D;
+  color: white;
+  font-size: 0.74rem;
+  padding: 0.28rem 0.55rem;
+  box-shadow: 0 5px 15px rgba(24, 90, 77, 0.28);
+}
+
+.illust-pin.core-pin .pin-head i {
+  color: white;
 }
 
 .pin-popup {
@@ -485,18 +498,26 @@ body {
 }
 
 .illust-pin.active .pin-head {
-  background: linear-gradient(135deg, #0284C7, #2563EB) !important;
-  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.35), 0 4px 14px rgba(2, 132, 199, 0.4);
+  background: #0F766E !important;
+  color: white;
+  border-color: white;
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.22), 0 5px 15px rgba(15, 118, 110, 0.3);
   animation: pulse 2s infinite;
 }
 
 /* Quick Region Chips Bar */
 .region-chips-wrapper {
-  margin-top: 1rem;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0 0 0.85rem;
+  padding: 0.65rem 0.75rem;
   display: flex;
   align-items: center;
   gap: 0.6rem;
   flex-wrap: wrap;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  background: var(--bg-sub);
 }
 
 .chips-label {
@@ -507,6 +528,7 @@ body {
 }
 
 .chips-container {
+  min-width: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
@@ -540,11 +562,13 @@ body {
 
 /* 7. Sidebar Section & Tour Cards */
 .sidebar-section {
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  position: sticky;
-  top: 80px;
+  position: static;
 }
 
 .region-info-banner {
@@ -611,11 +635,11 @@ body {
 
 /* ── Tour Card List ── */
 .tour-list-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.75rem;
-  max-height: calc(100vh - 260px);
-  overflow-y: auto;
+  max-height: none;
+  overflow: visible;
   padding-right: 4px;
   scroll-behavior: smooth;
 }
@@ -798,6 +822,7 @@ body {
 }
 
 .empty-state {
+  grid-column: 1 / -1;
   text-align: center;
   padding: 2.5rem 1.25rem;
   background: var(--bg-card);
@@ -832,6 +857,15 @@ body {
 
 .section-title-box {
   margin-bottom: 1rem;
+}
+
+.section-kicker {
+  display: inline-block;
+  margin-bottom: 0.35rem;
+  color: var(--primary);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
 }
 
 .section-title-box h2 {
@@ -1027,6 +1061,47 @@ body {
   font-weight: 700;
   padding: 0.2rem 0.65rem;
   border-radius: var(--radius-full);
+}
+
+.modal-photo-source {
+  position: absolute;
+  right: 1rem;
+  bottom: 0.85rem;
+  max-width: 55%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0.22rem 0.55rem;
+  border-radius: var(--radius-full);
+  background: rgba(15, 23, 42, 0.76);
+  color: white;
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-decoration: none;
+  backdrop-filter: blur(6px);
+}
+
+.modal-photo-source:hover {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+.card-img-box.image-unavailable,
+.modal-hero-img-box.image-unavailable {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #ECFDF5, #E0F2FE);
+}
+
+.card-img-box.image-unavailable::after,
+.modal-hero-img-box.image-unavailable::after {
+  content: '공식 사진 준비 중';
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.image-unavailable > img {
+  display: none;
 }
 
 .modal-body {
@@ -1921,7 +1996,11 @@ body.modal-open {
 /* 12. Responsive Media Queries */
 @media (max-width: 1100px) {
   .content-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .map-section {
+    position: static;
   }
 
   .sidebar-section {
@@ -1930,7 +2009,8 @@ body.modal-open {
   }
 
   .tour-list-container {
-    max-height: 500px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-height: none;
   }
 
   .planner-section {
@@ -1982,12 +2062,18 @@ body.modal-open {
   }
 
   .content-layout {
+    grid-template-columns: minmax(0, 1fr);
     padding: 0 0.75rem;
     gap: 0.75rem;
   }
 
+  .sidebar-section {
+    order: 1;
+  }
+
   .map-section {
     padding: 1rem;
+    order: 2;
   }
 
   .map-controls-bar {
@@ -2019,8 +2105,67 @@ body.modal-open {
   }
 
   .tour-list-container {
+    grid-template-columns: 1fr;
     max-height: none;
     overflow: visible;
+  }
+
+  .region-chips-wrapper {
+    width: 100%;
+    max-width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .region-chips-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .chips-label {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    padding-right: 0.4rem;
+    background: var(--bg-sub);
+  }
+
+  .chips-container {
+    min-width: max-content;
+    flex-wrap: nowrap;
+  }
+
+  .chip-btn {
+    flex: 0 0 auto;
+  }
+
+  .illust-pin .pin-head,
+  .illust-pin.core-pin .pin-head {
+    width: 24px;
+    height: 24px;
+    justify-content: center;
+    padding: 0;
+    border: 2px solid white;
+    background: #185A4D;
+    color: white;
+    box-shadow: 0 3px 9px rgba(24, 90, 77, 0.3);
+  }
+
+  .illust-pin .pin-head i,
+  .illust-pin.core-pin .pin-head i {
+    color: white;
+  }
+
+  .illust-pin .pin-head span {
+    display: none;
+  }
+
+  .illust-pin:hover {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+
+  .pin-popup {
+    display: none;
   }
 
   .planner-section {
@@ -2029,6 +2174,7 @@ body.modal-open {
     scroll-margin-top: 4.5rem;
   }
 
+  .map-section,
   .sidebar-section,
   .courses-section {
     scroll-margin-top: 4.5rem;

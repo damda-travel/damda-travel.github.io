@@ -232,7 +232,7 @@ async function updateUI() {
     bannerTitle.textContent = currentSearchQuery ? `'${searchInput.value.trim()}' 검색 결과` : '전라북도 대표 명소';
     bannerDesc.textContent = currentSearchQuery
       ? '전북 14개 시·군 전체에서 관광지명, 지역, 주소와 키워드를 검색했습니다.'
-      : '14개 시·군의 산, 바다, 한옥, 맛집을 일러스트 지도와 함께 둘러보세요.';
+      : '14개 시·군의 실제 명소 사진을 비교하고, 지역과 테마에 맞춰 여행지를 골라보세요.';
   }
 
   const filteredTours = await getFilteredTourList();
@@ -246,7 +246,9 @@ async function updateUI() {
 
 async function getFilteredTourList() {
   if (tourApiClient.hasValidKey()) {
-    const contentTypeId = TOUR_API_CONFIG.contentTypeMapping[currentSelectedCategory] || null;
+    const contentTypeId = ['food', 'festival'].includes(currentSelectedCategory)
+      ? TOUR_API_CONFIG.contentTypeMapping[currentSelectedCategory]
+      : null;
     let apiResults = [];
 
     if (currentSearchQuery) {
@@ -256,8 +258,11 @@ async function getFilteredTourList() {
     }
 
     if (apiResults?.length) {
-      currentLiveApiData = apiResults;
-      return sortTours(filterSavedTours(apiResults));
+      const categoryFiltered = currentSelectedCategory === 'all'
+        ? apiResults
+        : apiResults.filter(tour => tour.category === currentSelectedCategory);
+      currentLiveApiData = categoryFiltered;
+      return sortTours(filterSavedTours(categoryFiltered));
     }
   }
 
@@ -346,11 +351,14 @@ function renderTourCards(tours) {
     const savedBadge = saved.has(tour.id)
       ? '<span class="card-saved-badge"><i class="fa-solid fa-bookmark"></i> 저장됨</span>'
       : '<span class="card-view-badge"><i class="fa-solid fa-arrow-right"></i></span>';
+    const imageMarkup = tour.image
+      ? `<img src="${escapeHTML(tour.image)}" alt="${escapeHTML(tour.name)}" loading="lazy" onerror="handleImageError(this)">`
+      : '';
 
     return `
       <button type="button" class="tour-card" onclick="openModal('${escapeHTML(tour.id)}')" aria-label="${escapeHTML(tour.name)} 상세 정보 보기">
-        <div class="card-img-box">
-          <img src="${escapeHTML(tour.image)}" alt="${escapeHTML(tour.name)}" loading="lazy" onerror="handleImageError(this)">
+        <div class="card-img-box${tour.image ? '' : ' image-unavailable'}">
+          ${imageMarkup}
           <span class="card-cat-badge">${escapeHTML(tour.categoryName)}</span>
           ${savedBadge}
         </div>
@@ -371,7 +379,9 @@ function renderTourCards(tours) {
 function handleImageError(image) {
   if (image.dataset.fallbackApplied) return;
   image.dataset.fallbackApplied = 'true';
-  image.src = 'https://images.unsplash.com/photo-1548115184-bc6544d06a58?auto=format&fit=crop&w=800&q=80';
+  image.removeAttribute('src');
+  image.alt = '';
+  image.parentElement?.classList.add('image-unavailable');
 }
 
 function renderRecommendedCourses() {
@@ -400,7 +410,15 @@ function openModal(tourId) {
 
   activeTourId = foundTour.id;
   lastFocusedElement = document.activeElement;
-  modalImg.src = foundTour.image;
+  const modalImageBox = modalImg.parentElement;
+  modalImageBox?.classList.remove('image-unavailable');
+  delete modalImg.dataset.fallbackApplied;
+  if (foundTour.image) {
+    modalImg.src = foundTour.image;
+  } else {
+    modalImg.removeAttribute('src');
+    modalImageBox?.classList.add('image-unavailable');
+  }
   modalImg.alt = foundTour.name;
   modalCategory.textContent = `${foundTour.regionName || '전북'} · ${foundTour.categoryName}`;
   modalTitle.textContent = foundTour.name;
@@ -417,6 +435,20 @@ function openModal(tourId) {
 
   const shareBtn = document.getElementById('modalShareBtn');
   shareBtn.onclick = () => shareTour(foundTour);
+
+  const officialUrl = foundTour.sourceUrl || (foundTour.isLiveApi
+    ? 'https://korean.visitkorea.or.kr/main/cr_main.do'
+    : 'https://tour.jb.go.kr/index.do');
+  const sourceName = foundTour.imageSource || (foundTour.isLiveApi ? '한국관광공사 TourAPI' : '공식 관광정보');
+  const usageNote = foundTour.imageUsageNote ? ` · ${foundTour.imageUsageNote}` : '';
+  const photoSource = document.getElementById('modalPhotoSource');
+  photoSource.href = officialUrl;
+  photoSource.textContent = `사진 · ${sourceName}${usageNote}`;
+  photoSource.hidden = !foundTour.image;
+
+  const officialSource = document.getElementById('modalOfficialSource');
+  officialSource.href = officialUrl;
+  officialSource.innerHTML = `<i class="fa-solid fa-arrow-up-right-from-square"></i> ${escapeHTML(sourceName)}에서 확인`;
 
   tourModal.classList.add('active');
   tourModal.setAttribute('aria-hidden', 'false');

@@ -1,10 +1,10 @@
 /**
- * 한국관광공사 TourAPI 4.0 (공공데이터포털) 오픈 API 연동 모듈
- * Base URL: https://apis.data.go.kr/B551011/KorService1
+ * 한국관광공사 국문 관광정보 서비스_GW (공공데이터포털) 연동 모듈
+ * 2025년 변경된 KorService2 엔드포인트 기준
  */
 
 const TOUR_API_CONFIG = {
-  baseUrl: 'https://apis.data.go.kr/B551011/KorService1',
+  baseUrl: 'https://apis.data.go.kr/B551011/KorService2',
   areaCodeJeonbuk: 37, // 전라북도 지역 코드
   
   // 시군구 코드 매핑 (TourAPI 4.0 전북 기준)
@@ -81,16 +81,16 @@ class TourApiClient {
   }
 
   /**
-   * 지역 기반 관광정보 조회 (areaBasedList1)
+   * 지역 기반 관광정보 조회 (areaBasedList2)
    */
-  async fetchAreaBasedList(regionId = null, contentTypeId = null, pageNo = 1, numOfRows = 20) {
+  async fetchAreaBasedList(regionId = null, contentTypeId = null, pageNo = 1, numOfRows = 500) {
     if (!this.hasValidKey()) {
       console.warn('[TourAPI] API 키가 설정되지 않아 Mock 데이터를 사용합니다.');
       return null;
     }
 
     try {
-      let url = `${TOUR_API_CONFIG.baseUrl}/areaBasedList1?serviceKey=${this.getRequestServiceKey()}`
+      let url = `${TOUR_API_CONFIG.baseUrl}/areaBasedList2?serviceKey=${this.getRequestServiceKey()}`
         + `&numOfRows=${numOfRows}&pageNo=${pageNo}&MobileOS=ETC&MobileApp=JeonbukTourMap&_type=json`
         + `&areaCode=${TOUR_API_CONFIG.areaCodeJeonbuk}`;
 
@@ -122,13 +122,13 @@ class TourApiClient {
   }
 
   /**
-   * 키워드 검색 조회 (searchKeyword1)
+   * 키워드 검색 조회 (searchKeyword2)
    */
-  async fetchKeywordSearch(keyword, pageNo = 1, numOfRows = 20) {
+  async fetchKeywordSearch(keyword, pageNo = 1, numOfRows = 100) {
     if (!this.hasValidKey() || !keyword) return null;
 
     try {
-      const url = `${TOUR_API_CONFIG.baseUrl}/searchKeyword1?serviceKey=${this.getRequestServiceKey()}`
+      const url = `${TOUR_API_CONFIG.baseUrl}/searchKeyword2?serviceKey=${this.getRequestServiceKey()}`
         + `&numOfRows=${numOfRows}&pageNo=${pageNo}&MobileOS=ETC&MobileApp=JeonbukTourMap&_type=json`
         + `&areaCode=${TOUR_API_CONFIG.areaCodeJeonbuk}&keyword=${encodeURIComponent(keyword)}`;
 
@@ -163,28 +163,33 @@ class TourApiClient {
       let category = 'culture';
       let categoryName = '역사/문화';
 
-      if (item.contenttypeid == '39') {
+      if (item.contenttypeid == '39' || item.cat1 === 'A05') {
         category = 'food';
         categoryName = '맛집/카페';
       } else if (item.contenttypeid == '15') {
         category = 'festival';
         categoryName = '축제/행사';
-      } else if (item.contenttypeid == '12') {
+      } else if (item.cat1 === 'A01') {
         category = 'nature';
         categoryName = '자연/힐링';
       }
 
-      const defaultImg = "https://images.unsplash.com/photo-1548115184-bc6544d06a58?auto=format&fit=crop&w=800&q=80";
+      const copyrightType = item.cpyrhtDivCd === 'Type1'
+        ? '공공누리 1유형'
+        : item.cpyrhtDivCd === 'Type3'
+          ? '공공누리 3유형'
+          : '';
 
       return {
         id: `api-${item.contentid}`,
         name: item.title,
         category: category,
         categoryName: categoryName,
-        rating: (4.5 + (parseInt(item.contentid) % 5) * 0.1).toFixed(1),
-        reviews: (200 + (parseInt(item.contentid) % 800)),
         address: item.addr1 || item.addr2 || '전라북도 상세 정보 참조',
-        image: item.firstimage || item.firstimage2 || defaultImg,
+        image: item.firstimage || item.firstimage2 || '',
+        imageSource: '한국관광공사 TourAPI',
+        sourceUrl: `https://korean.visitkorea.or.kr/search/search_list.do?keyword=${encodeURIComponent(item.title)}`,
+        imageUsageNote: copyrightType,
         tags: [`#${item.title.split(' ')[0]}`, `#전북관광`, `#공공데이터`],
         desc: item.addr1 ? `[공공데이터포털 제공] ${item.addr1}에 위치한 대표 관광지입니다.` : '한국관광공사 TourAPI를 통해 제공되는 관광정보입니다.',
         regionId: regionId,
