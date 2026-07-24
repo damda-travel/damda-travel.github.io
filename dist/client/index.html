@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#059669">
   <meta property="og:type" content="website">
   <meta property="og:title" content="전북 관광 정보 지도">
-  <meta property="og:description" content="14개 시·군, 33개 명소를 탐색하고 나만의 전북 여행 일정을 만들어보세요.">
+  <meta property="og:description" content="전북 14개 시·군의 관광지·맛집·카페·축제 정보를 탐색하고 나만의 여행 일정을 만들어보세요.">
   <meta property="og:url" content="https://jeonbuk-tour-guide.parkg9832.chatgpt.site/">
   <meta property="og:image" content="https://jeonbuk-tour-guide.parkg9832.chatgpt.site/images/og.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -28,7 +28,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗺️</text></svg>">
   
   <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=21">
+  <link rel="stylesheet" href="css/style.css?v=24">
 </head>
 <body>
 
@@ -66,7 +66,7 @@
         </div>
         <div class="stat-pill highlight">
           <i class="fa-solid fa-compass"></i>
-          <span id="totalTourCount">40개 명소</span>
+          <span id="totalTourCount">관광정보 불러오는 중</span>
         </div>
       </div>
     </header>
@@ -75,19 +75,19 @@
     <nav class="category-nav">
       <div class="category-container">
         <button class="cat-btn active" data-category="all" onclick="setCategory('all', this)">
-          <i class="fa-solid fa-grid-2"></i> 전체
+          <i class="fa-solid fa-grid-2"></i> 전체 <span class="cat-count" data-count-category="all">0</span>
         </button>
         <button class="cat-btn" data-category="food" onclick="setCategory('food', this)">
-          🍱 맛집/카페
+          🍱 맛집/카페 <span class="cat-count" data-count-category="food">0</span>
         </button>
         <button class="cat-btn" data-category="culture" onclick="setCategory('culture', this)">
-          🏛️ 역사/문화
+          🏛️ 역사/문화 <span class="cat-count" data-count-category="culture">0</span>
         </button>
         <button class="cat-btn" data-category="nature" onclick="setCategory('nature', this)">
-          🌿 자연/힐링
+          🌿 자연/힐링 <span class="cat-count" data-count-category="nature">0</span>
         </button>
         <button class="cat-btn" data-category="festival" onclick="setCategory('festival', this)">
-          🎉 축제/행사
+          🎉 축제/행사 <span class="cat-count" data-count-category="festival">0</span>
         </button>
         <button class="cat-btn course-btn" data-category="course" onclick="setCategory('course', this)">
           🚗 추천 여행 코스
@@ -229,10 +229,10 @@
               <span class="banner-badge" id="bannerBadge">전북 전체</span>
               <h2 class="banner-title" id="bannerTitle">전라북도 대표 명소</h2>
             </div>
-            <span class="banner-count" id="bannerCount">33개 장소</span>
+            <span class="banner-count" id="bannerCount">장소 불러오는 중</span>
           </div>
           <p class="banner-desc" id="bannerDesc">
-            전라북도 14개 시·군의 실제 명소 사진을 비교하고 여행지를 골라보세요.
+            전북 14개 시·군의 관광지·맛집·카페·축제 정보를 한곳에서 비교해보세요.
           </p>
         </div>
 
@@ -256,6 +256,10 @@
         <div class="tour-list-container" id="tourCardList" aria-live="polite">
           <!-- Dynamically Generated Cards -->
         </div>
+        <button type="button" class="load-more-btn" id="loadMoreBtn" onclick="loadMoreTours()" hidden>
+          <i class="fa-solid fa-plus"></i>
+          <span id="loadMoreLabel">더 많은 장소 보기</span>
+        </button>
 
       </aside>
 
@@ -356,7 +360,7 @@
           <h2 id="modalTitle">관광지 명칭</h2>
           <div class="modal-rating verified">
             <i class="fa-solid fa-circle-check"></i>
-            <span>추천 명소</span>
+            <span id="modalStatusLabel">추천 명소</span>
           </div>
         </div>
 
@@ -479,10 +483,11 @@
   <div class="toast" id="appToast" role="status" aria-live="polite"></div>
 
   <!-- Scripts -->
-  <script src="js/tourData.js?v=23"></script>
-  <script src="js/tourImages.js?v=23"></script>
-  <script src="js/tourDetails.js?v=23"></script>
-  <script src="js/tourApi.js?v=23"></script>
-  <script src="js/app.js?v=23"></script>
+  <script src="js/tourData.js?v=24"></script>
+  <script src="js/tourCatalog.js?v=24"></script>
+  <script src="js/tourImages.js?v=24"></script>
+  <script src="js/tourDetails.js?v=24"></script>
+  <script src="js/tourApi.js?v=24"></script>
+  <script src="js/app.js?v=24"></script>
 </body>
 </html>

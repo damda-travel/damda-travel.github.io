@@ -13,6 +13,9 @@ let showSavedOnly = false;
 let activeTourId = null;
 let lastFocusedElement = null;
 let searchDebounceTimer = null;
+let visibleResultLimit = 24;
+let lastResultSignature = '';
+const RESULTS_PAGE_SIZE = 24;
 
 // DOM Elements
 const searchInput = document.getElementById('searchInput');
@@ -27,6 +30,8 @@ const filterSummary = document.getElementById('filterSummary');
 const savedOnlyBtn = document.getElementById('savedOnlyBtn');
 const savedCount = document.getElementById('savedCount');
 const mobileSavedCount = document.getElementById('mobileSavedCount');
+const loadMoreBtn = document.getElementById('loadMoreBtn');
+const loadMoreLabel = document.getElementById('loadMoreLabel');
 
 const apiStatusBadge = document.getElementById('apiStatusBadge');
 const apiStatusText = document.getElementById('apiStatusText');
@@ -54,6 +59,7 @@ const modalDetailGrid = document.getElementById('modalDetailGrid');
 const modalVisitTip = document.getElementById('modalVisitTip');
 const modalVisitTipText = document.getElementById('modalVisitTipText');
 const modalVisitNotice = document.getElementById('modalVisitNotice');
+const modalStatusLabel = document.getElementById('modalStatusLabel');
 
 const savedDrawer = document.getElementById('savedDrawer');
 const savedList = document.getElementById('savedList');
@@ -81,13 +87,52 @@ document.addEventListener('keydown', event => {
   }
 });
 
+const textEntityDecoder = document.createElement('textarea');
+
+function decodeTextEntities(value = '') {
+  textEntityDecoder.innerHTML = String(value);
+  return textEntityDecoder.value;
+}
+
 function escapeHTML(value = '') {
-  return String(value)
+  return decodeTextEntities(value)
     .replaceAll('&', '&amp;')
     .replaceAll('<', '&lt;')
     .replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;')
     .replaceAll("'", '&#039;');
+}
+
+function getCurrentEventStatus(period = '') {
+  const parts = String(period).split(/\s*(?:~|∼|～|–|—|부터)\s*/);
+  const firstNumbers = parts[0]?.match(/(20\d{2})\D+(\d{1,2})\D+(\d{1,2})/);
+  if (!firstNumbers) return '일정 확인';
+
+  const year = Number(firstNumbers[1]);
+  const start = new Date(year, Number(firstNumbers[2]) - 1, Number(firstNumbers[3]), 12);
+  const lastPart = parts.at(-1) || '';
+  const fullEnd = lastPart.match(/(20\d{2})\D+(\d{1,2})\D+(\d{1,2})/);
+  const shortEnd = lastPart.match(/(?:^|\D)(\d{1,2})\D+(\d{1,2})(?:\D|$)/);
+  const end = fullEnd
+    ? new Date(Number(fullEnd[1]), Number(fullEnd[2]) - 1, Number(fullEnd[3]), 12)
+    : shortEnd
+      ? new Date(year, Number(shortEnd[1]) - 1, Number(shortEnd[2]), 12)
+      : start;
+  if (end < start) end.setFullYear(end.getFullYear() + 1);
+
+  const today = new Date();
+  today.setHours(12, 0, 0, 0);
+  if (today < start) return '개최 예정';
+  if (today > end) return '종료';
+  return '진행 중';
+}
+
+function getDisplaySubcategory(tour) {
+  if (tour.category !== 'food' || tour.subCategory !== '관광지') return tour.subCategory;
+  if (/시장|장터/.test(tour.name)) return '전통시장';
+  if (/카페|커피|다방/.test(tour.name)) return '카페';
+  if (/빵|제과|베이커리/.test(tour.name)) return '베이커리';
+  return '미식 명소';
 }
 
 function getAllTours() {
@@ -96,6 +141,8 @@ function getAllTours() {
     region.tours.forEach(tour => {
       tours.push({
         ...tour,
+        eventStatus: tour.eventPeriod ? getCurrentEventStatus(tour.eventPeriod) : tour.eventStatus,
+        subCategory: getDisplaySubcategory(tour),
         regionId,
         regionName: region.name
       });
@@ -217,6 +264,16 @@ function toggleSavedOnly() {
 }
 
 async function updateUI() {
+  const allTours = getAllTours();
+  const categoryCounts = allTours.reduce((counts, tour) => {
+    counts[tour.category] = (counts[tour.category] || 0) + 1;
+    return counts;
+  }, { all: allTours.length });
+  document.querySelectorAll('[data-count-category]').forEach(element => {
+    const category = element.dataset.countCategory;
+    element.textContent = (categoryCounts[category] || 0).toLocaleString('ko-KR');
+  });
+
   document.querySelectorAll('.illust-pin').forEach(pin => {
     const pinRegion = pin.id.replace('pin-', '');
     pin.classList.toggle('active', pinRegion === currentSelectedRegion);
@@ -244,9 +301,21 @@ async function updateUI() {
   }
 
   const filteredTours = await getFilteredTourList();
-  bannerCount.textContent = `${filteredTours.length}개 장소`;
+  const resultSignature = [
+    currentSelectedRegion || 'all',
+    currentSelectedCategory,
+    currentSearchQuery,
+    currentSortOrder,
+    showSavedOnly
+  ].join('|');
+  if (resultSignature !== lastResultSignature) {
+    visibleResultLimit = RESULTS_PAGE_SIZE;
+    lastResultSignature = resultSignature;
+  }
+
+  bannerCount.textContent = `${filteredTours.length.toLocaleString('ko-KR')}개 장소`;
   const totalCountPill = document.getElementById('totalTourCount');
-  if (totalCountPill) totalCountPill.textContent = `${getAllTours().length}개 명소`;
+  if (totalCountPill) totalCountPill.textContent = `${allTours.length.toLocaleString('ko-KR')}개 여행정보`;
 
   updateToolbarState(filteredTours.length);
   renderTourCards(filteredTours);
@@ -288,6 +357,10 @@ async function getFilteredTourList() {
         tour.regionName,
         tour.address,
         tour.desc,
+        tour.overview,
+        tour.subCategory,
+        tour.eventPeriod,
+        tour.eventStatus,
         ...(tour.tags || [])
       ].join(' ').toLowerCase();
       return searchable.includes(currentSearchQuery);
@@ -342,6 +415,7 @@ function updateToolbarState(resultCount) {
 
 function renderTourCards(tours) {
   if (!tours?.length) {
+    if (loadMoreBtn) loadMoreBtn.hidden = true;
     tourCardList.innerHTML = `
       <div class="empty-state">
         <i class="fa-solid fa-map-location"></i>
@@ -354,7 +428,8 @@ function renderTourCards(tours) {
   }
 
   const saved = new Set(getSavedIds());
-  tourCardList.innerHTML = tours.map(tour => {
+  const visibleTours = tours.slice(0, visibleResultLimit);
+  tourCardList.innerHTML = visibleTours.map(tour => {
     const tags = (tour.tags || []).slice(0, 3).map(tag => `<span class="tag-item">${escapeHTML(tag)}</span>`).join('');
     const savedBadge = saved.has(tour.id)
       ? '<span class="card-saved-badge"><i class="fa-solid fa-bookmark"></i> 저장됨</span>'
@@ -362,6 +437,14 @@ function renderTourCards(tours) {
     const imageMarkup = tour.image
       ? `<img src="${escapeHTML(tour.image)}" alt="${escapeHTML(tour.name)}" loading="lazy" onerror="handleImageError(this)">`
       : '';
+    const eventMeta = tour.eventPeriod
+      ? `<div class="card-event-meta">
+          <span class="event-status ${tour.eventStatus === '진행 중' ? 'active' : ''}">${escapeHTML(tour.eventStatus || '일정 확인')}</span>
+          <span><i class="fa-regular fa-calendar"></i> ${escapeHTML(tour.eventPeriod)}</span>
+        </div>`
+      : tour.subCategory
+        ? `<div class="card-subcategory"><i class="fa-solid fa-circle-info"></i> ${escapeHTML(tour.subCategory)}</div>`
+        : '';
 
     return `
       <button type="button" class="tour-card" onclick="openModal('${escapeHTML(tour.id)}')" aria-label="${escapeHTML(tour.name)} 상세 정보 보기">
@@ -376,12 +459,28 @@ function renderTourCards(tours) {
             <span class="card-region-label">${escapeHTML(tour.regionName || '전북')}</span>
           </div>
           <p class="card-address"><i class="fa-solid fa-location-dot"></i> ${escapeHTML(tour.address)}</p>
+          ${eventMeta}
           <p class="card-desc">${escapeHTML(tour.desc)}</p>
           <div class="card-tags">${tags}</div>
         </div>
       </button>
     `;
   }).join('');
+
+  if (loadMoreBtn) {
+    const remaining = Math.max(0, tours.length - visibleTours.length);
+    loadMoreBtn.hidden = remaining === 0;
+    if (loadMoreLabel) {
+      loadMoreLabel.textContent = remaining
+        ? `더 많은 장소 보기 · ${remaining.toLocaleString('ko-KR')}곳 남음`
+        : '전체 장소를 모두 불러왔습니다';
+    }
+  }
+}
+
+function loadMoreTours() {
+  visibleResultLimit += RESULTS_PAGE_SIZE;
+  updateUI();
 }
 
 function handleImageError(image) {
@@ -431,7 +530,7 @@ function openModal(tourId) {
   modalCategory.textContent = `${foundTour.regionName || '전북'} · ${foundTour.categoryName}`;
   modalTitle.textContent = foundTour.name;
   modalAddress.textContent = `📍 ${foundTour.address}`;
-  const overviewText = foundTour.overview || foundTour.desc;
+  const overviewText = decodeTextEntities(foundTour.overview || foundTour.desc);
   modalDesc.textContent = overviewText;
   modalDesc.classList.remove('expanded');
   modalDescToggle.hidden = overviewText.length <= 220;
@@ -447,8 +546,13 @@ function openModal(tourId) {
   modalTags.innerHTML = (foundTour.tags || []).map(tag => `<span class="tag-item">${escapeHTML(tag)}</span>`).join('');
   modalDuration.textContent = foundTour.recommendedDuration || '1~2시간';
   modalRecommendedFor.textContent = foundTour.recommendedFor || foundTour.categoryName || '전북 여행';
+  if (modalStatusLabel) {
+    modalStatusLabel.textContent = foundTour.eventStatus || foundTour.subCategory || '추천 명소';
+  }
 
   const detailRows = [
+    { icon: 'fa-regular fa-calendar', label: '행사 기간', value: foundTour.eventPeriod },
+    { icon: 'fa-solid fa-signal', label: '행사 상태', value: foundTour.eventStatus },
     { icon: 'fa-regular fa-clock', label: '운영시간', value: foundTour.hours },
     { icon: 'fa-regular fa-calendar-xmark', label: '휴무일', value: foundTour.closed },
     { icon: 'fa-solid fa-ticket', label: '이용요금', value: foundTour.fee },
@@ -495,7 +599,8 @@ function openModal(tourId) {
   modalVisitTip.hidden = !modalVisitTipText.textContent;
   const hasVisitInfo = Boolean(
     foundTour.hours || foundTour.closed || foundTour.fee ||
-    foundTour.parking || foundTour.phone || foundTour.homepage
+    foundTour.parking || foundTour.phone || foundTour.homepage ||
+    foundTour.eventPeriod
   );
   modalVisitNotice.innerHTML = hasVisitInfo
     ? '<i class="fa-solid fa-circle-exclamation"></i> 운영시간·휴무일·요금은 변경될 수 있으니 방문 전 공식 페이지에서 다시 확인해주세요.'
@@ -515,10 +620,9 @@ function openModal(tourId) {
     ? 'https://korean.visitkorea.or.kr/main/cr_main.do'
     : 'https://tour.jb.go.kr/index.do');
   const sourceName = foundTour.imageSource || (foundTour.isLiveApi ? '한국관광공사 TourAPI' : '공식 관광정보');
-  const usageNote = foundTour.imageUsageNote ? ` · ${foundTour.imageUsageNote}` : '';
   const photoSource = document.getElementById('modalPhotoSource');
   photoSource.href = officialUrl;
-  photoSource.textContent = `사진 · ${sourceName}${usageNote}`;
+  photoSource.textContent = `사진 · ${sourceName}`;
   photoSource.hidden = !foundTour.image;
 
   const officialSource = document.getElementById('modalOfficialSource');
