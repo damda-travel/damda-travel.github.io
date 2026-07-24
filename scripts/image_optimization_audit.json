@@ -1,0 +1,50 @@
+{
+  "generatedAt": "2026-07-24T04:21:40.549Z",
+  "settings": {
+    "tourImages": "WebP, max 720x480, quality 68",
+    "map": "WebP, max 1600x1100, quality 74",
+    "socialPreview": "progressive JPEG, 1200x630, quality 80"
+  },
+  "counts": {
+    "catalog": 797,
+    "coreSpots": 33,
+    "shared": 3,
+    "failures": 0
+  },
+  "bytes": {
+    "websiteImagesBefore": 33683582,
+    "websiteImagesAfter": 45967743,
+    "catalogOriginal": 618545558,
+    "catalogOptimized": 43336798,
+    "coreSpotsOriginal": 28435616,
+    "coreSpotsOptimized": 2348906
+  },
+  "savingsPercent": {
+    "catalog": 93,
+    "coreSpots": 91.7
+  },
+  "shared": [
+    {
+      "name": "map",
+      "originalPath": "images/jeonbuk_map_clean-v2.png",
+      "optimizedPath": "images/jeonbuk_map_clean-v2.webp",
+      "originalBytes": 2113397,
+      "optimizedBytes": 38900
+    },
+    {
+      "name": "social-preview",
+      "originalPath": "images/og.png",
+      "optimizedPath": "images/og.jpg",
+      "originalBytes": 2313217,
+      "optimizedBytes": 127959
+    },
+    {
+      "name": "legacy-map",
+      "originalPath": "images/jeonbuk_map_illust.jpg",
+      "optimizedPath": "images/jeonbuk_map_illust.webp",
+      "originalBytes": 821352,
+      "optimizedBytes": 115180
+    }
+  ],
+  "failures": []
+}

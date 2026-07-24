@@ -18,16 +18,19 @@
 
 ## 사진과 지도
 
-- `images/spots/`: 주요 전북 관광지의 공식 관광 페이지 기반 로컬 사진
+- `images/spots/`: 핵심 추천 명소의 경량 WebP 사진
+- `images/catalog/`: 전체 관광 데이터용 최대 720px WebP 사진
 - `js/tourCatalog.js`: 투어전북 공식 목록에서 동기화한 전체 관광 데이터
 - `scripts/official_catalog_audit.json`: 수집 건수·출처·사진 연결 검수 기록
+- `scripts/optimize_images.js`: 관광 사진·지도·공유 이미지를 경량 형식으로 일괄 변환
+- `scripts/image_optimization_audit.json`: 이미지 변환 건수와 용량 절감 결과
 - `js/tourImages.js`: 관광지별 사진·출처·이용 조건 매핑
 - `js/tourDetails.js`: 관광지별 공식 소개·연락처·홈페이지와 방문 정보 매핑
 - `scripts/official_photo_audit.json`: 사진 매칭 감사 기록
 - `scripts/sync_official_photos.js`: 공식 관광 페이지에서 사진을 다시 동기화하는 스크립트
 - `scripts/official_detail_audit.json`: 공식 상세 정보 수집 감사 기록
 - `scripts/sync_official_details.js`: 공식 관광 페이지에서 상세 정보를 다시 동기화하는 스크립트
-- `images/jeonbuk_map_clean-v2.png`: 인터랙티브 핀을 위한 간결한 전북 지도 배경
+- `images/jeonbuk_map_clean-v2.webp`: 인터랙티브 핀을 위한 경량 전북 지도 배경
 
 사진 출처는 각 관광지 상세창에서 확인할 수 있습니다. 외부 공개 또는 상업 운영 전에는 각 출처의 최신 이용 조건을 다시 확인해야 합니다.
 
@@ -39,7 +42,8 @@ jeonbuk-tour-map/
 ├─ css/
 │  └─ style.css
 ├─ images/
-│  ├─ jeonbuk_map_clean-v2.png
+│  ├─ jeonbuk_map_clean-v2.webp
+│  ├─ catalog/
 │  └─ spots/
 ├─ js/
 │  ├─ app.js

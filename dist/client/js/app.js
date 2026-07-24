@@ -435,7 +435,7 @@ function renderTourCards(tours) {
       ? '<span class="card-saved-badge"><i class="fa-solid fa-bookmark"></i> 저장됨</span>'
       : '<span class="card-view-badge"><i class="fa-solid fa-arrow-right"></i></span>';
     const imageMarkup = tour.image
-      ? `<img src="${escapeHTML(tour.image)}" alt="${escapeHTML(tour.name)}" loading="lazy" onerror="handleImageError(this)">`
+      ? `<img src="${escapeHTML(tour.image)}" alt="${escapeHTML(tour.name)}" loading="lazy" decoding="async" onerror="handleImageError(this)">`
       : '';
     const eventMeta = tour.eventPeriod
       ? `<div class="card-event-meta">

@@ -1,5 +1,5 @@
-// 이 파일은 scripts/sync_official_catalog.js에서 생성됩니다.
-// 기준일: 2026-07-24T03:59:06.341Z
+// 투어전북 공식 데이터를 경량 WebP 이미지와 연결한 관광 카탈로그입니다.
+// 이미지 최적화 기준일: 2026-07-24T04:21:40.498Z
 
 const OFFICIAL_TOUR_CATALOG = [
   {
@@ -12,7 +12,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8480368,
     "lng": 127.12221239999997,
     "address": "전북특별자치도 전주시 덕진구 권삼득로 390",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112135134839.jpg",
+    "image": "images/catalog/official-a-24070.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -45,7 +45,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4027383,
     "lng": 127.37954409999998,
     "address": "전북특별자치도 남원시 요천로 1447",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260522/20260522153607157.jpg",
+    "image": "images/catalog/official-a-20970.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -78,7 +78,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.804525,
     "lng": 127.142443,
     "address": "전북특별자치도 전주시 완산구 동완산동 산124-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240112/20240112112124117.png",
+    "image": "images/catalog/official-a-24396.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -111,7 +111,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.81686812376087,
     "lng": 126.40748585711663,
     "address": "전북특별자치도 군산시 옥도면 선유도리",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250904/20250904162314916.jpg",
+    "image": "images/catalog/official-a-23675.webp",
     "tags": [
       "#군산",
       "#해수욕장",
@@ -144,7 +144,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0108304,
     "lng": 127.02821970000002,
     "address": "전북특별자치도 익산시 금마면 미륵사지로 362",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251127/20251127165022957.jpg",
+    "image": "images/catalog/official-a-9726.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -177,7 +177,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9008873582052,
     "lng": 127.775251648158,
     "address": "전북특별자치도 무주군 설천면 구천동1로 159",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251127/20251127161916152.jpg",
+    "image": "images/catalog/official-a-23213.webp",
     "tags": [
       "#무주",
       "#관광지",
@@ -210,7 +210,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.01052370000001,
     "lng": 127.77798840000003,
     "address": "전북특별자치도 무주군 설천면 무설로 1482",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240115/20240115174747600.jpg",
+    "image": "images/catalog/official-a-13803.webp",
     "tags": [
       "#무주",
       "#관광지",
@@ -243,7 +243,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6801401,
     "lng": 126.5306786,
     "address": "전북특별자치도 부안군 변산면 변산로 2100",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240118/20240118113832110.jpg",
+    "image": "images/catalog/official-a-13922.webp",
     "tags": [
       "#부안",
       "#자연관광지",
@@ -276,7 +276,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4970818,
     "lng": 126.5786514,
     "address": "전북특별자치도 고창군 아산면 선운사로 242-86",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251113/20251113102201454.jpg",
+    "image": "images/catalog/official-a-13800.webp",
     "tags": [
       "#고창",
       "#도립공원",
@@ -309,7 +309,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8561158,
     "lng": 127.1446737,
     "address": "전북특별자치도 전주시 덕진구 소리로 68 전주동물원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250422/20250422110729211.jpg",
+    "image": "images/catalog/official-a-24056.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -342,7 +342,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.43065337511088,
     "lng": 126.70465804186415,
     "address": "전북특별자치도 고창군 고창읍 읍내리 125-9",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250801/20250801175655611.jpg",
+    "image": "images/catalog/official-a-13286.webp",
     "tags": [
       "#고창",
       "#관광지",
@@ -375,7 +375,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5831428,
     "lng": 126.50830870000004,
     "address": "전북특별자치도 부안군 변산면 모항길 23-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250804/20250804134355409.jpg",
+    "image": "images/catalog/official-a-13487.webp",
     "tags": [
       "#부안",
       "#해수욕장",
@@ -408,7 +408,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8155189138776,
     "lng": 127.150120200082,
     "address": "전북특별자치도 전주시 완산구 태조로 44",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260522/20260522150939075.jpg",
+    "image": "images/catalog/official-a-24044.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -441,7 +441,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9759274,
     "lng": 127.4090986,
     "address": "전북특별자치도 진안군 주천면 동상주천로 1926",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20170803/20170803181536266.jpg",
+    "image": "images/catalog/official-a-21196.webp",
     "tags": [
       "#진안",
       "#관광지",
@@ -474,7 +474,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.901814,
     "lng": 127.07168,
     "address": "전북특별자치도 완주군 삼례읍 비비정길 96-9",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112185129566.jpg",
+    "image": "images/catalog/official-a-10057.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -507,7 +507,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6251337,
     "lng": 126.46821380000006,
     "address": "전북특별자치도 부안군 변산면 변산해변로 1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240117/20240117162217239.jpg",
+    "image": "images/catalog/official-a-13479.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -540,7 +540,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8704513,
     "lng": 127.05371779999996,
     "address": "전북특별자치도 전주시 덕진구 번영로 462-45",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250418/20250418112839884.jpg",
+    "image": "images/catalog/official-a-24296.webp",
     "tags": [
       "#전주",
       "#수목원",
@@ -573,7 +573,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8295784,
     "lng": 127.1761143,
     "address": "전북특별자치도 전주시 덕진구 동부대로 420 아중역",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20160919/20160919172952919.jpg",
+    "image": "images/catalog/official-a-24260.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -606,7 +606,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.72261,
     "lng": 127.0671,
     "address": "전북특별자치도 완주군 구이면 모악산길 91",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251127/20251127171848882.jpg",
+    "image": "images/catalog/official-a-10033.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -639,7 +639,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8177878,
     "lng": 126.39416729999994,
     "address": "전북특별자치도 군산시 옥도면 대장도리",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241218/20241218173109466.jpg",
+    "image": "images/catalog/official-a-24293.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -672,7 +672,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.81331259662224,
     "lng": 127.1492428723526,
     "address": "전북특별자치도 전주시 완산구 태조로 51 전동성당",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112165344689.jpg",
+    "image": "images/catalog/official-a-157.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -705,7 +705,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.695366,
     "lng": 127.099806,
     "address": "전북특별자치도 완주군 구이면 장파길 72(안덕리 95)",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251120/20251120114756601.jpg",
+    "image": "images/catalog/official-a-10054.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -738,7 +738,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9552755,
     "lng": 126.68918559999997,
     "address": "전북특별자치도 군산시 은파순환길 9",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112200211980.jpg",
+    "image": "images/catalog/official-a-13810.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -771,7 +771,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3930285,
     "lng": 127.09198779999997,
     "address": "전북특별자치도 순창군 팔덕면 덕천리 580-7",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240122/20240122164719777.jpg",
+    "image": "images/catalog/official-a-11722.webp",
     "tags": [
       "#순창",
       "#관광지",
@@ -804,7 +804,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.940462,
     "lng": 127.03401,
     "address": "전북특별자치도 익산시 춘포면 천서길 149",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251107/20251107103506124.jpg",
+    "image": "images/catalog/official-a-24388.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -837,7 +837,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9877716,
     "lng": 126.7083812,
     "address": "전북특별자치도 군산시 구영2길 12-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112210141019.jpg",
+    "image": "images/catalog/official-a-9084.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -870,7 +870,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.38,
     "lng": 127.08,
     "address": "전북특별자치도 임실군 운암면 국사봉로 512",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251219/20251219102704873.jpg",
+    "image": "images/catalog/official-a-21031.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -903,7 +903,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7546240504971,
     "lng": 126.853104638705,
     "address": "전북특별자치도 김제시 부량면 벽골제로 442",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251021/20251021145709979.jpg",
+    "image": "images/catalog/official-a-14246.webp",
     "tags": [
       "#김제",
       "#관광지",
@@ -936,7 +936,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.1094419,
     "lng": 126.92695249999997,
     "address": "전북특별자치도 익산시 성당면 성당로 762",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251110/20251110103012851.jpg",
+    "image": "images/catalog/official-a-9816.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -969,7 +969,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4808692,
     "lng": 127.3200286,
     "address": "전북특별자치도 남원시 사매면 노봉안길 52",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251113/20251113074655037.jpg",
+    "image": "images/catalog/official-a-20975.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -1002,7 +1002,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.008259,
     "lng": 127.017982,
     "address": "전북특별자치도 익산시 금마면 미륵사지로 362",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251110/20251110103151842.jpg",
+    "image": "images/catalog/official-a-24424.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -1035,7 +1035,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4471425,
     "lng": 126.45169599999997,
     "address": "전북특별자치도 고창군 상하면 상하농원길 11-23",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241127/20241127144959837.jpg",
+    "image": "images/catalog/official-a-24069.webp",
     "tags": [
       "#고창",
       "#관광지",
@@ -1068,7 +1068,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4350692453445,
     "lng": 127.548597583275,
     "address": "전북특별자치도 남원시 운봉읍 바래봉길 214",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112200830133.jpg",
+    "image": "images/catalog/official-a-20993.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -1101,7 +1101,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6075226,
     "lng": 126.98423049999997,
     "address": "전북특별자치도 정읍시 칠보면 칠보산로 1555",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251203/20251203101148676.jpg",
+    "image": "images/catalog/official-a-24334.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -1134,7 +1134,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.445517,
     "lng": 126.4357139,
     "address": "전북특별자치도 고창군 상하면 자룡리",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241127/20241127152119929.jpg",
+    "image": "images/catalog/official-a-13917.webp",
     "tags": [
       "#고창",
       "#자연관광지",
@@ -1167,7 +1167,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9774,
     "lng": 127.2954,
     "address": "전북특별자치도 완주군 동상면 신월리",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251113/20251113112258639.jpg",
+    "image": "images/catalog/official-a-10031.webp",
     "tags": [
       "#완주",
       "#자연관광지",
@@ -1200,7 +1200,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7225657292625,
     "lng": 127.054624175786,
     "address": "전북특별자치도 김제시 금산면 모악15길 1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241216/20241216153009996.jpg",
+    "image": "images/catalog/official-a-14260.webp",
     "tags": [
       "#김제",
       "#관광지",
@@ -1233,7 +1233,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7584764,
     "lng": 127.41126899999995,
     "address": "전북특별자치도 진안군 마령면 마이산남로 367",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241011/20241011102004719.jpg",
+    "image": "images/catalog/official-a-13749.webp",
     "tags": [
       "#진안",
       "#관광지",
@@ -1266,7 +1266,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0111137,
     "lng": 127.75870199999997,
     "address": "전북특별자치도 무주군 설천면 무설로 1324",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240116/20240116094656756.jpg",
+    "image": "images/catalog/official-a-13748.webp",
     "tags": [
       "#무주",
       "#관광지",
@@ -1299,7 +1299,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6257788073878,
     "lng": 126.471245973311,
     "address": "전북특별자치도 부안군 변산면 방파제길 11 변산반도국립공원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241016/20241016181128861.jpg",
+    "image": "images/catalog/official-a-13460.webp",
     "tags": [
       "#부안",
       "#국립공원",
@@ -1332,7 +1332,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3763158,
     "lng": 126.54281079999998,
     "address": "전북특별자치도 고창군 공음면 학원농장길 158-6",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250903/20250903110644703.jpg",
+    "image": "images/catalog/official-a-13742.webp",
     "tags": [
       "#고창",
       "#관광지",
@@ -1365,7 +1365,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6175898,
     "lng": 126.58736479999993,
     "address": "전북특별자치도 부안군 진서면 내소사로 191",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241106/20241106161500244.jpg",
+    "image": "images/catalog/official-a-13456.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -1398,7 +1398,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.818101,
     "lng": 127.152047,
     "address": "전북특별자치도 전주시 완산구 은행로 13 (풍남동2가)",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241122/20241122114229429.jpg",
+    "image": "images/catalog/official-a-24397.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -1431,7 +1431,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6417738,
     "lng": 126.5798575,
     "address": "전북특별자치도 부안군 변산면 실상길 32",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250724/20250724163920518.jpg",
+    "image": "images/catalog/official-a-13493.webp",
     "tags": [
       "#부안",
       "#폭포",
@@ -1464,7 +1464,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.06,
     "lng": 126.909,
     "address": "전북특별자치도 익산시 함라면 수동길 8",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251110/20251110102625613.jpg",
+    "image": "images/catalog/official-a-9754.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -1497,7 +1497,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.80096,
     "lng": 127.090842,
     "address": "전북특별자치도 전주시 완산구 쑥고개로 249 (효자동2가)",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250121/20250121132125196.jpg",
+    "image": "images/catalog/official-a-20549.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -1530,7 +1530,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9855929,
     "lng": 126.70926759999998,
     "address": "전북특별자치도 군산시 구영7길 37",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250724/20250724110546711.jpg",
+    "image": "images/catalog/official-a-24266.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -1563,7 +1563,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5945183,
     "lng": 126.5634622,
     "address": "전북특별자치도 부안군 진서면 운호길 10 휘목아트타운",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20171130/20171130135359913.jpg",
+    "image": "images/catalog/official-a-24292.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -1596,7 +1596,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9596666,
     "lng": 127.2355162,
     "address": "전북특별자치도 완주군 고산면 고산휴양림로 246",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251120/20251120093739064.jpg",
+    "image": "images/catalog/official-a-13790.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -1629,7 +1629,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.724073,
     "lng": 127.653699,
     "address": "전북특별자치도 장수군 장계면 육십령로 764-5",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205151742994.jpg",
+    "image": "images/catalog/official-a-11466.webp",
     "tags": [
       "#장수",
       "#체험관광지",
@@ -1662,7 +1662,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 장수군 계남면 장안리 장수읍 덕산리 일대",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251204/20251204174902508.jpg",
+    "image": "images/catalog/official-a-11430.webp",
     "tags": [
       "#장수",
       "#자연관광지",
@@ -1695,7 +1695,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6329941,
     "lng": 127.15176369999995,
     "address": "전북특별자치도 임실군 운암면 입석리 413-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251113/20251113101946672.jpg",
+    "image": "images/catalog/official-a-21030.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -1728,7 +1728,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 정읍시 영파동",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205095152808.jpg",
+    "image": "images/catalog/official-a-13966.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -1761,7 +1761,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.570208470608264,
     "lng": 126.85680022951541,
     "address": "전북특별자치도 정읍시 중앙1길 173",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251203/20251203104659256.jpg",
+    "image": "images/catalog/official-a-24463.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -1794,7 +1794,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.823094,
     "lng": 127.17496,
     "address": "전북특별자치도 전주시 덕진구 우아동1가 746-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241122/20241122114813218.jpg",
+    "image": "images/catalog/official-a-24411.webp",
     "tags": [
       "#전주",
       "#자연관광지",
@@ -1827,7 +1827,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.39627373638129,
     "lng": 127.3931821883597,
     "address": "전북특별자치도 남원시 함파우길 65-14",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240514/20240514151204898.jpg",
+    "image": "images/catalog/official-a-24448.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -1860,7 +1860,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6290107,
     "lng": 126.4696535,
     "address": "전북특별자치도 부안군 변산면 변산해변로 1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240117/20240117162537978.jpg",
+    "image": "images/catalog/official-a-13482.webp",
     "tags": [
       "#부안",
       "#해수욕장",
@@ -1893,7 +1893,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.1170087,
     "lng": 127.3328113,
     "address": "전북특별자치도 완주군 운주면 대둔산공원길 23",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251127/20251127172348521.jpg",
+    "image": "images/catalog/official-a-10029.webp",
     "tags": [
       "#완주",
       "#자연관광지",
@@ -1926,7 +1926,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5806,
     "lng": 126.6677125,
     "address": "전북특별자치도 부안군 부안읍 당산로 91",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240919/20240919101132768.jpg",
+    "image": "images/catalog/official-a-13502.webp",
     "tags": [
       "#부안",
       "#자연관광지",
@@ -1959,7 +1959,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5859905,
     "lng": 126.60444710000002,
     "address": "전북특별자치도 부안군 진서면 곰소항길 60",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240117/20240117171937708.jpg",
+    "image": "images/catalog/official-a-13509.webp",
     "tags": [
       "#부안",
       "#항구/포구",
@@ -1992,7 +1992,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7398372,
     "lng": 127.13235499999996,
     "address": "전북특별자치도 완주군 구이면 덕천전원길 232-58",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251120/20251120104139524.jpg",
+    "image": "images/catalog/official-a-10149.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -2025,7 +2025,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.990202,
     "lng": 126.715285,
     "address": "전북특별자치도 군산시 내항2길 32 진포해양테마공원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240115/20240115174024752.jpg",
+    "image": "images/catalog/official-a-9068.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -2058,7 +2058,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6410862457561,
     "lng": 127.518203067481,
     "address": "전북특별자치도 장수군 장수읍 논개사당길 41",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112181206025.jpg",
+    "image": "images/catalog/official-a-24387.webp",
     "tags": [
       "#장수",
       "#관광지",
@@ -2091,7 +2091,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0193906,
     "lng": 126.76509639999995,
     "address": "전북특별자치도 군산시 성산면 철새로 120",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205135810063.jpg",
+    "image": "images/catalog/official-a-13701.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -2124,7 +2124,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8107182,
     "lng": 127.1604918,
     "address": "전북특별자치도 전주시 완산구 서학로95",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/migration/001001/7786036f-2c6e-41d3-9063-29e5bf7d94c5.jpg.png",
+    "image": "images/catalog/official-a-20556.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -2157,7 +2157,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.502534,
     "lng": 126.626478,
     "address": "전북특별자치도 고창군 부안면 복분자로 307",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240910/20240910100246039.jpg",
+    "image": "images/catalog/official-a-24441.webp",
     "tags": [
       "#고창",
       "#관광지",
@@ -2190,7 +2190,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.48647194103816,
     "lng": 126.91012358166726,
     "address": "전북특별자치도 정읍시 내장동 598-7",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112212756587.jpg",
+    "image": "images/catalog/official-a-13908.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -2223,7 +2223,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6313301,
     "lng": 126.8272583,
     "address": "전북특별자치도 정읍시 덕천면 동학로 715",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112213501360.jpg",
+    "image": "images/catalog/official-a-13953.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -2256,7 +2256,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9751599,
     "lng": 127.42573849999997,
     "address": "전북특별자치도 진안군 주천면 정주천로 521-143",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241218/20241218182526115.jpg",
+    "image": "images/catalog/official-a-13792.webp",
     "tags": [
       "#진안",
       "#자연관광지",
@@ -2289,7 +2289,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7352006,
     "lng": 126.7243563,
     "address": "전북특별자치도 부안군 행안면 옥여길 32-29",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250721/20250721103832503.jpg",
+    "image": "images/catalog/official-a-25489.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -2322,7 +2322,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.069,
     "lng": 126.931,
     "address": "전북특별자치도 익산시 성당면 함낭로 207",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251110/20251110103405838.jpg",
+    "image": "images/catalog/official-a-9758.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -2355,7 +2355,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6502973,
     "lng": 127.46497390000002,
     "address": "전북특별자치도 진안군 백운면 데미샘1길 172",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220729/20220729152634707.jpg",
+    "image": "images/catalog/official-a-21206.webp",
     "tags": [
       "#진안",
       "#관광지",
@@ -2388,7 +2388,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4155439346677,
     "lng": 127.249275860573,
     "address": "전북특별자치도 순창군 적성면 괴정리 산30",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220411/20220411160926917.jpg",
+    "image": "images/catalog/official-a-11765.webp",
     "tags": [
       "#순창",
       "#관광지",
@@ -2421,7 +2421,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.56,
     "lng": 127.31,
     "address": "전북특별자치도 진안군 안천면 안용로 747",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/migration/001008/p1322185338250-1.JPG",
+    "image": "images/catalog/official-a-21191.webp",
     "tags": [
       "#진안",
       "#관광지",
@@ -2454,7 +2454,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6346393,
     "lng": 126.46088,
     "address": "전북특별자치도 부안군 변산면 죽막길 20-4",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240118/20240118105812140.jpg",
+    "image": "images/catalog/official-a-13540.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -2487,7 +2487,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.874145,
     "lng": 127.41900469999996,
     "address": "전북특별자치도 진안군 정천면 봉학로 171-22",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240202/20240202181133148.jpg",
+    "image": "images/catalog/official-a-24333.webp",
     "tags": [
       "#진안",
       "#관광지",
@@ -2520,7 +2520,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.900752,
     "lng": 127.235072,
     "address": "전북특별자치도 완주군 소양면 송광수만로 255-16",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250718/20250718174025656.jpg",
+    "image": "images/catalog/official-a-10112.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -2553,7 +2553,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4060138,
     "lng": 127.3906773,
     "address": "전북 남원시 양림길 43",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241125/20241125095346862.jpg",
+    "image": "images/catalog/official-a-20971.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -2586,7 +2586,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6436679,
     "lng": 127.52268100000003,
     "address": "전북특별자치도 장수군 장수읍 논개사당길 41",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112180231297.jpg",
+    "image": "images/catalog/official-a-13686.webp",
     "tags": [
       "#장수",
       "#역사관광지",
@@ -2619,7 +2619,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9060596,
     "lng": 127.06616710000003,
     "address": "전북특별자치도 완주군 삼례읍 삼례역로 81-13",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251120/20251120112907468.jpg",
+    "image": "images/catalog/official-a-10151.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -2652,7 +2652,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.773447,
     "lng": 127.4158933,
     "address": "전북특별자치도 진안군 진안읍 마이산로 160",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20191213/20191213172351168.jpg",
+    "image": "images/catalog/official-a-24420.webp",
     "tags": [
       "#진안",
       "#관광지",
@@ -2685,7 +2685,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.861025,
     "lng": 127.101073,
     "address": "전북특별자치도 전주시 덕진구 구렛들1길 46",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240112/20240112112601150.jpg",
+    "image": "images/catalog/official-a-24389.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -2718,7 +2718,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.938155,
     "lng": 126.532946,
     "address": "전북특별자치도 군산시 비응도동 95",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205141655512.jpg",
+    "image": "images/catalog/official-a-24412.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -2751,7 +2751,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9950446,
     "lng": 127.7978662,
     "address": "전북특별자치도 무주군 설천면 소천리 산85",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112180634847.jpg",
+    "image": "images/catalog/official-a-13797.webp",
     "tags": [
       "#무주",
       "#관광지",
@@ -2784,7 +2784,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 고창군 해리면 월봉성산길 88",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241129/20241129175531726.jpg",
+    "image": "images/catalog/official-a-12618.webp",
     "tags": [
       "#고창",
       "#체험관광지",
@@ -2817,7 +2817,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4417204,
     "lng": 126.65144729999997,
     "address": "전북특별자치도 고창군 고창읍 고인돌공원길 74",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250723/20250723152308479.jpg",
+    "image": "images/catalog/official-a-13330.webp",
     "tags": [
       "#고창",
       "#관광지",
@@ -2850,7 +2850,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6782997,
     "lng": 127.6204639,
     "address": "전북특별자치도 장수군 장계면 논개생가길 21-5",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240119/20240119131522734.jpg",
+    "image": "images/catalog/official-a-11475.webp",
     "tags": [
       "#장수",
       "#관광지",
@@ -2883,7 +2883,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9849383,
     "lng": 126.74199180000005,
     "address": "전북특별자치도 군산시 영명길 29",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112193330972.jpg",
+    "image": "images/catalog/official-a-9076.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -2916,7 +2916,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9881118,
     "lng": 126.69957999999997,
     "address": "전북특별자치도 군산시 월명공원1길 49",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250422/20250422134336173.jpg",
+    "image": "images/catalog/official-a-23680.webp",
     "tags": [
       "#군산",
       "#자연관광지",
@@ -2949,7 +2949,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4167148,
     "lng": 127.63513050000006,
     "address": "(590-853) 전북특별자치도 남원시 산내면 입석길 94-129",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240926/20240926154520302.jpg",
+    "image": "images/catalog/official-a-23706.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -2982,7 +2982,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9006559,
     "lng": 127.77512509999997,
     "address": "전북특별자치도 무주군 설천면 구천동1로 159",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250306/20250306135906250.jpg",
+    "image": "images/catalog/official-a-20981.webp",
     "tags": [
       "#무주",
       "#관광지",
@@ -3015,7 +3015,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3715532,
     "lng": 127.57866490000004,
     "address": "전북특별자치도 남원시 주천면 정령치로 255",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241024/20241024161725661.jpg",
+    "image": "images/catalog/official-a-23730.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -3048,7 +3048,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8144023799218,
     "lng": 127.154570677765,
     "address": "전북특별자치도 전주시 완산구 기린대로 55",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241122/20241122130635453.jpg",
+    "image": "images/catalog/official-a-20581.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -3081,7 +3081,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7405325654487,
     "lng": 126.613634930781,
     "address": "전북특별자치도 부안군 하서면 불등길 58-85 새만금환경생태단지",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20221019/20221019175918255.jpg",
+    "image": "images/catalog/official-a-24533.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -3114,7 +3114,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.065,
     "lng": 126.875,
     "address": "전북특별자치도 익산시 웅포면 강변로 25",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251110/20251110103612473.jpg",
+    "image": "images/catalog/official-a-9799.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -3147,7 +3147,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8127356,
     "lng": 127.1477893,
     "address": "전북특별자치도 전주시 완산구 풍남문1길 19-3",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241122/20241122155955530.jpg",
+    "image": "images/catalog/official-a-102.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -3180,7 +3180,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.991451,
     "lng": 126.711049,
     "address": "전북특별자치도 군산시 해망로 244-7 (장미동)",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205143006990.jpg",
+    "image": "images/catalog/official-a-9081.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -3213,7 +3213,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.98622,
     "lng": 126.706153,
     "address": "전북특별자치도 군산시 구영1길 17",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240115/20240115123044222.jpg",
+    "image": "images/catalog/official-a-9067.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -3246,7 +3246,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4080949,
     "lng": 127.0665702,
     "address": "전북 순창군 팔덕면 청계리 산269",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240119/20240119093614484.jpg",
+    "image": "images/catalog/official-a-11711.webp",
     "tags": [
       "#순창",
       "#폭포",
@@ -3279,7 +3279,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6746171349116,
     "lng": 126.526418702148,
     "address": "전북특별자치도 부안군 변산면 송포길 69",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260319/20260319172420550.jpg",
+    "image": "images/catalog/official-a-25161.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -3312,7 +3312,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.813494,
     "lng": 127.1475931,
     "address": "전북특별자치도 전주시 완산구 풍남문 3길 1 (전동)",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240112/20240112112707596.jpg",
+    "image": "images/catalog/official-a-20597.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -3345,7 +3345,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7317814,
     "lng": 126.7331643,
     "address": "전북특별자치도 부안군 부안읍 당산로 91",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250804/20250804135147200.jpg",
+    "image": "images/catalog/official-a-13550.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -3378,7 +3378,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.916065442466774,
     "lng": 127.4876306526828,
     "address": "전북특별자치도 진안군 정천면 진용로 1911",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250306/20250306155611680.jpg",
+    "image": "images/catalog/official-a-21192.webp",
     "tags": [
       "#진안",
       "#관광지",
@@ -3411,7 +3411,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.755061,
     "lng": 127.3943395,
     "address": "전북특별자치도 진안군 마령면 마이산남로 182",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20160408/20160408104649972.JPG",
+    "image": "images/catalog/official-a-24050.webp",
     "tags": [
       "#진안",
       "#관광지",
@@ -3444,7 +3444,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.790127037834,
     "lng": 126.627218407546,
     "address": "전북특별자치도 부안군 계화면 장금길 171",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240118/20240118114844369.jpg",
+    "image": "images/catalog/official-a-24442.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -3477,7 +3477,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6209778662103,
     "lng": 126.47007353161,
     "address": "전북특별자치도 부안군 변산면 격포항길 64-18",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240118/20240118123414124.jpg",
+    "image": "images/catalog/official-a-24469.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -3510,7 +3510,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4316281,
     "lng": 126.74463990000004,
     "address": "전북특별자치도 고창군 고창읍 석정2로 173",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20230823/20230823102405713.jpg",
+    "image": "images/catalog/official-a-24291.webp",
     "tags": [
       "#고창",
       "#관광지",
@@ -3543,7 +3543,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.853030127291,
     "lng": 126.851228793953,
     "address": "전북특별자치도 김제시 만경읍 대동1길 49-5",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240124/20240124132129989.jpg",
+    "image": "images/catalog/official-a-24435.webp",
     "tags": [
       "#김제",
       "#관광지",
@@ -3576,7 +3576,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8122742519235,
     "lng": 126.901871391206,
     "address": "전북특별자치도 김제시 도작로 220-23",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251021/20251021150411039.jpg",
+    "image": "images/catalog/official-a-24429.webp",
     "tags": [
       "#김제",
       "#체육공원",
@@ -3609,7 +3609,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.641944,
     "lng": 127.528393,
     "address": "전북특별자치도 장수군 장수읍 논개사당길 65",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251121/20251121112449897.jpg",
+    "image": "images/catalog/official-a-24436.webp",
     "tags": [
       "#장수",
       "#관광지",
@@ -3642,7 +3642,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.59216400795019,
     "lng": 127.5013908914302,
     "address": "전북특별자치도 장수군 장수읍 물뿌랭이길 10-18",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240119/20240119130153763.jpg",
+    "image": "images/catalog/official-a-24410.webp",
     "tags": [
       "#장수",
       "#자연관광지",
@@ -3675,7 +3675,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 진안군 주천면 대불리 2038",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251105/20251105154226012.jpg",
+    "image": "images/catalog/official-a-25424.webp",
     "tags": [
       "#진안",
       "#자연관광지",
@@ -3708,7 +3708,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북 부안군 위도면 치도리 산192-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20230721/20230721104147804.jpg",
+    "image": "images/catalog/official-a-25194.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -3741,7 +3741,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.490197,
     "lng": 127.329578,
     "address": "전북특별자치도 남원시 사매면 서도길 32",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205162055747.jpg",
+    "image": "images/catalog/official-a-24444.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -3774,7 +3774,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.95076658452798,
     "lng": 127.5232414737062,
     "address": "전북특별자치도 진안군 용담면 송풍리 1221-6",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20201119/20201119134126276.JPG",
+    "image": "images/catalog/official-a-24446.webp",
     "tags": [
       "#진안",
       "#관광지",
@@ -3807,7 +3807,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6321196592007,
     "lng": 126.470467867168,
     "address": "전북특별자치도 부안군 변산면 소노로 10 소노벨 변산 오션플레이",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20180307/20180307181137080.JPG",
+    "image": "images/catalog/official-a-24298.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -3840,7 +3840,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.95297,
     "lng": 127.527856,
     "address": "전북특별자치도 진안군 안천면 안용로 832-27",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240203/20240203230020668.jpg",
+    "image": "images/catalog/official-a-24447.webp",
     "tags": [
       "#진안",
       "#관광지",
@@ -3873,7 +3873,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9777252,
     "lng": 127.69495269999993,
     "address": "전북특별자치도 무주군 적상면 북창리",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241016/20241016175957487.jpg",
+    "image": "images/catalog/official-a-13823.webp",
     "tags": [
       "#무주",
       "#산",
@@ -3906,7 +3906,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6723571,
     "lng": 127.27452649999998,
     "address": "전북특별자치도 임실군 관촌면 사선2길 68-7",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251127/20251127172710459.jpg",
+    "image": "images/catalog/official-a-21032.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -3939,7 +3939,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6792204215763,
     "lng": 127.621231424923,
     "address": "전북특별자치도 장수군 장계면 의암로 558",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112180610998.jpg",
+    "image": "images/catalog/official-a-11597.webp",
     "tags": [
       "#장수",
       "#관광지",
@@ -3972,7 +3972,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7192453,
     "lng": 126.7288933,
     "address": "전북특별자치도 부안군 부안읍 매창로 89",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240117/20240117171423572.jpg",
+    "image": "images/catalog/official-a-13498.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -4005,7 +4005,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4837870570504,
     "lng": 127.116659562989,
     "address": "전북특별자치도 순창군 구림면 산내길 38",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240926/20240926143226678.jpg",
+    "image": "images/catalog/official-a-13712.webp",
     "tags": [
       "#순창",
       "#관광지",
@@ -4038,7 +4038,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8183495,
     "lng": 127.1425492,
     "address": "전북특별자치도 전주시 완산구 고사동 전주객사3길 22",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240112/20240112113210571.jpg",
+    "image": "images/catalog/official-a-24496.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -4071,7 +4071,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7336787,
     "lng": 127.19371920000003,
     "address": "전북특별자치도 완주군 상관면 죽림리 산214-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112162336896.jpg",
+    "image": "images/catalog/official-a-10027.webp",
     "tags": [
       "#완주",
       "#자연관광지",
@@ -4104,7 +4104,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 전북 부안군 보안면 우동리 산35-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220412/20220412175533579.jpg",
+    "image": "images/catalog/official-a-13474.webp",
     "tags": [
       "#부안",
       "#산",
@@ -4137,7 +4137,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4403247,
     "lng": 127.4765231,
     "address": "전북특별자치도 남원시 이백면 목가길 193",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205162433697.jpg",
+    "image": "images/catalog/official-a-24489.webp",
     "tags": [
       "#남원",
       "#전북카페",
@@ -4170,7 +4170,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.606011,
     "lng": 126.285149,
     "address": "전북특별자치도 부안군 위도면 위도로 366",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240118/20240118113013197.jpg",
+    "image": "images/catalog/official-a-13921.webp",
     "tags": [
       "#부안",
       "#해수욕장",
@@ -4203,7 +4203,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.50814788705335,
     "lng": 126.9056261842586,
     "address": "전북특별자치도 정읍시 내장호반로 266",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205100408044.jpg",
+    "image": "images/catalog/official-a-24453.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -4236,7 +4236,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8072364,
     "lng": 127.32322279999994,
     "address": "전북특별자치도 진안군 부귀면 모래재로 841",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240203/20240203224717385.jpg",
+    "image": "images/catalog/official-a-24001.webp",
     "tags": [
       "#진안",
       "#자연관광지",
@@ -4269,7 +4269,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8892917,
     "lng": 126.858924,
     "address": "전북특별자치도 김제시 청하면 대청리 산74-4",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241216/20241216165209664.jpg",
+    "image": "images/catalog/official-a-14254.webp",
     "tags": [
       "#김제",
       "#관광지",
@@ -4302,7 +4302,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6113092,
     "lng": 126.773466,
     "address": "전북특별자치도 정읍시 고부면 남산길 49-24",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251010/20251010101354905.jpg",
+    "image": "images/catalog/official-a-13903.webp",
     "tags": [
       "#정읍",
       "#자연관광지",
@@ -4335,7 +4335,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.982712,
     "lng": 126.707666,
     "address": "전북특별자치도 군산시 동국사길 16 동국사",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205144748784.jpg",
+    "image": "images/catalog/official-a-9075.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -4368,7 +4368,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5253442,
     "lng": 127.56667770000001,
     "address": "전북특별자치도 장수군 번암면 봉화산로 349",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251204/20251204145444949.png",
+    "image": "images/catalog/official-a-11432.webp",
     "tags": [
       "#장수",
       "#관광지",
@@ -4401,7 +4401,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.967,
     "lng": 127.01,
     "address": "전북특별자치도 익산시 무왕로 1397",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112140040774.jpg",
+    "image": "images/catalog/official-a-9784.webp",
     "tags": [
       "#익산",
       "#체육시설",
@@ -4434,7 +4434,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8483399,
     "lng": 127.09851079999999,
     "address": "전북특별자치도 전주시 덕진구 팔복로 59",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241122/20241122160319038.jpg",
+    "image": "images/catalog/official-a-20545.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -4467,7 +4467,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9903918,
     "lng": 127.10146770000006,
     "address": "전북특별자치도 익산시 왕궁면 호반로 8",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251028/20251028172857149.jpg",
+    "image": "images/catalog/official-a-9757.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -4500,7 +4500,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9058141954421,
     "lng": 127.814204579871,
     "address": "전북특별자치도 무주군 무풍면 구천동로 530-62",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250820/20250820104537318.jpg",
+    "image": "images/catalog/official-a-23657.webp",
     "tags": [
       "#무주",
       "#관광지",
@@ -4533,7 +4533,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8106919,
     "lng": 127.15449000000001,
     "address": "전북특별자치도 전주시 완산구 동서학동 940-2",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240112/20240112112823005.jpg",
+    "image": "images/catalog/official-a-24037.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -4566,7 +4566,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.368352605338,
     "lng": 127.110386975406,
     "address": "전북특별자치도 순창군 순창읍 민속마을길 11",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220617/20220617171006952.jpg",
+    "image": "images/catalog/official-a-11778.webp",
     "tags": [
       "#순창",
       "#관광지",
@@ -4599,7 +4599,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.39410375465866,
     "lng": 127.04703860933122,
     "address": "전북특별자치도 순창군 팔덕면 청계리 산287-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240122/20240122160701697.jpg",
+    "image": "images/catalog/official-a-11716.webp",
     "tags": [
       "#순창",
       "#자연관광지",
@@ -4632,7 +4632,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.815832,
     "lng": 127.151171,
     "address": "전북특별자치도 전주시 완산구 경기전길 89",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20200424/20200424133945101.jpg",
+    "image": "images/catalog/official-a-20770.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -4665,7 +4665,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0111137,
     "lng": 127.758702,
     "address": "전북특별자치도 무주군 설천면 무설로 1324",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240117/20240117182054243.jpg",
+    "image": "images/catalog/official-a-13687.webp",
     "tags": [
       "#무주",
       "#관광지",
@@ -4698,7 +4698,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9902016,
     "lng": 126.71528519999993,
     "address": "전북특별자치도 군산시 강변로 449 (내흥동)",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112203847946.jpg",
+    "image": "images/catalog/official-a-9079.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -4731,7 +4731,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8559150354737,
     "lng": 126.701828269272,
     "address": "전북특별자치도 김제시 진봉면 심포6길 172",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251022/20251022134430348.jpg",
+    "image": "images/catalog/official-a-14285.webp",
     "tags": [
       "#김제",
       "#관광지",
@@ -4764,7 +4764,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.94015427526302,
     "lng": 126.53549285029294,
     "address": "전북특별자치도 군산시 새만금 방조제 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205151028069.jpg",
+    "image": "images/catalog/official-a-24060.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -4797,7 +4797,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4760045,
     "lng": 127.20805889999997,
     "address": "전북특별자치도 순창군 동계면 장군목길 564",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251120/20251120163023883.jpg",
+    "image": "images/catalog/official-a-11761.webp",
     "tags": [
       "#순창",
       "#자연관광지",
@@ -4830,7 +4830,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5670454,
     "lng": 126.85914049999997,
     "address": "전북특별자치도 정읍시 충정로 193 정읍향교앞",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220830/20220830105210430.jpg",
+    "image": "images/catalog/official-a-13972.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -4863,7 +4863,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3732546,
     "lng": 126.5349987,
     "address": "전북특별자치도 고창군 공음면 청천길 41-27",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250527/20250527095420853.jpg",
+    "image": "images/catalog/official-a-25182.webp",
     "tags": [
       "#고창",
       "#관광지",
@@ -4896,7 +4896,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8004548,
     "lng": 126.8821693,
     "address": "전북특별자치도 김제시 교동 4",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251029/20251029151907441.jpg",
+    "image": "images/catalog/official-a-25233.webp",
     "tags": [
       "#김제",
       "#관광지",
@@ -4929,7 +4929,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8283088,
     "lng": 126.4021111,
     "address": "전북특별자치도 군산시 옥도면 선유도1길 238-7",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205153223095.jpg",
+    "image": "images/catalog/official-a-25344.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -4962,7 +4962,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4011957,
     "lng": 127.38547330000006,
     "address": "전북특별자치도 남원시 양림길 14-16",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205175853587.jpg",
+    "image": "images/catalog/official-a-23707.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -4995,7 +4995,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3395556,
     "lng": 127.1934105,
     "address": "전북특별자치도 순창군 풍산면 향가로 583-43",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220812/20220812165346151.jpg",
+    "image": "images/catalog/official-a-23681.webp",
     "tags": [
       "#순창",
       "#관광지",
@@ -5028,7 +5028,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3975644,
     "lng": 127.5075529,
     "address": "전북특별자치도 남원시 운봉읍 운봉로 151",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205182357958.jpg",
+    "image": "images/catalog/official-a-25236.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -5061,7 +5061,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7123083,
     "lng": 126.5999641,
     "address": "전북특별자치도 부안군 하서면 신재생에너지로 20-19",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240502/20240502165153791.jpg",
+    "image": "images/catalog/official-a-25326.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -5094,7 +5094,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.967,
     "lng": 127.712,
     "address": "전북특별자치도 무주군 적상면 괴목로 788",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240206/20240206164551490.jpg",
+    "image": "images/catalog/official-a-23196.webp",
     "tags": [
       "#무주",
       "#관광지",
@@ -5127,7 +5127,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9478496,
     "lng": 126.5242092,
     "address": "전북특별자치도 군산시 외항로 1391",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112185109293.jpg",
+    "image": "images/catalog/official-a-25246.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -5160,7 +5160,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4797022,
     "lng": 126.8879786,
     "address": "전북특별자치도 정읍시 내장산로 1253",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240119/20240119135131341.jpg",
+    "image": "images/catalog/official-a-13950.webp",
     "tags": [
       "#정읍",
       "#자연관광지",
@@ -5193,7 +5193,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4279564,
     "lng": 127.36431620000008,
     "address": "(590-150) 전북특별자치도 남원시 산성순환길 714",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240119/20240119105952599.jpg",
+    "image": "images/catalog/official-a-23713.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -5226,7 +5226,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0030994,
     "lng": 127.6653939,
     "address": "전북특별자치도 무주군 무주읍 한풍루로 326-17",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240118/20240118091535043.jpg",
+    "image": "images/catalog/official-a-24415.webp",
     "tags": [
       "#무주",
       "#관광지",
@@ -5259,7 +5259,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5542793,
     "lng": 127.0191835,
     "address": "전북특별자치도 정읍시 산내면 청정로 1120",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220415/20220415150026524.jpg",
+    "image": "images/catalog/official-a-13942.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -5292,7 +5292,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4158272,
     "lng": 127.3855108,
     "address": "전북특별자치도 남원시 동림로 89",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205180512987.jpg",
+    "image": "images/catalog/official-a-24487.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -5325,7 +5325,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8033423,
     "lng": 127.167451,
     "address": "전주시 완산구 바람쐬는 길 120",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241011/20241011135725673.jpg",
+    "image": "images/catalog/official-a-25407.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -5358,7 +5358,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.81627762576617,
     "lng": 127.14590460062027,
     "address": "전북특별자치도 전주시 완산구 전라감영로 55",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220331/20220331145953764.jpg",
+    "image": "images/catalog/official-a-20605.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -5391,7 +5391,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3737687,
     "lng": 127.1371724,
     "address": "전북특별자치도 순창군 풍산면 두승리 875",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112202500585.jpg",
+    "image": "images/catalog/official-a-25288.webp",
     "tags": [
       "#순창",
       "#관광지",
@@ -5424,7 +5424,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.815977,
     "lng": 127.152286,
     "address": "(560-033) 전북특별자치도 전주시 완산구 경기전길 89",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/migration/001001/f24f42f4-27c6-4f83-80ae-17f98d2ba74a.jpg.png",
+    "image": "images/catalog/official-a-20559.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -5457,7 +5457,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3696752,
     "lng": 127.1111717,
     "address": "전북특별자치도 순창군 순창읍 장류로 43",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240130/20240130142234412.jpg",
+    "image": "images/catalog/official-a-11793.webp",
     "tags": [
       "#순창",
       "#관광지",
@@ -5490,7 +5490,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0022538,
     "lng": 127.6625895,
     "address": "전북특별자치도 무주군 무주읍 한풍루로 326-17, 2층",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250307/20250307151831290.jpg",
+    "image": "images/catalog/official-a-25448.webp",
     "tags": [
       "#무주",
       "#관광지",
@@ -5523,7 +5523,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.970623,
     "lng": 126.760224,
     "address": "전북특별자치도 군산시 동개정길 7",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205161205635.jpg",
+    "image": "images/catalog/official-a-9066.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -5556,7 +5556,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.816282,
     "lng": 127.149754,
     "address": "전북특별자치도 전주시 완산구 태조로 44 (경기전 내)",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250203/20250203170841229.jpg",
+    "image": "images/catalog/official-a-20552.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -5589,7 +5589,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7746559947104,
     "lng": 126.843180015151,
     "address": "전북특별자치도 김제시 죽산면 화초로 180",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251029/20251029152147465.jpg",
+    "image": "images/catalog/official-a-25475.webp",
     "tags": [
       "#김제",
       "#관광지",
@@ -5622,7 +5622,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.818361,
     "lng": 127.1452319,
     "address": "전북특별자치도 전주시 완산구 충경로 59",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241121/20241121151924708.jpg",
+    "image": "images/catalog/official-a-20631.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -5655,7 +5655,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5406109717728,
     "lng": 127.542557135368,
     "address": "전북특별자치도 장수군 번암면 지지로 97-21",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112182642686.jpg",
+    "image": "images/catalog/official-a-20767.webp",
     "tags": [
       "#장수",
       "#자연관광지",
@@ -5688,7 +5688,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8594144339303,
     "lng": 126.71551476327,
     "address": "전북특별자치도 김제시 진봉면 심포10길 94",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251030/20251030114336868.jpg",
+    "image": "images/catalog/official-a-14265.webp",
     "tags": [
       "#김제",
       "#관광지",
@@ -5721,7 +5721,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8605251,
     "lng": 127.4754011,
     "address": "전북특별자치도 진안군 상전면 금지2길 4-3",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240203/20240203232417336.jpg",
+    "image": "images/catalog/official-a-24505.webp",
     "tags": [
       "#진안",
       "#관광지",
@@ -5754,7 +5754,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.604205,
     "lng": 126.986032,
     "address": "전북특별자치도 정읍시 칠보면 원촌1길 12-3",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251203/20251203111953876.jpg",
+    "image": "images/catalog/official-a-13988.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -5787,7 +5787,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8214848,
     "lng": 127.1241984,
     "address": "전북특별자치도 전주시 완산구 백제대로 310",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250724/20250724174800045.jpg",
+    "image": "images/catalog/official-a-20759.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -5820,7 +5820,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4492889,
     "lng": 127.5897903,
     "address": "전북특별자치도 남원시 인월면 구인월길 125",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220623/20220623145924931.jpg",
+    "image": "images/catalog/official-a-23727.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -5853,7 +5853,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4035416,
     "lng": 127.59098599999993,
     "address": "전북특별자치도 남원시 산내면 내령리",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205173838351.jpg",
+    "image": "images/catalog/official-a-23726.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -5886,7 +5886,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4765946,
     "lng": 127.34028720000003,
     "address": "(590-891) 전북특별자치도 남원시 사매면 인화길 39",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205172829098.jpg",
+    "image": "images/catalog/official-a-23752.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -5919,7 +5919,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7520080873159,
     "lng": 126.848719275335,
     "address": "전북특별자치도 김제시 부량면 용성1길 24",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251030/20251030114448269.jpg",
+    "image": "images/catalog/official-a-14251.webp",
     "tags": [
       "#김제",
       "#관광지",
@@ -5952,7 +5952,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4982999275977,
     "lng": 127.121605409616,
     "address": "전북특별자치도 순창군 구림면 안심길 214",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112203257714.jpg",
+    "image": "images/catalog/official-a-11763.webp",
     "tags": [
       "#순창",
       "#자연관광지",
@@ -5985,7 +5985,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0238127,
     "lng": 127.6701457,
     "address": "전북특별자치도 무주군 무주읍 무학로 153-18",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20230519/20230519163235098.jpg",
+    "image": "images/catalog/official-a-25181.webp",
     "tags": [
       "#무주",
       "#관광지",
@@ -6018,7 +6018,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3864691,
     "lng": 127.47734850000006,
     "address": "(590-835) 전북특별자치도 남원시 주천면 정령치로 1523",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241125/20241125101911364.jpg",
+    "image": "images/catalog/official-a-23723.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -6051,7 +6051,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 127.661216,
     "lng": 36.005392,
     "address": "전북특별자치도 무주군 무주읍 적천로 412-12",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260211/20260211164847843.jpg",
+    "image": "images/catalog/official-a-25897.webp",
     "tags": [
       "#무주",
       "#자연관광지",
@@ -6084,7 +6084,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.648187,
     "lng": 127.523096,
     "address": "전북특별자치도 장수군 장수읍 향교길 31-14",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251204/20251204180629823.jpg",
+    "image": "images/catalog/official-a-11492.webp",
     "tags": [
       "#장수",
       "#관광지",
@@ -6117,7 +6117,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0067080587907,
     "lng": 127.055385963347,
     "address": "전북특별자치도 익산시 금마면 금마호수길 37",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251110/20251110113010355.jpg",
+    "image": "images/catalog/official-a-25310.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -6150,7 +6150,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5395119,
     "lng": 127.5415816,
     "address": "전북특별자치도 장수군 번암면 죽림2길 31 (죽림정사)",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251204/20251204175321607.jpg",
+    "image": "images/catalog/official-a-11592.webp",
     "tags": [
       "#장수",
       "#역사관광지",
@@ -6183,7 +6183,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5301843,
     "lng": 126.51507809999998,
     "address": "전북특별자치도 고창군 심원면 애향갯벌로 320",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240112/20240112135657642.jpg",
+    "image": "images/catalog/official-a-12616.webp",
     "tags": [
       "#고창",
       "#체육시설",
@@ -6216,7 +6216,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 순창군 팔덕면 강천산길 270",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240130/20240130144445661.jpg",
+    "image": "images/catalog/official-a-11783.webp",
     "tags": [
       "#순창",
       "#자연관광지",
@@ -6249,7 +6249,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.969,
     "lng": 126.998,
     "address": "전북특별자치도 익산시 선화로 823",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112140903157.jpg",
+    "image": "images/catalog/official-a-9770.webp",
     "tags": [
       "#익산",
       "#체육시설",
@@ -6282,7 +6282,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.022,
     "lng": 127.039,
     "address": "전북특별자치도 익산시 금마면 구룡길 57-125",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112105940234.jpg",
+    "image": "images/catalog/official-a-9807.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -6315,7 +6315,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9744622803662,
     "lng": 126.951611854525,
     "address": "전북특별자치도 익산시 익산대로 501",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240124/20240124175514147.jpg",
+    "image": "images/catalog/official-a-9761.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -6348,7 +6348,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.104,
     "lng": 126.921,
     "address": "전북특별자치도 익산시 성당면 두동길 15",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250724/20250724155029895.jpg",
+    "image": "images/catalog/official-a-9809.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -6381,7 +6381,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.088,
     "lng": 126.884,
     "address": "전북특별자치도 익산시 웅포면 강변로 284",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112150241283.jpg",
+    "image": "images/catalog/official-a-9811.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -6414,7 +6414,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9815201395342,
     "lng": 126.978067126998,
     "address": "전북특별자치도 익산시 하나로 685",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251111/20251111090752767.jpg",
+    "image": "images/catalog/official-a-9801.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -6447,7 +6447,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.062007,
     "lng": 127.0820769,
     "address": "전북특별자치도 익산시 여산면 여산리 301-16",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251111/20251111090121581.jpg",
+    "image": "images/catalog/official-a-9815.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -6480,7 +6480,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9679625296809,
     "lng": 127.009857744987,
     "address": "전북특별자치도 익산시 무왕로 1397",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112135836434.jpg",
+    "image": "images/catalog/official-a-9775.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -6513,7 +6513,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0066727,
     "lng": 127.0551642,
     "address": "전북특별자치도 익산시 금마면 신용리 433-2",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251110/20251110131918102.jpg",
+    "image": "images/catalog/official-a-9800.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -6546,7 +6546,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.07,
     "lng": 127.099,
     "address": "전북특별자치도 익산시 여산면 태성1길 199",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251110/20251110105152609.jpg",
+    "image": "images/catalog/official-a-9833.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -6579,7 +6579,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4980511,
     "lng": 127.1218125,
     "address": "전북특별자치도 순창군 구림면 안심길 249",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250820/20250820141114551.jpg",
+    "image": "images/catalog/official-a-11760.webp",
     "tags": [
       "#순창",
       "#관광지",
@@ -6612,7 +6612,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.374974,
     "lng": 127.1387568,
     "address": "전북특별자치도 순창군 순창읍 순창7길 40",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220812/20220812120019198.jpg",
+    "image": "images/catalog/official-a-11743.webp",
     "tags": [
       "#순창",
       "#관광지",
@@ -6645,7 +6645,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.898832789884,
     "lng": 127.005968406324,
     "address": "전북특별자치도 익산시 춘포면 춘포4길 48",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251110/20251110105339100.jpg",
+    "image": "images/catalog/official-a-9760.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -6678,7 +6678,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.064,
     "lng": 126.909,
     "address": "전북특별자치도 익산시 함라면 함라교동길 27-4",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251110/20251110104438316.jpg",
+    "image": "images/catalog/official-a-9818.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -6711,7 +6711,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.13,
     "lng": 126.954,
     "address": "전북특별자치도 익산시 용안면 을동길 76-12",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112093848658.jpg",
+    "image": "images/catalog/official-a-9829.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -6744,7 +6744,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.949,
     "lng": 126.988,
     "address": "전북특별자치도 익산시 선화로 529",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240126/20240126090533305.jpg",
+    "image": "images/catalog/official-a-9772.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -6777,7 +6777,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.047,
     "lng": 126.872,
     "address": "전북특별자치도 익산시 웅포면 입점고분길 80",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251110/20251110133857847.jpg",
+    "image": "images/catalog/official-a-9751.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -6810,7 +6810,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.58691,
     "lng": 127.41011,
     "address": "전북특별자치도 장수군 산서면 비행로 20",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251204/20251204181948261.jpg",
+    "image": "images/catalog/official-a-11490.webp",
     "tags": [
       "#장수",
       "#관광지",
@@ -6843,7 +6843,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 진안군 동향면 성산리 863-2",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251105/20251105154444850.jpg",
+    "image": "images/catalog/official-a-11451.webp",
     "tags": [
       "#진안",
       "#자연관광지",
@@ -6876,7 +6876,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8385912,
     "lng": 127.6939152,
     "address": "전북특별자치도 무주군 안성면 칠연로 543",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112194802196.jpg",
+    "image": "images/catalog/official-a-14228.webp",
     "tags": [
       "#무주",
       "#계곡",
@@ -6909,7 +6909,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4070363,
     "lng": 127.3679277,
     "address": "전북특별자치도 남원시 만복사길 7",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240118/20240118132657035.jpg",
+    "image": "images/catalog/official-a-20973.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -6942,7 +6942,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4578894,
     "lng": 127.56169649999993,
     "address": "(590-832) 전북특별자치도 남원시 운봉읍 화수리 341",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205165612939.jpg",
+    "image": "images/catalog/official-a-23711.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -6975,7 +6975,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3523613,
     "lng": 127.59247219999997,
     "address": "전북특별자치도 남원시 산내면 부운리 달궁마을",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205163306217.jpg",
+    "image": "images/catalog/official-a-21281.webp",
     "tags": [
       "#남원",
       "#계곡",
@@ -7008,7 +7008,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.001,
     "lng": 127.054,
     "address": "전북특별자치도 익산시 금마면 동고도리 502-1 동고도리",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112145855671.jpg",
+    "image": "images/catalog/official-a-9806.webp",
     "tags": [
       "#익산",
       "#자연관광지",
@@ -7041,7 +7041,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4074486,
     "lng": 127.37665530000004,
     "address": "전북특별자치도 남원시 동충동 464-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205175301755.jpg",
+    "image": "images/catalog/official-a-23733.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -7074,7 +7074,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7535092306794,
     "lng": 126.850875239854,
     "address": "전북특별자치도 김제시 부량면 벽골제로 421",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20170621/20170621171521411.jpg",
+    "image": "images/catalog/official-a-24272.webp",
     "tags": [
       "#김제",
       "#관광지",
@@ -7107,7 +7107,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5246677,
     "lng": 126.8658056,
     "address": "전북특별자치도 정읍시 신성길 176-17",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205113623851.jpg",
+    "image": "images/catalog/official-a-13960.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -7140,7 +7140,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6362644,
     "lng": 127.29482180000002,
     "address": "전북특별자치도 임실군 임실읍 치즈마을1길 4",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20200406/20200406154144481.png",
+    "image": "images/catalog/official-a-20982.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -7173,7 +7173,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6331829,
     "lng": 126.8283137,
     "address": "전북특별자치도 정읍시 덕천면 하학리 1403",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205110550359.jpg",
+    "image": "images/catalog/official-a-14223.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -7206,7 +7206,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4016267,
     "lng": 127.3867338,
     "address": "전북특별자치도 남원시 양림길 14-9",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205165020552.jpg",
+    "image": "images/catalog/official-a-23710.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -7239,7 +7239,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.478173,
     "lng": 126.9278696,
     "address": "전북특별자치도 순창군 복흥면 추령로 1792-12",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220407/20220407114532059.png",
+    "image": "images/catalog/official-a-11769.webp",
     "tags": [
       "#순창",
       "#관광지",
@@ -7272,7 +7272,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4026971,
     "lng": 127.38612680000006,
     "address": "전북특별자치도 남원시 양림길 12",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205171621904.jpg",
+    "image": "images/catalog/official-a-23728.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -7305,7 +7305,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.487476,
     "lng": 126.894193,
     "address": "전북특별자치도 정읍시 내장동 내장산내",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240125/20240125103235649.jpg",
+    "image": "images/catalog/official-a-13916.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -7338,7 +7338,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.818718,
     "lng": 127.151814,
     "address": "(560-033) 전북특별자치도 전주시 완산구 은행로 34 (풍남동 3가)",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241122/20241122163343715.jpg",
+    "image": "images/catalog/official-a-20544.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -7371,7 +7371,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4800633,
     "lng": 126.8893395,
     "address": "전북특별자치도 정읍시 내장동 내장산",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240125/20240125105711791.jpg",
+    "image": "images/catalog/official-a-13914.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -7404,7 +7404,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.395390494635,
     "lng": 127.358978555813,
     "address": "전북특별자치도 남원시 요천로 1234-5",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/migration/001005/895513e2-a819-4dc4-b5c7-1524b246e666.jpg.png",
+    "image": "images/catalog/official-a-23939.webp",
     "tags": [
       "#남원",
       "#체험관광지",
@@ -7437,7 +7437,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4204679,
     "lng": 127.37731919999999,
     "address": "전북특별자치도 남원시 만인로 3",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260303/20260303175913919.jpg",
+    "image": "images/catalog/official-a-20974.webp",
     "tags": [
       "#남원",
       "#체험관광지",
@@ -7470,7 +7470,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6305496,
     "lng": 127.1548752,
     "address": "전북특별자치도 임실군 운암면 입석리 490-15",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251128/20251128173050347.jpg",
+    "image": "images/catalog/official-a-25158.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -7503,7 +7503,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0816042,
     "lng": 126.91561760000002,
     "address": "전북특별자치도 익산시 웅포면 백제로 495-57",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112110812700.jpg",
+    "image": "images/catalog/official-a-9722.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -7536,7 +7536,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4618779389,
     "lng": 126.648945219,
     "address": "전북특별자치도 고창군 아산면 운곡리 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250729/20250729111156199.jpg",
+    "image": "images/catalog/official-a-24457.webp",
     "tags": [
       "#고창",
       "#관광지",
@@ -7569,7 +7569,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8514402164,
     "lng": 127.359216262,
     "address": "전북특별자치도 진안군 부귀면 거석리 산89",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250520/20250520112612407.jpg",
+    "image": "images/catalog/official-a-24456.webp",
     "tags": [
       "#진안",
       "#관광지",
@@ -7602,7 +7602,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.61877,
     "lng": 127.50078,
     "address": "전북특별자치도 장수군 장수읍 비행로 1455-94",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251204/20251204175640403.jpg",
+    "image": "images/catalog/official-a-11511.webp",
     "tags": [
       "#장수",
       "#관광지",
@@ -7635,7 +7635,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7744974,
     "lng": 126.8138389,
     "address": "전북특별자치도 김제시 죽산면 죽산리 948-20",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112152028112.jpg",
+    "image": "images/catalog/official-a-24529.webp",
     "tags": [
       "#김제",
       "#관광지",
@@ -7668,7 +7668,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4218377648212,
     "lng": 127.38336905381,
     "address": "전북특별자치도 남원시 향교길 43",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241125/20241125103706265.jpg",
+    "image": "images/catalog/official-a-23734.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -7701,7 +7701,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6244987,
     "lng": 127.3640685,
     "address": "전북특별자치도 임실군 성수면 왕방리",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251128/20251128182136583.jpg",
+    "image": "images/catalog/official-a-21009.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -7734,7 +7734,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8158453290364,
     "lng": 127.14182518958,
     "address": "전북특별자치도 전주시 완산구 전라감영2길 28",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251031/20251031141553272.jpg",
+    "image": "images/catalog/official-a-25749.webp",
     "tags": [
       "#전주",
       "#문화관광지",
@@ -7767,7 +7767,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8211851330339,
     "lng": 127.199946548047,
     "address": "전북특별자치도 전주시 덕진구 우아동1가 산318",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251031/20251031122054136.jpg",
+    "image": "images/catalog/official-a-25748.webp",
     "tags": [
       "#전주",
       "#자연관광지",
@@ -7800,7 +7800,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.38,
     "lng": 127.2,
     "address": "전북특별자치도 임실군 성수면 산성로 725-23",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240116/20240116121337417.jpg",
+    "image": "images/catalog/official-a-21008.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -7833,7 +7833,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.58572835779477,
     "lng": 127.19297167091668,
     "address": "전북특별자치도 임실군 청웅면 청운로 168-46",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251128/20251128184102895.jpg",
+    "image": "images/catalog/official-a-21088.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -7866,7 +7866,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 남원시 소리길 50",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251010/20251010174831792.jpg",
+    "image": "images/catalog/official-a-25669.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -7899,7 +7899,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.73992676381,
     "lng": 126.735375627587,
     "address": "전북특별자치도 부안군 부안읍 선은1길 10",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112212211862.jpg",
+    "image": "images/catalog/official-a-25835.webp",
     "tags": [
       "#부안",
       "#문화관광지",
@@ -7932,7 +7932,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5791117,
     "lng": 126.6669927,
     "address": "전북특별자치도 부안군 줄포면 우포리 516-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240117/20240117161914451.jpg",
+    "image": "images/catalog/official-a-13476.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -7965,7 +7965,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4417081190687,
     "lng": 126.652491402035,
     "address": "전북특별자치도 고창군 고창읍 고인돌공원길 74",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251107/20251107173523849.jpg",
+    "image": "images/catalog/official-a-25814.webp",
     "tags": [
       "#고창",
       "#역사관광지",
@@ -7998,7 +7998,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5582382259188,
     "lng": 126.714367597381,
     "address": "전북특별자치도 고창군 성내면 신성리, 흥덕면 석우리",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251107/20251107174923150.jpg",
+    "image": "images/catalog/official-a-25815.webp",
     "tags": [
       "#고창",
       "#자연관광지",
@@ -8031,7 +8031,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0627747412957,
     "lng": 126.909630455781,
     "address": "전북특별자치도 익산시 함라면 함라교동길 25",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251111/20251111112916292.jpg",
+    "image": "images/catalog/official-a-25329.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -8064,7 +8064,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.991986,
     "lng": 127.03748,
     "address": "전북특별자치도 익산시 금마면 서고도리 산52-2",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251106/20251106143316041.jpg",
+    "image": "images/catalog/official-a-25811.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -8097,7 +8097,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8128303,
     "lng": 127.1571308,
     "address": "전북특별자치도 전주시 완산구 교동 26-3",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241128/20241128102628830.jpg",
+    "image": "images/catalog/official-a-156.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -8130,7 +8130,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4322832,
     "lng": 127.1317862,
     "address": "전북특별자치도 순창군 인계면 인덕로 427-128",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250306/20250306191708536.jpg",
+    "image": "images/catalog/official-a-25332.webp",
     "tags": [
       "#순창",
       "#관광지",
@@ -8163,7 +8163,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5277922,
     "lng": 126.8945451,
     "address": "전북특별자치도 정읍시 내장산로 370-12",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205134819206.jpg",
+    "image": "images/catalog/official-a-25328.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -8196,7 +8196,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6623535,
     "lng": 126.5095583,
     "address": "전북특별자치도 부안군 변산면 운산리 441-7",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240322/20240322173840402.jpg",
+    "image": "images/catalog/official-a-25295.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -8229,7 +8229,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3984927,
     "lng": 127.5077184,
     "address": "전북특별자치도 남원시 운봉읍 주촌리 528",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205172552221.jpg",
+    "image": "images/catalog/official-a-25292.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -8262,7 +8262,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.60370200965355,
     "lng": 127.28310209867254,
     "address": "전북특별자치도 임실군 임실읍 호국로 1630",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250619/20250619183301711.jpg",
+    "image": "images/catalog/official-a-21094.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -8295,7 +8295,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9484745,
     "lng": 127.694678,
     "address": "전북특별자치도 무주군 적상면 산성로 960",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251121/20251121143612804.jpg",
+    "image": "images/catalog/official-a-13899.webp",
     "tags": [
       "#무주",
       "#역사관광지",
@@ -8328,7 +8328,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7151954739643,
     "lng": 127.044268682921,
     "address": "전북특별자치도 김제시 금산면 모악로 476-39 모악랜드",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260305/20260305114758241.jpg",
+    "image": "images/catalog/official-a-25913.webp",
     "tags": [
       "#김제",
       "#체험관광지",
@@ -8361,7 +8361,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5203326,
     "lng": 127.5882548,
     "address": "전북특별자치도 남원시 아영면 흥부로 275",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251022/20251022164438895.jpg",
+    "image": "images/catalog/official-a-25674.webp",
     "tags": [
       "#남원",
       "#역사관광지",
@@ -8394,7 +8394,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3683639575327,
     "lng": 127.148874509663,
     "address": "전북특별자치도 순창군 순창읍 남계리 964-47 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112202630009.jpg",
+    "image": "images/catalog/official-a-25834.webp",
     "tags": [
       "#순창",
       "#자연관광지",
@@ -8427,7 +8427,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7327931,
     "lng": 126.7304505,
     "address": "전북특별자치도 부안군 부안읍 서림공원길 37",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240912/20240912143404350.jpg",
+    "image": "images/catalog/official-a-25250.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -8460,7 +8460,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7076515959536,
     "lng": 126.585153614785,
     "address": "전북특별자치도 부안군 하서면 변산바다로 1822",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112211128622.jpg",
+    "image": "images/catalog/official-a-25837.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -8493,7 +8493,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3990573,
     "lng": 127.38736100000006,
     "address": "전북특별자치도 남원시 양림길 48-63",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205173122256.jpg",
+    "image": "images/catalog/official-a-23672.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -8526,7 +8526,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.817222,
     "lng": 127.153541,
     "address": "(560-033) 전북특별자치도 전주시 완산구 한지길 74",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250203/20250203171153686.jpg",
+    "image": "images/catalog/official-a-20511.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -8559,7 +8559,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.31,
     "lng": 127.14,
     "address": "전북특별자치도 임실군 삼계면 죽계리",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251128/20251128185829223.jpg",
+    "image": "images/catalog/official-a-21067.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -8592,7 +8592,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4828195,
     "lng": 127.2661648,
     "address": "전북특별자치도 임실군 삼계면 후천리",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220810/20220810152449207.jPG",
+    "image": "images/catalog/official-a-21066.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -8625,7 +8625,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8210478307414,
     "lng": 127.13431256268,
     "address": "전주시 완산구 동서학동",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250903/20250903135703715.jpg",
+    "image": "images/catalog/official-a-25589.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -8658,7 +8658,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9653618,
     "lng": 127.69688810000002,
     "address": "전북특별자치도 무주군 적상면 산성로 359",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251121/20251121172651217.jpg",
+    "image": "images/catalog/official-a-13825.webp",
     "tags": [
       "#무주",
       "#관광지",
@@ -8691,7 +8691,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.104,
     "lng": 126.92,
     "address": "전북특별자치도 익산시 성당면 두동길 17-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251111/20251111103822993.jpg",
+    "image": "images/catalog/official-a-9732.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -8724,7 +8724,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7836109355836,
     "lng": 127.142511636587,
     "address": "전북특별자치도 전주시 완산구 평화5길 36-46",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251031/20251031115154737.jpg",
+    "image": "images/catalog/official-a-25672.webp",
     "tags": [
       "#전주",
       "#문화관광지",
@@ -8757,7 +8757,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.817043,
     "lng": 127.176881,
     "address": "전북특별자치도 전주시 덕진구 아중호수길 131",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251022/20251022164204596.jpg",
+    "image": "images/catalog/official-a-25673.webp",
     "tags": [
       "#전주",
       "#문화관광지",
@@ -8790,7 +8790,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4279564,
     "lng": 127.36431620000008,
     "address": "전북특별자치도 남원시 산성순환길 714",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205181302346.jpg",
+    "image": "images/catalog/official-a-21179.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -8823,7 +8823,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7844585569275,
     "lng": 127.14061354913,
     "address": "전주시 완산구 평화동2가 49-13",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251030/20251030151804663.jpg",
+    "image": "images/catalog/official-a-25710.webp",
     "tags": [
       "#전주",
       "#자연관광지",
@@ -8856,7 +8856,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8118872288499,
     "lng": 127.160824666268,
     "address": "전주시 완산구 기린대로 2",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251030/20251030152003430.jpg",
+    "image": "images/catalog/official-a-25711.webp",
     "tags": [
       "#전주",
       "#역사관광지",
@@ -8889,7 +8889,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.139,
     "lng": 126.999,
     "address": "전북특별자치도 익산시 망성면 나바위1길 146",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251111/20251111102850231.jpg",
+    "image": "images/catalog/official-a-9731.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -8922,7 +8922,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5827892984991,
     "lng": 126.523703245776,
     "address": "전북특별자치도 부안군 변산면 변산로 3768 국립변산자연휴양림",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250820/20250820153654584.jpg",
+    "image": "images/catalog/official-a-25514.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -8955,7 +8955,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.01082710000001,
     "lng": 127.65894170000001,
     "address": "전북특별자치도 무주군 무주읍 읍내리",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251121/20251121165820303.jpg",
+    "image": "images/catalog/official-a-13795.webp",
     "tags": [
       "#무주",
       "#자연관광지",
@@ -8988,7 +8988,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7104811,
     "lng": 126.59758349999993,
     "address": "전북특별자치도 부안군 하서면 신재생에너지로 10",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240117/20240117172417139.jpg",
+    "image": "images/catalog/official-a-13522.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -9021,7 +9021,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.01710690000001,
     "lng": 127.71418019999999,
     "address": "전북특별자치도 무주군 설천면 무설로 682",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251121/20251121174931237.jpg",
+    "image": "images/catalog/official-a-13714.webp",
     "tags": [
       "#무주",
       "#관광지",
@@ -9054,7 +9054,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.002169,
     "lng": 127.06047,
     "address": "전북특별자치도 익산시 금마면 고도9길 41-14",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251106/20251106144157862.jpg",
+    "image": "images/catalog/official-a-25813.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -9087,7 +9087,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6963604341553,
     "lng": 126.555963808006,
     "address": "전북특별자치도 부안군 변산면 새만금로 29-7",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112210839500.jpg",
+    "image": "images/catalog/official-a-25838.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -9120,7 +9120,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7310201790759,
     "lng": 126.733515388664,
     "address": "전북특별자치도 부안군 부안읍 당산로 90",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251113/20251113102310350.jpg",
+    "image": "images/catalog/official-a-25841.webp",
     "tags": [
       "#부안",
       "#문화관광지",
@@ -9153,7 +9153,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 전주시 덕진구 송천동2가 1293-86",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251031/20251031142241385.jpg",
+    "image": "images/catalog/official-a-25751.webp",
     "tags": [
       "#전주",
       "#자연관광지",
@@ -9186,7 +9186,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8785439504034,
     "lng": 127.128566814952,
     "address": "전북특별자치도 전주시 덕진구 세병로 177-44",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251031/20251031142459440.jpg",
+    "image": "images/catalog/official-a-25752.webp",
     "tags": [
       "#전주",
       "#자연관광지",
@@ -9219,7 +9219,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6098704,
     "lng": 126.4659574,
     "address": "전북특별자치도 부안군 변산면 격포리 궁항일대",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240117/20240117164224110.jpg",
+    "image": "images/catalog/official-a-13485.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -9252,7 +9252,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8248177421471,
     "lng": 127.121581917306,
     "address": "전북특별자치도 전주시 완산구 메너머4길 11",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251031/20251031175022611.jpg",
+    "image": "images/catalog/official-a-25777.webp",
     "tags": [
       "#전주",
       "#체험관광지",
@@ -9285,7 +9285,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.042012,
     "lng": 126.78623,
     "address": "전북특별자치도 군산시 성산면 십자들로 167",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205181245327.jpg",
+    "image": "images/catalog/official-a-25816.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -9318,7 +9318,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9884358542069,
     "lng": 126.711220055792,
     "address": "전북특별자치도 군산시 구영6길 108",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112104424102.jpg",
+    "image": "images/catalog/official-a-25818.webp",
     "tags": [
       "#군산",
       "#문화관광지",
@@ -9351,7 +9351,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4330709,
     "lng": 127.54831530000001,
     "address": "전북특별자치도 남원시 운봉읍 바래봉길 196",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205172828654.jpg",
+    "image": "images/catalog/official-a-23676.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -9384,7 +9384,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5249995,
     "lng": 126.8959947,
     "address": "전북특별자치도 정읍시 내장산로 412 천사히어로즈",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250821/20250821131617083.jpg",
+    "image": "images/catalog/official-a-25515.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -9417,7 +9417,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.508195,
     "lng": 126.856289,
     "address": "전북특별자치도 정읍시 신정동 132-11",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205135945551.jpg",
+    "image": "images/catalog/official-a-25516.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -9450,7 +9450,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 전주시 완산구 쑥고개로 249(효자동 2가 900)",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205112105585.jpg",
+    "image": "images/catalog/official-a-24495.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -9483,7 +9483,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.990502,
     "lng": 127.101316,
     "address": "전북특별자치도 익산시 왕궁면 호반로 8",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251106/20251106134756831.jpg",
+    "image": "images/catalog/official-a-25806.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -9516,7 +9516,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.968328,
     "lng": 127.433709,
     "address": "전북 진안군 주천면 신양리 634-2",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251107/20251107152708202.jpg",
+    "image": "images/catalog/official-a-25807.webp",
     "tags": [
       "#진안",
       "#자연관광지",
@@ -9549,7 +9549,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.045475,
     "lng": 126.96139,
     "address": "전북특별자치도 익산시 함열읍 익산대로 1424-14",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251127/20251127175557261.jpg",
+    "image": "images/catalog/official-a-25810.webp",
     "tags": [
       "#익산",
       "#체험관광지",
@@ -9582,7 +9582,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0198642085729,
     "lng": 126.765295759397,
     "address": "전북특별자치도 군산시 성산면 철새로 120",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112110658959.jpg",
+    "image": "images/catalog/official-a-25821.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -9615,7 +9615,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8019682478666,
     "lng": 127.107886853199,
     "address": "전북특별자치도 전주시 완산구 효자동2가 1371",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251031/20251031141939675.jpg",
+    "image": "images/catalog/official-a-25750.webp",
     "tags": [
       "#전주",
       "#자연관광지",
@@ -9648,7 +9648,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북 고창군 해리면 명사십리로 887",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250918/20250918175641647.jpg",
+    "image": "images/catalog/official-a-25602.webp",
     "tags": [
       "#고창",
       "#관광지",
@@ -9681,7 +9681,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7306633,
     "lng": 127.1271221,
     "address": "전북특별자치도 완주군 구이면 원기리 413",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251204/20251204160827551.jpg",
+    "image": "images/catalog/official-a-25287.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -9714,7 +9714,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4311195813037,
     "lng": 126.740614819522,
     "address": "전북특별자치도 고창군 고창읍 석정2로 173",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260109/20260109164711357.jpg",
+    "image": "images/catalog/official-a-25861.webp",
     "tags": [
       "#고창",
       "#관광지",
@@ -9747,7 +9747,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8497583377425,
     "lng": 127.144681272405,
     "address": "전북특별자치도 전주시 덕진구 건지산로 40",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251031/20251031114735360.jpg",
+    "image": "images/catalog/official-a-25747.webp",
     "tags": [
       "#전주",
       "#문화관광지",
@@ -9780,7 +9780,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.52,
     "lng": 127.24,
     "address": "전북특별자치도 진안군 백운면 백운동로 473",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220722/20220722102401632.jpg",
+    "image": "images/catalog/official-a-21193.webp",
     "tags": [
       "#진안",
       "#관광지",
@@ -9813,7 +9813,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.1327647660955,
     "lng": 126.913326873311,
     "address": "전북특별자치도 익산시 웅포면 용골길 38-26",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240122/20240122094246277.jpg",
+    "image": "images/catalog/official-a-9748.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -9846,7 +9846,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3702521339628,
     "lng": 127.11168375536,
     "address": "전북특별자치도 순창군 순창읍 장류로 45-8",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251113/20251113092531485.jpg",
+    "image": "images/catalog/official-a-25840.webp",
     "tags": [
       "#순창",
       "#체험관광지",
@@ -9879,7 +9879,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0501928,
     "lng": 127.2081666,
     "address": "전북특별자치도 완주군 화산면 춘산리 산3-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240524/20240524171805482.jpg",
+    "image": "images/catalog/official-a-25339.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -9912,7 +9912,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6513791,
     "lng": 126.9429269,
     "address": "전북특별자치도 정읍시 태인면 태산로 2951 피향정",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240709/20240709111549645.jpg",
+    "image": "images/catalog/official-a-25361.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -9945,7 +9945,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8996881592702,
     "lng": 127.240038256295,
     "address": "전북특별자치도 완주군 소양면 송광수만로 429",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/migration/001007/144730996677688.jpg",
+    "image": "images/catalog/official-a-10048.webp",
     "tags": [
       "#완주",
       "#자연관광지",
@@ -9978,7 +9978,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.018107863256,
     "lng": 127.253750138075,
     "address": "전북특별자치도 완주군 경천면 오복대석길 45",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240926/20240926132621355.jpg",
+    "image": "images/catalog/official-a-10051.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -10011,7 +10011,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9704816519013,
     "lng": 127.201099290472,
     "address": "전북특별자치도 완주군 고산면 남봉로 75",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/migration/001007/144737764974579.jpg",
+    "image": "images/catalog/official-a-10052.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -10044,7 +10044,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8956318302859,
     "lng": 127.191304963591,
     "address": "전북특별자치도 완주군 용진읍 두억길 13-12",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/migration/001007/145007099452875.jpg",
+    "image": "images/catalog/official-a-10061.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -10077,7 +10077,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.81533,
     "lng": 127.1579892,
     "address": "전주시 완산구 전주천동로 24",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220726/20220726112103029.jpg",
+    "image": "images/catalog/official-a-24510.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -10110,7 +10110,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6418734,
     "lng": 126.5797572,
     "address": "전북특별자치도 부안군 변산면 중계리 산95-10",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240117/20240117161353515.jpg",
+    "image": "images/catalog/official-a-13473.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -10143,7 +10143,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9082,
     "lng": 127.3314,
     "address": "전북특별자치도 완주군 동상면 사봉리 연동마을",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251204/20251204155402234.jpg",
+    "image": "images/catalog/official-a-10038.webp",
     "tags": [
       "#완주",
       "#자연관광지",
@@ -10176,7 +10176,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9822893,
     "lng": 126.7078265,
     "address": "전북특별자치도 군산시 동국사길21 일제강점기 군산역사관",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250724/20250724134615188.jpg",
+    "image": "images/catalog/official-a-25500.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -10209,7 +10209,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.765428,
     "lng": 126.7278902,
     "address": "전북특별자치도 부안군 동진면 증산길 67-4",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240926/20240926110623195.jpg",
+    "image": "images/catalog/official-a-25272.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -10242,7 +10242,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8041684,
     "lng": 127.1386653,
     "address": "전북특별자치도 전주시 완산구 외칠봉1길 36 정혜사",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250819/20250819172507284.jpg",
+    "image": "images/catalog/official-a-25512.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -10275,7 +10275,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.662564,
     "lng": 126.64969610000003,
     "address": "전북특별자치도 부안군 상서면 개암로 248",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240117/20240117160608020.jpg",
+    "image": "images/catalog/official-a-13451.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -10308,7 +10308,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7258016255813,
     "lng": 126.741652022748,
     "address": "전북특별자치도 부안군 부안읍 별천지로 3",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112211602524.jpg",
+    "image": "images/catalog/official-a-25839.webp",
     "tags": [
       "#부안",
       "#자연관광지",
@@ -10341,7 +10341,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4368422,
     "lng": 126.65626429999998,
     "address": "전북특별자치도 고창군 고창읍 지동길 16-6",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220722/20220722154256710.jpg",
+    "image": "images/catalog/official-a-13722.webp",
     "tags": [
       "#고창",
       "#관광지",
@@ -10374,7 +10374,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.664005,
     "lng": 126.510475,
     "address": "전북특별자치도 부안군 변산면 노루목길 8-8",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250804/20250804133620091.jpg",
+    "image": "images/catalog/official-a-13483.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -10407,7 +10407,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0663003669818,
     "lng": 127.287233940752,
     "address": "전북특별자치도 완주군 경천면 화암사길 271",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/migration/001007/144730877708493.jpg",
+    "image": "images/catalog/official-a-10034.webp",
     "tags": [
       "#완주",
       "#자연관광지",
@@ -10440,7 +10440,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8866,
     "lng": 127.293,
     "address": "전북특별자치도 완주군 소양면 해월리 다리목마을 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/migration/001007/144731019465124.jpg",
+    "image": "images/catalog/official-a-10043.webp",
     "tags": [
       "#완주",
       "#자연관광지",
@@ -10473,7 +10473,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.945828,
     "lng": 126.990307,
     "address": "전북특별자치도 익산시 신흥동 산22-1 익신신흥근린공원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250903/20250903141240556.jpg",
+    "image": "images/catalog/official-a-25590.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -10506,7 +10506,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.960857,
     "lng": 126.522927,
     "address": "전북특별자치도 군산시 비응도동",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112105004257.jpg",
+    "image": "images/catalog/official-a-25819.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -10539,7 +10539,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8143573257916,
     "lng": 127.153084664656,
     "address": "전북특별자치도 전주시 완산구 태조로 15",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241122/20241122180557633.jpg",
+    "image": "images/catalog/official-a-106.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -10572,7 +10572,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8160844520555,
     "lng": 126.396087149509,
     "address": "전북특별자치도 군산시 옥도면 대장도리 산1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251216/20251216175451402.jpg",
+    "image": "images/catalog/official-a-25853.webp",
     "tags": [
       "#군산",
       "#자연관광지",
@@ -10605,7 +10605,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 완주군 운주면 완창리 790",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/migration/001007/144731582336724.jpg",
+    "image": "images/catalog/official-a-10047.webp",
     "tags": [
       "#완주",
       "#자연관광지",
@@ -10638,7 +10638,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9869726448865,
     "lng": 127.259542032894,
     "address": "전북특별자치도 완주군 고산면 대아저수로 392",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/migration/001007/144965173042956.jpg",
+    "image": "images/catalog/official-a-10053.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -10671,7 +10671,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4401463,
     "lng": 126.7328914,
     "address": "전북특별자치도 고창군 고창읍 월곡리 산117",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250722/20250722171648352.jpg",
+    "image": "images/catalog/official-a-25493.webp",
     "tags": [
       "#고창",
       "#관광지",
@@ -10704,7 +10704,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5915919505961,
     "lng": 126.489655862716,
     "address": "부안군 변산면 도청리",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251216/20251216175823879.jpg",
+    "image": "images/catalog/official-a-25854.webp",
     "tags": [
       "#부안",
       "#자연관광지",
@@ -10737,7 +10737,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6019534106148,
     "lng": 127.542479142251,
     "address": "전북특별자치도 장수군 장수읍 덕산리 772",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112180935816.jpg",
+    "image": "images/catalog/official-a-25823.webp",
     "tags": [
       "#장수",
       "#자연관광지",
@@ -10770,7 +10770,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9739610715526,
     "lng": 127.231535467574,
     "address": "전북특별자치도 완주군 고산면 고산휴양림로 89",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112165401534.jpg",
+    "image": "images/catalog/official-a-25825.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -10803,7 +10803,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5114562,
     "lng": 127.34313079999993,
     "address": "임실군 오수면 대정리 200",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251128/20251128181712750.jpg",
+    "image": "images/catalog/official-a-21013.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -10836,7 +10836,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6148118,
     "lng": 127.2865491,
     "address": "전북특별자치도 임실군 임실읍 호국로 1701",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241218/20241218105848637.jpg",
+    "image": "images/catalog/official-a-21014.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -10869,7 +10869,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.29,
     "lng": 127.14,
     "address": "전북특별자치도 임실군 삼계면 세심길 26",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251105/20251105150814246.jpg",
+    "image": "images/catalog/official-a-21091.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -10902,7 +10902,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0051469871243,
     "lng": 126.946295736563,
     "address": "전북특별자치도 익산시 황등면 황등7길 34 어스언더파크",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260427/20260427132458054.jpg",
+    "image": "images/catalog/official-a-25972.webp",
     "tags": [
       "#익산",
       "#전북카페",
@@ -10935,7 +10935,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.994737742588,
     "lng": 127.098240992888,
     "address": "전북특별자치도 익산시 왕궁면 호반로 71",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240926/20240926114148237.jpg",
+    "image": "images/catalog/official-a-25270.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -10968,7 +10968,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0381636,
     "lng": 127.1308572,
     "address": "전북특별자치도 완주군 비봉면 천호성지길 124",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251204/20251204174140121.jpg",
+    "image": "images/catalog/official-a-10050.webp",
     "tags": [
       "#완주",
       "#자연관광지",
@@ -11001,7 +11001,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6459,
     "lng": 127.1328,
     "address": "전북특별자치도 완주군 구이면 백여리",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240117/20240117113947423.jpg",
+    "image": "images/catalog/official-a-10039.webp",
     "tags": [
       "#완주",
       "#자연관광지",
@@ -11034,7 +11034,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9285148131109,
     "lng": 127.272109744324,
     "address": "전북특별자치도 완주군 동상면 송광수만로 1054-4",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/migration/001007/144731642586190.jpg",
+    "image": "images/catalog/official-a-10035.webp",
     "tags": [
       "#완주",
       "#자연관광지",
@@ -11067,7 +11067,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 김제시 백산면 하정리",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251105/20251105153042231.jpg",
+    "image": "images/catalog/official-a-25790.webp",
     "tags": [
       "#김제",
       "#자연생태관광지",
@@ -11100,7 +11100,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.32,
     "lng": 127.19,
     "address": "전북특별자치도 임실군 오수면 오수로 146",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251128/20251128180725962.jpg",
+    "image": "images/catalog/official-a-21019.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -11133,7 +11133,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.33,
     "lng": 127.09,
     "address": "전북특별자치도 임실군 강진면 강진방현길 65, 방현마을",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251128/20251128181238078.jpg",
+    "image": "images/catalog/official-a-21077.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -11166,7 +11166,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3888087,
     "lng": 127.46157130000006,
     "address": "전북특별자치도 남원시 주천면 호경리 16",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240118/20240118114753548.jpg",
+    "image": "images/catalog/official-a-23673.webp",
     "tags": [
       "#남원",
       "#계곡",
@@ -11199,7 +11199,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8214940836499,
     "lng": 126.457128718449,
     "address": "전북특별자치도 군산시 옥도면 신시도길 134-33",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205174108072.jpg",
+    "image": "images/catalog/official-a-25817.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -11232,7 +11232,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6017779,
     "lng": 126.98395099999993,
     "address": "전북특별자치도 정읍시 칠보면 원촌1길 44-12",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240125/20240125094901181.jpg",
+    "image": "images/catalog/official-a-14216.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -11265,7 +11265,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5950314,
     "lng": 126.61805260000006,
     "address": "전북특별자치도 부안군 진서면 청자로 1075",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240123/20240123162005152.jpg",
+    "image": "images/catalog/official-a-13508.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -11298,7 +11298,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8095467193849,
     "lng": 127.167702435711,
     "address": "전북특별자치도 전주시 완산구 낙수정2길 103-100",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251216/20251216180652287.jpg",
+    "image": "images/catalog/official-a-25855.webp",
     "tags": [
       "#전주",
       "#역사관광지",
@@ -11331,7 +11331,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7917975744536,
     "lng": 127.257996704375,
     "address": "전북특별자치도 완주군 상관면 만덕산길 461",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/migration/001007/144730989719551.jpg",
+    "image": "images/catalog/official-a-10032.webp",
     "tags": [
       "#완주",
       "#자연관광지",
@@ -11364,7 +11364,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9189,
     "lng": 127.2624,
     "address": "전북특별자치도 완주군 소양면 대흥리 산7",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220721/20220721175732284.png",
+    "image": "images/catalog/official-a-10044.webp",
     "tags": [
       "#완주",
       "#자연관광지",
@@ -11397,7 +11397,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 완주군 운주면 금당리 817",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/migration/001007/144731662255948.jpg",
+    "image": "images/catalog/official-a-10028.webp",
     "tags": [
       "#완주",
       "#자연관광지",
@@ -11430,7 +11430,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7725557685792,
     "lng": 127.417164244608,
     "address": "전북특별자치도 진안군 진안읍 단양리 490",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251219/20251219100037511.jpg",
+    "image": "images/catalog/official-a-25859.webp",
     "tags": [
       "#진안",
       "#자연관광지",
@@ -11463,7 +11463,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0971,
     "lng": 127.2965,
     "address": "전북특별자치도 완주군 운주면 산북리 862-4",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/migration/001007/144731517149045.jpg",
+    "image": "images/catalog/official-a-10040.webp",
     "tags": [
       "#완주",
       "#자연관광지",
@@ -11496,7 +11496,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9862140483371,
     "lng": 127.309596032227,
     "address": "전북특별자치도 완주군 동상면 대아수목로 246",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240117/20240117123524561.jpg",
+    "image": "images/catalog/official-a-10041.webp",
     "tags": [
       "#완주",
       "#자연관광지",
@@ -11529,7 +11529,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.35,
     "lng": 127.15,
     "address": "전북특별자치도 임실군 임실읍 임삼로 1590-20",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251127/20251127184159680.jpg",
+    "image": "images/catalog/official-a-21070.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -11562,7 +11562,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9037773,
     "lng": 127.23968109999998,
     "address": "전북특별자치도 완주군 소양면 대흥리",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250718/20250718173125508.jpg",
+    "image": "images/catalog/official-a-10045.webp",
     "tags": [
       "#완주",
       "#자연관광지",
@@ -11595,7 +11595,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5281188899255,
     "lng": 126.895059170559,
     "address": "전북특별자치도 정읍시 내장산로 370-10 1894달하루",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260305/20260305113133972.jpg",
+    "image": "images/catalog/official-a-25912.webp",
     "tags": [
       "#정읍",
       "#문화관광지",
@@ -11628,7 +11628,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.812184,
     "lng": 127.159077,
     "address": "전북특별자치도 전주시 완산구 전주천동로 20",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241122/20241122165406073.jpg",
+    "image": "images/catalog/official-a-20509.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -11661,7 +11661,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.32,
     "lng": 127.2,
     "address": "전북특별자치도 임실군 오수면 충효로 2096-16",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220810/20220810103449601.jpg",
+    "image": "images/catalog/official-a-21015.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -11694,7 +11694,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0116993,
     "lng": 127.0464513,
     "address": "전북특별자치도 익산시 금마면 신용리 541-3",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250626/20250626190232894.jpg",
+    "image": "images/catalog/official-a-25480.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -11727,7 +11727,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.540625,
     "lng": 126.87388,
     "address": "전북특별자치도 정읍시 송산1길 142-101",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112204916846.jpg",
+    "image": "images/catalog/official-a-13965.webp",
     "tags": [
       "#정읍",
       "#체험관광지",
@@ -11760,7 +11760,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.38,
     "lng": 127.22,
     "address": "전북특별자치도 임실군 성수면 성수산길 374",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241217/20241217175906385.jpg",
+    "image": "images/catalog/official-a-21006.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -11793,7 +11793,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.512268,
     "lng": 126.907448,
     "address": "전북특별자치도 정읍시 내장호반로 214",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205144956185.jpg",
+    "image": "images/catalog/official-a-13963.webp",
     "tags": [
       "#정읍",
       "#역사관광지",
@@ -11826,7 +11826,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.33,
     "lng": 127.21,
     "address": "전북특별자치도 임실군 지사면 방계3길 46",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251127/20251127192411634.jpg",
+    "image": "images/catalog/official-a-21058.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -11859,7 +11859,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.28,
     "lng": 127.16,
     "address": "전북특별자치도 임실군 삼계면 산수1길 64",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220630/20220630141333394.jpg",
+    "image": "images/catalog/official-a-20998.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -11892,7 +11892,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.45,
     "lng": 127.15,
     "address": "전북특별자치도 임실군 관촌면 상월로 889-19",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251127/20251127190830184.jpg",
+    "image": "images/catalog/official-a-21056.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -11925,7 +11925,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.36,
     "lng": 127.17,
     "address": "전북특별자치도 임실군 임실읍 중동로 57",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251127/20251127194627227.jpg",
+    "image": "images/catalog/official-a-21062.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -11958,7 +11958,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.35,
     "lng": 127.14,
     "address": "전북특별자치도 임실군 임실읍 신안1길 8-12",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251127/20251127195343050.jpg",
+    "image": "images/catalog/official-a-21026.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -11991,7 +11991,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.851052,
     "lng": 126.814978,
     "address": "전북특별자치도 김제시 만경읍 만경리 100",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251119/20251119133124230.jpg",
+    "image": "images/catalog/official-a-14357.webp",
     "tags": [
       "#김제",
       "#관광지",
@@ -12024,7 +12024,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5810285,
     "lng": 127.1809759,
     "address": "전북특별자치도 임실군 청웅면 두복리",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251127/20251127190340095.jpg",
+    "image": "images/catalog/official-a-21035.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -12057,7 +12057,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4,
     "lng": 127.16,
     "address": "전북특별자치도 임실군 관촌면 관진로 61-20",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241217/20241217163447408.jpg",
+    "image": "images/catalog/official-a-21046.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -12090,7 +12090,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8479959991276,
     "lng": 127.156494557997,
     "address": "전북특별자치도 전주시 덕진구 백제대로 807",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251105/20251105134250091.jpg",
+    "image": "images/catalog/official-a-25784.webp",
     "tags": [
       "#전주",
       "#문화관광지",
@@ -12123,7 +12123,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6068548,
     "lng": 127.2814756,
     "address": "전북특별자치도 임실군 임실읍 호국로 1632",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251127/20251127175348014.jpg",
+    "image": "images/catalog/official-a-21023.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -12156,7 +12156,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4324173968929,
     "lng": 126.705819770674,
     "address": "전북특별자치도 고창군 고창읍 동리로 128",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251127/20251127164354949.jpg",
+    "image": "images/catalog/official-a-25845.webp",
     "tags": [
       "#고창",
       "#관광지",
@@ -12189,7 +12189,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5018511745258,
     "lng": 127.537580967614,
     "address": "전북특별자치도 장수군 번암면 성암길 92",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112183019376.jpg",
+    "image": "images/catalog/official-a-25830.webp",
     "tags": [
       "#장수",
       "#역사관광지",
@@ -12222,7 +12222,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.37,
     "lng": 127.25,
     "address": "전북특별자치도 임실군 성수면 성수산길 658",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241218/20241218182506753.jpg",
+    "image": "images/catalog/official-a-21004.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -12255,7 +12255,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5453263,
     "lng": 127.3330391,
     "address": "전북특별자치도 임실군 오수면 충효로 2096-16",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251128/20251128174643081.jpg",
+    "image": "images/catalog/official-a-21053.webp",
     "tags": [
       "#임실",
       "#체육시설",
@@ -12288,7 +12288,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8164354000346,
     "lng": 127.152416544966,
     "address": "전북특별자치도 전주시 완산구 은행로 39",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251104/20251104164917939.jpg",
+    "image": "images/catalog/official-a-25780.webp",
     "tags": [
       "#전주",
       "#체험관광지",
@@ -12321,7 +12321,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6410862457561,
     "lng": 127.518203067481,
     "address": "전북특별자치도 장수군 장수읍 한누리로 393",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112182438470.jpg",
+    "image": "images/catalog/official-a-25827.webp",
     "tags": [
       "#장수",
       "#역사관광지",
@@ -12354,7 +12354,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5658024,
     "lng": 126.8479802,
     "address": "전북특별자치도 정읍시 시기동",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220819/20220819105245304.jpg",
+    "image": "images/catalog/official-a-13940.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -12387,7 +12387,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4048516680114,
     "lng": 127.38023302554,
     "address": "전북특별자치도 남원시 광한북로 20",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112184108838.jpg",
+    "image": "images/catalog/official-a-25832.webp",
     "tags": [
       "#남원",
       "#문화관광지",
@@ -12420,7 +12420,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.31,
     "lng": 127.19,
     "address": "전북특별자치도 임실군 오수면 오수8길 1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251127/20251127200704192.jpg",
+    "image": "images/catalog/official-a-21051.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -12453,7 +12453,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8229081,
     "lng": 126.4565513,
     "address": "전북특별자치도 군산시 옥도면 신시도리",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205175218688.jpg",
+    "image": "images/catalog/official-a-13812.webp",
     "tags": [
       "#군산",
       "#섬",
@@ -12486,7 +12486,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6374133,
     "lng": 127.4053533,
     "address": "전북특별자치도 임실군 성수면 성수산길 373",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241217/20241217155422113.jpg",
+    "image": "images/catalog/official-a-21003.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -12519,7 +12519,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.32,
     "lng": 127.11,
     "address": "전북특별자치도 임실군 강진면 호국로 420",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240116/20240116130128277.jpg",
+    "image": "images/catalog/official-a-21040.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -12552,7 +12552,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9887442766465,
     "lng": 127.261332551938,
     "address": "전북특별자치도 완주군 고산면 대아저수로 416",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112164846022.jpg",
+    "image": "images/catalog/official-a-25824.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -12585,7 +12585,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8495982,
     "lng": 127.1248558,
     "address": "전북특별자치도 전주시 덕진구 창포길 70 전주 야호맘껏숲놀이터",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250725/20250725164103255.jpg",
+    "image": "images/catalog/official-a-25505.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -12618,7 +12618,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7080788,
     "lng": 126.6543983,
     "address": "전북특별자치도 부안군 하서면 석상리 707-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/migration/001014/144542241994606.jpg",
+    "image": "images/catalog/official-a-13510.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -12651,7 +12651,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9101456,
     "lng": 127.25673499999994,
     "address": "전북특별자치도 완주군 소양면 위봉길 53",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112170531147.jpg",
+    "image": "images/catalog/official-a-10115.webp",
     "tags": [
       "#완주",
       "#사찰",
@@ -12684,7 +12684,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 덕진구 송천동1가 9-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251031/20251031142742314.jpg",
+    "image": "images/catalog/official-a-25753.webp",
     "tags": [
       "#전주",
       "#자연관광지",
@@ -12717,7 +12717,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.43,
     "lng": 127.17,
     "address": "전북특별자치도 진안군 성수면 관마로 836-57",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220630/20220630112108050.jpg",
+    "image": "images/catalog/official-a-21205.webp",
     "tags": [
       "#진안",
       "#관광지",
@@ -12750,7 +12750,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.547833,
     "lng": 126.862735,
     "address": "전북특별자치도 정읍시 정읍사로 498-9",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205133757892.jpg",
+    "image": "images/catalog/official-a-13986.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -12783,7 +12783,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6521994337712,
     "lng": 126.783239122895,
     "address": "전북특별자치도 정읍시 영원면 영원로 1049",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251105/20251105151941673.jpg",
+    "image": "images/catalog/official-a-13984.webp",
     "tags": [
       "#정읍",
       "#역사관광지",
@@ -12816,7 +12816,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0204412523738,
     "lng": 126.763317359638,
     "address": "전북특별자치도 군산시 성산면 성덕리 421-4",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205171704729.jpg",
+    "image": "images/catalog/official-a-25820.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -12849,7 +12849,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7715001,
     "lng": 127.43848550000007,
     "address": "전북특별자치도 진안군 진안읍 홍삼한방로 41",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20160113/20160113003653763.png",
+    "image": "images/catalog/official-a-14224.webp",
     "tags": [
       "#진안",
       "#관광지",
@@ -12882,7 +12882,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8593236,
     "lng": 127.1355896,
     "address": "전북특별자치도 전주시 덕진구 송천동1가 산1-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251031/20251031114553853.jpg",
+    "image": "images/catalog/official-a-25671.webp",
     "tags": [
       "#전주",
       "#자연관광지",
@@ -12915,7 +12915,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.47,
     "lng": 127.25,
     "address": "전북특별자치도 진안군 진안읍 향교길 13-6",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220714/20220714135817382.jpg",
+    "image": "images/catalog/official-a-21200.webp",
     "tags": [
       "#진안",
       "#관광지",
@@ -12948,7 +12948,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.719329296545,
     "lng": 127.035475748885,
     "address": "전북특별자치도 김제시 금산면 모악로 407",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251119/20251119132936282.jpg",
+    "image": "images/catalog/official-a-14261.webp",
     "tags": [
       "#김제",
       "#관광지",
@@ -12981,7 +12981,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9715614890419,
     "lng": 127.055808983224,
     "address": "전북특별자치도 익산시 왕궁면 궁성로 666",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251110/20251110171323003.jpg",
+    "image": "images/catalog/official-a-9717.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -13014,7 +13014,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8613337830333,
     "lng": 127.100948301234,
     "address": "전북특별자치도 전주시 덕진구 구렛들1길 46 팔복예술공장",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260319/20260319171210390.jpg",
+    "image": "images/catalog/official-a-25931.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -13047,7 +13047,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.606489,
     "lng": 127.109924,
     "address": "전북특별자치도 임실군 운암면 강운로 1239",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251104/20251104181845743.jpg",
+    "image": "images/catalog/official-a-25783.webp",
     "tags": [
       "#임실",
       "#이색체험",
@@ -13080,7 +13080,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4018262,
     "lng": 127.39142549999997,
     "address": "전북특별자치도 남원시 양림길 54",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205173755027.jpg",
+    "image": "images/catalog/official-a-20972.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -13113,7 +13113,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6204066,
     "lng": 126.48267209999995,
     "address": "전북특별자치도 부안군 변산면 격포로 309-64",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240117/20240117174756600.jpg",
+    "image": "images/catalog/official-a-13525.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -13146,7 +13146,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5509297,
     "lng": 126.8617092,
     "address": "전북특별자치도 정읍시 정읍사로 541",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250821/20250821134700606.jpg",
+    "image": "images/catalog/official-a-13947.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -13179,7 +13179,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8188966101263,
     "lng": 126.795314009042,
     "address": "전북특별자치도 김제시 성덕면 고현길 82-5",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205173025586.jpg",
+    "image": "images/catalog/official-a-25822.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -13212,7 +13212,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9063720282951,
     "lng": 127.158140926956,
     "address": "전북특별자치도 완주군 용진읍 완주로 456-19",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240117/20240117144325829.jpg",
+    "image": "images/catalog/official-a-24479.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -13245,7 +13245,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.34,
     "lng": 127.22,
     "address": "전북특별자치도 임실군 지사면 충효로 2643",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251128/20251128165247274.jpg",
+    "image": "images/catalog/official-a-21034.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -13278,7 +13278,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.34,
     "lng": 127.22,
     "address": "전북특별자치도 임실군 지사면 영천3길 33",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251128/20251128163733317.jpg",
+    "image": "images/catalog/official-a-21045.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -13311,7 +13311,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0176433,
     "lng": 127.05773350000004,
     "address": "전북특별자치도 익산시 금마면 신용리 산124-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251111/20251111092654922.jpg",
+    "image": "images/catalog/official-a-14274.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -13344,7 +13344,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.29,
     "lng": 127.08,
     "address": "전북특별자치도 임실군 덕치면 물우리",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220809/20220809114841598.jpg",
+    "image": "images/catalog/official-a-21082.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -13377,7 +13377,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8155941977451,
     "lng": 127.151819738859,
     "address": "전북특별자치도 전주시 완산구 경기전길 93",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251031/20251031180454777.jpg",
+    "image": "images/catalog/official-a-25779.webp",
     "tags": [
       "#전주",
       "#체험관광지",
@@ -13410,7 +13410,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.36,
     "lng": 127.16,
     "address": "전북특별자치도 임실군 임실읍 봉황7길 23",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220809/20220809135515344.jpg",
+    "image": "images/catalog/official-a-21028.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -13443,7 +13443,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9715614890419,
     "lng": 127.055808983224,
     "address": "전북특별자치도 익산시 왕궁면 궁성로 666",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112152049188.jpg",
+    "image": "images/catalog/official-a-9739.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -13476,7 +13476,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.29,
     "lng": 127.14,
     "address": "전북특별자치도 임실군 삼계면 세심길 76",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251202/20251202143330155.jpg",
+    "image": "images/catalog/official-a-21000.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -13509,7 +13509,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4006060956646,
     "lng": 127.381179826875,
     "address": "전북특별자치도 남원시 소리길 25 남원 요천",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260304/20260304144529908.jpg",
+    "image": "images/catalog/official-a-25911.webp",
     "tags": [
       "#남원",
       "#자연관광지",
@@ -13542,7 +13542,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 부안군 변산면 부안댐로 280-26",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112211325083.jpg",
+    "image": "images/catalog/official-a-25836.webp",
     "tags": [
       "#부안",
       "#자연관광지",
@@ -13575,7 +13575,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.962,
     "lng": 127.027,
     "address": "전북특별자치도 익산시 무왕로38길 111",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220721/20220721134102393.jpg",
+    "image": "images/catalog/official-a-9737.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -13608,7 +13608,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.365832633294,
     "lng": 127.108438673833,
     "address": "전북특별자치도 순창군 순창읍 민속마을길 55",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220623/20220623160641731.jpg",
+    "image": "images/catalog/official-a-13747.webp",
     "tags": [
       "#순창",
       "#관광지",
@@ -13641,7 +13641,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.55231612941,
     "lng": 126.8613896181,
     "address": "전북특별자치도 정읍시 시기4길 7",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251105/20251105145452478.jpg",
+    "image": "images/catalog/official-a-25786.webp",
     "tags": [
       "#정읍",
       "#문화관광지",
@@ -13674,7 +13674,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.675219,
     "lng": 127.275722,
     "address": "전북특별자치도 임실군 관촌면 사선2길 96",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251104/20251104174946425.jpg",
+    "image": "images/catalog/official-a-25782.webp",
     "tags": [
       "#임실",
       "#체험관광지",
@@ -13707,7 +13707,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8115780909667,
     "lng": 127.162637430842,
     "address": "전북특별자치도 전주시 완산구 바람쐬는길 21",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251104/20251104172724660.jpg",
+    "image": "images/catalog/official-a-25781.webp",
     "tags": [
       "#전주",
       "#체험관광지",
@@ -13740,7 +13740,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4601651,
     "lng": 127.4173188,
     "address": "전북특별자치도 남원시 보산로 228 남원자연휴양림",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250820/20250820144542898.jpg",
+    "image": "images/catalog/official-a-25513.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -13773,7 +13773,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9788804614293,
     "lng": 127.031455944198,
     "address": "전북특별자치도 익산시 쌍능길 65",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251111/20251111094431281.jpg",
+    "image": "images/catalog/official-a-9727.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -13806,7 +13806,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6896146911151,
     "lng": 127.038711526981,
     "address": "전북특별자치도 김제시 금산면 수류로 557-75",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251119/20251119133933995.jpg",
+    "image": "images/catalog/official-a-25293.webp",
     "tags": [
       "#김제",
       "#관광지",
@@ -13839,7 +13839,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7546240504971,
     "lng": 126.853104638705,
     "address": "전북특별자치도 김제시 부량면 벽골제로 442",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251119/20251119134244413.jpg",
+    "image": "images/catalog/official-a-14248.webp",
     "tags": [
       "#김제",
       "#관광지",
@@ -13872,7 +13872,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.974,
     "lng": 126.952,
     "address": "전북특별자치도 익산시 익산대로 501",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251111/20251111095131209.jpg",
+    "image": "images/catalog/official-a-9742.webp",
     "tags": [
       "#익산",
       "#문화관광지",
@@ -13905,7 +13905,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4238572,
     "lng": 126.707547,
     "address": "전북특별자치도 고창군 고창읍 노동리 365-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250723/20250723112245205.jpg",
+    "image": "images/catalog/official-a-25494.webp",
     "tags": [
       "#고창",
       "#관광지",
@@ -13938,7 +13938,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.39,
     "lng": 127.2,
     "address": "전북특별자치도 임실군 관촌면 운수리",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251202/20251202141953763.jpg",
+    "image": "images/catalog/official-a-21084.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -13971,7 +13971,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.43,
     "lng": 127.16,
     "address": "전북특별자치도 임실군 관촌면 신전4길 33",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251202/20251202135648931.jpg",
+    "image": "images/catalog/official-a-21059.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -14004,7 +14004,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9752239,
     "lng": 126.7236311,
     "address": "전북특별자치도 군산시 동흥남동 번영로 2 팔마예술공간",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250724/20250724143021748.jpg",
+    "image": "images/catalog/official-a-25501.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -14037,7 +14037,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8205463417058,
     "lng": 127.148217143505,
     "address": "전북특별자치도 전주시 완산구 현무1길 20",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260115/20260115133859373.jpg",
+    "image": "images/catalog/official-a-25862.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -14070,7 +14070,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9381102381438,
     "lng": 126.948006124024,
     "address": "전북특별자치도 익산시 중앙로 12-151",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240122/20240122093429571.jpg",
+    "image": "images/catalog/official-a-9744.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -14103,7 +14103,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9246599,
     "lng": 127.7595016,
     "address": "전북특별자치도 무주군 설천면 구천동로 1262-4",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240227/20240227172614750.jpg",
+    "image": "images/catalog/official-a-25271.webp",
     "tags": [
       "#무주",
       "#관광지",
@@ -14136,7 +14136,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6357304808396,
     "lng": 126.466982163466,
     "address": "전북특별자치도 부안군 변산면 변산해변로 116 변산반도 국립공원 생태탐방원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250725/20250725180452136.jpg",
+    "image": "images/catalog/official-a-25506.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -14169,7 +14169,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.633313,
     "lng": 127.151656,
     "address": "전북특별자치도 남원시 산내면 삼화길 28-33",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251105/20251105112113882.jpg",
+    "image": "images/catalog/official-a-25785.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -14202,7 +14202,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0081568,
     "lng": 127.66597460000003,
     "address": "전북특별자치도 무주군 무주읍 단천로 135",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251121/20251121150324915.jpg",
+    "image": "images/catalog/official-a-14235.webp",
     "tags": [
       "#무주",
       "#관광지",
@@ -14235,7 +14235,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.75462558,
     "lng": 126.8531043,
     "address": "전북특별자치도 김제시 부량면 신용리 119-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251029/20251029151631919.jpg",
+    "image": "images/catalog/official-a-14250.webp",
     "tags": [
       "#김제",
       "#관광지",
@@ -14268,7 +14268,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7888853,
     "lng": 127.4259502,
     "address": "전북특별자치도 진안군 진안읍 진무로 975 진안만남쉼터",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240419/20240419154715988.jpg",
+    "image": "images/catalog/official-a-25309.webp",
     "tags": [
       "#진안",
       "#관광지",
@@ -14301,7 +14301,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3907818,
     "lng": 127.4455969,
     "address": "전북특별자치도 남원시 주천면 외평2길 5",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240419/20240419153717037.jpg",
+    "image": "images/catalog/official-a-25308.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -14334,7 +14334,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5206773,
     "lng": 126.8975683,
     "address": "전북특별자치도 정읍시 내장호반로 37",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240119/20240119141358021.jpg",
+    "image": "images/catalog/official-a-13971.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -14367,7 +14367,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6851151498116,
     "lng": 127.047716126467,
     "address": "전북특별자치도 김제시 금산면 수류로 643",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251119/20251119133617670.jpg",
+    "image": "images/catalog/official-a-14268.webp",
     "tags": [
       "#김제",
       "#관광지",
@@ -14400,7 +14400,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 정읍시 쌍암동 404-2",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250903/20250903131821599.jpg",
+    "image": "images/catalog/official-a-25587.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -14433,7 +14433,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9160673615945,
     "lng": 127.487625040851,
     "address": "전북특별자치도 진안군 정천면 진용로 1911",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251105/20251105153642341.jpg",
+    "image": "images/catalog/official-a-14222.webp",
     "tags": [
       "#진안",
       "#문화관광지",
@@ -14466,7 +14466,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5389733,
     "lng": 127.3240908,
     "address": "전북특별자치도 임실군 오수면 대명리 715",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251202/20251202153523359.jpg",
+    "image": "images/catalog/official-a-21054.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -14499,7 +14499,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4217728408444,
     "lng": 127.385134586578,
     "address": "전북특별자치도 남원시 만인로 92",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260313/20260313115256919.jpg",
+    "image": "images/catalog/official-a-25833.webp",
     "tags": [
       "#남원",
       "#문화관광지",
@@ -14532,7 +14532,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.38,
     "lng": 127.22,
     "address": "전북특별자치도 임실군 성수리",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220808/20220808143350802.JPG",
+    "image": "images/catalog/official-a-21005.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -14565,7 +14565,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.95729920000001,
     "lng": 126.95113289999995,
     "address": "전북특별자치도 익산시 익산대로 21길 1-9",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241121/20241121161955787.jpg",
+    "image": "images/catalog/official-a-14245.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -14598,7 +14598,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5095175,
     "lng": 126.8999955,
     "address": "전북특별자치도 정읍시 내장호반로 226-44",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250821/20250821134215534.jpg",
+    "image": "images/catalog/official-a-13939.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -14631,7 +14631,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5303745,
     "lng": 127.0872133,
     "address": "전북특별자치도 정읍시 산내면 산호수길 204-70",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205143626250.jpg",
+    "image": "images/catalog/official-a-24528.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -14664,7 +14664,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.948361,
     "lng": 126.5919372,
     "address": "전북특별자치도 군산시 새만금북로 520 군산 새만금 어린이랜드",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250725/20250725161652090.jpg",
+    "image": "images/catalog/official-a-25504.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -14697,7 +14697,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.671147,
     "lng": 127.2778932,
     "address": "전북특별자치도 임실군 관촌면 덕천리 산36",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251202/20251202152205226.jpg",
+    "image": "images/catalog/official-a-21055.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -14730,7 +14730,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4042106309872,
     "lng": 127.382637166978,
     "address": "전북특별자치도 남원시 향단로 10",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112183345420.jpg",
+    "image": "images/catalog/official-a-25831.webp",
     "tags": [
       "#남원",
       "#문화관광지",
@@ -14763,7 +14763,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.32,
     "lng": 127.09,
     "address": "전북특별자치도 임실군 강진면 강운로 272",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241118/20241118171912562.jpg",
+    "image": "images/catalog/official-a-21080.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -14796,7 +14796,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8055418941919,
     "lng": 127.638084274033,
     "address": "전북특별자치도 장수군 계북면 양악길 119",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112182856789.jpg",
+    "image": "images/catalog/official-a-25829.webp",
     "tags": [
       "#장수",
       "#역사관광지",
@@ -14829,7 +14829,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8159351857254,
     "lng": 127.461426701272,
     "address": "전북특별자치도 진안군 진안읍 언건마을 (운산리 71-4)",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251105/20251105153859502.jpg",
+    "image": "images/catalog/official-a-25792.webp",
     "tags": [
       "#진안",
       "#자연생태관광지",
@@ -14862,7 +14862,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3984525349738,
     "lng": 127.383812349489,
     "address": "전북특별자치도 남원시 술미안길 14-19",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112182535897.jpg",
+    "image": "images/catalog/official-a-25828.webp",
     "tags": [
       "#남원",
       "#체험관광지",
@@ -14895,7 +14895,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9656807260367,
     "lng": 127.519168827253,
     "address": "전북특별자치도 진안군 용담면 송풍리 1875-152",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251105/20251105153403039.jpg",
+    "image": "images/catalog/official-a-25791.webp",
     "tags": [
       "#진안",
       "#자연생태관광지",
@@ -14928,7 +14928,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.512944761905,
     "lng": 126.840923766517,
     "address": "전북특별자치도 정읍시 정촌1길 23-85",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251105/20251105145904098.jpg",
+    "image": "images/catalog/official-a-25787.webp",
     "tags": [
       "#정읍",
       "#문화관광지",
@@ -14961,7 +14961,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8311233069776,
     "lng": 126.926204853684,
     "address": "전북특별자치도 김제시 상동로 166",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251120/20251120163357415.jpg",
+    "image": "images/catalog/official-a-25846.webp",
     "tags": [
       "#김제",
       "#체험관광지",
@@ -14994,7 +14994,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6562999,
     "lng": 127.51109020000001,
     "address": "전북특별자치도 장수군 장수읍 승마로 74",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220906/20220906103152824.jpg",
+    "image": "images/catalog/official-a-11471.webp",
     "tags": [
       "#장수",
       "#체험관광지",
@@ -15027,7 +15027,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5024444,
     "lng": 126.5862289,
     "address": "전북특별자치도 고창군 아사면 선운사로 158-5 선운미디어갤러리",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250801/20250801173008126.jpg",
+    "image": "images/catalog/official-a-25491.webp",
     "tags": [
       "#고창",
       "#관광지",
@@ -15060,7 +15060,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4384863,
     "lng": 126.706253,
     "address": "전북특별자치도 고창군 고창읍 교촌리 산 6-3",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250722/20250722110518920.jpg",
+    "image": "images/catalog/official-a-25490.webp",
     "tags": [
       "#고창",
       "#관광지",
@@ -15093,7 +15093,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3378156776687,
     "lng": 127.374553005652,
     "address": "전북특별자치도 남원시 수지면 내호곡2길 19",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112170147903.jpg",
+    "image": "images/catalog/official-a-25826.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -15126,7 +15126,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7455159849896,
     "lng": 127.047056311225,
     "address": "전북특별자치도 김제시 금산면 청도6길 40",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251119/20251119133438752.jpg",
+    "image": "images/catalog/official-a-14263.webp",
     "tags": [
       "#김제",
       "#관광지",
@@ -15159,7 +15159,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4938568,
     "lng": 126.61504500000001,
     "address": "전북 고창군 아산면 반암리 산16",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250801/20250801173746311.jpg",
+    "image": "images/catalog/official-a-13781.webp",
     "tags": [
       "#고창",
       "#관광지",
@@ -15192,7 +15192,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4800633,
     "lng": 126.8893395,
     "address": "전북특별자치도 정읍시 내장동 내장산",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205142830607.jpg",
+    "image": "images/catalog/official-a-13913.webp",
     "tags": [
       "#정읍",
       "#폭포",
@@ -15225,7 +15225,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4788907,
     "lng": 126.924961,
     "address": "전북특별자치도 순창군 복흥면 추령로 1777",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20160113/20160113194939486.jpg",
+    "image": "images/catalog/official-a-13931.webp",
     "tags": [
       "#순창",
       "#관광지",
@@ -15258,7 +15258,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5012729,
     "lng": 126.8527823,
     "address": "전북특별자치도 정읍시 내장산로 390",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250821/20250821132250787.jpg",
+    "image": "images/catalog/official-a-13970.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -15291,7 +15291,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9049284534764,
     "lng": 127.060639874957,
     "address": "전북특별자치도 완주군 삼례읍 후정리 162-6",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251219/20251219101616954.jpg",
+    "image": "images/catalog/official-a-25860.webp",
     "tags": [
       "#완주",
       "#자연관광지",
@@ -15324,7 +15324,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4,
     "lng": 127.13,
     "address": "전북특별자치도 임실군 신덕면 수지로 667",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251202/20251202145845867.jpg",
+    "image": "images/catalog/official-a-21036.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -15357,7 +15357,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.505827,
     "lng": 127.2307084,
     "address": "전북특별자치도 임실군 삼계면 학정2길 117-8",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251105/20251105145259109.jpg",
+    "image": "images/catalog/official-a-21001.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -15390,7 +15390,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9585016516352,
     "lng": 127.237013381425,
     "address": "전북특별자치도 완주군 고산면 고산휴양림로 283-10",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240117/20240117145810147.jpg",
+    "image": "images/catalog/official-a-25224.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -15423,7 +15423,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.003989,
     "lng": 127.6623006,
     "address": "전북특별자치도 무주군 무주읍 한풍루로 326-5",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251119/20251119154020887.jpg",
+    "image": "images/catalog/official-a-25362.webp",
     "tags": [
       "#무주",
       "#관광지",
@@ -15456,7 +15456,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7298869,
     "lng": 127.5899936,
     "address": "전북특별자치도 장수군 장계면 방천길 11",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251121/20251121132841254.jpg",
+    "image": "images/catalog/official-a-25252.webp",
     "tags": [
       "#장수",
       "#관광지",
@@ -15489,7 +15489,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.1340617,
     "lng": 126.9292742,
     "address": "전북특별자치도 익산시 용안면 난포리 313-13",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250327/20250327194413511.jpg",
+    "image": "images/catalog/official-a-25387.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -15522,7 +15522,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.40994,
     "lng": 127.2157,
     "address": "전북 순창군 적성면 적성로 338-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240926/20240926155603559.jpg",
+    "image": "images/catalog/official-a-25395.webp",
     "tags": [
       "#순창",
       "#관광지",
@@ -15555,7 +15555,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9715614890419,
     "lng": 127.055808983224,
     "address": "전북특별자치도 익산시 왕궁면 궁성로 666",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251110/20251110132719921.jpg",
+    "image": "images/catalog/official-a-25205.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -15588,7 +15588,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0019491,
     "lng": 127.0603364,
     "address": "전북특별자치 익산시 금마면 고도9길 41-14 서동공원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112145708907.jpg",
+    "image": "images/catalog/official-a-25360.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -15621,7 +15621,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7277106914281,
     "lng": 127.106934327953,
     "address": "전북특별자치도 완주군 구이면 모악산길 111-6",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241213/20241213150715997.jpg",
+    "image": "images/catalog/official-a-25203.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -15654,7 +15654,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8046754777546,
     "lng": 126.922953800618,
     "address": "전북특별자치도 김제시 백학로 75-59 휘게팜 해관",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240925/20240925180351660.jpg",
+    "image": "images/catalog/official-a-25400.webp",
     "tags": [
       "#김제",
       "#관광지",
@@ -15687,7 +15687,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.559872,
     "lng": 126.89775,
     "address": "전북특별자치도 정읍시 구량1길 188-29",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240125/20240125110611232.jpg",
+    "image": "images/catalog/official-a-24445.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -15720,7 +15720,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8033147823494,
     "lng": 127.030726638239,
     "address": "전북특별자치도 완주군 이서면 신지앵곡길 234",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251208/20251208105627296.jpg",
+    "image": "images/catalog/official-a-25218.webp",
     "tags": [
       "#완주",
       "#역사관광지",
@@ -15753,7 +15753,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.933298244352,
     "lng": 126.953304402662,
     "address": "전북특별자치도 익산시 중앙로4길 59",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251110/20251110111339609.jpg",
+    "image": "images/catalog/official-a-25217.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -15786,7 +15786,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4058869,
     "lng": 127.3907569,
     "address": "전북특별자치도 남원시 소리길 122-23",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205182309666.jpg",
+    "image": "images/catalog/official-a-25251.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -15819,7 +15819,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.800399032766,
     "lng": 126.879377301204,
     "address": "전북특별자치도 김제시 향교길 89-3",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251022/20251022134620330.jpg",
+    "image": "images/catalog/official-a-25234.webp",
     "tags": [
       "#김제",
       "#관광지",
@@ -15852,7 +15852,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6324737,
     "lng": 127.1464527,
     "address": "전북특별자치도 임실군 운암면 용운리 259-3",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241217/20241217111943757.jpg",
+    "image": "images/catalog/official-a-25216.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -15885,7 +15885,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.807131,
     "lng": 126.4100537,
     "address": "전북특별자치도 군산시 옥도면 선유도리 15",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205161934982.jpg",
+    "image": "images/catalog/official-a-25193.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -15918,7 +15918,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7194453641102,
     "lng": 127.10885129075,
     "address": "전북특별자치도 완주군 구이면 신전길 75-96",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240731/20240731130614227.jpg",
+    "image": "images/catalog/official-a-25192.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -15951,7 +15951,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8883047495928,
     "lng": 127.268005487556,
     "address": "전북특별자치도 완주군 소양면 원암로 348-15 드림뜰힐링팜",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240925/20240925182045440.jpg",
+    "image": "images/catalog/official-a-25401.webp",
     "tags": [
       "#완주",
       "#체험관광지",
@@ -15984,7 +15984,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3740658,
     "lng": 127.144799,
     "address": "전북특별자치도 순창군 순창읍 남계로 81 옥천골 미술관",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241106/20241106110244558.jpg",
+    "image": "images/catalog/official-a-25415.webp",
     "tags": [
       "#순창",
       "#관광지",
@@ -16017,7 +16017,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.367856,
     "lng": 127.1066194,
     "address": "전북특별자치도 순창군 순창읍 민속마을길 61-59",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240130/20240130134811757.jpg",
+    "image": "images/catalog/official-a-24477.webp",
     "tags": [
       "#순창",
       "#관광지",
@@ -16050,7 +16050,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9851992,
     "lng": 126.7258875,
     "address": "전북특별자치도 군산시 강변로 29",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240731/20240731101326009.jpeg",
+    "image": "images/catalog/official-a-25363.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -16083,7 +16083,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.51694762064654,
     "lng": 126.4828305211181,
     "address": "전북특별자치도 고창군 해리면 동호리",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250801/20250801173326234.jpg",
+    "image": "images/catalog/official-a-24336.webp",
     "tags": [
       "#고창",
       "#관광지",
@@ -16116,7 +16116,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.852564,
     "lng": 127.4298642,
     "address": "전북특별자치도 진안군 부귀면 귀상로 792-25",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240731/20240731101926338.jpeg",
+    "image": "images/catalog/official-a-25365.webp",
     "tags": [
       "#진안",
       "#관광지",
@@ -16149,7 +16149,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.830796,
     "lng": 127.0562339,
     "address": "전북특별자치도 전주시 덕진구 농생명로 300",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20231024/20231024182610155.jpg",
+    "image": "images/catalog/official-a-25245.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -16182,7 +16182,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7574633528894,
     "lng": 126.78011661277,
     "address": "전북특별자치도 김제시 죽산면 월죽로 8",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241111/20241111141454936.jpg",
+    "image": "images/catalog/official-a-25416.webp",
     "tags": [
       "#김제",
       "#관광지",
@@ -16215,7 +16215,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6321889,
     "lng": 126.5132937,
     "address": "전북특별자치도 부안군 변산면 참뽕로 434-20",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240118/20240118124551552.jpg",
+    "image": "images/catalog/official-a-25231.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -16248,7 +16248,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9387941733078,
     "lng": 126.948172687571,
     "address": "전북특별자치도 익산시 중앙로 12-39",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251110/20251110151237931.jpg",
+    "image": "images/catalog/official-a-25371.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -16281,7 +16281,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4036599,
     "lng": 127.3773427,
     "address": "전북특별자치도 남원시 검멀1길 14",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205181557647.jpg",
+    "image": "images/catalog/official-a-25254.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -16314,7 +16314,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9142751966214,
     "lng": 126.933078978146,
     "address": "전북특별자치도 김제시 백구면 번영로 2055 만경강문화관",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251110/20251110110215156.jpg",
+    "image": "images/catalog/official-a-25255.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -16347,7 +16347,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6024974,
     "lng": 127.6056447,
     "address": "전북특별자치도 장수군 번암면 지지리 438-3",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240621/20240621180341142.jpg",
+    "image": "images/catalog/official-a-25345.webp",
     "tags": [
       "#장수",
       "#관광지",
@@ -16380,7 +16380,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.855657,
     "lng": 127.1281106,
     "address": "전북특별자치도 전주시 덕진구 조경단로 258-18",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250306/20250306144951752.jpg",
+    "image": "images/catalog/official-a-25244.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -16413,7 +16413,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.509732,
     "lng": 126.8921198,
     "address": "전북특별자치도 정읍시 송죽길 25",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250520/20250520111711238.jpg",
+    "image": "images/catalog/official-a-25373.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -16446,7 +16446,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9680196207523,
     "lng": 126.962211008793,
     "address": "전북특별자치도 익산시 인북로 455-30 원광대 자연식물",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240926/20240926131135743.jpg",
+    "image": "images/catalog/official-a-25402.webp",
     "tags": [
       "#익산",
       "#자연관광지",
@@ -16479,7 +16479,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.52291,
     "lng": 127.01661,
     "address": "전라북도 순창군 쌍치면 청정로 558-10",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240926/20240926160012667.jpg",
+    "image": "images/catalog/official-a-25396.webp",
     "tags": [
       "#순창",
       "#관광지",
@@ -16512,7 +16512,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6574874,
     "lng": 126.6150517,
     "address": "전북특별자치도 부안군 상서면 노적길 25",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240118/20240118124147078.jpg",
+    "image": "images/catalog/official-a-25184.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -16545,7 +16545,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4579134,
     "lng": 127.4350039,
     "address": "전북특별자치도 남원시 요천로 2272",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240423/20240423095408328.jpg",
+    "image": "images/catalog/official-a-25320.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -16578,7 +16578,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3677822,
     "lng": 127.1115888,
     "address": "전북특별자치도 순창군 순창읍 장류로 55",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240513/20240513181814693.jpg",
+    "image": "images/catalog/official-a-25327.webp",
     "tags": [
       "#순창",
       "#관광지",
@@ -16611,7 +16611,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.339065,
     "lng": 127.1918556,
     "address": "전북특별자치도 순창군 풍산면 향가로 575",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240625/20240625104029642.jpg",
+    "image": "images/catalog/official-a-25346.webp",
     "tags": [
       "#순창",
       "#관광지",
@@ -16644,7 +16644,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6915878,
     "lng": 127.6250921,
     "address": "전북특별자치도 장수군 장계면 의암로 632-77",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251121/20251121135149848.jpg",
+    "image": "images/catalog/official-a-25347.webp",
     "tags": [
       "#장수",
       "#관광지",
@@ -16677,7 +16677,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4287446,
     "lng": 127.3819646,
     "address": "전북특별자치도 남원시 용정동 332-3 남원 신생마을 핑크뮬리",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205180607404.jpg",
+    "image": "images/catalog/official-a-25386.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -16710,7 +16710,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8029171,
     "lng": 127.1560196,
     "address": "전북특별자치도 전주시 완산구 동서학동 산 153-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241011/20241011130425430.jpg",
+    "image": "images/catalog/official-a-24009.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -16743,7 +16743,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0238127,
     "lng": 127.6701457,
     "address": "전북특별자치도 무주군 무주읍 무학로 153-36",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240118/20240118094041556.jpg",
+    "image": "images/catalog/official-a-25191.webp",
     "tags": [
       "#무주",
       "#관광지",
@@ -16776,7 +16776,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.768516,
     "lng": 127.361722,
     "address": "전북특별자치도 진안군 진안읍 전진로 3071-25",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250430/20250430184444905.jpg",
+    "image": "images/catalog/official-a-24481.webp",
     "tags": [
       "#진안",
       "#관광지",
@@ -16809,7 +16809,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.77630518919008,
     "lng": 127.41677337937023,
     "address": "전북특별자치도 진안군 진안읍 외사양길 16-19",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240203/20240203231331806.jpg",
+    "image": "images/catalog/official-a-24467.webp",
     "tags": [
       "#진안",
       "#관광지",
@@ -16842,7 +16842,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6764046,
     "lng": 127.592464,
     "address": "전북특별자치도 장수군 계남면 장안산로 317",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251121/20251121133851502.jpg",
+    "image": "images/catalog/official-a-25202.webp",
     "tags": [
       "#장수",
       "#관광지",
@@ -16875,7 +16875,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8404098,
     "lng": 127.0654366,
     "address": "전북특별자치도 전주시 덕진구 장동 1094",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240731/20240731145317660.jpg",
+    "image": "images/catalog/official-a-25372.webp",
     "tags": [
       "#전주",
       "#자연관광지",
@@ -16908,7 +16908,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9035685531615,
     "lng": 127.244688096685,
     "address": "전북특별자치도 완주군 소양면 송광수만로 516-7",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240320/20240320165602487.jpg",
+    "image": "images/catalog/official-a-25283.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -16941,7 +16941,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9215798,
     "lng": 127.1627542,
     "address": "전북특별자치도 완주군 봉동읍 신성리 1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241011/20241011111807145.jpg",
+    "image": "images/catalog/official-a-25405.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -16974,7 +16974,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.98657054020922,
     "lng": 126.70486943338237,
     "address": "전북특별자치도 군산시 신흥동 34-5",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112183503748.jpg",
+    "image": "images/catalog/official-a-24470.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -17007,7 +17007,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6828108,
     "lng": 126.5315907,
     "address": "전북특별자치도 부안군 변산면 변산로 2100",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240118/20240118125055921.jpg",
+    "image": "images/catalog/official-a-25232.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -17040,7 +17040,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.38137785458655,
     "lng": 127.44902491310916,
     "address": "전북특별자치도 남원시 주천면 외용궁길 38",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240119/20240119173324486.jpg",
+    "image": "images/catalog/official-a-24476.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -17073,7 +17073,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8549310574381,
     "lng": 127.295138451622,
     "address": "전북특별자치도 완주군 소양면 보검길 18",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/migration/001007/145007081073983.jpg",
+    "image": "images/catalog/official-a-10058.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -17106,7 +17106,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.404709,
     "lng": 127.378651,
     "address": "남원시 광한북로 17",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251127/20251127163546289.jpg",
+    "image": "images/catalog/official-a-24414.webp",
     "tags": [
       "#남원",
       "#전통체험",
@@ -17139,7 +17139,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.95,
     "lng": 126.986,
     "address": "전북특별자치도 익산시 하나로 322",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251110/20251110164646491.jpg",
+    "image": "images/catalog/official-a-9778.webp",
     "tags": [
       "#익산",
       "#체육시설",
@@ -17172,7 +17172,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4650818,
     "lng": 127.2498087,
     "address": "전북특별자치도 순창군 동계면 신흥리 산51 외1필지",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/migration/001012/145067268270509.jpg",
+    "image": "images/catalog/official-a-11740.webp",
     "tags": [
       "#순창",
       "#관광지",
@@ -17205,7 +17205,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5242264,
     "lng": 127.0127093,
     "address": "전북특별자치도 순창군 쌍치면 피노길 65-29",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112195025092.jpg",
+    "image": "images/catalog/official-a-11720.webp",
     "tags": [
       "#순창",
       "#관광지",
@@ -17238,7 +17238,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.952125,
     "lng": 126.987849,
     "address": "전북특별자치도 익산시 동서로 490",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251106/20251106135140011.jpg",
+    "image": "images/catalog/official-a-25808.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -17271,7 +17271,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4423737,
     "lng": 127.2019798,
     "address": "전북특별자치도 순창군 적성면 석산리 산138-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112203000963.jpg",
+    "image": "images/catalog/official-a-11723.webp",
     "tags": [
       "#순창",
       "#자연관광지",
@@ -17304,7 +17304,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.061,
     "lng": 126.911,
     "address": "전북특별자치도 익산시 함라면 수동길 8",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251110/20251110112204726.jpg",
+    "image": "images/catalog/official-a-9828.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -17337,7 +17337,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.974,
     "lng": 126.952,
     "address": "전북특별자치도 익산시 익산대로 501",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112114444648.jpg",
+    "image": "images/catalog/official-a-9755.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -17370,7 +17370,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.939,
     "lng": 126.968,
     "address": "전북특별자치도 익산시 선화1로 106",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112134733417.jpg",
+    "image": "images/catalog/official-a-9783.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -17403,7 +17403,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6173675,
     "lng": 127.01991550000002,
     "address": "전북특별자치도 정읍시 산외면 공동길 72-10",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220714/20220714133010637.jpg",
+    "image": "images/catalog/official-a-24335.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -17436,7 +17436,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.903,
     "lng": 127.005,
     "address": "전북특별자치도 익산시 춘포면 춘포1길 17",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240123/20240123091551790.jpg",
+    "image": "images/catalog/official-a-9750.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -17469,7 +17469,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9351359392294,
     "lng": 126.946735983942,
     "address": "전북특별자치도 익산시 평동로1길 28-4",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112132241859.jpg",
+    "image": "images/catalog/official-a-9749.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -17502,7 +17502,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8336,
     "lng": 127.1444,
     "address": "전북특별자치도 전주시 덕진구 모래내4길 8-8",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240112/20240112113412737.jpg",
+    "image": "images/catalog/official-a-24494.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -17535,7 +17535,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.032,
     "lng": 127.019,
     "address": "전북특별자치도 익산시 삼기면 죽청길 46-60",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112150017874.jpg",
+    "image": "images/catalog/official-a-9814.webp",
     "tags": [
       "#익산",
       "#자연생태관광지",
@@ -17568,7 +17568,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9934221,
     "lng": 127.1021949,
     "address": "전북특별자치도 익산시 왕궁면 호반로 30-21",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251110/20251110170631902.jpg",
+    "image": "images/catalog/official-a-9767.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -17601,7 +17601,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.997,
     "lng": 127.049,
     "address": "전북특별자치도 익산시 금마면 아리랑로 9-34",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251111/20251111175603163.jpg",
+    "image": "images/catalog/official-a-9834.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -17634,7 +17634,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.1067584579776,
     "lng": 127.337074626893,
     "address": "전북특별자치도 완주군 운주면 대둔산로 2100-24",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240322/20240322172654058.jpg",
+    "image": "images/catalog/official-a-25294.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -17667,7 +17667,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6034479,
     "lng": 127.3789809,
     "address": "전북특별자치도 장수군 산서면 초장길 51-54",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20221005/20221005111236453.jpg",
+    "image": "images/catalog/official-a-11512.webp",
     "tags": [
       "#장수",
       "#관광지",
@@ -17700,7 +17700,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7520602,
     "lng": 127.60381440000003,
     "address": "전북특별자치도 장수군 장계면 장무로 492-83",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251204/20251204180850727.jpg",
+    "image": "images/catalog/official-a-11510.webp",
     "tags": [
       "#장수",
       "#관광지",
@@ -17733,7 +17733,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.035484,
     "lng": 127.084455,
     "address": "전북특별자치도 익산시 여산면 가람1길 76",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251106/20251106140103501.jpg",
+    "image": "images/catalog/official-a-25809.webp",
     "tags": [
       "#익산",
       "#문화관광지",
@@ -17766,7 +17766,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.469734,
     "lng": 127.1903663,
     "address": "전북특별자치도 순창군 동계면 장군목길 686-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220824/20220824175927772.jpg",
+    "image": "images/catalog/official-a-11768.webp",
     "tags": [
       "#순창",
       "#관광지",
@@ -17799,7 +17799,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.67654,
     "lng": 127.59296,
     "address": "전북특별자치도 장수군 계남면 장안산로 315-5",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251204/20251204185454216.jpg",
+    "image": "images/catalog/official-a-11457.webp",
     "tags": [
       "#장수",
       "#관광지",
@@ -17832,7 +17832,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.056,
     "lng": 127.083,
     "address": "전북특별자치도 익산시 여산면 서촌1길 34-3",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112102746906.jpg",
+    "image": "images/catalog/official-a-9821.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -17865,7 +17865,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9967271872208,
     "lng": 127.058389051352,
     "address": "전북특별자치도 익산시 금마면 고도7길 11-3",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251110/20251110104825410.jpg",
+    "image": "images/catalog/official-a-9766.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -17898,7 +17898,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.082,
     "lng": 126.908,
     "address": "전북특별자치도 익산시 웅포면 백제로 475-10",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112113220640.jpg",
+    "image": "images/catalog/official-a-9765.webp",
     "tags": [
       "#익산",
       "#체육시설",
@@ -17931,7 +17931,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.96,
     "lng": 126.94,
     "address": "전북특별자치도 익산시 동서로 21",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112112530514.jpg",
+    "image": "images/catalog/official-a-9776.webp",
     "tags": [
       "#익산",
       "#체육공원",
@@ -17964,7 +17964,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.043,
     "lng": 127.118,
     "address": "전북특별자치도 익산시 여산면 천호산길 140",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112102608491.jpg",
+    "image": "images/catalog/official-a-9825.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -17997,7 +17997,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 군산시 회현면 세장리 산143",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250520/20250520114800602.jpg",
+    "image": "images/catalog/official-a-24530.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -18030,7 +18030,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4601672,
     "lng": 127.56843879999997,
     "address": "전북특별자치도 남원시 운봉읍 비전길 69",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205172408656.jpg",
+    "image": "images/catalog/official-a-20977.webp",
     "tags": [
       "#남원",
       "#문화관광지",
@@ -18063,7 +18063,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.837,
     "lng": 127.72,
     "address": "전북특별자치도 무주군 안성면 용추길 17",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251119/20251119173054999.jpg",
+    "image": "images/catalog/official-a-23206.webp",
     "tags": [
       "#무주",
       "#관광지",
@@ -18096,7 +18096,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9337775290841,
     "lng": 126.976866989009,
     "address": "전북특별자치도 익산시 하나로3길 52",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251110/20251110134549703.jpg",
+    "image": "images/catalog/official-a-9773.webp",
     "tags": [
       "#익산",
       "#체육공원",
@@ -18129,7 +18129,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3734718,
     "lng": 127.1343916,
     "address": "전북특별자치도 순창군 순창읍 교성1길 13",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/migration/001012/145005407755535.jpg",
+    "image": "images/catalog/official-a-11742.webp",
     "tags": [
       "#순창",
       "#관광지",
@@ -18162,7 +18162,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0085406024479,
     "lng": 127.014803342207,
     "address": "전북특별자치도 익산시 금마면 황금로 818-19",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240125/20240125091203402.png",
+    "image": "images/catalog/official-a-9763.webp",
     "tags": [
       "#익산",
       "#체육공원",
@@ -18195,7 +18195,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.122,
     "lng": 126.954,
     "address": "전북특별자치도 익산시 용안면 용안교동1길 34-11",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251110/20251110110738844.jpg",
+    "image": "images/catalog/official-a-9820.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -18228,7 +18228,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.968,
     "lng": 127.559,
     "address": "전북특별자치도 무주군 부남면",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251121/20251121132559398.jpg",
+    "image": "images/catalog/official-a-23195.webp",
     "tags": [
       "#무주",
       "#관광지",
@@ -18261,7 +18261,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4480289,
     "lng": 126.6682639,
     "address": "전북특별자치도 고창 고창읍 죽림리 당촌 86-16",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/migration/001013/139330234060853.jpg",
+    "image": "images/catalog/official-a-12620.webp",
     "tags": [
       "#고창",
       "#관광지",
@@ -18294,7 +18294,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 장수군 계북면 토옥동로 321",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251121/20251121111613323.jpg",
+    "image": "images/catalog/official-a-11443.webp",
     "tags": [
       "#장수",
       "#계곡",
@@ -18327,7 +18327,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0030332616938,
     "lng": 127.665316364221,
     "address": "전북특별자치도 무주군 무주읍 최북로 15",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251107/20251107173212046.jpg",
+    "image": "images/catalog/official-a-25812.webp",
     "tags": [
       "#무주",
       "#문화관광지",
@@ -18360,7 +18360,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.059,
     "lng": 127.086,
     "address": "전북특별자치도 익산시 여산면 동헌길 13",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251111/20251111171953209.jpg",
+    "image": "images/catalog/official-a-9774.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -18393,7 +18393,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8140579,
     "lng": 127.1573912,
     "address": "전북특별자치도 전주시 완산구 교동 50-158",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251105/20251105145043549.jpg",
+    "image": "images/catalog/official-a-24525.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -18426,7 +18426,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7658999,
     "lng": 127.4149921,
     "address": "전북특별자치도 진안군 진안읍 마이산로 258",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240203/20240203232107116.jpg",
+    "image": "images/catalog/official-a-24503.webp",
     "tags": [
       "#진안",
       "#관광지",
@@ -18459,7 +18459,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8108897,
     "lng": 127.1723041,
     "address": "전북특별자치도 전주시 완산구 대성동 산25",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112164320843.jpg",
+    "image": "images/catalog/official-a-24007.webp",
     "tags": [
       "#전주",
       "#체험관광지",
@@ -18492,7 +18492,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5075,
     "lng": 127.05278,
     "address": "전북특별자치도 장수군 천천면 신광길 31",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251204/20251204153447060.jpg",
+    "image": "images/catalog/official-a-11514.webp",
     "tags": [
       "#장수",
       "#관광지",
@@ -18525,7 +18525,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6770634,
     "lng": 127.47635919999993,
     "address": "전북특별자치도 장수군 천천면 비룡로 632",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251204/20251204182547548.jpg",
+    "image": "images/catalog/official-a-11429.webp",
     "tags": [
       "#장수",
       "#관광지",
@@ -18558,7 +18558,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.79059,
     "lng": 127.54269,
     "address": "전북특별자치도 장수군 천천면 천천북로 554",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240119/20240119132036987.jpg",
+    "image": "images/catalog/official-a-11476.webp",
     "tags": [
       "#장수",
       "#관광지",
@@ -18591,7 +18591,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8242,
     "lng": 127.1435,
     "address": "전북특별자치도 전주시 완산구 서노송동 763-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220623/20220623173433418.jpg",
+    "image": "images/catalog/official-a-24492.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -18624,7 +18624,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.038,
     "lng": 127.036,
     "address": "전북특별자치도 익산시 낭산면 장암길 113",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251111/20251111174542664.jpg",
+    "image": "images/catalog/official-a-9827.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -18657,7 +18657,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9689293733234,
     "lng": 127.155405581394,
     "address": "전북특별자치도 완주군 봉동읍 추동로 231",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/migration/001007/144738377367855.jpg",
+    "image": "images/catalog/official-a-10117.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -18690,7 +18690,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.95333787607174,
     "lng": 126.8675324311559,
     "address": "전북특별자치도 군산시 임피면 서원석곡로 2-5",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240115/20240115160031348.jpg",
+    "image": "images/catalog/official-a-9083.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -18723,7 +18723,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.989983,
     "lng": 126.71283,
     "address": "전북특별자치도 군산시 해망로 230",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240115/20240115123647281.jpg",
+    "image": "images/catalog/official-a-9070.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -18756,7 +18756,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.029327,
     "lng": 127.235966,
     "address": "전북특별자치도 완주군 화산면 성북리 농업기반공사 전북지부 경천저수지 관리사무소",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/migration/001007/144731330122064.jpg",
+    "image": "images/catalog/official-a-10298.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -18789,7 +18789,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7203554,
     "lng": 127.1430844,
     "address": "전북특별자치도 임실군 신덕면 신덕리 산153",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260320/20260320104843161.jpg",
+    "image": "images/catalog/official-a-10297.webp",
     "tags": [
       "#완주",
       "#자연관광지",
@@ -18822,7 +18822,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6754781,
     "lng": 126.56445039999994,
     "address": "전북특별자치도 부안군 변산면 부안댐로 280-26",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220623/20220623170323414.jpg",
+    "image": "images/catalog/official-a-13524.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -18855,7 +18855,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8083,
     "lng": 127.2717,
     "address": "전북특별자치도 완주군 소양면 신촌리 산18-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241216/20241216135715425.jpg",
+    "image": "images/catalog/official-a-10097.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -18888,7 +18888,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9901146,
     "lng": 126.7125324,
     "address": "전북특별자치도 군산시 해망로 232",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240115/20240115125722381.jpg",
+    "image": "images/catalog/official-a-9072.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -18921,7 +18921,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8938731422268,
     "lng": 126.804889975759,
     "address": "전북특별자치도 김제시 만경읍 토정길 216",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251105/20251105152543444.jpg",
+    "image": "images/catalog/official-a-25789.webp",
     "tags": [
       "#김제",
       "#자연생태관광지",
@@ -18954,7 +18954,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7174594284243,
     "lng": 126.833500850046,
     "address": "전북특별자치도 정읍시 신태인읍 화호2길 16",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251105/20251105151654211.jpg",
+    "image": "images/catalog/official-a-25788.webp",
     "tags": [
       "#정읍",
       "#역사관광지",
@@ -18987,7 +18987,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8006167478704,
     "lng": 126.882440579853,
     "address": "전북특별자치도 김제시 동헌4길 46-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241119/20241119093553029.jpg",
+    "image": "images/catalog/official-a-14247.webp",
     "tags": [
       "#김제",
       "#관광지",
@@ -19020,7 +19020,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8815245117445,
     "lng": 127.292409353316,
     "address": "전북특별자치도 완주군 소양면 원등산길 386",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/migration/001007/144738331669165.jpg",
+    "image": "images/catalog/official-a-10114.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -19053,7 +19053,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.1084,
     "lng": 127.303,
     "address": "전북특별자치도 완주군 운주면 안심길 372",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251121/20251121105953353.jpg",
+    "image": "images/catalog/official-a-10113.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -19086,7 +19086,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9087528399834,
     "lng": 127.219134105944,
     "address": "전북특별자치도 완주군 용진읍 봉서안길 313",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/migration/001007/144738318823560.jpg",
+    "image": "images/catalog/official-a-10111.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -19119,7 +19119,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7325327902906,
     "lng": 127.09579165083,
     "address": "전북특별자치도 완주군 구이면 모악산길 243",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241216/20241216143259509.jpg",
+    "image": "images/catalog/official-a-10110.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -19152,7 +19152,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4969385,
     "lng": 126.57822550000003,
     "address": "전북특별자치도 고창군 아산면 선운사로 250",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241016/20241016173124258.jpg",
+    "image": "images/catalog/official-a-12811.webp",
     "tags": [
       "#고창",
       "#관광지",
@@ -19185,7 +19185,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9105767163674,
     "lng": 127.25728322802,
     "address": "전북특별자치도 완주군 소양면 위봉길 53",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250718/20250718170625561.jpg",
+    "image": "images/catalog/official-a-10100.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -19218,7 +19218,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6971014,
     "lng": 126.55917720000002,
     "address": "전북특별자치도 부안군 변산면 새만금로 6",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260313/20260313114053332.jpg",
+    "image": "images/catalog/official-a-13693.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -19251,7 +19251,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.49,
     "lng": 127.3,
     "address": "전북특별자치도 진안군 진안읍 진성로 838-31",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220714/20220714134640243.jpg",
+    "image": "images/catalog/official-a-21188.webp",
     "tags": [
       "#진안",
       "#관광지",
@@ -19284,7 +19284,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5533905,
     "lng": 127.0179672,
     "address": "전북특별자치도 정읍시 충정로 214-3",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240125/20240125144651041.jpg",
+    "image": "images/catalog/official-a-13949.webp",
     "tags": [
       "#정읍",
       "#관광지",
@@ -19317,7 +19317,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7725298,
     "lng": 127.41716109999993,
     "address": "전북특별자치도 진안군 진안읍 내사양길 7",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240203/20240203221306863.jpg",
+    "image": "images/catalog/official-a-14225.webp",
     "tags": [
       "#진안",
       "#관광지",
@@ -19350,7 +19350,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.36,
     "lng": 127.17,
     "address": "전북특별자치도 임실군 임실읍 호국로 1640",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220708/20220708095044551.jpg",
+    "image": "images/catalog/official-a-21064.webp",
     "tags": [
       "#임실",
       "#체육공원",
@@ -19383,7 +19383,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8947554,
     "lng": 127.42575409999995,
     "address": "전북특별자치도 진안군 정천면 휴양림길 77",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251105/20251105154006836.jpg",
+    "image": "images/catalog/official-a-21194.webp",
     "tags": [
       "#진안",
       "#관광지",
@@ -19416,7 +19416,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3,
     "lng": 127.19,
     "address": "전북특별자치도 임실군 오수면 둔덕2길 55",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251128/20251128171711412.jpg",
+    "image": "images/catalog/official-a-21063.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -19449,7 +19449,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9843467,
     "lng": 127.31425609999997,
     "address": "전북특별자치도 완주군 동상면 대아수목로 94-34",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112182256757.jpg",
+    "image": "images/catalog/official-a-14252.webp",
     "tags": [
       "#완주",
       "#자연생태관광지",
@@ -19482,7 +19482,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3,
     "lng": 127.17,
     "address": "전북특별자치도 임실군 삼계면 삼은2길 22-31",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/migration/001011/p1317968458350-1.JPG",
+    "image": "images/catalog/official-a-20999.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -19515,7 +19515,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.37,
     "lng": 127.16,
     "address": "전북특별자치도 임실군 오수면 오수리 산3",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220708/20220708095951716.jpg",
+    "image": "images/catalog/official-a-21033.webp",
     "tags": [
       "#임실",
       "#관광지",
@@ -19548,7 +19548,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0663003669818,
     "lng": 127.287233940752,
     "address": "전북특별자치도 완주군 경천면 화암사길 271",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241213/20241213174632783.jpg",
+    "image": "images/catalog/official-a-10118.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -19581,7 +19581,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9907575,
     "lng": 126.71257809999997,
     "address": "전북특별자치도 군산시 구영7길 5",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205163658351.jpg",
+    "image": "images/catalog/official-a-9071.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -19614,7 +19614,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.055,
     "lng": 127.09,
     "address": "전북특별자치도 익산시 여산면 여산교동길 23-2",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220829/20220829132015482.jpg",
+    "image": "images/catalog/official-a-9817.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -19647,7 +19647,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.108,
     "lng": 127.023,
     "address": "전북특별자치도 익산시 망성면 으랭이1길 27",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112152227885.jpg",
+    "image": "images/catalog/official-a-9798.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -19680,7 +19680,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.853092,
     "lng": 127.136278,
     "address": "전북 전주시 덕진구 덕진동1가 640-9",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241128/20241128103244020.jpg",
+    "image": "images/catalog/official-a-20629.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -19713,7 +19713,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9901542,
     "lng": 126.7124879,
     "address": "전북특별자치도 군산시 해망로 232(장미동 18-2)",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205152352365.jpg",
+    "image": "images/catalog/official-a-9077.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -19746,7 +19746,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9893296,
     "lng": 126.71414490000006,
     "address": "전북특별자치도 군산시 해망로 214",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240115/20240115135224030.jpg",
+    "image": "images/catalog/official-a-9078.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -19779,7 +19779,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 전주시 완산구 풍남문2길 53",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220623/20220623172626116.jpg",
+    "image": "images/catalog/official-a-24491.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -19812,7 +19812,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4290982,
     "lng": 126.5663907,
     "address": "전북특별자치도 고창군 무장면 교흥교촌길 9",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220804/20220804134119748.jpg",
+    "image": "images/catalog/official-a-13299.webp",
     "tags": [
       "#고창",
       "#관광지",
@@ -19845,7 +19845,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5355601,
     "lng": 126.6100196,
     "address": "전북특별자치도 고창군 부안면 질마재로 2-8",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250728/20250728114733480.jpg",
+    "image": "images/catalog/official-a-13328.webp",
     "tags": [
       "#고창",
       "#관광지",
@@ -19878,7 +19878,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4810102,
     "lng": 126.5640149,
     "address": "전북특별자치도 고창군 아산면 삼인리 산17-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240112/20240112143613905.jpg",
+    "image": "images/catalog/official-a-13251.webp",
     "tags": [
       "#고창",
       "#관광지",
@@ -19911,7 +19911,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7831882290184,
     "lng": 127.253092105527,
     "address": "전북특별자치도 완주군 상관면 정수사길 18",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251204/20251204151027059.jpg",
+    "image": "images/catalog/official-a-10116.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -19944,7 +19944,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6020053,
     "lng": 126.4797641,
     "address": "전북특별자치도 부안군 변산면 변산로 3210-16",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/migration/001014/144538759322498.jpg",
+    "image": "images/catalog/official-a-13528.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -19977,7 +19977,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4031733,
     "lng": 127.378487,
     "address": "전북특별자치도 남원시 광한서로 26",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240419/20240419163203723.jpg",
+    "image": "images/catalog/official-a-25312.webp",
     "tags": [
       "#남원",
       "#관광지",
@@ -20010,7 +20010,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0861706362425,
     "lng": 127.216865017132,
     "address": "전북특별자치도 완주군 화산면 승치로 477",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251204/20251204150004913.jpg",
+    "image": "images/catalog/official-a-10073.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -20043,7 +20043,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7003977,
     "lng": 126.7221359,
     "address": "전북특별자치도 부안군 행안면 체육공원길 31",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/migration/001014/144533545996100.jpg",
+    "image": "images/catalog/official-a-13533.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -20076,7 +20076,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.815812,
     "lng": 127.151277,
     "address": "(560-033) 전북특별자치도 전주시 완산구 최명희길 29",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240709/20240709104451245.jpg",
+    "image": "images/catalog/official-a-20506.webp",
     "tags": [
       "#전주",
       "#관광지",
@@ -20109,7 +20109,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 완주군 동상면 대아리 산75-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251204/20251204144946158.jpg",
+    "image": "images/catalog/official-a-10300.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -20142,7 +20142,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4188616,
     "lng": 126.5570424,
     "address": "전북특별자치도 고창군 무장면 무장읍성길 45",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240112/20240112143234759.jpg",
+    "image": "images/catalog/official-a-13247.webp",
     "tags": [
       "#고창",
       "#관광지",
@@ -20175,7 +20175,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4321631,
     "lng": 126.7031343,
     "address": "전북특별자치도 고창군 고창읍 동리로 100",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220520/20220520180935490.jpg",
+    "image": "images/catalog/official-a-13283.webp",
     "tags": [
       "#고창",
       "#관광지",
@@ -20208,7 +20208,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3773652,
     "lng": 126.7242128,
     "address": "전북특별자치도 고창군 칠성길 135",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241016/20241016170212746.jpg",
+    "image": "images/catalog/official-a-13250.webp",
     "tags": [
       "#고창",
       "#관광지",
@@ -20241,7 +20241,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0586195915511,
     "lng": 126.889551176653,
     "address": "전북특별자치도 익산시 웅포면 녹차마을길 83-36",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251112/20251112145512303.jpg",
+    "image": "images/catalog/official-a-24452.webp",
     "tags": [
       "#익산",
       "#관광지",
@@ -20274,7 +20274,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8692590957799,
     "lng": 127.25202041134,
     "address": "전북특별자치도 완주군 소양면 원암로 82 산속등대",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251204/20251204133324936.jpg",
+    "image": "images/catalog/official-a-25163.webp",
     "tags": [
       "#완주",
       "#관광지",
@@ -20307,7 +20307,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5395929,
     "lng": 126.7419698,
     "address": "전북특별자치도 고창군 성내면 시기1길 76",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240112/20240112142537509.jpg",
+    "image": "images/catalog/official-a-13029.webp",
     "tags": [
       "#고창",
       "#역사관광지",
@@ -20340,7 +20340,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6504079,
     "lng": 126.5799361,
     "address": "전북특별자치도 부안군 변산면 실상길 58",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240117/20240117160858481.jpg",
+    "image": "images/catalog/official-a-13461.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -20373,7 +20373,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4375504,
     "lng": 126.7026382,
     "address": "전북특별자치도 고창군 고창읍 향교길 27-3",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220617/20220617144317772.jpg",
+    "image": "images/catalog/official-a-13324.webp",
     "tags": [
       "#고창",
       "#관광지",
@@ -20406,7 +20406,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.990608458161,
     "lng": 126.706615950433,
     "address": "전북특별자치도 군산시 중앙로 230",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220331/20220331141824910.jpg",
+    "image": "images/catalog/official-a-9073.webp",
     "tags": [
       "#군산",
       "#체험관광지",
@@ -20439,7 +20439,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9850247,
     "lng": 126.708146,
     "address": "(573-060) 전북특별자치도 군산시 구영6길 13",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205155430242.jpg",
+    "image": "images/catalog/official-a-9074.webp",
     "tags": [
       "#군산",
       "#관광지",
@@ -20472,7 +20472,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.634904,
     "lng": 126.460556,
     "address": "전북특별자치도 부안군 변산면 적벽강길 54",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250428/20250428134605538.jpg",
+    "image": "images/catalog/official-a-25162.webp",
     "tags": [
       "#부안",
       "#관광지",
@@ -20505,7 +20505,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.472234,
     "lng": 126.968398,
     "address": "전북특별자치도 순창군 쌍치면 둔전2길 83",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240130/20240130144015115.jpg",
+    "image": "images/catalog/official-a-11792.webp",
     "tags": [
       "#순창",
       "#관광지",
@@ -20538,7 +20538,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6295950190135,
     "lng": 126.470533090336,
     "address": "전북특별자치도 부안군 변산면 채석강길 22-19 격포해수욕장",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260722/20260722151259236.jpg",
+    "image": "images/catalog/official-c-26065.webp",
     "tags": [
       "#부안",
       "#전북축제",
@@ -20571,7 +20571,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5831069772891,
     "lng": 126.508211204887,
     "address": "전북특별자치도 부안군 변산면 모항길 23-1 모항해수욕장 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260707/20260707102744310.jpg",
+    "image": "images/catalog/official-c-26045.webp",
     "tags": [
       "#부안",
       "#전북축제",
@@ -20604,7 +20604,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6786820064645,
     "lng": 126.530364131378,
     "address": "전북특별자치도 부안군 변산면 변산로 2100 변산해수욕장 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260722/20260722150903605.jpg",
+    "image": "images/catalog/official-c-25195.webp",
     "tags": [
       "#부안",
       "#전북축제",
@@ -20637,7 +20637,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7999572627658,
     "lng": 127.130102851042,
     "address": "전북특별자치도 전주시 완산구 안행로 14 재즈 전문 소공연장",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260331/20260331111100595.jpg",
+    "image": "images/catalog/official-c-25946.webp",
     "tags": [
       "#전주",
       "#전북축제",
@@ -20670,7 +20670,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8182133310179,
     "lng": 127.153608497904,
     "address": "전북특별자치도 전주시 완산구 기린대로 99",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260608/20260608100813731.jpg",
+    "image": "images/catalog/official-c-25467.webp",
     "tags": [
       "#전주",
       "#전북축제",
@@ -20703,7 +20703,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5628647998531,
     "lng": 126.852906193943,
     "address": "전북특별자치도 정읍시 벚꽃로 369 청읍천 미로분수 및 벽천분수 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260707/20260707101724528.jpg",
+    "image": "images/catalog/official-c-25366.webp",
     "tags": [
       "#정읍",
       "#전북축제",
@@ -20736,7 +20736,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8411382714422,
     "lng": 127.131588969832,
     "address": "전북특별자치도 전주시 덕진구 백제대로 567 전북대학교 소운동장",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260707/20260707101128824.jpg",
+    "image": "images/catalog/official-c-24502.webp",
     "tags": [
       "#전주",
       "#전북축제",
@@ -20769,7 +20769,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.367826751254,
     "lng": 127.111096553696,
     "address": "전북특별자치도 순창군 순창읍 장류로 55 순창발효테마파크",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260701/20260701085828252.jpg",
+    "image": "images/catalog/official-c-26039.webp",
     "tags": [
       "#순창",
       "#전북축제",
@@ -20802,7 +20802,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8548302726399,
     "lng": 127.13923829025,
     "address": "전북특별자치도 전주시 덕진구 소리로 31 한국소리문화의전당",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260616/20260616104113800.jpg",
+    "image": "images/catalog/official-c-24455.webp",
     "tags": [
       "#전주",
       "#전북축제",
@@ -20835,7 +20835,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8161584000594,
     "lng": 127.088882125299,
     "address": "전북특별자치도 전주시 완산구 천잠로 303 전주대학교 인조잔디구장 A, B 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260619/20260619161832185.jpg",
+    "image": "images/catalog/official-c-24501.webp",
     "tags": [
       "#전주",
       "#전북축제",
@@ -20868,7 +20868,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0374279409151,
     "lng": 126.983312780337,
     "address": "전북특별자치도 익산시 삼기면 하나로 1334 삼기농협 로컬푸드복합센터",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260616/20260616104548035.jpg",
+    "image": "images/catalog/official-c-25593.webp",
     "tags": [
       "#익산",
       "#전북축제",
@@ -20901,7 +20901,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9915260600088,
     "lng": 126.710610170835,
     "address": "전북특별자치도 군산시 해망로 244-7 구 군산 세관 본관",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260722/20260722151814933.jpg",
+    "image": "images/catalog/official-c-25483.webp",
     "tags": [
       "#군산",
       "#전북축제",
@@ -20934,7 +20934,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0115561254007,
     "lng": 127.028714638955,
     "address": "전북특별자치도 익산시 금마면 미륵사지로 362 익산 미륵사지 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260511/20260511102317482.jpg",
+    "image": "images/catalog/official-c-25230.webp",
     "tags": [
       "#익산",
       "#전북축제",
@@ -20967,7 +20967,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0023328664348,
     "lng": 127.662575875087,
     "address": "전북특별자치도 무주군 무주읍 한풍루로 326-17 무주예체문화관",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260318/20260318175145447.jpg",
+    "image": "images/catalog/official-c-24500.webp",
     "tags": [
       "#무주",
       "#전북축제",
@@ -21000,7 +21000,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6415453,
     "lng": 127.518373,
     "address": "전북특별자치도 장수군 장수읍 한누리로 393",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250911/20250911170215274.jpg",
+    "image": "images/catalog/official-c-25211.webp",
     "tags": [
       "#장수",
       "#전북축제",
@@ -21033,7 +21033,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.812042865808,
     "lng": 127.159411792839,
     "address": "전북특별자치도 전주시 완산구 전주천동로 20 전주한벽문화관 · 완판본문화관 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260507/20260507100913730.jpg",
+    "image": "images/catalog/official-c-24462.webp",
     "tags": [
       "#전주",
       "#전북축제",
@@ -21066,7 +21066,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.773176,
     "lng": 127.4161625,
     "address": "전북특별자치도 진안군 진안읍 마이산로 160",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260616/20260616104639736.jpg",
+    "image": "images/catalog/official-c-25209.webp",
     "tags": [
       "#진안",
       "#전북축제",
@@ -21099,7 +21099,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.75294969999999,
     "lng": 126.85242300000004,
     "address": "전북특별자치도 김제시 부량면 벽골제로 442 벽골제",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250801/20250801172759443.jpg",
+    "image": "images/catalog/official-c-23998.webp",
     "tags": [
       "#김제",
       "#전북축제",
@@ -21132,7 +21132,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9909565,
     "lng": 126.7135225,
     "address": "전북특별자치도 군산시 내항2길 45",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250911/20250911155220593.jpg",
+    "image": "images/catalog/official-c-25229.webp",
     "tags": [
       "#군산",
       "#전북축제",
@@ -21165,7 +21165,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5468341,
     "lng": 127.016002,
     "address": "전북특별자치도 정읍시 산내면 매죽리 571 구절초 지방정원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250911/20250911154532427.jpg",
+    "image": "images/catalog/official-c-25228.webp",
     "tags": [
       "#정읍",
       "#전북축제",
@@ -21198,7 +21198,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6328748,
     "lng": 127.3024696,
     "address": "전북특별자치도 임실군 성수면 도인2길 50(성수면)",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250805/20250805140634239.jpg",
+    "image": "images/catalog/official-c-24031.webp",
     "tags": [
       "#임실",
       "#전북축제",
@@ -21231,7 +21231,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4313384,
     "lng": 126.7042361,
     "address": "전북특별자치도 고창군 고창읍 읍내리 127",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250805/20250805133605169.jpg",
+    "image": "images/catalog/official-c-24519.webp",
     "tags": [
       "#고창",
       "#전북축제",
@@ -21264,7 +21264,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0322744403855,
     "lng": 126.960293114397,
     "address": "전북특별자치도 익산시 함열읍 익산대로78길 137 하림 퍼스트키친",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260413/20260413085826233.jpg",
+    "image": "images/catalog/official-c-25953.webp",
     "tags": [
       "#익산",
       "#전북축제",
@@ -21297,7 +21297,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4903991,
     "lng": 127.12123679999999,
     "address": "전북특별자치도 순창군 순창읍 민속마을길 55",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250805/20250805135602058.jpg",
+    "image": "images/catalog/official-c-24531.webp",
     "tags": [
       "#순창",
       "#전북축제",
@@ -21330,7 +21330,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5976047,
     "lng": 127.5283925,
     "address": "전북특별자치도 장수군 방화동로 778",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260619/20260619161042978.jpg",
+    "image": "images/catalog/official-c-25187.webp",
     "tags": [
       "#장수",
       "#전북축제",
@@ -21363,7 +21363,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7284142296896,
     "lng": 127.590315609501,
     "address": "전북특별자치도 장수군 장계면 체육공원길 40 장계국민체육센터",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260707/20260707103248152.jpg",
+    "image": "images/catalog/official-c-26046.webp",
     "tags": [
       "#장수",
       "#전북축제",
@@ -21396,7 +21396,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8911887406229,
     "lng": 126.848315742751,
     "address": "전북특별자치도 김제시 청하면 청공로 185-55 청하면 하소백련지 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260707/20260707101630042.jpg",
+    "image": "images/catalog/official-c-25359.webp",
     "tags": [
       "#김제",
       "#전북축제",
@@ -21429,7 +21429,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0651925706626,
     "lng": 126.878282628434,
     "address": "전북특별자치도 익산시 웅포면 강변로 10-1 웅포초등학교 운동장",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260616/20260616103619314.jpg",
+    "image": "images/catalog/official-c-26017.webp",
     "tags": [
       "#익산",
       "#전북축제",
@@ -21462,7 +21462,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 익산시 평동로11길 12 익산 남부시장 주차장",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260616/20260616102931122.jpg",
+    "image": "images/catalog/official-c-25592.webp",
     "tags": [
       "#익산",
       "#전북축제",
@@ -21495,7 +21495,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8475732,
     "lng": 127.121895,
     "address": "전북특별자치도 전주시 덕진구 덕진동1가 권삼득로 390 덕진공원 일대",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260604/20260604090350546.jpg",
+    "image": "images/catalog/official-c-25169.webp",
     "tags": [
       "#전주",
       "#전북축제",
@@ -21528,7 +21528,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.501398,
     "lng": 126.578969,
     "address": "전북특별자치도 고창군 아산면 선운사로 242-86",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260527/20260527174604877.jpg",
+    "image": "images/catalog/official-c-13435.webp",
     "tags": [
       "#고창",
       "#전북축제",
@@ -21561,7 +21561,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.116264410183,
     "lng": 127.330488022327,
     "address": "전북특별자치도 완주군 운주면 산북리 611-67 대둔산 잔디광장 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260507/20260507092915222.jpg",
+    "image": "images/catalog/official-c-25330.webp",
     "tags": [
       "#완주",
       "#전북축제",
@@ -21594,7 +21594,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7204943,
     "lng": 127.047659,
     "address": "전북특별자치도 김제시 금산면 금산리 99-2 김제 모악산 금산사 잔디광장 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260601/20260601094926077.jpg",
+    "image": "images/catalog/official-c-23999.webp",
     "tags": [
       "#김제",
       "#전북축제",
@@ -21627,7 +21627,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9908197098455,
     "lng": 126.712123155593,
     "address": "전북특별자치도 군산시 해망로 240 군산 근대역사박물관 인근 주차장 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260511/20260511095009511.jpg",
+    "image": "images/catalog/official-c-24518.webp",
     "tags": [
       "#군산",
       "#전북축제",
@@ -21660,7 +21660,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8183156,
     "lng": 127.1536061,
     "address": "전북 전주시 완산구 기린대로 99 전주 한옥마을, 경기전, 향교, 풍남문, 전라감영",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260519/20260519173058269.jpg",
+    "image": "images/catalog/official-c-25470.webp",
     "tags": [
       "#전주",
       "#전북축제",
@@ -21693,7 +21693,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8787097556451,
     "lng": 127.696598785747,
     "address": "전북특별자치도 무주군 안성면 덕유산로 856 두문마을 낙화놀이전수관",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260527/20260527174925565.jpg",
+    "image": "images/catalog/official-c-25469.webp",
     "tags": [
       "#무주",
       "#전북축제",
@@ -21726,7 +21726,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.53009945739,
     "lng": 126.51500501836,
     "address": "전북특별자치도 고창군 심원면 애향갯벌로 320 만돌갯벌체험학습장 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260520/20260520155603700.jpg",
+    "image": "images/catalog/official-c-25342.webp",
     "tags": [
       "#고창",
       "#전북축제",
@@ -21759,7 +21759,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.002706334,
     "lng": 127.66153082,
     "address": "전북특별자치도 무주군 무주읍 한풍루로 326-14",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260323/20260323154357969.jpg",
+    "image": "images/catalog/official-c-24067.webp",
     "tags": [
       "#무주",
       "#전북축제",
@@ -21792,7 +21792,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6331257273887,
     "lng": 127.301224949295,
     "address": "전북특별자치도 임실군 성수면 도인2길 50 임실치즈테마파크",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260414/20260414150126934.jpg",
+    "image": "images/catalog/official-c-25923.webp",
     "tags": [
       "#임실",
       "#전북축제",
@@ -21825,7 +21825,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4021117808245,
     "lng": 127.378100058264,
     "address": "전북특별자치도 남원시 광한서로 12 월광포차",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260520/20260520161508001.jpg",
+    "image": "images/catalog/official-c-26001.webp",
     "tags": [
       "#남원",
       "#전북축제",
@@ -21858,7 +21858,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9387941733078,
     "lng": 126.948172687571,
     "address": "전북특별자치도 익산시 중앙로 12-39 익산 문화예술의거리",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260520/20260520160837461.jpg",
+    "image": "images/catalog/official-c-26000.webp",
     "tags": [
       "#익산",
       "#전북축제",
@@ -21891,7 +21891,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6337058445519,
     "lng": 126.83011881365,
     "address": "전북특별자치도 정읍시 덕천면 동학로 742 동학농민혁명기념공원 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260413/20260413094303384.jpg",
+    "image": "images/catalog/official-c-23996.webp",
     "tags": [
       "#정읍",
       "#전북축제",
@@ -21924,7 +21924,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7258016255813,
     "lng": 126.741652022748,
     "address": "전북특별자치도 부안군 부안읍 별천지로 3 부안해뜰마루 정원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260318/20260318174939250.jpg",
+    "image": "images/catalog/official-c-24020.webp",
     "tags": [
       "#부안",
       "#전북축제",
@@ -21957,7 +21957,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5400853479603,
     "lng": 126.561697051565,
     "address": "전북특별자치도 고창군 심원면 서전길 55-21 하전어촌체험마을",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260423/20260423093312254.jpg",
+    "image": "images/catalog/official-c-25960.webp",
     "tags": [
       "#고창",
       "#전북축제",
@@ -21990,7 +21990,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9498877500921,
     "lng": 126.985996007031,
     "address": "전북특별자치도 익산시 하나로 322 중앙체육공원 및 신흥근린공원 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260413/20260413093504724.jpg",
+    "image": "images/catalog/official-c-24516.webp",
     "tags": [
       "#익산",
       "#전북축제",
@@ -22023,7 +22023,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5400154875724,
     "lng": 127.336421060977,
     "address": "전북특별자치도 임실군 오수면 의견로 3 오수의견관광지 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260330/20260330100409846.jpg",
+    "image": "images/catalog/official-c-24485.webp",
     "tags": [
       "#임실",
       "#전북축제",
@@ -22056,7 +22056,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8427298744021,
     "lng": 126.690626696932,
     "address": "전북특별자치도 김제시 진봉면 거전1길 84 진봉면 갓민가사섬 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260423/20260423095108859.jpg",
+    "image": "images/catalog/official-c-24483.webp",
     "tags": [
       "#김제",
       "#전북축제",
@@ -22089,7 +22089,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4041318359584,
     "lng": 127.38050354021,
     "address": "전북특별자치도 남원시 요천로 1447",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260220/20260220145044162.jpg",
+    "image": "images/catalog/official-c-23907.webp",
     "tags": [
       "#남원",
       "#전북축제",
@@ -22122,7 +22122,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.818360772715,
     "lng": 127.14271712521,
     "address": "전북특별자치도 전주시 완산구 전주객사3길 22 전주영화의 거리 등 전주시 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260413/20260413100216115.jpg",
+    "image": "images/catalog/official-c-20743.webp",
     "tags": [
       "#전주",
       "#전북축제",
@@ -22155,7 +22155,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8613337830333,
     "lng": 127.100948301234,
     "address": "전북특별자치도 전주시 덕진구 구렛들1길 46 팔복예술공장 및 이팝나무철길 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260423/20260423095717948.jpg",
+    "image": "images/catalog/official-c-25463.webp",
     "tags": [
       "#전주",
       "#전북축제",
@@ -22188,7 +22188,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9576811286755,
     "lng": 126.657609975198,
     "address": "전북특별자치도 군산시 공항로 371 미성동 행정복지센터 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260413/20260413095848326.jpg",
+    "image": "images/catalog/official-c-25457.webp",
     "tags": [
       "#군산",
       "#전북축제",
@@ -22221,7 +22221,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9715614890419,
     "lng": 127.055808983224,
     "address": "전북특별자치도 익산시 왕궁면 궁성로 666 백제왕궁(왕궁리유적)일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260318/20260318174514058.jpg",
+    "image": "images/catalog/official-c-25291.webp",
     "tags": [
       "#익산",
       "#전북축제",
@@ -22254,7 +22254,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8339463767553,
     "lng": 126.740362809239,
     "address": "전북특별자치도 김제시 광활면 광활11길 37 광할초등학교 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260413/20260413095416802.jpg",
+    "image": "images/catalog/official-c-25449.webp",
     "tags": [
       "#김제",
       "#전북축제",
@@ -22287,7 +22287,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3753540233603,
     "lng": 126.543300591485,
     "address": "전북특별자치도 고창군 공음면 학원농장길 150 학원관광농장",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260323/20260323155228737.jpg",
+    "image": "images/catalog/official-c-24486.webp",
     "tags": [
       "#고창",
       "#전북축제",
@@ -22320,7 +22320,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6319895429016,
     "lng": 127.15255788868,
     "address": "전북특별자치도 임실군 운암면 입석1길 59 임실군 운암면, 옥정호 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260318/20260318175632782.jpg",
+    "image": "images/catalog/official-c-25296.webp",
     "tags": [
       "#임실",
       "#전북축제",
@@ -22353,7 +22353,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.065813906377,
     "lng": 126.875419272598,
     "address": "전북특별자치도 익산시 웅포면 강변로 25 웅포곰개나루 오토캠핑장 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260323/20260323160838137.jpg",
+    "image": "images/catalog/official-c-25454.webp",
     "tags": [
       "#익산",
       "#전북축제",
@@ -22386,7 +22386,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7800089340897,
     "lng": 127.396184568744,
     "address": "전북특별자치도 진안군 진안읍 전진로 3071-25",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240116/20240116110942646.jpg",
+    "image": "images/catalog/official-c-24057.webp",
     "tags": [
       "#진안",
       "#전북축제",
@@ -22419,7 +22419,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4041318359584,
     "lng": 127.38050354021,
     "address": "전북특별자치도 남원시 요천로 1447 광한루원 일대",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260327/20260327102318676.jpg",
+    "image": "images/catalog/official-c-25943.webp",
     "tags": [
       "#남원",
       "#전북축제",
@@ -22452,7 +22452,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.00342623785,
     "lng": 127.621541807603,
     "address": "전북특별자치도 무주군 무주읍 서면강변로 28 서면마을 및 소이나루공원 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260323/20260323160339813.jpg",
+    "image": "images/catalog/official-c-25456.webp",
     "tags": [
       "#무주",
       "#전북축제",
@@ -22485,7 +22485,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3730495,
     "lng": 127.1370748,
     "address": "전북특별자치도 순창군 순창읍 교성리 72-3",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250327/20250327193644999.png",
+    "image": "images/catalog/official-c-25450.webp",
     "tags": [
       "#순창",
       "#전북축제",
@@ -22518,7 +22518,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8122742519235,
     "lng": 126.901871391206,
     "address": "전북특별자치도 김제시 도작로 220-23 김제시민문화체육공원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260309/20260309103307089.jpg",
+    "image": "images/catalog/official-c-25298.webp",
     "tags": [
       "#김제",
       "#전북축제",
@@ -22551,7 +22551,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6605421591309,
     "lng": 126.654987581068,
     "address": "전북특별자치도 부안군 상서면 개암로 197 부안군 상서면 개암동 벚꽃길 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260323/20260323154528034.jpg",
+    "image": "images/catalog/official-c-25297.webp",
     "tags": [
       "#부안",
       "#전북축제",
@@ -22584,7 +22584,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4316036063733,
     "lng": 126.739869158066,
     "address": "전북특별자치도 고창군 고창읍 석정2로 171 석정온천지구 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260318/20260318171215763.jpg",
+    "image": "images/catalog/official-c-25289.webp",
     "tags": [
       "#고창",
       "#전북축제",
@@ -22617,7 +22617,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5612708130052,
     "lng": 126.855707126626,
     "address": "전북특별자치도 정읍시 벚꽃로 401 정읍천변 어린이축구장 및 벚꽃로 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260318/20260318170739796.jpg",
+    "image": "images/catalog/official-c-25160.webp",
     "tags": [
       "#정읍",
       "#전북축제",
@@ -22650,7 +22650,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9553614525324,
     "lng": 126.689071763912,
     "address": "전북특별자치도 군산시 은파순환길 9 군산 은파호수공원 제1주차장 수변무대 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260318/20260318180042261.jpg",
+    "image": "images/catalog/official-c-25451.webp",
     "tags": [
       "#군산",
       "#전북축제",
@@ -22683,7 +22683,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9609142358571,
     "lng": 127.128404427951,
     "address": "전북특별자치도 완주군 봉동읍 둔산3로 94 완주군 둔산공원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260309/20260309104817575.jpg",
+    "image": "images/catalog/official-c-25914.webp",
     "tags": [
       "#완주",
       "#전북축제",
@@ -22716,7 +22716,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3786091862699,
     "lng": 127.449861658906,
     "address": "전북특별자치도 남원시 주천면 내용궁길 32 용궁산수유군락지",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260303/20260303134130854.jpg",
+    "image": "images/catalog/official-c-25910.webp",
     "tags": [
       "#남원",
       "#전북축제",
@@ -22749,7 +22749,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9840016664515,
     "lng": 127.387896998647,
     "address": "전북특별자치도 진안군 주천면 동상주천로 1709 운일암반일암 삼거광장",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260213/20260213110734496.jpg",
+    "image": "images/catalog/official-c-25156.webp",
     "tags": [
       "#진안",
       "#전북축제",
@@ -22782,7 +22782,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9117119221599,
     "lng": 127.074776915195,
     "address": "전북특별자치도 완주군 삼례읍 동학로 42 삼례농협 뒤 공영주차장 / 삼례농협 주차",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260213/20260213104222209.jpg",
+    "image": "images/catalog/official-c-25442.webp",
     "tags": [
       "#완주",
       "#전북축제",
@@ -22815,7 +22815,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0066727580271,
     "lng": 127.662754603334,
     "address": "전북특별자치도 무주군 무주읍 주계로 116 무주읍 남대천 (별빛다리 아래 천변)",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260226/20260226135123258.jpg",
+    "image": "images/catalog/official-c-25904.webp",
     "tags": [
       "#무주",
       "#전북축제",
@@ -22848,7 +22848,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8010392899216,
     "lng": 127.088373631415,
     "address": "전북특별자치도 전주시 완산구 쑥고개로 249 국립전주박물관",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260128/20260128105208451.jpg",
+    "image": "images/catalog/official-c-25264.webp",
     "tags": [
       "#전주",
       "#전북축제",
@@ -22881,7 +22881,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 전주시 완산구 노송광장로 10 노송광장",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251222/20251222151414374.jpg",
+    "image": "images/catalog/official-c-25435.webp",
     "tags": [
       "#전주",
       "#전북축제",
@@ -22914,7 +22914,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.68011987165557,
     "lng": 126.53071578570552,
     "address": "전북특별자치도 부안군 변산면 변산로 2076",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251222/20251222153013858.jpg",
+    "image": "images/catalog/official-c-25256.webp",
     "tags": [
       "#부안",
       "#전북축제",
@@ -22947,7 +22947,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9817109173314,
     "lng": 127.70053309457,
     "address": "전북특별자치도 무주군 적상면 초리길 5",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20260102/20260102152322085.jpg",
+    "image": "images/catalog/official-c-25155.webp",
     "tags": [
       "#무주",
       "#전북축제",
@@ -22980,7 +22980,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4350692453445,
     "lng": 127.548597583275,
     "address": "전북특별자치도 남원시 운봉읍 바래봉길 214",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251217/20251217151631232.jpg",
+    "image": "images/catalog/official-c-25153.webp",
     "tags": [
       "#남원",
       "#전북축제",
@@ -23013,7 +23013,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.632596,
     "lng": 127.30144,
     "address": "전북특별자치도 임실군 성수면 도인2길 50",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251125/20251125143232441.jpg",
+    "image": "images/catalog/official-c-25151.webp",
     "tags": [
       "#임실",
       "#전북축제",
@@ -23046,7 +23046,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.367826751254,
     "lng": 127.111096553696,
     "address": "전북특별자치도 순창군 순창읍 장류로 55",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205163445921.jpg",
+    "image": "images/catalog/official-c-25430.webp",
     "tags": [
       "#순창",
       "#전북축제",
@@ -23079,7 +23079,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7732258656893,
     "lng": 127.416250930942,
     "address": "전북특별자치도 진안군 진안읍 단양리 778",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205163029998.jpg",
+    "image": "images/catalog/official-c-25253.webp",
     "tags": [
       "#진안",
       "#전북축제",
@@ -23112,7 +23112,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4632216226608,
     "lng": 127.201749590003,
     "address": "전북특별자치도 순창군 동계면 장군목길 564 용궐산 주차장",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205162447657.jpg",
+    "image": "images/catalog/official-c-25851.webp",
     "tags": [
       "#순창",
       "#전북축제",
@@ -23145,7 +23145,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7126697337536,
     "lng": 127.581936020502,
     "address": "전북특별자치도 장수군 계남면 장무로 12-23",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251113/20251113100816081.jpg",
+    "image": "images/catalog/official-c-25843.webp",
     "tags": [
       "#장수",
       "#전북축제",
@@ -23178,7 +23178,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7267059099394,
     "lng": 126.731177371857,
     "address": "전북특별자치도 부안군 부안읍 서외리 55-3",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251205/20251205161648546.jpg",
+    "image": "images/catalog/official-c-25850.webp",
     "tags": [
       "#부안",
       "#전북축제",
@@ -23211,7 +23211,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7277106914281,
     "lng": 127.106934327953,
     "address": "전북특별자치도 완주군 구이면 모악산길 111-6",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251120/20251120165819624.jpg",
+    "image": "images/catalog/official-c-25848.webp",
     "tags": [
       "#완주",
       "#전북축제",
@@ -23244,7 +23244,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7126697337536,
     "lng": 127.581936020502,
     "address": "전북특별자치도 장수군 계남면 장무로 12-23",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251113/20251113101044220.jpg",
+    "image": "images/catalog/official-c-25844.webp",
     "tags": [
       "#장수",
       "#전북축제",
@@ -23277,7 +23277,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8680892744234,
     "lng": 127.064478101124,
     "address": "전북특별자치도 전주시 덕진구 기린대로 1055",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251113/20251113100224119.jpg",
+    "image": "images/catalog/official-c-25842.webp",
     "tags": [
       "#전주",
       "#전북축제",
@@ -23310,7 +23310,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3677822,
     "lng": 127.1115888,
     "address": "전북특별자치도 순창군 순창읍 장류로 55 순창발효테마파크",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250911/20250911180517825.jpg",
+    "image": "images/catalog/official-c-25414.webp",
     "tags": [
       "#순창",
       "#전북축제",
@@ -23343,7 +23343,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7948502,
     "lng": 127.434305,
     "address": "전북특별자치도 진안군 진안읍 진무로 1166 진안로컬푸드 앞 일대",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20251022/20251022161019966.jpg",
+    "image": "images/catalog/official-c-24534.webp",
     "tags": [
       "#진안",
       "#전북축제",
@@ -23376,7 +23376,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 익산시 인북로12길 28 익산솜리문화의 숲",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250925/20250925093136503.jpg",
+    "image": "images/catalog/official-c-25212.webp",
     "tags": [
       "#익산",
       "#전북축제",
@@ -23409,7 +23409,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6794094,
     "lng": 126.5302163,
     "address": "전라북도 부안군 변산면 대항리 603 변산해수욕장",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250911/20250911155723544.jpg",
+    "image": "images/catalog/official-c-25404.webp",
     "tags": [
       "#부안",
       "#전북축제",
@@ -23442,7 +23442,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8394468,
     "lng": 127.124793,
     "address": "전북특별자치도 전주시 덕진구 기린대로 451 전주종합경기장",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250903/20250903142247056.jpg",
+    "image": "images/catalog/official-c-24524.webp",
     "tags": [
       "#전주",
       "#전북축제",
@@ -23475,7 +23475,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4030358,
     "lng": 127.3860759,
     "address": "전북특별자치도 남원시 양림길12 사랑의광장 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250911/20250911155602610.jpg",
+    "image": "images/catalog/official-c-25226.webp",
     "tags": [
       "#남원",
       "#전북축제",
@@ -23508,7 +23508,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 남원시 충정로 341 남원종합스포츠타운",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250911/20250911175633273.png",
+    "image": "images/catalog/official-c-25600.webp",
     "tags": [
       "#남원",
       "#전북축제",
@@ -23541,7 +23541,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4032881,
     "lng": 127.3794357,
     "address": "전북특별자치도 남원시 금동 요천로 1447 광한루",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250911/20250911162219951.jpg",
+    "image": "images/catalog/official-c-25394.webp",
     "tags": [
       "#남원",
       "#전북축제",
@@ -23574,7 +23574,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9885353,
     "lng": 126.7146965,
     "address": "전북특별자치도 군산시 장미동 24-4 군산 짬뽕거리",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250925/20250925092432159.jpg",
+    "image": "images/catalog/official-c-25409.webp",
     "tags": [
       "#군산",
       "#전북축제",
@@ -23607,7 +23607,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.73169,
     "lng": 126.73327,
     "address": "전북특별자치도 부안군 부안읍 당산로 91",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250904/20250904120656021.jpg",
+    "image": "images/catalog/official-c-25369.webp",
     "tags": [
       "#부안",
       "#전북축제",
@@ -23640,7 +23640,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0695122,
     "lng": 126.9311461,
     "address": "전북특별자치도 익산시 성당면 함낭로 207 익산교도소세트장",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250805/20250805131206089.jpg",
+    "image": "images/catalog/official-c-25509.webp",
     "tags": [
       "#익산",
       "#전북축제",
@@ -23673,7 +23673,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4578243,
     "lng": 127.5625302,
     "address": "전북특별자치도 남원시 운봉읍 화수리 341",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250911/20250911171047674.jpg",
+    "image": "images/catalog/official-c-25213.webp",
     "tags": [
       "#남원",
       "#전북축제",
@@ -23706,7 +23706,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 고창군 고창읍 월암수월길 36 고창공설운동장",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250904/20250904113735988.jpg",
+    "image": "images/catalog/official-c-25596.webp",
     "tags": [
       "#고창",
       "#전북축제",
@@ -23739,7 +23739,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 완주군 특별자치도 용진읍 지암로 61 완주군청",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250904/20250904110803528.jpg",
+    "image": "images/catalog/official-c-25595.webp",
     "tags": [
       "#완주",
       "#전북축제",
@@ -23772,7 +23772,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 부안군 위도면 위도로 366 위도해수욕장",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250904/20250904110408276.jpg",
+    "image": "images/catalog/official-c-25594.webp",
     "tags": [
       "#부안",
       "#전북축제",
@@ -23805,7 +23805,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 김제시 동헌4길 46-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250904/20250904104130281.jpg",
+    "image": "images/catalog/official-c-25384.webp",
     "tags": [
       "#김제",
       "#전북축제",
@@ -23838,7 +23838,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.81298,
     "lng": 126.8999,
     "address": "전북특별자치도 김제시 도작로 220 김제시공설운동장 문화체육공원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250903/20250903180038238.jpg",
+    "image": "images/catalog/official-c-25378.webp",
     "tags": [
       "#김제",
       "#전북축제",
@@ -23871,7 +23871,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3677822,
     "lng": 127.1115888,
     "address": "전북특별자치도 순창군 순창읍 장류로 55 순창발효테마파크",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250805/20250805111829215.jpg",
+    "image": "images/catalog/official-c-25508.webp",
     "tags": [
       "#순창",
       "#전북축제",
@@ -23904,7 +23904,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.43374,
     "lng": 126.68468,
     "address": "전북특별자치도 고창군 고창읍 녹두로 1265",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250805/20250805110803124.jpg",
+    "image": "images/catalog/official-c-25370.webp",
     "tags": [
       "#고창",
       "#전북축제",
@@ -23937,7 +23937,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9901976,
     "lng": 126.7098624,
     "address": "전북특별자치도 군산시 구영2길 43",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250709/20250709095830165.png",
+    "image": "images/catalog/official-c-25485.webp",
     "tags": [
       "#군산",
       "#전북축제",
@@ -23970,7 +23970,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8899567,
     "lng": 127.7772673,
     "address": "전북 무주군 설천면 백련사길 2 덕유대야영장 소집회장",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250811/20250811114732466.jpg",
+    "image": "images/catalog/official-c-25510.webp",
     "tags": [
       "#무주",
       "#전북축제",
@@ -24003,7 +24003,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.681333,
     "lng": 126.5315862,
     "address": "전북특별자치도 부안군 변산면 대항리 562-18 변산해수욕장",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250723/20250723153925207.jpg",
+    "image": "images/catalog/official-c-25495.webp",
     "tags": [
       "#부안",
       "#전북축제",
@@ -24036,7 +24036,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4024994,
     "lng": 127.3840737,
     "address": "전북특별자치도 남원시 어현동 255 요천 수경 물놀이 시설",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250805/20250805104142211.jpg",
+    "image": "images/catalog/official-c-25210.webp",
     "tags": [
       "#남원",
       "#전북축제",
@@ -24069,7 +24069,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.6328748,
     "lng": 127.3024696,
     "address": "전북특별자치도 임실군 성수면 도인2길 50",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250701/20250701103216627.png",
+    "image": "images/catalog/official-c-24497.webp",
     "tags": [
       "#임실",
       "#전북축제",
@@ -24102,7 +24102,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5334302,
     "lng": 127.5452124,
     "address": "전북특별자치도 장수군 번암면 신평로 319",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250704/20250704181410728.png",
+    "image": "images/catalog/official-c-24514.webp",
     "tags": [
       "#장수",
       "#전북축제",
@@ -24135,7 +24135,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0099017,
     "lng": 127.7766356,
     "address": "전북특별자치도 무주군 설천면 무설로 1482",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250709/20250709111313300.png",
+    "image": "images/catalog/official-c-25349.webp",
     "tags": [
       "#무주",
       "#전북축제",
@@ -24168,7 +24168,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.993946,
     "lng": 127.3211333,
     "address": "전북특별자치도 완주군 동상면 대아수목로 379-4",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250701/20250701100936413.png",
+    "image": "images/catalog/official-c-25351.webp",
     "tags": [
       "#완주",
       "#전북축제",
@@ -24201,7 +24201,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5511374,
     "lng": 126.8621123,
     "address": "전북특별자치도 정읍시 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250624/20250624143032352.png",
+    "image": "images/catalog/official-c-25479.webp",
     "tags": [
       "#정읍",
       "#전북축제",
@@ -24234,7 +24234,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.430144,
     "lng": 126.7048634,
     "address": "전북특별자치도 고창군 고창읍 읍내리 125-9",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250609/20250609134343827.png",
+    "image": "images/catalog/official-c-25474.webp",
     "tags": [
       "#전주",
       "#전북축제",
@@ -24267,7 +24267,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0068099,
     "lng": 127.660818,
     "address": "전북특별자치도 무주군 무주읍 주계로 97",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250527/20250527111538891.png",
+    "image": "images/catalog/official-c-25473.webp",
     "tags": [
       "#무주",
       "#전북축제",
@@ -24300,7 +24300,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9554919,
     "lng": 126.6896437,
     "address": "전북특별자치 군산시 나운동 1223-4",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250527/20250527104114666.png",
+    "image": "images/catalog/official-c-25472.webp",
     "tags": [
       "#군산",
       "#전북축제",
@@ -24333,7 +24333,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.434481,
     "lng": 127.5462067,
     "address": "전북 남원시 운봉읍 용산리 266-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250423/20250423201714164.png",
+    "image": "images/catalog/official-c-25464.webp",
     "tags": [
       "#남원",
       "#전북축제",
@@ -24366,7 +24366,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7130659,
     "lng": 127.5805228,
     "address": "전북특별자치 장수군 계남면 장무로 13-23",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250410/20250410172527317.png",
+    "image": "images/catalog/official-c-25458.webp",
     "tags": [
       "#장수",
       "#전북축제",
@@ -24399,7 +24399,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.413533,
     "lng": 127.2338815,
     "address": "전북특별자치도 순창군 적성면 괴정리 산30",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250327/20250327194202619.png",
+    "image": "images/catalog/official-c-25453.webp",
     "tags": [
       "#순창",
       "#전북축제",
@@ -24432,7 +24432,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7280413,
     "lng": 127.107038,
     "address": "전북특별자치도 완주군 구이면 모악산길 111-6",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250312/20250312095858724.png",
+    "image": "images/catalog/official-c-25290.webp",
     "tags": [
       "#완주",
       "#전북축제",
@@ -24465,7 +24465,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9903546,
     "lng": 127.1012838,
     "address": "전북특별자치도 익산시 왕궁면 동용리 541-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250327/20250327193952382.png",
+    "image": "images/catalog/official-c-25452.webp",
     "tags": [
       "#익산",
       "#전북축제",
@@ -24498,7 +24498,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3769764,
     "lng": 127.5816932,
     "address": "전북특별자치도 남원시 산내면 부운리 223",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250228/20250228114218355.png",
+    "image": "images/catalog/official-c-25266.webp",
     "tags": [
       "#남원",
       "#전북축제",
@@ -24531,7 +24531,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9736301,
     "lng": 127.3047405,
     "address": "완주군 동상면 대아수목로 94-34",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250224/20250224132803665.png",
+    "image": "images/catalog/official-c-25444.webp",
     "tags": [
       "#완주",
       "#전북축제",
@@ -24564,7 +24564,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.7950653,
     "lng": 127.1085111,
     "address": "전북특별자치도 전주시 완산구 세내로 39",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250203/20250203094725664.jpg",
+    "image": "images/catalog/official-c-25436.webp",
     "tags": [
       "#전주",
       "#전북축제",
@@ -24597,7 +24597,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 완주군 둔산3로 94",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20250206/20250206182429773.png",
+    "image": "images/catalog/official-c-25440.webp",
     "tags": [
       "#완주",
       "#전북축제",
@@ -24630,7 +24630,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전북특별자치도 남원시 쌍교동 260",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241218/20241218150610319.jpg",
+    "image": "images/catalog/official-c-25257.webp",
     "tags": [
       "#남원",
       "#전북축제",
@@ -24663,7 +24663,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0249102,
     "lng": 126.9456698,
     "address": "익산시 황등면 석재단지길 10",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241115/20241115140740189.jpg",
+    "image": "images/catalog/official-c-25417.webp",
     "tags": [
       "#익산",
       "#전북축제",
@@ -24696,7 +24696,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.0236808,
     "lng": 126.9455553,
     "address": "전북특별자치도 익산시 황등면 석재단지길 10 익산석제품전시홍보관",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241011/20241011152842743.jpg",
+    "image": "images/catalog/official-c-25410.webp",
     "tags": [
       "#익산",
       "#전북축제",
@@ -24729,7 +24729,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.9492379,
     "lng": 126.9860638,
     "address": "전북특별자치도 익산시 하나로 322 중앙체육공원 등 4개소",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20241011/20241011150006081.jpg",
+    "image": "images/catalog/official-c-25408.webp",
     "tags": [
       "#익산",
       "#전북축제",
@@ -24762,7 +24762,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8394468,
     "lng": 127.124793,
     "address": "전북특별자치도 전주시 덕진구 기린대로 451 전주종합경기장 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240930/20240930140252352.jpg",
+    "image": "images/catalog/official-c-25403.webp",
     "tags": [
       "#전주",
       "#전북축제",
@@ -24795,7 +24795,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.373348,
     "lng": 126.535088,
     "address": "전북특별자치도 고창군 공음면 청천길 41-27",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240925/20240925010016573.jpg",
+    "image": "images/catalog/official-c-25399.webp",
     "tags": [
       "#고창",
       "#전북축제",
@@ -24828,7 +24828,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8154276,
     "lng": 127.1495364,
     "address": "전북특별자치도 전주시 완산구 풍남동3가 91-5 경기전",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240827/20240827142505766.jpg",
+    "image": "images/catalog/official-c-25379.webp",
     "tags": [
       "#전주",
       "#전북축제",
@@ -24861,7 +24861,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.855657,
     "lng": 127.1281106,
     "address": "전북특별자치도 전주시 덕진구 보훈누리로 63(송천동1가 234-5) 어린이창의체험관",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240827/20240827145944633.jpg",
+    "image": "images/catalog/official-c-25380.webp",
     "tags": [
       "#완주",
       "#전북축제",
@@ -24894,7 +24894,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8602594,
     "lng": 127.1012226,
     "address": "전북특별자치도 전주시 덕진구 구렛들1길 46 팔복예술공장",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240628/20240628093714732.jpg",
+    "image": "images/catalog/official-c-25355.webp",
     "tags": [
       "#전주",
       "#전북축제",
@@ -24927,7 +24927,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3734766,
     "lng": 126.5350224,
     "address": "전북특별자치도 고창군 공음면 칠암리 청천길 41-27 고창청농원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240523/20240523130028726.jpg",
+    "image": "images/catalog/official-c-25331.webp",
     "tags": [
       "#고창",
       "#전북축제",
@@ -24960,7 +24960,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.838337997,
     "lng": 127.12508689,
     "address": "전주 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240419/20240419164641096.jpg",
+    "image": "images/catalog/official-c-24454.webp",
     "tags": [
       "#전주",
       "#전북축제",
@@ -24993,7 +24993,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.009623,
     "lng": 127.7765285,
     "address": "무주군 설천면 무설로 1482 KR 태권도원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240402/20240402104349320.jpg",
+    "image": "images/catalog/official-c-25300.webp",
     "tags": [
       "#무주",
       "#전북축제",
@@ -25026,7 +25026,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.5638126,
     "lng": 126.838203,
     "address": "전라북도 정읍시 상평동 산15-16",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240417/20240417090218053.jpg",
+    "image": "images/catalog/official-c-25303.webp",
     "tags": [
       "#정읍",
       "#전북축제",
@@ -25059,7 +25059,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3657696,
     "lng": 127.1083602,
     "address": "전라북도 순창군 순창읍 민속마을길 55",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240321/20240321092236635.jpg",
+    "image": "images/catalog/official-c-25286.webp",
     "tags": [
       "#순창",
       "#전북축제",
@@ -25092,7 +25092,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.3677822,
     "lng": 127.1115888,
     "address": "전북특별자치도 순창군 순창읍 장류로 55",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240219/20240219180519448.jpg",
+    "image": "images/catalog/official-c-25267.webp",
     "tags": [
       "#순창",
       "#전북축제",
@@ -25125,7 +25125,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.069,
     "lng": 126.931,
     "address": "전북특별자치도 익산시 성당면 함낭로 207",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20240126/20240126142002391.jpg",
+    "image": "images/catalog/official-c-25265.webp",
     "tags": [
       "#익산",
       "#전북축제",
@@ -25158,7 +25158,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 36.1067967,
     "lng": 126.9242842,
     "address": "전북특별자치도 익산시 성당명 성당로 472 어르메 마을",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20231023/20231023155346217.jpg",
+    "image": "images/catalog/official-c-25243.webp",
     "tags": [
       "#익산",
       "#전북축제",
@@ -25191,7 +25191,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.82073342692541,
     "lng": 127.14826600460286,
     "address": "전북특별자치도 전주시 덕진구 기린대로 451",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220411/20220411152029552.jpg",
+    "image": "images/catalog/official-c-20746.webp",
     "tags": [
       "#전주",
       "#전북축제",
@@ -25224,7 +25224,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.536708,
     "lng": 127.1543569,
     "address": "전북특별자치도 임실군 강진면 강운로 272",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20230807/20230807140520735.jpg",
+    "image": "images/catalog/official-c-25206.webp",
     "tags": [
       "#임실",
       "#전북축제",
@@ -25257,7 +25257,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8858782,
     "lng": 127.7424548,
     "address": "전북특별자치도 무주군 설천면 심곡리 1293-6번지",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20230713/20230713092549794.jpg",
+    "image": "images/catalog/official-c-25190.webp",
     "tags": [
       "#무주",
       "#전북축제",
@@ -25290,7 +25290,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.4453376,
     "lng": 126.4348837,
     "address": "고창 일원",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20221108/20221108120709028.jpg",
+    "image": "images/catalog/official-c-25150.webp",
     "tags": [
       "#고창",
       "#전북축제",
@@ -25323,7 +25323,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8154276,
     "lng": 127.1495364,
     "address": "전주시 완산구 태조로 44",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20230510/20230510093733251.jpg",
+    "image": "images/catalog/official-c-25170.webp",
     "tags": [
       "#전주",
       "#전북축제",
@@ -25356,7 +25356,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": 35.8183495,
     "lng": 127.1425492,
     "address": "전북특별자치도 전주시 완산구 전주객사3길 22",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20221024/20221024173916959.jpg",
+    "image": "images/catalog/official-c-24535.webp",
     "tags": [
       "#전주",
       "#전북축제",
@@ -25389,7 +25389,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "lat": null,
     "lng": null,
     "address": "전주시 완산구 전라감영4길 22-1",
-    "image": "https://tour.jb.go.kr/attachfiles/ctnt/20220707/20220707161843757.jpg",
+    "image": "images/catalog/official-c-24498.webp",
     "tags": [
       "#전주",
       "#전북축제",
@@ -25420,7 +25420,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "categoryName": "맛집",
     "subCategory": "노포 맛집",
     "address": "전북특별자치도 부안군 행안면 변산로 95 계화회관",
-    "image": "https://tour.jb.go.kr/resources/jns-img/month/2409/img_view_thum01.jpg",
+    "image": "images/catalog/official-food-1.webp",
     "tags": [
       "#부안",
       "#전북노포",
@@ -25444,7 +25444,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "categoryName": "맛집",
     "subCategory": "노포 맛집",
     "address": "전북특별자치도 정읍시 태인면 태성리 483-5",
-    "image": "https://tour.jb.go.kr/resources/jns-img/month/2409/img_view_thum02.jpg",
+    "image": "images/catalog/official-food-2.webp",
     "tags": [
       "#정읍",
       "#전북노포",
@@ -25468,7 +25468,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "categoryName": "맛집",
     "subCategory": "노포 맛집",
     "address": "전북특별자치도 익산시 중앙동3가 118-5",
-    "image": "https://tour.jb.go.kr/resources/jns-img/month/2409/img_view_thum03.jpg",
+    "image": "images/catalog/official-food-3.webp",
     "tags": [
       "#익산",
       "#전북노포",
@@ -25492,7 +25492,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "categoryName": "맛집",
     "subCategory": "노포 맛집",
     "address": "전북특별자치도 군산시 개정면 아동리 616",
-    "image": "https://tour.jb.go.kr/resources/jns-img/month/2409/img_view_thum04.jpg",
+    "image": "images/catalog/official-food-4.webp",
     "tags": [
       "#군산",
       "#전북노포",
@@ -25516,7 +25516,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "categoryName": "맛집",
     "subCategory": "노포 맛집",
     "address": "전북특별자치도 익산시 금마면 동고도리 538-2",
-    "image": "https://tour.jb.go.kr/resources/jns-img/month/2409/img_view_thum05.jpg",
+    "image": "images/catalog/official-food-5.webp",
     "tags": [
       "#익산",
       "#전북노포",
@@ -25540,7 +25540,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "categoryName": "맛집",
     "subCategory": "노포 맛집",
     "address": "전북특별자치도 고창군 아산면 원평길 9",
-    "image": "https://tour.jb.go.kr/resources/jns-img/month/2409/img_view_thum06.jpg",
+    "image": "images/catalog/official-food-6.webp",
     "tags": [
       "#고창",
       "#전북노포",
@@ -25564,7 +25564,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "categoryName": "맛집",
     "subCategory": "노포 맛집",
     "address": "전북특별자치도 고창군 아산면 삼인리 29-34",
-    "image": "https://tour.jb.go.kr/resources/jns-img/month/2409/img_view_thum07.jpg",
+    "image": "images/catalog/official-food-7.webp",
     "tags": [
       "#고창",
       "#전북노포",
@@ -25588,7 +25588,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "categoryName": "맛집",
     "subCategory": "노포 맛집",
     "address": "전북특별자치도 남원시 식정동 2-3",
-    "image": "https://tour.jb.go.kr/resources/jns-img/month/2409/img_view_thum08.jpg",
+    "image": "images/catalog/official-food-8.webp",
     "tags": [
       "#남원",
       "#전북노포",
@@ -25612,7 +25612,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "categoryName": "맛집",
     "subCategory": "노포 맛집",
     "address": "전북특별자치도 군산시 개복동 10-13",
-    "image": "https://tour.jb.go.kr/resources/jns-img/month/2409/img_view_thum09.jpg",
+    "image": "images/catalog/official-food-9.webp",
     "tags": [
       "#군산",
       "#전북노포",
@@ -25636,7 +25636,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "categoryName": "맛집",
     "subCategory": "노포 맛집",
     "address": "전북특별자치도 남원시 쌍교동 279",
-    "image": "https://tour.jb.go.kr/resources/jns-img/month/2409/img_view_thum10.jpg",
+    "image": "images/catalog/official-food-10.webp",
     "tags": [
       "#남원",
       "#전북노포",
@@ -25660,7 +25660,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "categoryName": "맛집",
     "subCategory": "노포 맛집",
     "address": "전북특별자치도 익산시 어양동 629-6",
-    "image": "https://tour.jb.go.kr/resources/jns-img/month/2409/img_view_thum11.jpg",
+    "image": "images/catalog/official-food-11.webp",
     "tags": [
       "#익산",
       "#전북노포",
@@ -25684,7 +25684,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "categoryName": "맛집",
     "subCategory": "노포 맛집",
     "address": "전북특별자치도 익산시 선화로 65길 34-10",
-    "image": "https://tour.jb.go.kr/resources/jns-img/month/2409/img_view_thum12.jpg",
+    "image": "images/catalog/official-food-12.webp",
     "tags": [
       "#익산",
       "#전북노포",
@@ -25708,7 +25708,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "categoryName": "맛집",
     "subCategory": "노포 맛집",
     "address": "전북특별자치도 전주시 완산구 어진길 119",
-    "image": "https://tour.jb.go.kr/resources/jns-img/month/2409/img_view_thum13.jpg",
+    "image": "images/catalog/official-food-13.webp",
     "tags": [
       "#전주",
       "#전북노포",
@@ -25732,7 +25732,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "categoryName": "맛집",
     "subCategory": "노포 맛집",
     "address": "전북특별자치도 김제시 요촌동 144-13",
-    "image": "https://tour.jb.go.kr/resources/jns-img/month/2409/img_view_thum14.jpg",
+    "image": "images/catalog/official-food-14.webp",
     "tags": [
       "#김제",
       "#전북노포",
@@ -25756,7 +25756,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "categoryName": "맛집",
     "subCategory": "노포 맛집",
     "address": "전북특별자치도 익산시 황등면 황등로 158",
-    "image": "https://tour.jb.go.kr/resources/jns-img/month/2409/img_view_thum15.jpg",
+    "image": "images/catalog/official-food-15.webp",
     "tags": [
       "#익산",
       "#전북노포",
@@ -25780,7 +25780,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "categoryName": "맛집",
     "subCategory": "노포 맛집",
     "address": "전북특별자치도 전주시 완산구 홍산1길 6",
-    "image": "https://tour.jb.go.kr/resources/jns-img/month/2409/img_view_thum16.jpg",
+    "image": "images/catalog/official-food-16.webp",
     "tags": [
       "#전주",
       "#전북노포",
@@ -25804,7 +25804,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "categoryName": "맛집",
     "subCategory": "노포 맛집",
     "address": "전북특별자치도 전주시 완산구 전주객사2길 22",
-    "image": "https://tour.jb.go.kr/resources/jns-img/month/2409/img_view_thum17.jpg",
+    "image": "images/catalog/official-food-17.webp",
     "tags": [
       "#전주",
       "#전북노포",
@@ -25828,7 +25828,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "categoryName": "맛집",
     "subCategory": "노포 맛집",
     "address": "전북특별자치도 정읍시 수성5로 17 (수성동)",
-    "image": "https://tour.jb.go.kr/resources/jns-img/month/2409/img_view_thum18.jpg",
+    "image": "images/catalog/official-food-18.webp",
     "tags": [
       "#정읍",
       "#전북노포",
@@ -25852,7 +25852,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "categoryName": "맛집",
     "subCategory": "노포 맛집",
     "address": "전북특별자치도 전주시 완산구 전주천동로 94(전동) 1층",
-    "image": "https://tour.jb.go.kr/resources/jns-img/month/2409/img_view_thum19.jpg",
+    "image": "images/catalog/official-food-19.webp",
     "tags": [
       "#전주",
       "#전북노포",
@@ -25876,7 +25876,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "categoryName": "맛집",
     "subCategory": "노포 맛집",
     "address": "전북특별자치도 군산시 큰샘길 26(죽성동)",
-    "image": "https://tour.jb.go.kr/resources/jns-img/month/2409/img_view_thum20.jpg",
+    "image": "images/catalog/official-food-20.webp",
     "tags": [
       "#군산",
       "#전북노포",
@@ -25900,7 +25900,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "categoryName": "맛집",
     "subCategory": "노포 맛집",
     "address": "전북특별자치도 군산시 장재동 42",
-    "image": "https://tour.jb.go.kr/resources/jns-img/month/2409/img_view_thum21.jpg",
+    "image": "images/catalog/official-food-21.webp",
     "tags": [
       "#군산",
       "#전북노포",
@@ -25924,7 +25924,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "categoryName": "베이커리",
     "subCategory": "베이커리",
     "address": "전북특별자치도 군산시 중앙로 177 (중앙로1가)",
-    "image": "https://tour.jb.go.kr/resources/jns-img/month/2409/img_view_thum22.jpg",
+    "image": "images/catalog/official-food-22.webp",
     "tags": [
       "#군산",
       "#전북노포",
@@ -25948,7 +25948,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "categoryName": "베이커리",
     "subCategory": "베이커리",
     "address": "전북특별자치도 전주시 완산구 팔달로 180(경원동1가)",
-    "image": "https://tour.jb.go.kr/resources/jns-img/month/2409/img_view_thum23.jpg",
+    "image": "images/catalog/official-food-23.webp",
     "tags": [
       "#전주",
       "#전북노포",
@@ -25972,7 +25972,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "categoryName": "베이커리",
     "subCategory": "베이커리",
     "address": "전북특별자치도 군산시 오룡로 65-1",
-    "image": "https://tour.jb.go.kr/resources/jns-img/month/2409/img_view_thum24.jpg",
+    "image": "images/catalog/official-food-24.webp",
     "tags": [
       "#군산",
       "#전북노포",
@@ -25996,7 +25996,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "categoryName": "카페",
     "subCategory": "뷰세권 카페",
     "address": "전북특별자치도 남원",
-    "image": "https://tour.jb.go.kr/resources/jns-img/month/2605/img_sec01_01.jpg",
+    "image": "images/catalog/official-cafe-1.webp",
     "tags": [
       "#남원",
       "#전북카페",
@@ -26020,7 +26020,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "categoryName": "카페",
     "subCategory": "뷰세권 카페",
     "address": "전북특별자치도 완주",
-    "image": "https://tour.jb.go.kr/resources/jns-img/month/2605/img_sec02_01.jpg",
+    "image": "images/catalog/official-cafe-2.webp",
     "tags": [
       "#완주",
       "#전북카페",
@@ -26044,7 +26044,7 @@ const OFFICIAL_TOUR_CATALOG = [
     "categoryName": "카페",
     "subCategory": "뷰세권 카페",
     "address": "전북특별자치도 김제시 금구면 대화1길 95",
-    "image": "https://tour.jb.go.kr/resources/jns-img/month/2605/img_sec03_01.jpg",
+    "image": "images/catalog/official-cafe-3.webp",
     "tags": [
       "#김제",
       "#전북카페",
