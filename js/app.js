@@ -45,7 +45,15 @@ const modalCategory = document.getElementById('modalCategory');
 const modalTitle = document.getElementById('modalTitle');
 const modalAddress = document.getElementById('modalAddress');
 const modalDesc = document.getElementById('modalDesc');
+const modalDescToggle = document.getElementById('modalDescToggle');
 const modalTags = document.getElementById('modalTags');
+const modalDuration = document.getElementById('modalDuration');
+const modalRecommendedFor = document.getElementById('modalRecommendedFor');
+const modalDetailSection = document.getElementById('modalDetailSection');
+const modalDetailGrid = document.getElementById('modalDetailGrid');
+const modalVisitTip = document.getElementById('modalVisitTip');
+const modalVisitTipText = document.getElementById('modalVisitTipText');
+const modalVisitNotice = document.getElementById('modalVisitNotice');
 
 const savedDrawer = document.getElementById('savedDrawer');
 const savedList = document.getElementById('savedList');
@@ -423,8 +431,75 @@ function openModal(tourId) {
   modalCategory.textContent = `${foundTour.regionName || '전북'} · ${foundTour.categoryName}`;
   modalTitle.textContent = foundTour.name;
   modalAddress.textContent = `📍 ${foundTour.address}`;
-  modalDesc.textContent = foundTour.desc;
+  const overviewText = foundTour.overview || foundTour.desc;
+  modalDesc.textContent = overviewText;
+  modalDesc.classList.remove('expanded');
+  modalDescToggle.hidden = overviewText.length <= 220;
+  modalDescToggle.setAttribute('aria-expanded', 'false');
+  modalDescToggle.innerHTML = '설명 더 보기 <i class="fa-solid fa-chevron-down"></i>';
+  modalDescToggle.onclick = () => {
+    const expanded = modalDesc.classList.toggle('expanded');
+    modalDescToggle.setAttribute('aria-expanded', String(expanded));
+    modalDescToggle.innerHTML = expanded
+      ? '설명 접기 <i class="fa-solid fa-chevron-up"></i>'
+      : '설명 더 보기 <i class="fa-solid fa-chevron-down"></i>';
+  };
   modalTags.innerHTML = (foundTour.tags || []).map(tag => `<span class="tag-item">${escapeHTML(tag)}</span>`).join('');
+  modalDuration.textContent = foundTour.recommendedDuration || '1~2시간';
+  modalRecommendedFor.textContent = foundTour.recommendedFor || foundTour.categoryName || '전북 여행';
+
+  const detailRows = [
+    { icon: 'fa-regular fa-clock', label: '운영시간', value: foundTour.hours },
+    { icon: 'fa-regular fa-calendar-xmark', label: '휴무일', value: foundTour.closed },
+    { icon: 'fa-solid fa-ticket', label: '이용요금', value: foundTour.fee },
+    { icon: 'fa-solid fa-square-parking', label: '주차', value: foundTour.parking },
+    {
+      icon: 'fa-solid fa-phone',
+      label: '문의',
+      value: foundTour.phone,
+      href: foundTour.phone ? `tel:${foundTour.phone.replace(/[^\d+]/g, '')}` : ''
+    },
+    {
+      icon: 'fa-solid fa-globe',
+      label: '홈페이지',
+      value: foundTour.homepage ? '공식 홈페이지 열기' : '',
+      href: foundTour.homepage
+    },
+    {
+      icon: 'fa-solid fa-shield-halved',
+      label: '정보 출처',
+      value: '공식 관광정보 확인',
+      href: foundTour.sourceUrl || (foundTour.isLiveApi
+        ? 'https://korean.visitkorea.or.kr/main/cr_main.do'
+        : 'https://tour.jb.go.kr/index.do')
+    }
+  ].filter(item => item.value);
+
+  modalDetailGrid.innerHTML = detailRows.map(item => {
+    const value = item.href
+      ? `<a href="${escapeHTML(item.href)}" ${item.href.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : ''}>${escapeHTML(item.value)} <i class="fa-solid fa-arrow-up-right-from-square"></i></a>`
+      : `<strong>${escapeHTML(item.value)}</strong>`;
+    return `
+      <div class="modal-detail-item">
+        <i class="${item.icon}" aria-hidden="true"></i>
+        <div>
+          <span>${escapeHTML(item.label)}</span>
+          ${value}
+        </div>
+      </div>
+    `;
+  }).join('');
+  modalDetailSection.hidden = detailRows.length === 0;
+
+  modalVisitTipText.textContent = foundTour.visitTip || '날씨와 운영 정보가 달라질 수 있으니 출발 전 공식 관광정보를 확인하세요.';
+  modalVisitTip.hidden = !modalVisitTipText.textContent;
+  const hasVisitInfo = Boolean(
+    foundTour.hours || foundTour.closed || foundTour.fee ||
+    foundTour.parking || foundTour.phone || foundTour.homepage
+  );
+  modalVisitNotice.innerHTML = hasVisitInfo
+    ? '<i class="fa-solid fa-circle-exclamation"></i> 운영시간·휴무일·요금은 변경될 수 있으니 방문 전 공식 페이지에서 다시 확인해주세요.'
+    : '<i class="fa-solid fa-circle-exclamation"></i> 상세 운영 정보가 확인되지 않은 장소입니다. 방문 전 공식 관광정보를 확인해주세요.';
 
   const navBtn = document.getElementById('modalNavBtn');
   navBtn.href = `https://map.kakao.com/link/search/${encodeURIComponent(foundTour.name)}`;

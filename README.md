@@ -9,6 +9,8 @@
 - 맛집/카페, 역사/문화, 자연/힐링, 축제/행사 필터
 - 추천순·이름순·지역순 정렬
 - 상세 정보, 카카오맵 길찾기, 공유, 장소 저장
+- 장소별 공식 소개, 추천 체류 시간, 추천 여행 유형, 운영·휴무·요금·주차·문의 정보
+- 긴 장소 소개 펼치기와 장소별 방문 팁
 - 기간·테마·중심 지역 기반 여행 일정 초안 생성
 - 검증된 추천 코스 3종
 - 모바일 하단 메뉴와 반응형 레이아웃
@@ -18,8 +20,11 @@
 
 - `images/spots/`: 전북 관광지 33곳의 공식 관광 페이지 기반 사진
 - `js/tourImages.js`: 관광지별 사진·출처·이용 조건 매핑
+- `js/tourDetails.js`: 관광지별 공식 소개·연락처·홈페이지와 방문 정보 매핑
 - `scripts/official_photo_audit.json`: 사진 매칭 감사 기록
 - `scripts/sync_official_photos.js`: 공식 관광 페이지에서 사진을 다시 동기화하는 스크립트
+- `scripts/official_detail_audit.json`: 공식 상세 정보 수집 감사 기록
+- `scripts/sync_official_details.js`: 공식 관광 페이지에서 상세 정보를 다시 동기화하는 스크립트
 - `images/jeonbuk_map_clean-v2.png`: 인터랙티브 핀을 위한 간결한 전북 지도 배경
 
 사진 출처는 각 관광지 상세창에서 확인할 수 있습니다. 외부 공개 또는 상업 운영 전에는 각 출처의 최신 이용 조건을 다시 확인해야 합니다.
@@ -38,9 +43,12 @@ jeonbuk-tour-map/
 │  ├─ app.js
 │  ├─ tourApi.js
 │  ├─ tourData.js
+│  ├─ tourDetails.js
 │  └─ tourImages.js
 └─ scripts/
+   ├─ official_detail_audit.json
    ├─ official_photo_audit.json
+   ├─ sync_official_details.js
    └─ sync_official_photos.js
 ```
 

@@ -997,7 +997,7 @@ body {
 .modal-content {
   background: var(--bg-card);
   width: 100%;
-  max-width: 560px;
+  max-width: 680px;
   max-height: 90vh;
   overflow-y: auto;
   border-radius: var(--radius-lg);
@@ -1040,7 +1040,7 @@ body {
 .modal-hero-img-box {
   position: relative;
   width: 100%;
-  height: 220px;
+  height: 230px;
   background: linear-gradient(135deg, var(--bg-sub), #E2E8F0);
   overflow: hidden;
 }
@@ -1150,6 +1150,48 @@ body {
   gap: 0.35rem;
 }
 
+.modal-snapshot {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.snapshot-card {
+  min-width: 0;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid #DCEFE8;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #F0FDF8, #F5FAFF);
+}
+
+.snapshot-card span {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.28rem;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.snapshot-card span i {
+  color: var(--primary);
+}
+
+.snapshot-card strong {
+  display: block;
+  color: var(--text-main);
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.modal-desc-box {
+  padding: 1rem;
+  border-radius: 14px;
+  background: #F8FAFC;
+  border: 1px solid var(--border-light);
+}
+
 .modal-desc-box h3 {
   font-size: 0.9rem;
   font-weight: 700;
@@ -1161,15 +1203,151 @@ body {
 }
 
 .modal-desc-box p {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
   font-size: 0.85rem;
   color: var(--text-body);
-  line-height: 1.6;
+  line-height: 1.75;
+  white-space: pre-line;
+}
+
+.modal-desc-box p.expanded {
+  display: block;
+  overflow: visible;
+}
+
+.modal-desc-toggle {
+  margin-top: 0.55rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #047857;
+  font-size: 0.74rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.modal-desc-toggle[hidden] {
+  display: none;
+}
+
+.modal-desc-toggle i {
+  margin-left: 0.18rem;
+  font-size: 0.62rem;
 }
 
 .modal-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.3rem;
+}
+
+.modal-detail-section {
+  padding-top: 0.2rem;
+}
+
+.modal-detail-section[hidden],
+.modal-visit-tip[hidden] {
+  display: none;
+}
+
+.modal-detail-section > h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.65rem;
+  color: var(--text-main);
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+.modal-detail-section > h3 i {
+  color: var(--primary);
+}
+
+.modal-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.modal-detail-item {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  align-items: start;
+  gap: 0.55rem;
+  padding: 0.75rem;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  background: white;
+}
+
+.modal-detail-item > i {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 0.8rem;
+}
+
+.modal-detail-item span {
+  display: block;
+  margin-bottom: 0.15rem;
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.modal-detail-item strong,
+.modal-detail-item a {
+  display: inline;
+  color: var(--text-main);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.45;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.modal-detail-item a {
+  color: #047857;
+}
+
+.modal-detail-item a i {
+  margin-left: 0.2rem;
+  font-size: 0.62rem;
+}
+
+.modal-visit-tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding: 0.85rem 0.95rem;
+  border-radius: 12px;
+  background: #FFF9E8;
+  color: #854D0E;
+}
+
+.modal-visit-tip > i {
+  margin-top: 0.15rem;
+  font-size: 1rem;
+}
+
+.modal-visit-tip strong {
+  display: block;
+  margin-bottom: 0.15rem;
+  font-size: 0.76rem;
+}
+
+.modal-visit-tip p {
+  font-size: 0.76rem;
+  line-height: 1.55;
 }
 
 .modal-action-row {
@@ -2227,6 +2405,11 @@ body.modal-open {
     height: 190px;
   }
 
+  .modal-body {
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+
   .modal-title-row {
     align-items: flex-start;
     gap: 0.6rem;
@@ -2234,6 +2417,18 @@ body.modal-open {
 
   .modal-title-row h2 {
     font-size: 1.15rem;
+  }
+
+  .snapshot-card {
+    padding: 0.7rem;
+  }
+
+  .snapshot-card strong {
+    font-size: 0.82rem;
+  }
+
+  .modal-detail-grid {
+    grid-template-columns: 1fr;
   }
 
   .modal-action-row {
