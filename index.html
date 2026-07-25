@@ -95,190 +95,7 @@
       </div>
     </nav>
 
-    <!-- MAIN CONTENT LAYOUT (MAP + SIDEBAR) -->
-    <main class="content-layout">
-      
-      <!-- LEFT: PRETTY ILLUSTRATED TOUR MAP AREA -->
-      <section class="map-section" id="mapSection">
-        
-        <!-- MAP HEADER / INSTRUCTION CONTROLS -->
-        <div class="map-controls-bar">
-          <div class="map-title-info">
-            <h2 id="currentMapHeading"><i class="fa-solid fa-map-marked-alt"></i> 지역으로 탐색</h2>
-            <p id="mapSubText">지도 핀이나 지역 버튼을 선택하면 해당 지역의 명소만 모아볼 수 있습니다.</p>
-          </div>
-          <div class="map-action-btns">
-            <button class="btn-secondary" onclick="resetSelection()">
-              <i class="fa-solid fa-rotate-left"></i> 전북 전체 보기
-            </button>
-          </div>
-        </div>
-
-        <!-- QUICK REGION CHIPS BAR -->
-        <div class="region-chips-wrapper">
-          <span class="chips-label"><i class="fa-solid fa-location-crosshairs"></i> 지역 선택</span>
-          <div class="chips-container" id="regionChips">
-            <!-- Dynamically populated chips -->
-          </div>
-        </div>
-
-        <!-- CLEAN TOUR MAP CONTAINER WITH INTERACTIVE PINS -->
-        <div class="real-map-wrapper">
-          <div class="illust-map-container">
-            <img src="images/jeonbuk_map_clean-v2.webp" width="1600" height="900" alt="서해와 산세를 단순화한 전북 지역 탐색 지도" class="illust-map-img" decoding="async" fetchpriority="high">
-            
-            <div class="illust-overlay-pins">
-              
-              <!-- 1. 전주시 핀 -->
-              <button type="button" class="illust-pin core-pin" style="top: 47%; left: 52%;" id="pin-jeonju" onclick="selectRegion('jeonju')" aria-label="전주시 관광지 보기">
-                <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>전주</span></div>
-                <div class="pin-popup">한옥마을 · 남부시장</div>
-              </button>
-
-              <!-- 2. 군산시 핀 -->
-              <button type="button" class="illust-pin" style="top: 28%; left: 30%;" id="pin-gunsan" onclick="selectRegion('gunsan')" aria-label="군산시 관광지 보기">
-                <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>군산</span></div>
-                <div class="pin-popup">선유도 · 근대역사</div>
-              </button>
-
-              <!-- 3. 익산시 핀 -->
-              <button type="button" class="illust-pin" style="top: 24%; left: 47%;" id="pin-iksan" onclick="selectRegion('iksan')" aria-label="익산시 관광지 보기">
-                <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>익산</span></div>
-                <div class="pin-popup">미륵사지 · 아가페정원</div>
-              </button>
-
-              <!-- 4. 부안군 핀 -->
-              <button type="button" class="illust-pin" style="top: 61%; left: 32%;" id="pin-buan" onclick="selectRegion('buan')" aria-label="부안군 관광지 보기">
-                <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>부안</span></div>
-                <div class="pin-popup">채석강 · 내소사</div>
-              </button>
-
-              <!-- 5. 고창군 핀 -->
-              <button type="button" class="illust-pin" style="top: 79%; left: 34%;" id="pin-gochang" onclick="selectRegion('gochang')" aria-label="고창군 관광지 보기">
-                <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>고창</span></div>
-                <div class="pin-popup">청보리밭 · 고창읍성</div>
-              </button>
-
-              <!-- 6. 정읍시 핀 -->
-              <button type="button" class="illust-pin" style="top: 68%; left: 46%;" id="pin-jeongeup" onclick="selectRegion('jeongeup')" aria-label="정읍시 관광지 보기">
-                <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>정읍</span></div>
-                <div class="pin-popup">내장산 단풍 · 쌍화차</div>
-              </button>
-
-              <!-- 7. 남원시 핀 -->
-              <button type="button" class="illust-pin" style="top: 77%; left: 68%;" id="pin-namwon" onclick="selectRegion('namwon')" aria-label="남원시 관광지 보기">
-                <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>남원</span></div>
-                <div class="pin-popup">광한루원 · 뱀사골</div>
-              </button>
-
-              <!-- 8. 완주군 핀 -->
-              <button type="button" class="illust-pin" style="top: 39%; left: 59%;" id="pin-wanju" onclick="selectRegion('wanju')" aria-label="완주군 관광지 보기">
-                <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>완주</span></div>
-                <div class="pin-popup">아원고택 · 대둔산</div>
-              </button>
-
-              <!-- 9. 진안군 핀 -->
-              <button type="button" class="illust-pin" style="top: 45%; left: 70%;" id="pin-jinan" onclick="selectRegion('jinan')" aria-label="진안군 관광지 보기">
-                <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>진안</span></div>
-                <div class="pin-popup">마이산 탑사 · 홍삼스파</div>
-              </button>
-
-              <!-- 10. 무주군 핀 -->
-              <button type="button" class="illust-pin" style="top: 27%; left: 82%;" id="pin-muju" onclick="selectRegion('muju')" aria-label="무주군 관광지 보기">
-                <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>무주</span></div>
-                <div class="pin-popup">덕유산 곤돌라 · 머루와인</div>
-              </button>
-
-              <!-- 11. 김제시 핀 -->
-              <button type="button" class="illust-pin" style="top: 43%; left: 41%;" id="pin-gimje" onclick="selectRegion('gimje')" aria-label="김제시 관광지 보기">
-                <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>김제</span></div>
-                <div class="pin-popup">벽골제 · 금산사</div>
-              </button>
-
-              <!-- 12. 임실군 핀 -->
-              <button type="button" class="illust-pin" style="top: 59%; left: 61%;" id="pin-imsil" onclick="selectRegion('imsil')" aria-label="임실군 관광지 보기">
-                <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>임실</span></div>
-                <div class="pin-popup">치즈테마파크 · 붕어섬</div>
-              </button>
-
-              <!-- 13. 순창군 핀 -->
-              <button type="button" class="illust-pin" style="top: 80%; left: 55%;" id="pin-sunchang" onclick="selectRegion('sunchang')" aria-label="순창군 관광지 보기">
-                <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>순창</span></div>
-                <div class="pin-popup">강천산 · 고추장마을</div>
-              </button>
-
-              <!-- 14. 장수군 핀 -->
-              <button type="button" class="illust-pin" style="top: 60%; left: 77%;" id="pin-jangsu" onclick="selectRegion('jangsu')" aria-label="장수군 관광지 보기">
-                <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>장수</span></div>
-                <div class="pin-popup">논개사당 · 자연휴양림</div>
-              </button>
-
-            </div>
-          </div>
-        </div>
-
-      </section>
-
-      <!-- RIGHT: TOUR SPOTS & SIDEBAR PANEL -->
-      <aside class="sidebar-section">
-        
-        <!-- SELECTED REGION BANNER INFO -->
-        <div class="region-info-banner" id="regionBanner">
-          <div class="banner-header">
-            <div>
-              <span class="banner-badge" id="bannerBadge">전북 전체</span>
-              <h2 class="banner-title" id="bannerTitle">전라북도 대표 명소</h2>
-            </div>
-            <span class="banner-count" id="bannerCount">장소 불러오는 중</span>
-          </div>
-          <p class="banner-desc" id="bannerDesc">
-            전북 14개 시·군의 관광지·맛집·카페·축제 정보를 한곳에서 비교해보세요.
-          </p>
-        </div>
-
-        <div class="results-toolbar" aria-label="관광지 결과 정렬 및 필터">
-          <button type="button" class="toolbar-btn" id="savedOnlyBtn" onclick="toggleSavedOnly()">
-            <i class="fa-regular fa-bookmark"></i> 저장한 장소만
-          </button>
-          <label class="sort-control">
-            <span class="sr-only">결과 정렬</span>
-            <select id="sortSelect" onchange="setSortOrder(this.value)">
-              <option value="recommended">추천순</option>
-              <option value="name">이름순</option>
-              <option value="region">지역순</option>
-            </select>
-          </label>
-          <button type="button" class="toolbar-reset" id="filterResetBtn" onclick="resetSelection()">필터 초기화</button>
-        </div>
-        <p class="filter-summary" id="filterSummary" aria-live="polite"></p>
-
-        <!-- TOUR CARDS LIST CONTAINER -->
-        <div class="tour-list-container" id="tourCardList" aria-live="polite">
-          <!-- Dynamically Generated Cards -->
-        </div>
-        <button type="button" class="load-more-btn" id="loadMoreBtn" onclick="loadMoreTours()" hidden>
-          <i class="fa-solid fa-plus"></i>
-          <span id="loadMoreLabel">더 많은 장소 보기</span>
-        </button>
-
-      </aside>
-
-    </main>
-
-    <!-- RECOMMENDED COURSES: EASY START BEFORE CUSTOM PLANNING -->
-    <section class="courses-section" id="courseSection">
-      <div class="section-title-box">
-        <div>
-          <span class="section-kicker">처음이라면 여기부터</span>
-          <h2><i class="fa-solid fa-route"></i> 검증된 테마별 추천 코스</h2>
-          <p>일정 만들기가 막막할 때 바로 선택해 플래너에 담을 수 있는 대표 동선입니다.</p>
-        </div>
-      </div>
-      <div class="courses-grid" id="courseGrid">
-        <!-- Dynamically rendered course cards -->
-      </div>
-    </section>
-
+    <!-- 1. PLANNER SECTION (TOP) -->
     <section class="planner-section" id="plannerSection">
       <div class="planner-intro">
         <span class="planner-kicker">나만의 전북 여행</span>
@@ -320,6 +137,224 @@
           <p>조건을 선택하고 일정 만들기를 눌러보세요.</p>
         </div>
       </div>
+    </section>
+
+    <!-- 2. HERO SECTION -->
+    <section class="hero-section" id="heroSection">
+      <div class="hero-content">
+        <span class="hero-kicker"><i class="fa-solid fa-compass"></i> 전북특별자치도 관광 안내</span>
+        <h2 class="hero-title">전북의 아름다운 <strong>14개 시·군</strong>을 탐험하세요</h2>
+        <p class="hero-desc">한옥마을의 고즈넉한 골목부터, 내장산의 붉은 단풍, 서해의 에메랄드빛 바다까지 — 전라북도만의 특별한 여행을 시작해보세요.</p>
+        <div class="hero-stats">
+          <div class="hero-stat-item">
+            <i class="fa-solid fa-map-location-dot"></i>
+            <strong>14</strong>
+            <span>시·군</span>
+          </div>
+          <div class="hero-stat-item">
+            <i class="fa-solid fa-camera-retro"></i>
+            <strong id="heroTourCount">33</strong>
+            <span>명소</span>
+          </div>
+          <div class="hero-stat-item">
+            <i class="fa-solid fa-utensils"></i>
+            <strong>5</strong>
+            <span>테마</span>
+          </div>
+          <div class="hero-stat-item">
+            <i class="fa-solid fa-route"></i>
+            <strong>4</strong>
+            <span>추천 코스</span>
+          </div>
+        </div>
+        <div class="hero-actions">
+          <button type="button" class="hero-cta-primary" onclick="scrollToSection('tourSection')">
+            <i class="fa-solid fa-compass"></i> 관광지 둘러보기
+          </button>
+          <button type="button" class="hero-cta-secondary" onclick="scrollToSection('mapSection')">
+            <i class="fa-solid fa-map"></i> 지도에서 탐색
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. RECOMMENDED COURSES -->
+    <section class="courses-section" id="courseSection">
+      <div class="section-title-box">
+        <div>
+          <span class="section-kicker">처음이라면 여기부터</span>
+          <h2><i class="fa-solid fa-route"></i> 검증된 테마별 추천 코스</h2>
+          <p>일정 만들기가 막막할 때 바로 선택해 플래너에 담을 수 있는 대표 동선입니다.</p>
+        </div>
+      </div>
+      <div class="courses-grid" id="courseGrid">
+        <!-- Dynamically rendered course cards -->
+      </div>
+    </section>
+
+    <!-- 4. TOUR SPOTS SECTION -->
+    <section class="tour-section" id="tourSection">
+
+      <!-- SELECTED REGION BANNER INFO -->
+      <div class="region-info-banner" id="regionBanner">
+        <div class="banner-header">
+          <div>
+            <span class="banner-badge" id="bannerBadge">전북 전체</span>
+            <h2 class="banner-title" id="bannerTitle">전라북도 대표 명소</h2>
+          </div>
+          <span class="banner-count" id="bannerCount">장소 불러오는 중</span>
+        </div>
+        <p class="banner-desc" id="bannerDesc">
+          전북 14개 시·군의 관광지·맛집·카페·축제 정보를 한곳에서 비교해보세요.
+        </p>
+      </div>
+
+      <div class="results-toolbar" aria-label="관광지 결과 정렬 및 필터">
+        <button type="button" class="toolbar-btn" id="savedOnlyBtn" onclick="toggleSavedOnly()">
+          <i class="fa-regular fa-bookmark"></i> 저장한 장소만
+        </button>
+        <label class="sort-control">
+          <span class="sr-only">결과 정렬</span>
+          <select id="sortSelect" onchange="setSortOrder(this.value)">
+            <option value="recommended">추천순</option>
+            <option value="name">이름순</option>
+            <option value="region">지역순</option>
+          </select>
+        </label>
+        <button type="button" class="toolbar-reset" id="filterResetBtn" onclick="resetSelection()">필터 초기화</button>
+      </div>
+      <p class="filter-summary" id="filterSummary" aria-live="polite"></p>
+
+      <!-- TOUR CARDS LIST CONTAINER -->
+      <div class="tour-list-container" id="tourCardList" aria-live="polite">
+        <!-- Dynamically Generated Cards -->
+      </div>
+      <button type="button" class="load-more-btn" id="loadMoreBtn" onclick="loadMoreTours()" hidden>
+        <i class="fa-solid fa-plus"></i>
+        <span id="loadMoreLabel">더 많은 장소 보기</span>
+      </button>
+
+    </section>
+
+    <!-- 5. MAP SECTION (BOTTOM) -->
+    <section class="map-section" id="mapSection">
+      
+      <!-- MAP HEADER / INSTRUCTION CONTROLS -->
+      <div class="map-controls-bar">
+        <div class="map-title-info">
+          <h2 id="currentMapHeading"><i class="fa-solid fa-map-marked-alt"></i> 지역으로 탐색</h2>
+          <p id="mapSubText">지도 핀이나 지역 버튼을 선택하면 해당 지역의 명소만 모아볼 수 있습니다.</p>
+        </div>
+        <div class="map-action-btns">
+          <button class="btn-secondary" onclick="resetSelection()">
+            <i class="fa-solid fa-rotate-left"></i> 전북 전체 보기
+          </button>
+        </div>
+      </div>
+
+      <!-- QUICK REGION CHIPS BAR -->
+      <div class="region-chips-wrapper">
+        <span class="chips-label"><i class="fa-solid fa-location-crosshairs"></i> 지역 선택</span>
+        <div class="chips-container" id="regionChips">
+          <!-- Dynamically populated chips -->
+        </div>
+      </div>
+
+      <!-- CLEAN TOUR MAP CONTAINER WITH INTERACTIVE PINS -->
+      <div class="real-map-wrapper">
+        <div class="illust-map-container">
+          <img src="images/jeonbuk_map_clean-v2.webp" width="1600" height="900" alt="서해와 산세를 단순화한 전북 지역 탐색 지도" class="illust-map-img" decoding="async" fetchpriority="high">
+          
+          <div class="illust-overlay-pins">
+            
+            <!-- 1. 전주시 핀 -->
+            <button type="button" class="illust-pin core-pin" style="top: 47%; left: 52%;" id="pin-jeonju" onclick="selectRegion('jeonju')" aria-label="전주시 관광지 보기">
+              <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>전주</span></div>
+              <div class="pin-popup">한옥마을 · 남부시장</div>
+            </button>
+
+            <!-- 2. 군산시 핀 -->
+            <button type="button" class="illust-pin" style="top: 28%; left: 30%;" id="pin-gunsan" onclick="selectRegion('gunsan')" aria-label="군산시 관광지 보기">
+              <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>군산</span></div>
+              <div class="pin-popup">선유도 · 근대역사</div>
+            </button>
+
+            <!-- 3. 익산시 핀 -->
+            <button type="button" class="illust-pin" style="top: 24%; left: 47%;" id="pin-iksan" onclick="selectRegion('iksan')" aria-label="익산시 관광지 보기">
+              <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>익산</span></div>
+              <div class="pin-popup">미륵사지 · 아가페정원</div>
+            </button>
+
+            <!-- 4. 부안군 핀 -->
+            <button type="button" class="illust-pin" style="top: 61%; left: 32%;" id="pin-buan" onclick="selectRegion('buan')" aria-label="부안군 관광지 보기">
+              <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>부안</span></div>
+              <div class="pin-popup">채석강 · 내소사</div>
+            </button>
+
+            <!-- 5. 고창군 핀 -->
+            <button type="button" class="illust-pin" style="top: 79%; left: 34%;" id="pin-gochang" onclick="selectRegion('gochang')" aria-label="고창군 관광지 보기">
+              <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>고창</span></div>
+              <div class="pin-popup">청보리밭 · 고창읍성</div>
+            </button>
+
+            <!-- 6. 정읍시 핀 -->
+            <button type="button" class="illust-pin" style="top: 68%; left: 46%;" id="pin-jeongeup" onclick="selectRegion('jeongeup')" aria-label="정읍시 관광지 보기">
+              <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>정읍</span></div>
+              <div class="pin-popup">내장산 단풍 · 쌍화차</div>
+            </button>
+
+            <!-- 7. 남원시 핀 -->
+            <button type="button" class="illust-pin" style="top: 77%; left: 68%;" id="pin-namwon" onclick="selectRegion('namwon')" aria-label="남원시 관광지 보기">
+              <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>남원</span></div>
+              <div class="pin-popup">광한루원 · 뱀사골</div>
+            </button>
+
+            <!-- 8. 완주군 핀 -->
+            <button type="button" class="illust-pin" style="top: 39%; left: 59%;" id="pin-wanju" onclick="selectRegion('wanju')" aria-label="완주군 관광지 보기">
+              <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>완주</span></div>
+              <div class="pin-popup">아원고택 · 대둔산</div>
+            </button>
+
+            <!-- 9. 진안군 핀 -->
+            <button type="button" class="illust-pin" style="top: 45%; left: 70%;" id="pin-jinan" onclick="selectRegion('jinan')" aria-label="진안군 관광지 보기">
+              <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>진안</span></div>
+              <div class="pin-popup">마이산 탑사 · 홍삼스파</div>
+            </button>
+
+            <!-- 10. 무주군 핀 -->
+            <button type="button" class="illust-pin" style="top: 27%; left: 82%;" id="pin-muju" onclick="selectRegion('muju')" aria-label="무주군 관광지 보기">
+              <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>무주</span></div>
+              <div class="pin-popup">덕유산 곤돌라 · 머루와인</div>
+            </button>
+
+            <!-- 11. 김제시 핀 -->
+            <button type="button" class="illust-pin" style="top: 43%; left: 41%;" id="pin-gimje" onclick="selectRegion('gimje')" aria-label="김제시 관광지 보기">
+              <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>김제</span></div>
+              <div class="pin-popup">벽골제 · 금산사</div>
+            </button>
+
+            <!-- 12. 임실군 핀 -->
+            <button type="button" class="illust-pin" style="top: 59%; left: 61%;" id="pin-imsil" onclick="selectRegion('imsil')" aria-label="임실군 관광지 보기">
+              <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>임실</span></div>
+              <div class="pin-popup">치즈테마파크 · 붕어섬</div>
+            </button>
+
+            <!-- 13. 순창군 핀 -->
+            <button type="button" class="illust-pin" style="top: 80%; left: 55%;" id="pin-sunchang" onclick="selectRegion('sunchang')" aria-label="순창군 관광지 보기">
+              <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>순창</span></div>
+              <div class="pin-popup">강천산 · 고추장마을</div>
+            </button>
+
+            <!-- 14. 장수군 핀 -->
+            <button type="button" class="illust-pin" style="top: 60%; left: 77%;" id="pin-jangsu" onclick="selectRegion('jangsu')" aria-label="장수군 관광지 보기">
+              <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>장수</span></div>
+              <div class="pin-popup">논개사당 · 자연휴양림</div>
+            </button>
+
+          </div>
+        </div>
+      </div>
+
     </section>
 
     <!-- FOOTER -->
