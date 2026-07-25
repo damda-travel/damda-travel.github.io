@@ -13,9 +13,9 @@ let showSavedOnly = false;
 let activeTourId = null;
 let lastFocusedElement = null;
 let searchDebounceTimer = null;
-let visibleResultLimit = 24;
+let visibleResultLimit = 6;
 let lastResultSignature = '';
-const RESULTS_PAGE_SIZE = 24;
+const RESULTS_PAGE_SIZE = 6;
 
 // DOM Elements
 const searchInput = document.getElementById('searchInput');
@@ -932,3 +932,23 @@ function clearApiKey() {
   showToast('저장된 연동 키를 삭제했습니다.');
   updateUI();
 }
+
+// ── Back to Top ──
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+(function initBackToTop() {
+  const btn = document.getElementById('backToTopBtn');
+  if (!btn) return;
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        btn.classList.toggle('visible', window.scrollY > 300);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+})();
