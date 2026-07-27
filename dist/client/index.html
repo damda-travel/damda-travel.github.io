@@ -28,7 +28,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗺️</text></svg>">
 
   <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=27">
+  <link rel="stylesheet" href="css/style.css?v=28">
 </head>
 <body>
 
@@ -143,7 +143,6 @@
           <div>
             <span class="planner-step">1</span>
             <strong data-i18n="presetTitle">Elige una ruta base</strong>
-            <p data-i18n="presetDesc">Puedes usar una combinación recomendada y cambiar las regiones después.</p>
           </div>
           <div class="route-presets" id="routePresets">
             <button type="button" class="route-preset active" data-preset="heritage" onclick="applyRoutePreset('heritage')"><i class="fa-solid fa-landmark"></i> <span data-i18n="presetHeritage">Esencia cultural</span></button>
@@ -216,7 +215,6 @@
         <div>
           <span class="section-kicker" data-i18n="coursesKicker">Si es tu primera vez</span>
           <h2><i class="fa-solid fa-route"></i> <span data-i18n="coursesTitle">Rutas recomendadas</span></h2>
-          <p data-i18n="coursesDesc">Empieza con una ruta preparada y ajústala en el planificador.</p>
         </div>
       </div>
       <div class="courses-grid" id="courseGrid">
@@ -246,7 +244,6 @@
           <div>
             <span class="section-kicker" data-i18n="regionSelectorKicker">Explora por región</span>
             <h3><i class="fa-solid fa-location-crosshairs"></i> <span data-i18n="regionSelectorTitle">¿A dónde quieres ir?</span></h3>
-            <p data-i18n="regionSelectorDesc">Selecciona una región para ver sus lugares y fotos.</p>
           </div>
           <button type="button" class="region-reset-btn" onclick="resetSelection()"><i class="fa-solid fa-rotate-left"></i> <span data-i18n="showAllRegions">Ver todo Jeonbuk</span></button>
         </div>
@@ -364,9 +361,24 @@
 
         <p class="visit-notice" id="modalVisitNotice"><i class="fa-solid fa-circle-exclamation"></i> 운영시간·휴무일·요금은 변동될 수 있으니 방문 전 확인해주세요.</p>
 
+        <section class="modal-route-section" id="modalRouteSection" aria-labelledby="modalRouteTitle">
+          <div class="modal-route-heading">
+            <div>
+              <span class="modal-route-kicker">Google Maps</span>
+              <h3 id="modalRouteTitle">Cómo llegar</h3>
+            </div>
+            <small id="modalRouteHint">Consulta la ruta y el tiempo actual.</small>
+          </div>
+          <div class="modal-route-modes">
+            <a id="modalWalkBtn" href="#" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-person-walking"></i><span>A pie</span></a>
+            <a id="modalTransitBtn" href="#" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-bus-simple"></i><span>Transporte</span></a>
+            <a id="modalDriveBtn" href="#" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-car-side"></i><span>Auto</span></a>
+          </div>
+        </section>
+
         <div class="modal-action-row">
           <a class="btn-primary" id="modalNavBtn" href="#" target="_blank" rel="noopener noreferrer">
-            <i class="fa-solid fa-diamond-turn-right"></i> <span data-i18n="modalDirections">Cómo llegar (KakaoMap)</span>
+            <i class="fa-brands fa-google"></i> <span data-i18n="modalDirections">Abrir en Google Maps</span>
           </a>
           <button type="button" class="btn-outline" id="modalBookmarkBtn">
             <i class="fa-regular fa-bookmark"></i> <span data-i18n="modalSave">Guardar lugar</span>
@@ -454,6 +466,6 @@
   <script src="js/tourImages.js?v=25"></script>
   <script src="js/tourDetails.js?v=25"></script>
   <script src="js/tourApi.js?v=25"></script>
-  <script src="js/app.js?v=27"></script>
+  <script src="js/app.js?v=28"></script>
 </body>
 </html>

@@ -145,7 +145,7 @@ const I18N = {
     modalAbout: '¿Qué encontrarás aquí?',
     modalCheck: 'Antes de visitar',
     modalTip: 'Consejo de viaje',
-    modalDirections: 'Cómo llegar (KakaoMap)',
+    modalDirections: 'Abrir en Google Maps',
     modalSave: 'Guardar lugar',
     modalShare: 'Compartir',
     modalOfficial: 'Información oficial',
@@ -233,7 +233,7 @@ const I18N = {
     modalAbout: '이곳은 어떤 곳인가요?',
     modalCheck: '방문 전에 확인하세요',
     modalTip: '여행 팁',
-    modalDirections: '길찾기 안내 (카카오맵)',
+    modalDirections: 'Google Maps에서 열기',
     modalSave: '장소 저장하기',
     modalShare: '공유',
     modalOfficial: '공식 관광정보',
@@ -288,6 +288,11 @@ const modalVisitTip = document.getElementById('modalVisitTip');
 const modalVisitTipText = document.getElementById('modalVisitTipText');
 const modalVisitNotice = document.getElementById('modalVisitNotice');
 const modalStatusLabel = document.getElementById('modalStatusLabel');
+const modalRouteSection = document.getElementById('modalRouteSection');
+const modalRouteHint = document.getElementById('modalRouteHint');
+const modalWalkBtn = document.getElementById('modalWalkBtn');
+const modalTransitBtn = document.getElementById('modalTransitBtn');
+const modalDriveBtn = document.getElementById('modalDriveBtn');
 
 const savedDrawer = document.getElementById('savedDrawer');
 const savedList = document.getElementById('savedList');
@@ -332,6 +337,58 @@ function escapeHTML(value = '') {
     .replaceAll("'", '&#039;');
 }
 
+function getTourCoordinates(tour) {
+  if (!tour) return null;
+  const lat = Number(tour.lat ?? tour.mapY);
+  const lng = Number(tour.lng ?? tour.mapX);
+  return Number.isFinite(lat) && Number.isFinite(lng) ? { lat, lng } : null;
+}
+
+function getGoogleMapsWaypoint(tour) {
+  const coordinates = getTourCoordinates(tour);
+  if (coordinates) return `${coordinates.lat},${coordinates.lng}`;
+  return [tour?.name, tour?.address].filter(Boolean).join(' ');
+}
+
+function buildGoogleMapsDirectionsUrl(destinationTour, travelMode = 'transit', originTour = null) {
+  const destination = getGoogleMapsWaypoint(destinationTour);
+  if (!destination) return 'https://www.google.com/maps';
+  const params = new URLSearchParams({
+    api: '1',
+    destination,
+    travelmode: travelMode,
+    dir_action: 'navigate'
+  });
+  const origin = getGoogleMapsWaypoint(originTour);
+  if (origin) params.set('origin', origin);
+  return `https://www.google.com/maps/dir/?${params.toString()}`;
+}
+
+function getDirectDistanceKm(originTour, destinationTour) {
+  const origin = getTourCoordinates(originTour);
+  const destination = getTourCoordinates(destinationTour);
+  if (!origin || !destination) return null;
+  const toRadians = value => value * Math.PI / 180;
+  const earthRadiusKm = 6371;
+  const latDelta = toRadians(destination.lat - origin.lat);
+  const lngDelta = toRadians(destination.lng - origin.lng);
+  const a = Math.sin(latDelta / 2) ** 2
+    + Math.cos(toRadians(origin.lat)) * Math.cos(toRadians(destination.lat))
+    * Math.sin(lngDelta / 2) ** 2;
+  return earthRadiusKm * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+function formatDirectDistance(originTour, destinationTour) {
+  const distanceKm = getDirectDistanceKm(originTour, destinationTour);
+  if (distanceKm === null) return '';
+  if (distanceKm < 1) return `${Math.max(50, Math.round(distanceKm * 1000 / 50) * 50)} m`;
+  return `${distanceKm.toFixed(distanceKm < 10 ? 1 : 0)} km`;
+}
+
+function renderRouteModeLink(originTour, destinationTour, mode, icon, label) {
+  return `<a href="${escapeHTML(buildGoogleMapsDirectionsUrl(destinationTour, mode, originTour))}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHTML(label)} · Google Maps"><i class="${icon}"></i><span>${escapeHTML(label)}</span></a>`;
+}
+
 function t(key) {
   return I18N[currentLanguage]?.[key] || I18N.es[key] || key;
 }
@@ -353,6 +410,14 @@ function getCategoryName(category) {
     nature: currentLanguage === 'ko' ? '자연·힐링' : 'Naturaleza',
     festival: currentLanguage === 'ko' ? '축제·행사' : 'Festivales'
   }[category] || category;
+}
+
+function getLocalizedDuration(value = '') {
+  if (!value || currentLanguage === 'ko') return value;
+  return String(value)
+    .replace(/[~～]/g, '–')
+    .replace(/\s*시간/g, ' h')
+    .replace(/\s*분/g, ' min');
 }
 
 function getEventStatusLabel(status = '') {
@@ -642,8 +707,8 @@ async function updateUI() {
       ? `${region.name} 관광 안내`
       : `Qué ver en ${getRegionName(region.id, region.name)}`;
     bannerDesc.textContent = currentLanguage === 'ko'
-      ? region.description
-      : `Descubre lugares, comida y experiencias de ${getRegionName(region.id, region.name)}. Los nombres oficiales se mantienen en coreano para facilitar la búsqueda local.`;
+      ? `${region.name}의 대표 명소와 여행 정보를 확인하세요.`
+      : `Lugares y experiencias de ${getRegionName(region.id, region.name)}.`;
   } else {
     bannerBadge.textContent = currentSearchQuery
       ? (currentLanguage === 'ko' ? '통합 검색' : 'Búsqueda')
@@ -653,11 +718,11 @@ async function updateUI() {
       : (currentLanguage === 'ko' ? '전라북도 대표 명소' : 'Lugares destacados de Jeonbuk');
     bannerDesc.textContent = currentSearchQuery
       ? (currentLanguage === 'ko'
-        ? '전북 14개 시·군 전체에서 관광지명, 지역, 주소와 키워드를 검색했습니다.'
-        : 'Buscamos nombres, regiones, direcciones y palabras clave en todo Jeonbuk.')
+        ? '전북 전체 관광정보 검색 결과입니다.'
+        : 'Resultados en todo Jeonbuk.')
       : (currentLanguage === 'ko'
-        ? '14개 시·군의 실제 명소 사진을 비교하고, 지역과 테마에 맞춰 여행지를 골라보세요.'
-        : 'Compara fotos y lugares reales de los 14 municipios y arma tu propia ruta.');
+        ? '14개 시·군의 명소를 지역과 테마별로 살펴보세요.'
+        : 'Explora lugares reales de los 14 municipios.');
   }
 
   const filteredTours = await getFilteredTourList();
@@ -771,15 +836,14 @@ function updateToolbarState(resultCount) {
     savedOnlyBtn.setAttribute('aria-pressed', String(showSavedOnly));
   }
 
-  const categoryName = getCategoryName(currentSelectedCategory);
-  const parts = [
-    currentSelectedRegion ? getRegionName(currentSelectedRegion) : (currentLanguage === 'ko' ? '전북 전체' : 'Todo Jeonbuk'),
-    categoryName,
+  const activeFilters = [
+    currentSelectedRegion ? getRegionName(currentSelectedRegion) : null,
+    currentSelectedCategory !== 'all' ? getCategoryName(currentSelectedCategory) : null,
     showSavedOnly ? (currentLanguage === 'ko' ? '저장한 장소' : 'Guardados') : null
   ].filter(Boolean);
   filterSummary.textContent = currentLanguage === 'ko'
-    ? `${parts.join(' · ')}에서 ${resultCount}곳을 보고 있습니다.`
-    : `${resultCount.toLocaleString(getLocale())} resultados · ${parts.join(' · ')}`;
+    ? `${resultCount.toLocaleString(getLocale())}곳${activeFilters.length ? ` · ${activeFilters.join(' · ')}` : ''}`
+    : `${resultCount.toLocaleString(getLocale())} lugares${activeFilters.length ? ` · ${activeFilters.join(' · ')}` : ''}`;
 }
 
 function renderTourCards(tours) {
@@ -803,7 +867,7 @@ function renderTourCards(tours) {
   const saved = new Set(getSavedIds());
   const visibleTours = tours.slice(0, visibleResultLimit);
   tourCardList.innerHTML = visibleTours.map(tour => {
-    const tags = (tour.tags || []).slice(0, 3).map(tag => `<span class="tag-item">${escapeHTML(tag)}</span>`).join('');
+    const tags = (tour.tags || []).slice(0, 2).map(tag => `<span class="tag-item">${escapeHTML(tag)}</span>`).join('');
     const savedBadge = saved.has(tour.id)
       ? `<span class="card-saved-badge"><i class="fa-solid fa-bookmark"></i> ${currentLanguage === 'ko' ? '저장됨' : 'Guardado'}</span>`
       : '<span class="card-view-badge"><i class="fa-solid fa-arrow-right"></i></span>';
@@ -815,9 +879,16 @@ function renderTourCards(tours) {
           <span class="event-status ${tour.eventStatus === '진행 중' ? 'active' : ''}">${escapeHTML(getEventStatusLabel(tour.eventStatus))}</span>
           <span><i class="fa-regular fa-calendar"></i> ${escapeHTML(tour.eventPeriod)}</span>
         </div>`
-      : tour.subCategory
-        ? `<div class="card-subcategory"><i class="fa-solid fa-circle-info"></i> ${escapeHTML(currentLanguage === 'ko' ? tour.subCategory : getCategoryName(tour.category))}</div>`
-        : '';
+      : '';
+    const practicalItems = [
+      tour.recommendedDuration
+        ? `<span><i class="fa-regular fa-clock"></i> ${escapeHTML(getLocalizedDuration(tour.recommendedDuration))}</span>`
+        : '',
+      tour.fee && String(tour.fee).length <= 32
+        ? `<span><i class="fa-solid fa-ticket"></i> ${escapeHTML(tour.fee)}</span>`
+        : ''
+    ].filter(Boolean).join('');
+    const practicalMeta = practicalItems ? `<div class="card-practical-meta">${practicalItems}</div>` : '';
 
     return `
       <button type="button" class="tour-card" onclick="openModal('${escapeHTML(tour.id)}')" aria-label="${escapeHTML(tour.name)} · ${currentLanguage === 'ko' ? '상세 정보 보기' : 'ver detalles'}">
@@ -833,7 +904,7 @@ function renderTourCards(tours) {
           </div>
           <p class="card-address"><i class="fa-solid fa-location-dot"></i> ${escapeHTML(tour.address)}</p>
           ${eventMeta}
-          <p class="card-desc">${escapeHTML(getTourDescription(tour))}</p>
+          ${practicalMeta}
           <div class="card-tags">${tags}</div>
         </div>
       </button>
@@ -922,7 +993,7 @@ function openModal(tourId) {
       : `${currentLanguage === 'ko' ? '설명 더 보기' : 'Ver más'} <i class="fa-solid fa-chevron-down"></i>`;
   };
   modalTags.innerHTML = (foundTour.tags || []).map(tag => `<span class="tag-item">${escapeHTML(tag)}</span>`).join('');
-  modalDuration.textContent = currentLanguage === 'ko' ? (foundTour.recommendedDuration || '1~2시간') : '1–2 horas';
+  modalDuration.textContent = getLocalizedDuration(foundTour.recommendedDuration || '1~2시간');
   modalRecommendedFor.textContent = currentLanguage === 'ko'
     ? (foundTour.recommendedFor || foundTour.categoryName || '전북 여행')
     : getCategoryName(foundTour.category);
@@ -977,10 +1048,11 @@ function openModal(tourId) {
   }).join('');
   modalDetailSection.hidden = detailRows.length === 0;
 
-  modalVisitTipText.textContent = currentLanguage === 'ko'
-    ? (foundTour.visitTip || '날씨와 운영 정보가 달라질 수 있으니 출발 전 공식 관광정보를 확인하세요.')
-    : 'Los horarios y condiciones pueden cambiar. Confirma la información oficial antes de salir.';
-  modalVisitTip.hidden = !modalVisitTipText.textContent;
+  const hasSpecificVisitTip = currentLanguage === 'ko'
+    && foundTour.visitTip
+    && !/운영시간|이용요금|공식 (페이지|관광정보)|방문 전 확인/.test(foundTour.visitTip);
+  modalVisitTipText.textContent = hasSpecificVisitTip ? foundTour.visitTip : '';
+  modalVisitTip.hidden = !hasSpecificVisitTip;
   const hasVisitInfo = Boolean(
     foundTour.hours || foundTour.closed || foundTour.fee ||
     foundTour.parking || foundTour.phone || foundTour.homepage ||
@@ -990,8 +1062,23 @@ function openModal(tourId) {
     ? `<i class="fa-solid fa-circle-exclamation"></i> ${currentLanguage === 'ko' ? '운영시간·휴무일·요금은 변경될 수 있으니 방문 전 공식 페이지에서 다시 확인해주세요.' : 'Los horarios, cierres y precios pueden cambiar. Revísalos en la página oficial.'}`
     : `<i class="fa-solid fa-circle-exclamation"></i> ${currentLanguage === 'ko' ? '상세 운영 정보가 확인되지 않은 장소입니다. 방문 전 공식 관광정보를 확인해주세요.' : 'No hay información operativa completa. Confirma los datos antes de visitar.'}`;
 
+  const routeLabels = currentLanguage === 'ko'
+    ? { title: '이동 방법', hint: '실시간 시간과 경로는 Google Maps에서 확인하세요.', walk: '도보', transit: '대중교통', drive: '자동차' }
+    : { title: 'Cómo llegar', hint: 'Consulta la ruta y el tiempo actual en Google Maps.', walk: 'A pie', transit: 'Transporte', drive: 'Auto' };
+  document.getElementById('modalRouteTitle').textContent = routeLabels.title;
+  modalRouteHint.textContent = routeLabels.hint;
+  [
+    [modalWalkBtn, 'walking', routeLabels.walk],
+    [modalTransitBtn, 'transit', routeLabels.transit],
+    [modalDriveBtn, 'driving', routeLabels.drive]
+  ].forEach(([button, mode, label]) => {
+    button.href = buildGoogleMapsDirectionsUrl(foundTour, mode);
+    button.querySelector('span').textContent = label;
+  });
+  modalRouteSection.hidden = false;
+
   const navBtn = document.getElementById('modalNavBtn');
-  navBtn.href = `https://map.kakao.com/link/search/${encodeURIComponent(foundTour.name)}`;
+  navBtn.href = buildGoogleMapsDirectionsUrl(foundTour, 'transit');
 
   const bookmarkBtn = document.getElementById('modalBookmarkBtn');
   bookmarkBtn.onclick = () => toggleBookmark(foundTour.id);
@@ -1181,6 +1268,29 @@ function generateTravelPlan(options = {}) {
   scrollToSection('plannerSection');
 }
 
+function renderPlanTransfer(originTour, destinationTour) {
+  const directDistance = formatDirectDistance(originTour, destinationTour);
+  const labels = currentLanguage === 'ko'
+    ? { title: '다음 장소로 이동', distance: '직선거리', walk: '도보', transit: '대중교통', drive: '자동차' }
+    : { title: 'Siguiente trayecto', distance: 'Distancia directa', walk: 'A pie', transit: 'Transporte', drive: 'Auto' };
+  return `
+    <div class="plan-transfer">
+      <div class="plan-transfer-copy">
+        <span class="plan-transfer-icon"><i class="fa-solid fa-route"></i></span>
+        <div>
+          <strong>${labels.title}</strong>
+          ${directDistance ? `<small>${labels.distance} · ${escapeHTML(directDistance)}</small>` : ''}
+        </div>
+      </div>
+      <div class="plan-transfer-actions">
+        ${renderRouteModeLink(originTour, destinationTour, 'walking', 'fa-solid fa-person-walking', labels.walk)}
+        ${renderRouteModeLink(originTour, destinationTour, 'transit', 'fa-solid fa-bus-simple', labels.transit)}
+        ${renderRouteModeLink(originTour, destinationTour, 'driving', 'fa-solid fa-car-side', labels.drive)}
+      </div>
+    </div>
+  `;
+}
+
 function renderTravelPlan(duration, customTitle = null, selectedRegionIds = [...selectedPlannerRegions]) {
   if (!currentPlan.length) {
     plannerResult.innerHTML = `<div class="planner-empty"><p>${currentLanguage === 'ko' ? '선택한 조건에 맞는 관광지가 없습니다.' : 'No encontramos lugares para esta combinación.'}</p></div>`;
@@ -1199,15 +1309,18 @@ function renderTravelPlan(duration, customTitle = null, selectedRegionIds = [...
       <div class="plan-day-label">${currentLanguage === 'ko' ? `${dayIndex + 1}일차` : `Día ${dayIndex + 1}`}</div>
       <div class="plan-stops">
         ${stops.map((tour, stopIndex) => `
-          <button type="button" class="plan-stop" onclick="openModal('${escapeHTML(tour.id)}')">
-            <span class="plan-stop-number">${stopIndex + 1}</span>
-            <img src="${escapeHTML(tour.image)}" alt="" loading="lazy" onerror="handleImageError(this)">
-            <span class="plan-stop-copy">
-              <strong>${escapeHTML(tour.name)}</strong>
-              <small>${escapeHTML(getRegionName(tour.regionId, tour.regionName))} · ${escapeHTML(getCategoryName(tour.category))}</small>
-            </span>
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
+          <div class="plan-stop-group">
+            <button type="button" class="plan-stop" onclick="openModal('${escapeHTML(tour.id)}')">
+              <span class="plan-stop-number">${stopIndex + 1}</span>
+              <img src="${escapeHTML(tour.image)}" alt="" loading="lazy" onerror="handleImageError(this)">
+              <span class="plan-stop-copy">
+                <strong>${escapeHTML(tour.name)}</strong>
+                <small>${escapeHTML(getRegionName(tour.regionId, tour.regionName))} · ${escapeHTML(getCategoryName(tour.category))}</small>
+              </span>
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+            ${stopIndex < stops.length - 1 ? renderPlanTransfer(tour, stops[stopIndex + 1]) : ''}
+          </div>
         `).join('')}
       </div>
     </section>
@@ -1231,8 +1344,8 @@ function renderTravelPlan(duration, customTitle = null, selectedRegionIds = [...
     </div>
     ${daysHTML}
     <p class="plan-disclaimer"><i class="fa-solid fa-circle-info"></i> ${currentLanguage === 'ko'
-      ? '선택한 지역 순서를 기준으로 만든 초안입니다. 실제 이동 시간과 운영정보는 방문 전에 확인해주세요.'
-      : 'Es una propuesta basada en el orden de las regiones. Confirma los tiempos de traslado y horarios antes de viajar.'}</p>
+      ? '직선거리는 참고용입니다. 실제 이동시간·교통비는 각 Google Maps 버튼에서 확인해주세요.'
+      : 'La distancia directa es orientativa. Consulta tiempo y costo actual en cada enlace de Google Maps.'}</p>
   `;
 }
 

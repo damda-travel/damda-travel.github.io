@@ -21,8 +21,8 @@
   
   --text-main: #0F172A;
   --text-body: #334155;
-  --text-muted: #64748B;
-  --text-light: #94A3B8;
+  --text-muted: #566274;
+  --text-light: #8792A2;
   
   --border-light: #E2E8F0;
   --border-hover: #CBD5E1;
@@ -56,7 +56,7 @@ html {
 }
 
 body {
-  font-family: 'Noto Sans KR', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--bg-main);
@@ -1065,6 +1065,10 @@ body {
   align-items: center;
   gap: 0.25rem;
   margin-bottom: 0.35rem;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .card-address i {
@@ -1120,19 +1124,50 @@ body {
   margin-bottom: 0.4rem;
 }
 
+.card-practical-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0.25rem 0 0.45rem;
+  overflow: hidden;
+}
+
+.card-practical-meta span {
+  min-width: 0;
+  padding: 0.2rem 0.45rem;
+  border-radius: 7px;
+  background: #F1F5F9;
+  color: #475569;
+  font-size: 0.66rem;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-practical-meta i {
+  margin-right: 0.18rem;
+  color: var(--primary);
+}
+
 .card-tags {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 0.25rem;
+  overflow: hidden;
 }
 
 .tag-item {
+  min-width: 0;
   font-size: 0.65rem;
   font-weight: 600;
   color: var(--primary);
   background: var(--primary-light);
   padding: 0.1rem 0.4rem;
   border-radius: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .empty-state {
@@ -1664,6 +1699,75 @@ body {
   line-height: 1.55;
 }
 
+.modal-route-section {
+  padding: 0.9rem;
+  border: 1px solid #D7E8E2;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #F4FBF8, #F8FBFF);
+}
+
+.modal-route-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.7rem;
+}
+
+.modal-route-kicker {
+  display: block;
+  margin-bottom: 0.05rem;
+  color: var(--primary);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.modal-route-heading h3 {
+  color: var(--text-main);
+  font-size: 0.92rem;
+}
+
+.modal-route-heading small {
+  color: var(--text-muted);
+  font-size: 0.66rem;
+  text-align: right;
+}
+
+.modal-route-modes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.45rem;
+}
+
+.modal-route-modes a {
+  min-width: 0;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.38rem;
+  padding: 0.55rem;
+  border: 1px solid #DCE6EC;
+  border-radius: 11px;
+  background: #fff;
+  color: #334155;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.modal-route-modes a:hover {
+  border-color: #6EE7B7;
+  background: var(--primary-light);
+  color: var(--primary-hover);
+}
+
+.modal-route-modes i {
+  color: var(--primary);
+}
+
 .modal-action-row {
   display: flex;
   gap: 0.6rem;
@@ -1968,9 +2072,10 @@ body.modal-open {
 }
 
 .filter-summary {
-  margin-top: -0.35rem;
-  color: var(--text-muted);
+  margin: -0.2rem 0 0.65rem;
+  color: #475569;
   font-size: 0.7rem;
+  font-weight: 700;
 }
 
 .empty-reset-btn {
@@ -2029,7 +2134,8 @@ body.modal-open {
 
 .planner-intro p {
   margin-top: 0.55rem;
-  color: var(--text-muted);
+  max-width: 32rem;
+  color: var(--text-body);
   font-size: 0.82rem;
   line-height: 1.55;
 }
@@ -2098,8 +2204,9 @@ body.modal-open {
 .planner-route-heading p,
 .planner-region-copy p {
   margin-top: 0.2rem;
-  color: var(--text-muted);
+  color: var(--text-body);
   font-size: 0.72rem;
+  font-weight: 600;
   line-height: 1.45;
 }
 
@@ -2284,8 +2391,12 @@ body.modal-open {
 
 .plan-stops {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.65rem;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+}
+
+.plan-stop-group {
+  min-width: 0;
 }
 
 .plan-stop {
@@ -2301,6 +2412,7 @@ body.modal-open {
   color: inherit;
   text-align: left;
   cursor: pointer;
+  width: 100%;
 }
 
 .plan-stop:hover {
@@ -2356,10 +2468,91 @@ body.modal-open {
   font-size: 0.65rem;
 }
 
+.plan-transfer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin: 0.35rem 0 0.35rem 1.1rem;
+  padding: 0.45rem 0.55rem 0.45rem 1.75rem;
+  border-left: 2px dashed #A7DCCB;
+}
+
+.plan-transfer-copy {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.plan-transfer-icon {
+  position: absolute;
+  left: -13px;
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #DDF7EE;
+  color: var(--primary);
+  font-size: 0.62rem;
+}
+
+.plan-transfer-copy strong,
+.plan-transfer-copy small {
+  display: block;
+}
+
+.plan-transfer-copy strong {
+  color: var(--text-main);
+  font-size: 0.72rem;
+}
+
+.plan-transfer-copy small {
+  margin-top: 0.08rem;
+  color: var(--text-muted);
+  font-size: 0.64rem;
+}
+
+.plan-transfer-actions {
+  flex: 0 0 auto;
+  display: flex;
+  gap: 0.3rem;
+}
+
+.plan-transfer-actions a {
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  padding: 0 0.55rem;
+  border: 1px solid #D8E2EA;
+  border-radius: var(--radius-full);
+  background: #fff;
+  color: #334155;
+  font-size: 0.64rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.plan-transfer-actions a:hover {
+  border-color: #6EE7B7;
+  color: var(--primary-hover);
+  background: var(--primary-light);
+}
+
+.plan-transfer-actions i {
+  color: var(--primary);
+}
+
 .plan-disclaimer {
   margin-top: 0.6rem;
-  color: var(--text-muted);
+  color: #475569;
   font-size: 0.7rem;
+  line-height: 1.5;
 }
 
 .course-card-footer {
@@ -2861,6 +3054,33 @@ body.modal-open {
 
   .plan-stops {
     grid-template-columns: 1fr;
+  }
+
+  .plan-transfer {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-left: 0.85rem;
+    padding-left: 1.35rem;
+  }
+
+  .plan-transfer-actions {
+    width: 100%;
+  }
+
+  .plan-transfer-actions a {
+    flex: 1;
+    justify-content: center;
+    padding: 0 0.35rem;
+  }
+
+  .modal-route-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .modal-route-heading small {
+    text-align: left;
   }
 
   .courses-grid {
