@@ -23,7 +23,7 @@ const JEONBUK_REGIONS = {
         "reviews": 3450,
         "lat": 35.8147,
         "lng": 127.1526,
-        "address": "전라북도 전주시 완산구 기린대로 99",
+        "address": "전북특별자치도 전주시 완산구 기린대로 99",
         "image": "https://images.unsplash.com/photo-1548115184-bc6544d06a58?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#전주한옥마을",
@@ -42,7 +42,7 @@ const JEONBUK_REGIONS = {
         "reviews": 1540,
         "lat": 35.8153,
         "lng": 127.1498,
-        "address": "전라북도 전주시 완산구 태조로 44",
+        "address": "전북특별자치도 전주시 완산구 태조로 44",
         "image": "https://images.unsplash.com/photo-1503435824048-a799a3a84bf7?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#태조어진",
@@ -61,7 +61,7 @@ const JEONBUK_REGIONS = {
         "reviews": 1290,
         "lat": 35.8471,
         "lng": 127.1264,
-        "address": "전라북도 전주시 덕진구 권삼득로 390",
+        "address": "전북특별자치도 전주시 덕진구 권삼득로 390",
         "image": "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#덕진호수",
@@ -80,7 +80,7 @@ const JEONBUK_REGIONS = {
         "reviews": 2890,
         "lat": 35.8138,
         "lng": 127.1492,
-        "address": "전라북도 전주시 완산구 태조로 51",
+        "address": "전북특별자치도 전주시 완산구 태조로 51",
         "image": "https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#전동성당",
@@ -99,7 +99,7 @@ const JEONBUK_REGIONS = {
         "reviews": 1820,
         "lat": 35.8124,
         "lng": 127.1458,
-        "address": "전라북도 전주시 완산구 풍남문2길 63",
+        "address": "전북특별자치도 전주시 완산구 풍남문2길 63",
         "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#피순대",
@@ -132,7 +132,7 @@ const JEONBUK_REGIONS = {
         "reviews": 2390,
         "lat": 35.8115,
         "lng": 126.4158,
-        "address": "전라북도 군산시 옥도면 선유도리",
+        "address": "전북특별자치도 군산시 옥도면 선유도리",
         "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#선유도해수욕장",
@@ -151,7 +151,7 @@ const JEONBUK_REGIONS = {
         "reviews": 1640,
         "lat": 35.9904,
         "lng": 126.7118,
-        "address": "전라북도 군산시 해망로 240",
+        "address": "전북특별자치도 군산시 해망로 240",
         "image": "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#근대역사",
@@ -170,7 +170,7 @@ const JEONBUK_REGIONS = {
         "reviews": 3480,
         "lat": 35.9868,
         "lng": 126.7105,
-        "address": "전라북도 군산시 중앙로 177",
+        "address": "전북특별자치도 군산시 중앙로 177",
         "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#이성당",
@@ -189,7 +189,7 @@ const JEONBUK_REGIONS = {
         "reviews": 1420,
         "lat": 35.9798,
         "lng": 126.7362,
-        "address": "전라북도 군산시 경촌4길 14",
+        "address": "전북특별자치도 군산시 경촌4길 14",
         "image": "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#경암동철길",
@@ -222,7 +222,7 @@ const JEONBUK_REGIONS = {
         "reviews": 1820,
         "lat": 36.0121,
         "lng": 127.0264,
-        "address": "전라북도 익산시 금마면 기양리 97",
+        "address": "전북특별자치도 익산시 금마면 기양리 97",
         "image": "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#미륵사지석탑",
@@ -241,7 +241,7 @@ const JEONBUK_REGIONS = {
         "reviews": 1410,
         "lat": 36.0285,
         "lng": 126.9745,
-        "address": "전라북도 익산시 황등면 율촌길 9",
+        "address": "전북특별자치도 익산시 황등면 율촌길 9",
         "image": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#메타세쿼이아",
@@ -274,7 +274,7 @@ const JEONBUK_REGIONS = {
         "reviews": 2950,
         "lat": 35.4851,
         "lng": 126.8876,
-        "address": "전라북도 정읍시 내장산로 936",
+        "address": "전북특별자치도 정읍시 내장산로 936",
         "image": "https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#내장산단풍",
@@ -293,7 +293,7 @@ const JEONBUK_REGIONS = {
         "reviews": 1120,
         "lat": 35.5684,
         "lng": 126.8524,
-        "address": "전라북도 정읍시 수성동 527-1",
+        "address": "전북특별자치도 정읍시 수성동 527-1",
         "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#곱돌쌍화탕",
@@ -326,7 +326,7 @@ const JEONBUK_REGIONS = {
         "reviews": 2480,
         "lat": 35.4068,
         "lng": 127.3794,
-        "address": "전라북도 남원시 요천로 1447",
+        "address": "전북특별자치도 남원시 요천로 1447",
         "image": "https://images.unsplash.com/photo-1572978927063-4702f23cfc09?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#광한루원",
@@ -345,7 +345,7 @@ const JEONBUK_REGIONS = {
         "reviews": 1420,
         "lat": 35.3624,
         "lng": 127.5842,
-        "address": "전라북도 남원시 산내면 반선리",
+        "address": "전북특별자치도 남원시 산내면 반선리",
         "image": "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#뱀사골계곡",
@@ -378,7 +378,7 @@ const JEONBUK_REGIONS = {
         "reviews": 1220,
         "lat": 35.7578,
         "lng": 126.8378,
-        "address": "전라북도 김제시 부량면 벽골제로 442",
+        "address": "전북특별자치도 김제시 부량면 벽골제로 442",
         "image": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#벽골제",
@@ -397,7 +397,7 @@ const JEONBUK_REGIONS = {
         "reviews": 1540,
         "lat": 35.7285,
         "lng": 127.0245,
-        "address": "전라북도 김제시 금산면 모악15길 1",
+        "address": "전북특별자치도 김제시 금산면 모악15길 1",
         "image": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#금산사",
@@ -430,7 +430,7 @@ const JEONBUK_REGIONS = {
         "reviews": 2250,
         "lat": 35.9042,
         "lng": 127.2514,
-        "address": "전라북도 완주군 소양면 송광수만로 516-7",
+        "address": "전북특별자치도 완주군 소양면 송광수만로 516-7",
         "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#아원고택",
@@ -449,7 +449,7 @@ const JEONBUK_REGIONS = {
         "reviews": 1890,
         "lat": 36.1245,
         "lng": 127.3241,
-        "address": "전라북도 완주군 운주면 산북리 611-34",
+        "address": "전북특별자치도 완주군 운주면 산북리 611-34",
         "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#대둔산",
@@ -482,7 +482,7 @@ const JEONBUK_REGIONS = {
         "reviews": 2310,
         "lat": 35.7621,
         "lng": 127.4285,
-        "address": "전라북도 진안군 마령면 마이산남로 367",
+        "address": "전북특별자치도 진안군 마령면 마이산남로 367",
         "image": "https://images.unsplash.com/photo-1609766857041-ed402ea8069a?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#마이산탑사",
@@ -501,7 +501,7 @@ const JEONBUK_REGIONS = {
         "reviews": 1450,
         "lat": 35.7984,
         "lng": 127.4282,
-        "address": "전라북도 진안군 진안읍 외사양길 16-10",
+        "address": "전북특별자치도 진안군 진안읍 외사양길 16-10",
         "image": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#홍삼스파",
@@ -534,7 +534,7 @@ const JEONBUK_REGIONS = {
         "reviews": 2850,
         "lat": 35.8614,
         "lng": 127.7478,
-        "address": "전라북도 무주군 설천면 만선로 185",
+        "address": "전북특별자치도 무주군 설천면 만선로 185",
         "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#덕유산곤돌라",
@@ -553,7 +553,7 @@ const JEONBUK_REGIONS = {
         "reviews": 1540,
         "lat": 35.9984,
         "lng": 127.7125,
-        "address": "전라북도 무주군 적상면 산성로 359",
+        "address": "전북특별자치도 무주군 적상면 산성로 359",
         "image": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#머루와인",
@@ -586,7 +586,7 @@ const JEONBUK_REGIONS = {
         "reviews": 780,
         "lat": 35.6455,
         "lng": 127.5188,
-        "address": "전라북도 장수군 장수읍 논개사당길 41",
+        "address": "전북특별자치도 장수군 장수읍 논개사당길 41",
         "image": "https://images.unsplash.com/photo-1596895111956-bf1cf0599ce5?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#의암사",
@@ -605,7 +605,7 @@ const JEONBUK_REGIONS = {
         "reviews": 890,
         "lat": 35.5895,
         "lng": 127.5254,
-        "address": "전라북도 장수군 번암면 방화동로 778",
+        "address": "전북특별자치도 장수군 번암면 방화동로 778",
         "image": "https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#방화동캠핑",
@@ -638,7 +638,7 @@ const JEONBUK_REGIONS = {
         "reviews": 2650,
         "lat": 35.6121,
         "lng": 127.2814,
-        "address": "전라북도 임실군 성수면 도인2길 50",
+        "address": "전북특별자치도 임실군 성수면 도인2길 50",
         "image": "https://images.unsplash.com/photo-1552767059-ce182ead8c1b?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#임실치즈테마파크",
@@ -657,7 +657,7 @@ const JEONBUK_REGIONS = {
         "reviews": 2100,
         "lat": 35.5894,
         "lng": 127.1524,
-        "address": "전라북도 임실군 운암면 입석리 413-1",
+        "address": "전북특별자치도 임실군 운암면 입석리 413-1",
         "image": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#옥정호출렁다리",
@@ -690,7 +690,7 @@ const JEONBUK_REGIONS = {
         "reviews": 2450,
         "lat": 35.3748,
         "lng": 127.0545,
-        "address": "전라북도 순창군 팔덕면 강천산길 97",
+        "address": "전북특별자치도 순창군 팔덕면 강천산길 97",
         "image": "https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#병풍폭포",
@@ -709,7 +709,7 @@ const JEONBUK_REGIONS = {
         "reviews": 1890,
         "lat": 35.3621,
         "lng": 127.1254,
-        "address": "전라북도 순창군 순창읍 민속마을길 55",
+        "address": "전북특별자치도 순창군 순창읍 민속마을길 55",
         "image": "https://images.unsplash.com/photo-1584467541268-b040f83be3fd?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#순창고추장",
@@ -742,7 +742,7 @@ const JEONBUK_REGIONS = {
         "reviews": 2850,
         "lat": 35.3855,
         "lng": 126.5645,
-        "address": "전라북도 고창군 공음면 학원농장길 158-6",
+        "address": "전북특별자치도 고창군 공음면 학원농장길 158-6",
         "image": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#청보리밭",
@@ -761,7 +761,7 @@ const JEONBUK_REGIONS = {
         "reviews": 1680,
         "lat": 35.4324,
         "lng": 126.7042,
-        "address": "전라북도 고창군 고창읍 모양성로 1",
+        "address": "전북특별자치도 고창군 고창읍 모양성로 1",
         "image": "https://images.unsplash.com/photo-1599839575945-a9e5af0c3fa5?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#고창읍성",
@@ -794,7 +794,7 @@ const JEONBUK_REGIONS = {
         "reviews": 3120,
         "lat": 35.6264,
         "lng": 126.4715,
-        "address": "전라북도 부안군 변산면 격포리",
+        "address": "전북특별자치도 부안군 변산면 격포리",
         "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#채석강",
@@ -813,7 +813,7 @@ const JEONBUK_REGIONS = {
         "reviews": 2350,
         "lat": 35.6184,
         "lng": 126.5842,
-        "address": "전라북도 부안군 진서면 내소사로 243",
+        "address": "전북특별자치도 부안군 진서면 내소사로 243",
         "image": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80",
         "tags": [
           "#내소사전나무숲",

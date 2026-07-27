@@ -71,7 +71,13 @@ const TOUR_NAMES_ES = {
   'gc-2': 'Fortaleza Gochang-eupseong (Moyangseong)',
   'ba-1': 'Acantilados Chaeseokgang y Jeokbyeokgang',
   'ba-2': 'Templo Naesosa y bosque de abetos',
-  'official-a-24396': 'Colina de flores Wansan'
+  'official-a-24396': 'Colina de flores Wansan',
+  'official-a-24056': 'Zoológico de Jeonju',
+  'official-a-24044': 'Santuario Gyeonggijeon',
+  'official-a-24296': 'Jardín botánico de Jeonju',
+  'official-a-24260': 'Rail Bike Hanok de Jeonju',
+  'official-a-24397': 'Museo retro Jeonju Nanjang',
+  'official-a-20549': 'Museo Nacional de Jeonju'
 };
 
 const TOUR_DESCRIPTIONS_ES = {
@@ -108,7 +114,13 @@ const TOUR_DESCRIPTIONS_ES = {
   'gc-2': 'Fortaleza de la era Joseon con una muralla transitable que rodea bosque, pabellones y edificios históricos.',
   'ba-1': 'Capas de roca esculpidas por el mar, puestas de sol y senderos costeros dentro del Parque Nacional Byeonsanbando.',
   'ba-2': 'Un camino bajo altos abetos conduce a un templo histórico entre montañas, especialmente sereno por la mañana.',
-  'official-a-24396': 'Una colina de Jeonju con unos 1.500 árboles florales, especialmente vistosa entre finales de abril y comienzos de mayo.'
+  'official-a-24396': 'Una colina de Jeonju con unos 1.500 árboles florales, especialmente vistosa entre finales de abril y comienzos de mayo.',
+  'official-a-24056': 'Un zoológico urbano rodeado de bosque, con recorridos tranquilos y áreas pensadas para familias.',
+  'official-a-24044': 'El santuario histórico que conserva el retrato del fundador de la dinastía Joseon, en pleno centro de Jeonju.',
+  'official-a-24296': 'El único jardín botánico operado por la Korea Expressway Corporation, con colecciones de plantas y acceso gratuito.',
+  'official-a-24260': 'Un paseo en bicicleta ferroviaria de 3,4 km por una antigua vía cerca de la aldea hanok.',
+  'official-a-24397': 'Una experiencia inmersiva que recrea calles, tiendas y escenas cotidianas de la Corea del siglo XX.',
+  'official-a-20549': 'Museo dedicado a la historia y el arte de Jeonbuk, con exposiciones permanentes, jardín y espacios para familias.'
 };
 
 const ROUTE_PRESETS = {
@@ -142,7 +154,7 @@ const COURSE_ES = [
 const I18N = {
   es: {
     brandTitle: 'Viaja por Jeonbuk',
-    searchPlaceholder: 'Busca un lugar, una región o una palabra clave',
+    searchPlaceholder: 'Busca lugares o regiones',
     savedPlaces: 'Guardados',
     myPage: 'Mi',
     catAll: 'Todo',
@@ -231,7 +243,7 @@ const I18N = {
   },
   ko: {
     brandTitle: '전북 관광',
-    searchPlaceholder: '관광지, 지역, 키워드를 검색해보세요',
+    searchPlaceholder: '관광지나 지역을 검색해보세요',
     savedPlaces: '여행 보관함',
     myPage: '마이',
     catAll: '전체',
@@ -331,6 +343,8 @@ const bannerCount = document.getElementById('bannerCount');
 const bannerDesc = document.getElementById('bannerDesc');
 const filterSummary = document.getElementById('filterSummary');
 const savedOnlyBtn = document.getElementById('savedOnlyBtn');
+const filterResetBtn = document.getElementById('filterResetBtn');
+const regionResetBtn = document.getElementById('regionResetBtn');
 const savedCount = document.getElementById('savedCount');
 const mobileSavedCount = document.getElementById('mobileSavedCount');
 const loadMoreBtn = document.getElementById('loadMoreBtn');
@@ -373,6 +387,7 @@ const modalDriveBtn = document.getElementById('modalDriveBtn');
 const savedDrawer = document.getElementById('savedDrawer');
 const savedList = document.getElementById('savedList');
 const savedPlanBtn = document.getElementById('savedPlanBtn');
+const savedPlanSummary = document.getElementById('savedPlanSummary');
 const appToast = document.getElementById('appToast');
 const mobileNavButtons = [...document.querySelectorAll('.mobile-bottom-nav [data-mobile-nav]')];
 
@@ -482,7 +497,22 @@ function getRegionName(regionId, fallback = '') {
 
 function getTourName(tour) {
   if (!tour) return '';
-  return currentLanguage === 'ko' ? tour.name : (TOUR_NAMES_ES[tour.id] || tour.name);
+  return currentLanguage === 'ko' ? tour.name : (TOUR_NAMES_ES[tour.id] || romanizeKorean(tour.name));
+}
+
+function romanizeKorean(value = '') {
+  const initials = ['g', 'kk', 'n', 'd', 'tt', 'r', 'm', 'b', 'pp', 's', 'ss', '', 'j', 'jj', 'ch', 'k', 't', 'p', 'h'];
+  const vowels = ['a', 'ae', 'ya', 'yae', 'eo', 'e', 'yeo', 'ye', 'o', 'wa', 'wae', 'oe', 'yo', 'u', 'wo', 'we', 'wi', 'yu', 'eu', 'ui', 'i'];
+  const finals = ['', 'k', 'k', 'ks', 'n', 'nj', 'nh', 't', 'l', 'lk', 'lm', 'lb', 'ls', 'lt', 'lp', 'lh', 'm', 'p', 'ps', 't', 't', 'ng', 't', 't', 'k', 't', 'p', 'h'];
+  const romanized = [...String(value)].map(character => {
+    const code = character.charCodeAt(0) - 0xAC00;
+    if (code < 0 || code > 11171) return character;
+    const initial = Math.floor(code / 588);
+    const vowel = Math.floor((code % 588) / 28);
+    const final = code % 28;
+    return `${initials[initial]}${vowels[vowel]}${finals[final]}`;
+  }).join('');
+  return romanized.replace(/\b[a-z]/g, letter => letter.toUpperCase());
 }
 
 function getCategoryName(category) {
@@ -810,6 +840,7 @@ async function updateUI() {
   document.querySelectorAll('[data-count-category]').forEach(element => {
     const category = element.dataset.countCategory;
     element.textContent = (categoryCounts[category] || 0).toLocaleString(getLocale());
+    if (category === 'all') element.hidden = true;
   });
 
   document.querySelectorAll('.chip-btn').forEach(chip => {
@@ -965,6 +996,9 @@ function updateToolbarState(resultCount) {
     currentSearchQuery ? (currentLanguage === 'ko' ? '검색 결과' : 'Búsqueda') : null,
     showSavedOnly ? (currentLanguage === 'ko' ? '저장한 장소' : 'Guardados') : null
   ].filter(Boolean);
+  const hasActiveFilters = activeFilters.length > 0;
+  if (filterResetBtn) filterResetBtn.hidden = !hasActiveFilters;
+  if (regionResetBtn) regionResetBtn.hidden = !currentSelectedRegion;
   filterSummary.hidden = activeFilters.length === 0;
   filterSummary.textContent = currentLanguage === 'ko'
     ? `${resultCount.toLocaleString(getLocale())}곳${activeFilters.length ? ` · ${activeFilters.join(' · ')}` : ''}`
@@ -1072,7 +1106,7 @@ function renderRecommendedCourses() {
     const translated = currentLanguage === 'es' ? COURSE_ES[index] : null;
     const tags = course.tags.map(tag => `<span class="course-tag">#${escapeHTML(currentLanguage === 'ko' ? tag : (REGION_NAMES_ES[Object.keys(JEONBUK_REGIONS).find(id => JEONBUK_REGIONS[id].name.includes(tag))] || tag))}</span>`).join('');
     return `
-      <button type="button" class="course-card" style="background:${course.bg}" onclick="applyRecommendedCourse(${index})">
+      <button type="button" class="course-card course-card-${index + 1}" onclick="applyRecommendedCourse(${index})">
         <div>
           <span class="course-period">${escapeHTML(translated?.period || course.period)}</span>
           <h3 class="course-title">${escapeHTML(translated?.title || course.title)}</h3>
@@ -1321,6 +1355,7 @@ function closeSavedPanel(event) {
 
 function renderSavedList() {
   const tours = getSavedIds().map(findTourById).filter(Boolean);
+  renderSavedPlanSummary();
   if (!tours.length) {
     savedList.innerHTML = `
       <div class="saved-empty">
@@ -1346,6 +1381,67 @@ function renderSavedList() {
       </button>
     </article>
   `).join('');
+}
+
+function getSavedPlan() {
+  try {
+    const savedPlan = JSON.parse(localStorage.getItem('jeonbuk_travel_plan') || 'null');
+    return savedPlan && Array.isArray(savedPlan.tourIds) ? savedPlan : null;
+  } catch {
+    localStorage.removeItem('jeonbuk_travel_plan');
+    return null;
+  }
+}
+
+function renderSavedPlanSummary() {
+  if (!savedPlanSummary) return;
+  const savedPlan = getSavedPlan();
+  if (!savedPlan) {
+    savedPlanSummary.hidden = true;
+    savedPlanSummary.innerHTML = '';
+    return;
+  }
+
+  const tours = savedPlan.tourIds.map(findTourById).filter(Boolean);
+  if (!tours.length) {
+    localStorage.removeItem('jeonbuk_travel_plan');
+    savedPlanSummary.hidden = true;
+    return;
+  }
+
+  const regionNames = [...new Set(tours.map(tour => getRegionName(tour.regionId, tour.regionName)))].slice(0, 3);
+  savedPlanSummary.hidden = false;
+  savedPlanSummary.innerHTML = `
+    <div class="saved-plan-heading">
+      <span class="saved-plan-icon"><i class="fa-solid fa-route"></i></span>
+      <div>
+        <small>${currentLanguage === 'ko' ? '저장한 여행 일정' : 'Ruta guardada'}</small>
+        <h3>${escapeHTML(savedPlan.title || (currentLanguage === 'ko' ? '전북 여행 일정' : 'Ruta por Jeonbuk'))}</h3>
+      </div>
+    </div>
+    <p>${currentLanguage === 'ko'
+      ? `${tours.length}개 장소 · ${regionNames.join(' · ')}`
+      : `${tours.length} paradas · ${regionNames.join(' · ')}`}</p>
+    <div class="saved-plan-actions">
+      <button type="button" class="saved-plan-open" onclick="openSavedPlan()"><i class="fa-solid fa-arrow-up-right-from-square"></i> ${currentLanguage === 'ko' ? '일정 보기' : 'Ver ruta'}</button>
+      <button type="button" class="saved-plan-delete" onclick="deleteSavedPlan()">${currentLanguage === 'ko' ? '삭제' : 'Eliminar'}</button>
+    </div>
+  `;
+}
+
+function openSavedPlan() {
+  closeSavedPanel();
+  restoreSavedPlan();
+  requestAnimationFrame(() => plannerResult?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+}
+
+function deleteSavedPlan() {
+  localStorage.removeItem('jeonbuk_travel_plan');
+  if (savedPlanSummary) {
+    savedPlanSummary.hidden = true;
+    savedPlanSummary.innerHTML = '';
+  }
+  showToast(currentLanguage === 'ko' ? '저장한 여행 일정을 삭제했습니다.' : 'La ruta guardada se eliminó.');
 }
 
 function openSavedTour(tourId) {
@@ -1399,7 +1495,7 @@ function generateTravelPlan(options = {}) {
   const uniqueCandidates = [...new Map(candidates.map(tour => [tour.id, tour])).values()];
   currentPlan = uniqueCandidates.slice(0, Math.min(targetCount, uniqueCandidates.length));
   renderTravelPlan(duration, options.title || null, selectedRegionIds);
-  scrollToSection('plannerSection');
+  requestAnimationFrame(() => plannerResult?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
 }
 
 function renderPlanTransfer(originTour, destinationTour) {
@@ -1493,13 +1589,14 @@ function saveCurrentPlan() {
     tourIds: currentPlan.map(tour => tour.id)
   };
   localStorage.setItem('jeonbuk_travel_plan', JSON.stringify(plan));
+  renderSavedPlanSummary();
   showToast(currentLanguage === 'ko' ? '현재 여행 일정이 이 기기에 저장되었습니다.' : 'La ruta se guardó en este dispositivo.');
 }
 
 function restoreSavedPlan() {
   try {
-    const savedPlan = JSON.parse(localStorage.getItem('jeonbuk_travel_plan') || 'null');
-    if (!savedPlan || !Array.isArray(savedPlan.tourIds)) return;
+    const savedPlan = getSavedPlan();
+    if (!savedPlan) return;
     const restoredTours = savedPlan.tourIds.map(findTourById).filter(Boolean);
     if (!restoredTours.length) return;
     currentPlan = restoredTours;
@@ -1517,6 +1614,7 @@ function clearCurrentPlan() {
   localStorage.removeItem('jeonbuk_travel_plan');
   plannerResult.innerHTML = '';
   plannerResult.hidden = true;
+  renderSavedPlanSummary();
   showToast(currentLanguage === 'ko' ? '저장된 여행 일정을 초기화했습니다.' : 'La ruta guardada se eliminó.');
 }
 

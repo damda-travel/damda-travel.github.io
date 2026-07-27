@@ -9,11 +9,11 @@
   <meta property="og:title" content="Viaja por Jeonbuk | Guía turística">
   <meta property="og:description" content="Explora los 14 municipios de Jeonbuk y crea una ruta de viaje por varias regiones.">
   <meta property="og:url" content="https://jeonbuk-tour-guide.parkg9832.chatgpt.site/">
-  <meta property="og:image" content="https://jeonbuk-tour-guide.parkg9832.chatgpt.site/images/og.jpg">
+  <meta property="og:image" content="https://jeonbuk-tour-guide.parkg9832.chatgpt.site/images/og-v2.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Viaja por Jeonbuk | Guía turística">
   <meta name="twitter:description" content="Lugares, sabores, festivales y rutas para descubrir Jeonbuk.">
-  <meta name="twitter:image" content="https://jeonbuk-tour-guide.parkg9832.chatgpt.site/images/og.jpg">
+  <meta name="twitter:image" content="https://jeonbuk-tour-guide.parkg9832.chatgpt.site/images/og-v2.jpg">
   <title>Viaja por Jeonbuk - Guía turística de Corea</title>
 
   <!-- Google Fonts: Noto Sans KR, Plus Jakarta Sans -->
@@ -28,7 +28,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗺️</text></svg>">
 
   <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=33">
+  <link rel="stylesheet" href="css/style.css?v=34">
 </head>
 <body>
 
@@ -48,7 +48,7 @@
         <!-- Integrated Search Bar -->
         <div class="search-box">
           <i class="fa-solid fa-magnifying-glass search-icon"></i>
-          <input type="search" id="searchInput" aria-label="Buscar lugares turísticos en Jeonbuk" placeholder="Busca un lugar, una región o una palabra clave" data-i18n-placeholder="searchPlaceholder" enterkeyhint="search" oninput="handleSearch(event)" onkeydown="handleSearchKeydown(event)">
+          <input type="search" id="searchInput" aria-label="Buscar lugares turísticos en Jeonbuk" placeholder="Busca lugares o regiones" data-i18n-placeholder="searchPlaceholder" enterkeyhint="search" oninput="handleSearch(event)" onkeydown="handleSearchKeydown(event)">
           <button type="button" class="search-clear-btn" id="searchClearBtn" onclick="clearSearch()" aria-label="Borrar búsqueda"><i class="fa-solid fa-xmark"></i></button>
         </div>
       </div>
@@ -173,7 +173,7 @@
               <span class="section-kicker" data-i18n="regionSelectorKicker">Explora por región</span>
               <h3><i class="fa-solid fa-location-crosshairs"></i> <span data-i18n="regionSelectorTitle">¿A dónde quieres ir?</span></h3>
             </div>
-            <button type="button" class="region-reset-btn" onclick="resetSelection()"><i class="fa-solid fa-rotate-left"></i> <span data-i18n="showAllRegions">Ver todo Jeonbuk</span></button>
+            <button type="button" class="region-reset-btn" id="regionResetBtn" onclick="resetSelection()" hidden><i class="fa-solid fa-rotate-left"></i> <span data-i18n="showAllRegions">Ver todo Jeonbuk</span></button>
           </div>
           <div class="region-chips-wrapper">
             <div class="chips-container" id="regionChips">
@@ -221,7 +221,7 @@
             <option value="region" data-i18n="sortRegion">Por región</option>
           </select>
         </label>
-        <button type="button" class="toolbar-reset" id="filterResetBtn" onclick="resetSelection()" data-i18n="resetFilters">Quitar filtros</button>
+        <button type="button" class="toolbar-reset" id="filterResetBtn" onclick="resetSelection()" data-i18n="resetFilters" hidden>Quitar filtros</button>
       </div>
       <p class="filter-summary" id="filterSummary" aria-live="polite"></p>
 
@@ -408,6 +408,7 @@
         <button type="button" class="drawer-close-btn" onclick="closeSavedPanel()" aria-label="여행 보관함 닫기"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <p class="drawer-desc" data-i18n="drawerDesc">Revisa tus lugares guardados y conviértelos en una ruta.</p>
+      <section class="saved-plan-summary" id="savedPlanSummary" hidden></section>
       <div class="saved-list" id="savedList"></div>
       <button type="button" class="drawer-plan-btn" id="savedPlanBtn" onclick="createPlanFromSaved()">
         <i class="fa-solid fa-route"></i> <span data-i18n="drawerPlan">Crear ruta con guardados</span>
@@ -434,6 +435,6 @@
   <script src="js/tourImages.js?v=25"></script>
   <script src="js/tourDetails.js?v=25"></script>
   <script src="js/tourApi.js?v=25"></script>
-  <script src="js/app.js?v=33"></script>
+  <script src="js/app.js?v=34"></script>
 </body>
 </html>

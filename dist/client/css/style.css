@@ -3701,3 +3701,372 @@ body.modal-open {
     padding: 0 0.2rem;
   }
 }
+
+/* ── V34 Mobile travel-app polish ── */
+.hero-section {
+  width: 100%;
+  min-height: 350px;
+  padding: 3.25rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  border-color: rgba(15, 118, 110, 0.24);
+  background:
+    linear-gradient(90deg, rgba(5, 46, 43, 0.96) 0%, rgba(5, 46, 43, 0.88) 43%, rgba(5, 46, 43, 0.2) 78%),
+    url('../images/catalog/official-a-13479.webp') center 46% / cover no-repeat;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.16);
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 650px;
+  margin: 0;
+}
+
+.hero-kicker {
+  color: #D1FAE5;
+  background: rgba(255, 255, 255, 0.13);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-title {
+  max-width: 620px;
+  color: #fff;
+  font-size: clamp(2rem, 3.2vw, 3.2rem);
+  line-height: 1.22;
+  letter-spacing: -0.035em;
+}
+
+.hero-title strong {
+  color: #A7F3D0;
+}
+
+.hero-desc {
+  max-width: 600px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  justify-content: flex-start;
+}
+
+.hero-cta-primary,
+.hero-cta-secondary {
+  min-height: 46px;
+}
+
+.hero-cta-primary {
+  background: #059669;
+  box-shadow: 0 8px 18px rgba(2, 44, 34, 0.24);
+}
+
+.hero-cta-secondary {
+  border-color: rgba(255, 255, 255, 0.66);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  backdrop-filter: blur(5px);
+}
+
+.hero-cta-secondary:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.planner-section {
+  width: 100%;
+  background: linear-gradient(145deg, #FFFDF7 0%, #FFFFFF 54%, #F8FAFC 100%);
+  border-color: #E8E3D8;
+  box-shadow: 0 10px 30px rgba(71, 85, 105, 0.08);
+}
+
+.planner-route-builder {
+  border-color: #E7E2D7;
+  background: rgba(250, 248, 243, 0.9);
+}
+
+.planner-region-builder {
+  border-top-color: #E7E2D7;
+}
+
+.planner-form select {
+  background: #fff;
+}
+
+.planner-generate-btn,
+.drawer-plan-btn {
+  background: var(--primary);
+  box-shadow: 0 5px 14px rgba(5, 150, 105, 0.2);
+}
+
+.planner-result {
+  scroll-margin-top: 5.5rem;
+}
+
+.course-card {
+  min-height: 215px;
+  isolation: isolate;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.14);
+}
+
+.course-card-1 {
+  background: linear-gradient(140deg, #065F55 0%, #0F766E 100%);
+}
+
+.course-card-2 {
+  background: linear-gradient(140deg, #14532D 0%, #15803D 100%);
+}
+
+.course-card-3 {
+  background: linear-gradient(140deg, #173B57 0%, #1D4F73 100%);
+}
+
+.course-card::after {
+  content: '';
+  position: absolute;
+  inset: auto -25% -55% auto;
+  z-index: -1;
+  width: 220px;
+  height: 220px;
+  border: 34px solid rgba(255, 255, 255, 0.055);
+  border-radius: 50%;
+}
+
+.course-desc {
+  max-width: 36rem;
+}
+
+.cat-count[data-count-category="all"] {
+  display: none;
+}
+
+.saved-plan-summary {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid #A7F3D0;
+  border-radius: 15px;
+  background: linear-gradient(145deg, #ECFDF5, #F8FFFC);
+}
+
+.saved-plan-heading {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.saved-plan-icon {
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--primary);
+  color: #fff;
+}
+
+.saved-plan-heading > div {
+  min-width: 0;
+}
+
+.saved-plan-heading small {
+  display: block;
+  color: var(--primary);
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.saved-plan-heading h3 {
+  margin-top: 0.12rem;
+  overflow: hidden;
+  color: var(--text-main);
+  font-size: 0.92rem;
+  line-height: 1.4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.saved-plan-summary > p {
+  margin-top: 0.65rem;
+  color: #475569;
+  font-size: 0.74rem;
+  line-height: 1.45;
+}
+
+.saved-plan-actions {
+  display: flex;
+  gap: 0.45rem;
+  margin-top: 0.75rem;
+}
+
+.saved-plan-actions button {
+  min-height: 42px;
+  border-radius: 10px;
+  font-size: 0.74rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.saved-plan-open {
+  flex: 1;
+  border: 0;
+  background: var(--primary);
+  color: #fff;
+}
+
+.saved-plan-delete {
+  padding: 0 0.75rem;
+  border: 1px solid #D8E2EA;
+  background: #fff;
+  color: var(--text-muted);
+}
+
+.saved-list {
+  min-height: 0;
+}
+
+.saved-list:has(.saved-empty) {
+  flex: 0 0 auto;
+}
+
+.saved-empty {
+  height: auto;
+  min-height: 180px;
+}
+
+.plan-stop-copy strong,
+.saved-item-main strong {
+  display: -webkit-box;
+  overflow: hidden;
+  line-height: 1.35;
+  text-overflow: clip;
+  white-space: normal;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+#tourModal .modal-action-row {
+  position: sticky;
+  bottom: -1rem;
+  z-index: 8;
+  margin: 0 -0.15rem;
+  padding: 0.8rem 0.15rem 0.15rem;
+  background: linear-gradient(to top, #fff 76%, rgba(255, 255, 255, 0));
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 410px;
+    padding: 2.6rem 1rem;
+    justify-content: center;
+    text-align: center;
+    border-radius: 0;
+    background:
+      linear-gradient(180deg, rgba(3, 30, 29, 0.48) 0%, rgba(3, 30, 29, 0.78) 50%, rgba(3, 30, 29, 0.94) 100%),
+      url('../images/catalog/official-a-13479.webp') center / cover no-repeat;
+  }
+
+  .hero-content {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .hero-title {
+    font-size: clamp(1.75rem, 8vw, 2.25rem);
+    line-height: 1.3;
+  }
+
+  .hero-desc {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .chip-btn,
+  .cat-btn,
+  .toolbar-btn,
+  .toolbar-reset,
+  .sort-control select,
+  .region-reset-btn,
+  .planner-region-chip,
+  .route-preset,
+  .saved-remove-btn,
+  .drawer-close-btn {
+    min-height: 44px;
+  }
+
+  .chip-btn {
+    padding: 0.5rem 0.82rem;
+  }
+
+  .cat-btn {
+    padding: 0.58rem 1rem;
+  }
+
+  .planner-section {
+    width: auto;
+  }
+
+  .planner-intro,
+  .planner-intro h2 {
+    text-align: center;
+    justify-content: center;
+  }
+
+  .planner-intro p {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .course-desc {
+    font-size: 0.82rem;
+    line-height: 1.65;
+  }
+
+  #tourModal .modal-action-row {
+    bottom: -1rem;
+    flex-direction: row;
+    gap: 0.45rem;
+  }
+
+  #tourModal .modal-action-row .btn-primary,
+  #tourModal .modal-action-row .btn-outline {
+    min-height: 46px;
+    padding: 0.6rem 0.7rem;
+    font-size: 0.74rem;
+    line-height: 1.3;
+    text-align: center;
+  }
+
+  #tourModal .modal-action-row .btn-outline {
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    min-height: 430px;
+  }
+
+  .planner-form select {
+    font-size: 0.72rem;
+  }
+
+  .results-toolbar {
+    align-items: stretch;
+  }
+
+  .toolbar-btn,
+  .toolbar-reset,
+  .sort-control select {
+    height: 44px;
+  }
+}
