@@ -401,6 +401,18 @@ const savedPlanSummary = document.getElementById('savedPlanSummary');
 const appToast = document.getElementById('appToast');
 const mobileNavButtons = [...document.querySelectorAll('.mobile-bottom-nav [data-mobile-nav]')];
 
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+window.addEventListener('load', () => {
+  requestAnimationFrame(() => window.scrollTo(0, 0));
+}, { once: true });
+
+window.addEventListener('pageshow', event => {
+  if (event.persisted) window.scrollTo(0, 0);
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   applyRoutePreset(activeRoutePreset, false);
   initRegionChips();
