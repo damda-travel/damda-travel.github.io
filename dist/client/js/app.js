@@ -18,6 +18,7 @@ let lastResultSignature = '';
 let currentLanguage = localStorage.getItem('jeonbuk_language') === 'ko' ? 'ko' : 'es';
 let selectedPlannerRegions = new Set();
 let activeRoutePreset = 'heritage';
+let plannerRegionsExpanded = false;
 const RESULTS_PAGE_SIZE = 6;
 
 const REGION_NAMES_ES = {
@@ -188,7 +189,10 @@ const I18N = {
     presetCoast: 'Costa oeste',
     presetMountain: 'Montaña y descanso',
     presetFlavor: 'Sabores de Jeonbuk',
+    customRoute: 'Ruta personalizada',
     chooseRegions: 'Añade o quita regiones',
+    changeRegions: 'Cambiar regiones',
+    hideRegions: 'Ocultar regiones',
     plannerEmpty: 'Elige una combinación y crea tu itinerario.',
     heroKicker: 'Guía de Jeonbuk, Corea',
     heroTitleStart: 'Descubre',
@@ -277,7 +281,10 @@ const I18N = {
     presetCoast: '서해안 여행',
     presetMountain: '산과 휴식',
     presetFlavor: '전북 미식 여행',
+    customRoute: '직접 선택한 동선',
     chooseRegions: '여행할 지역을 추가·제거하세요',
+    changeRegions: '지역 변경',
+    hideRegions: '지역 선택 닫기',
     plannerEmpty: '동선과 조건을 선택한 뒤 여행 일정을 만들어보세요.',
     heroKicker: '전북특별자치도 관광 안내',
     heroTitleStart: '한 번의 여행으로',
@@ -360,7 +367,10 @@ const courseSection = document.getElementById('courseSection');
 const plannerSection = document.getElementById('plannerSection');
 const plannerRegionChips = document.getElementById('plannerRegionChips');
 const plannerRegionSummary = document.getElementById('plannerRegionSummary');
+const plannerRegionsToggle = document.getElementById('plannerRegionsToggle');
+const routePresetSelect = document.getElementById('routePresetSelect');
 const plannerResult = document.getElementById('plannerResult');
+const regionSelectMobile = document.getElementById('regionSelectMobile');
 
 const tourModal = document.getElementById('tourModal');
 const modalImg = document.getElementById('modalImg');
@@ -394,6 +404,7 @@ const mobileNavButtons = [...document.querySelectorAll('.mobile-bottom-nav [data
 document.addEventListener('DOMContentLoaded', () => {
   applyRoutePreset(activeRoutePreset, false);
   initRegionChips();
+  initRegionSelect();
   renderRecommendedCourses();
   restoreSavedPlan();
   updateApiStatusBadge();
@@ -593,7 +604,9 @@ function applyLanguage(language, persist = true) {
   });
 
   initRegionChips();
+  initRegionSelect();
   renderPlannerRegionOptions();
+  updatePlannerRegionPickerUI();
   renderRecommendedCourses();
   updateSavedUI();
   if (currentPlan.length) {
@@ -693,6 +706,17 @@ function initRegionChips() {
   regionChips.innerHTML = html;
 }
 
+function initRegionSelect() {
+  if (!regionSelectMobile) return;
+  regionSelectMobile.innerHTML = [
+    `<option value="all">${currentLanguage === 'ko' ? '전북 전체' : 'Todo Jeonbuk'}</option>`,
+    ...Object.values(JEONBUK_REGIONS).map(region =>
+      `<option value="${escapeHTML(region.id)}">${escapeHTML(getRegionName(region.id, region.name))}</option>`)
+  ].join('');
+  regionSelectMobile.value = currentSelectedRegion || 'all';
+  regionSelectMobile.setAttribute('aria-label', currentLanguage === 'ko' ? '지역 선택' : 'Seleccionar región');
+}
+
 function renderPlannerRegionOptions() {
   if (!plannerRegionChips) return;
   plannerRegionChips.innerHTML = Object.keys(JEONBUK_REGIONS).map(regionId => {
@@ -706,11 +730,22 @@ function renderPlannerRegionOptions() {
     `;
   }).join('');
   if (plannerRegionSummary) {
-    const count = selectedPlannerRegions.size;
-    plannerRegionSummary.textContent = currentLanguage === 'ko'
-      ? `${count}개 지역 선택됨 · 여행 순서대로 일정에 반영됩니다.`
-      : `${count} regiones seleccionadas · se incluirán en este orden.`;
+    const regionNames = [...selectedPlannerRegions].map(regionId => getRegionName(regionId)).filter(Boolean);
+    plannerRegionSummary.textContent = regionNames.join(' → ');
   }
+}
+
+function updatePlannerRegionPickerUI() {
+  if (!plannerRegionsToggle || !plannerRegionChips) return;
+  plannerRegionsToggle.setAttribute('aria-expanded', String(plannerRegionsExpanded));
+  plannerRegionsToggle.querySelector('span').textContent = t(plannerRegionsExpanded ? 'hideRegions' : 'changeRegions');
+  plannerRegionsToggle.querySelector('i').className = `fa-solid fa-chevron-${plannerRegionsExpanded ? 'up' : 'down'}`;
+  plannerRegionChips.classList.toggle('expanded', plannerRegionsExpanded);
+}
+
+function togglePlannerRegionPicker() {
+  plannerRegionsExpanded = !plannerRegionsExpanded;
+  updatePlannerRegionPickerUI();
 }
 
 function applyRoutePreset(presetId, announce = true) {
@@ -718,12 +753,15 @@ function applyRoutePreset(presetId, announce = true) {
   if (!regions) return;
   activeRoutePreset = presetId;
   selectedPlannerRegions = new Set(regions);
+  if (routePresetSelect) routePresetSelect.value = presetId;
+  plannerRegionsExpanded = false;
   document.querySelectorAll('.route-preset').forEach(button => {
     const active = button.dataset.preset === presetId;
     button.classList.toggle('active', active);
     button.setAttribute('aria-pressed', String(active));
   });
   renderPlannerRegionOptions();
+  updatePlannerRegionPickerUI();
   if (announce) {
     showToast(currentLanguage === 'ko' ? '추천 동선을 적용했습니다.' : 'Ruta base aplicada. Puedes cambiar las regiones.');
   }
@@ -744,6 +782,7 @@ function togglePlannerRegion(regionId) {
     selectedPlannerRegions.add(regionId);
   }
   activeRoutePreset = '';
+  if (routePresetSelect) routePresetSelect.value = '';
   document.querySelectorAll('.route-preset').forEach(button => {
     button.classList.remove('active');
     button.setAttribute('aria-pressed', 'false');
@@ -756,6 +795,7 @@ function selectRegion(regionId) {
   currentSearchQuery = '';
   if (searchInput) searchInput.value = '';
   if (searchClearBtn) searchClearBtn.style.display = 'none';
+  if (regionSelectMobile) regionSelectMobile.value = currentSelectedRegion || 'all';
   updateUI();
   if (window.innerWidth <= 1100) scrollToResults();
 }
@@ -771,10 +811,19 @@ function resetSelection() {
   if (searchClearBtn) searchClearBtn.style.display = 'none';
   const sortSelect = document.getElementById('sortSelect');
   if (sortSelect) sortSelect.value = 'recommended';
+  if (regionSelectMobile) regionSelectMobile.value = 'all';
   document.querySelectorAll('.cat-btn').forEach(button => {
     button.classList.toggle('active', button.dataset.category === 'all');
   });
   updateUI();
+}
+
+function handleMobileRegionSelect(regionId) {
+  if (regionId === 'all') {
+    resetSelection();
+    return;
+  }
+  selectRegion(regionId);
 }
 
 function setCategory(categoryKey, btnElem) {
