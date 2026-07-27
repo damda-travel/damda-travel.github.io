@@ -28,7 +28,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗺️</text></svg>">
 
   <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=30">
+  <link rel="stylesheet" href="css/style.css?v=31">
 </head>
 <body>
 
@@ -55,12 +55,12 @@
 
       <div class="header-right">
         <div class="language-switch" role="group" aria-label="Idioma">
-          <button type="button" class="language-btn active" data-language="es" onclick="setLanguage('es')">ES</button>
-          <button type="button" class="language-btn" data-language="ko" onclick="setLanguage('ko')">한국어</button>
+          <button type="button" class="language-btn active" data-language="es" onclick="handleLanguageButton('es')">ES</button>
+          <button type="button" class="language-btn" data-language="ko" onclick="handleLanguageButton('ko')">한국어</button>
         </div>
-        <button type="button" class="saved-header-btn" id="savedHeaderBtn" onclick="openSavedPanel()">
-          <i class="fa-solid fa-bookmark"></i>
-          <span data-i18n="savedPlaces">Guardados</span>
+        <button type="button" class="mypage-header-btn" id="savedHeaderBtn" onclick="openSavedPanel()" aria-label="Mi página">
+          <i class="fa-solid fa-user"></i>
+          <span data-i18n="myPage">Mi</span>
           <strong id="savedCount">0</strong>
         </button>
       </div>
@@ -171,20 +171,7 @@
       </div>
     </section>
 
-    <!-- 3. RECOMMENDED COURSES -->
-    <section class="courses-section" id="courseSection">
-      <div class="section-title-box">
-        <div>
-          <span class="section-kicker" data-i18n="coursesKicker">Si es tu primera vez</span>
-          <h2><i class="fa-solid fa-route"></i> <span data-i18n="coursesTitle">Rutas recomendadas</span></h2>
-        </div>
-      </div>
-      <div class="courses-grid" id="courseGrid">
-        <!-- Dynamically rendered course cards -->
-      </div>
-    </section>
-
-    <!-- 4. TOUR SPOTS SECTION -->
+    <!-- 3. TOUR SPOTS SECTION -->
     <section class="tour-section" id="tourSection">
 
       <div class="region-explorer-card">
@@ -269,6 +256,19 @@
         <span id="loadMoreLabel">Ver más lugares</span>
       </button>
 
+    </section>
+
+    <!-- 4. RECOMMENDED COURSES -->
+    <section class="courses-section" id="courseSection">
+      <div class="section-title-box">
+        <div>
+          <span class="section-kicker" data-i18n="coursesKicker">Si es tu primera vez</span>
+          <h2><i class="fa-solid fa-route"></i> <span data-i18n="coursesTitle">Rutas recomendadas</span></h2>
+        </div>
+      </div>
+      <div class="courses-grid" id="courseGrid">
+        <!-- Dynamically rendered course cards -->
+      </div>
     </section>
 
     <!-- FOOTER -->
@@ -438,10 +438,10 @@
   </div>
 
   <nav class="mobile-bottom-nav" aria-label="Navegación principal móvil">
-    <button type="button" onclick="scrollToSection('regionSelector')"><i class="fa-solid fa-location-dot"></i><span data-i18n="mobileRegions">Regiones</span></button>
-    <button type="button" onclick="scrollToResults()"><i class="fa-solid fa-compass"></i><span data-i18n="mobilePlaces">Lugares</span></button>
-    <button type="button" onclick="scrollToSection('plannerSection')"><i class="fa-solid fa-route"></i><span data-i18n="mobilePlanner">Mi ruta</span></button>
-    <button type="button" onclick="openSavedPanel()"><i class="fa-solid fa-bookmark"></i><span><span data-i18n="mobileSaved">Guardados</span> <b id="mobileSavedCount">0</b></span></button>
+    <button type="button" data-mobile-nav="regions" onclick="scrollToSection('regionSelector')"><i class="fa-solid fa-location-dot"></i><span data-i18n="mobileRegions">Regiones</span></button>
+    <button type="button" data-mobile-nav="places" onclick="scrollToSection('tourCardList')"><i class="fa-solid fa-compass"></i><span data-i18n="mobilePlaces">Lugares</span></button>
+    <button type="button" class="active" data-mobile-nav="planner" onclick="scrollToSection('plannerSection')" aria-current="page"><i class="fa-solid fa-route"></i><span data-i18n="mobilePlanner">Mi ruta</span></button>
+    <button type="button" data-mobile-nav="saved" onclick="openSavedPanel()"><i class="fa-solid fa-bookmark"></i><span><span data-i18n="mobileSaved">Guardados</span> <b id="mobileSavedCount">0</b></span></button>
   </nav>
 
   <button type="button" class="back-to-top-btn" id="backToTopBtn" onclick="scrollToTop()" aria-label="맨 위로 이동">
@@ -456,6 +456,6 @@
   <script src="js/tourImages.js?v=25"></script>
   <script src="js/tourDetails.js?v=25"></script>
   <script src="js/tourApi.js?v=25"></script>
-  <script src="js/app.js?v=30"></script>
+  <script src="js/app.js?v=31"></script>
 </body>
 </html>

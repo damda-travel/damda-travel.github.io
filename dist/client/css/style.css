@@ -2053,7 +2053,8 @@ body.modal-open {
   overflow: hidden;
 }
 
-.saved-header-btn {
+.saved-header-btn,
+.mypage-header-btn {
   display: flex;
   align-items: center;
   gap: 0.35rem;
@@ -2068,7 +2069,8 @@ body.modal-open {
   white-space: nowrap;
 }
 
-.saved-header-btn strong {
+.saved-header-btn strong,
+.mypage-header-btn strong {
   min-width: 20px;
   height: 20px;
   padding: 0 0.3rem;
@@ -2079,6 +2081,16 @@ body.modal-open {
   background: var(--primary);
   color: white;
   font-size: 0.68rem;
+}
+
+.mypage-header-btn {
+  border-color: var(--border-light);
+  background: #fff;
+  color: var(--text-body);
+}
+
+.mypage-header-btn i {
+  color: var(--primary);
 }
 
 .results-toolbar {
@@ -2921,10 +2933,11 @@ body.modal-open {
 
   .header-left {
     width: 100%;
-    min-height: 38px;
+    min-height: 66px;
     display: flex;
-    align-items: center;
-    padding-right: 104px;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0;
   }
 
   .brand-logo {
@@ -2932,7 +2945,16 @@ body.modal-open {
   }
 
   .logo-title {
-    font-size: 1.12rem;
+    font-size: 1.08rem;
+  }
+
+  .logo-badge {
+    font-size: 0.56rem;
+    letter-spacing: 1px;
+  }
+
+  .brand-logo {
+    gap: 0.5rem;
   }
 
   .header-center {
@@ -2942,16 +2964,47 @@ body.modal-open {
   }
 
   .header-right {
-    width: 100%;
+    position: absolute;
+    top: 0.68rem;
+    right: 0.75rem;
+    width: auto;
     justify-content: center;
     flex-wrap: nowrap;
+    gap: 0.3rem;
   }
 
   .language-switch {
-    position: absolute;
-    top: 0.72rem;
-    right: 1rem;
-    z-index: 2;
+    position: static;
+    z-index: auto;
+    padding: 0.16rem;
+  }
+
+  .language-btn:not(.active) {
+    display: none;
+  }
+
+  .language-btn {
+    min-width: 42px;
+    height: 32px;
+    padding: 0 0.45rem;
+  }
+
+  .mypage-header-btn {
+    min-width: 42px;
+    height: 36px;
+    justify-content: center;
+    padding: 0 0.5rem;
+  }
+
+  .mypage-header-btn span {
+    font-size: 0.68rem;
+  }
+
+  .mypage-header-btn strong {
+    min-width: 17px;
+    height: 17px;
+    padding: 0 0.22rem;
+    font-size: 0.58rem;
   }
 
   .category-nav {
@@ -3147,11 +3200,31 @@ body.modal-open {
   }
 
   .planner-form {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.42rem;
   }
 
   .planner-generate-btn {
     grid-column: 1 / -1;
+  }
+
+  .planner-form label {
+    gap: 0.3rem;
+  }
+
+  .planner-form label > span {
+    min-height: 1.9em;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    font-size: 0.65rem;
+    line-height: 1.25;
+  }
+
+  .planner-form select {
+    height: 46px;
+    padding: 0 0.3rem;
+    font-size: 0.72rem;
   }
 
   .planner-route-builder {
@@ -3523,11 +3596,24 @@ body.modal-open {
     font-size: 0.62rem;
     font-weight: 700;
     cursor: pointer;
+    border-radius: 13px;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
   }
 
   .mobile-bottom-nav button i {
-    color: var(--primary);
+    color: var(--text-light);
     font-size: 0.92rem;
+    transition: color 0.2s ease;
+  }
+
+  .mobile-bottom-nav button.active {
+    background: var(--primary-light);
+    color: var(--primary-hover);
+    transform: translateY(-1px);
+  }
+
+  .mobile-bottom-nav button.active i {
+    color: var(--primary);
   }
 
   .mobile-bottom-nav b {
@@ -3592,10 +3678,15 @@ body.modal-open {
 
 @media (max-width: 480px) {
   .planner-form {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .planner-generate-btn {
-    grid-column: 1;
+    grid-column: 1 / -1;
+  }
+
+  .planner-form select {
+    font-size: 0.68rem;
+    padding: 0 0.2rem;
   }
 }

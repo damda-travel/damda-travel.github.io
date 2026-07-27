@@ -70,6 +70,7 @@ const I18N = {
     brandTitle: 'Viaja por Jeonbuk',
     searchPlaceholder: 'Busca un lugar, una región o una palabra clave',
     savedPlaces: 'Guardados',
+    myPage: 'Mi',
     catAll: 'Todo',
     catFood: 'Comida y cafés',
     catCulture: 'Historia y cultura',
@@ -91,9 +92,9 @@ const I18N = {
     themeFood: 'Comida y cafés',
     themeFestival: 'Festivales',
     pace: 'Ritmo del viaje',
-    paceRelaxed: 'Tranquilo · 2 paradas/día',
-    paceBalanced: 'Equilibrado · 3 paradas/día',
-    paceIntense: 'Intenso · 4 paradas/día',
+    paceRelaxed: 'Suave · 2',
+    paceBalanced: 'Normal · 3',
+    paceIntense: 'Intenso · 4',
     makeRoute: 'Crear mi ruta',
     presetTitle: 'Elige una ruta base',
     presetDesc: 'Usa una combinación recomendada y cambia las regiones después.',
@@ -158,6 +159,7 @@ const I18N = {
     brandTitle: '전북 관광',
     searchPlaceholder: '관광지, 지역, 키워드를 검색해보세요',
     savedPlaces: '여행 보관함',
+    myPage: '마이',
     catAll: '전체',
     catFood: '맛집/카페',
     catCulture: '역사/문화',
@@ -179,9 +181,9 @@ const I18N = {
     themeFood: '맛집·카페',
     themeFestival: '축제·행사',
     pace: '여행 속도',
-    paceRelaxed: '여유롭게 · 하루 2곳',
-    paceBalanced: '적당히 · 하루 3곳',
-    paceIntense: '알차게 · 하루 4곳',
+    paceRelaxed: '여유 · 2곳',
+    paceBalanced: '보통 · 3곳',
+    paceIntense: '알차게 · 4곳',
     makeRoute: '여행 일정 만들기',
     presetTitle: '추천 동선을 선택하세요',
     presetDesc: '추천 조합을 선택한 뒤 지역을 직접 추가하거나 뺄 수 있습니다.',
@@ -298,6 +300,7 @@ const savedDrawer = document.getElementById('savedDrawer');
 const savedList = document.getElementById('savedList');
 const savedPlanBtn = document.getElementById('savedPlanBtn');
 const appToast = document.getElementById('appToast');
+const mobileNavButtons = [...document.querySelectorAll('.mobile-bottom-nav [data-mobile-nav]')];
 
 document.addEventListener('DOMContentLoaded', () => {
   applyRoutePreset(activeRoutePreset, false);
@@ -308,6 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateSavedUI();
   applyLanguage(currentLanguage, false);
   updateUI();
+  initMobileNavigation();
 });
 
 document.addEventListener('keydown', event => {
@@ -490,6 +494,15 @@ function applyLanguage(language, persist = true) {
 
 function setLanguage(language) {
   applyLanguage(language, true);
+}
+
+function handleLanguageButton(language) {
+  const isCompactMobile = window.matchMedia('(max-width: 768px)').matches;
+  if (isCompactMobile && currentLanguage === language) {
+    setLanguage(language === 'ko' ? 'es' : 'ko');
+    return;
+  }
+  setLanguage(language);
 }
 
 function getCurrentEventStatus(period = '') {
@@ -1187,6 +1200,7 @@ function openSavedPanel() {
   savedDrawer.classList.add('active');
   savedDrawer.setAttribute('aria-hidden', 'false');
   document.body.classList.add('modal-open');
+  setMobileNavActive('saved');
   requestAnimationFrame(() => savedDrawer.querySelector('.drawer-close-btn')?.focus());
 }
 
@@ -1195,6 +1209,7 @@ function closeSavedPanel(event) {
   savedDrawer.classList.remove('active');
   savedDrawer.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('modal-open');
+  updateMobileNavActive();
   if (lastFocusedElement instanceof HTMLElement) lastFocusedElement.focus();
 }
 
@@ -1450,7 +1465,54 @@ function scrollToSection(sectionId) {
 }
 
 function scrollToResults() {
-  document.getElementById('tourSection')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  document.getElementById('tourCardList')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function setMobileNavActive(key) {
+  mobileNavButtons.forEach(button => {
+    const active = button.dataset.mobileNav === key;
+    button.classList.toggle('active', active);
+    if (active) button.setAttribute('aria-current', 'page');
+    else button.removeAttribute('aria-current');
+  });
+}
+
+function updateMobileNavActive() {
+  if (!mobileNavButtons.length || window.innerWidth > 768) return;
+  if (savedDrawer?.classList.contains('active')) {
+    setMobileNavActive('saved');
+    return;
+  }
+
+  const probe = window.scrollY + window.innerHeight * 0.38;
+  const documentTop = element => element
+    ? element.getBoundingClientRect().top + window.scrollY
+    : Infinity;
+  const regionTop = documentTop(document.getElementById('regionSelector'));
+  const placesTop = documentTop(document.getElementById('tourCardList'));
+  let active = 'planner';
+  if (probe >= regionTop) active = 'regions';
+  if (probe >= placesTop) active = 'places';
+  setMobileNavActive(active);
+}
+
+function initMobileNavigation() {
+  if (!mobileNavButtons.length) return;
+  let ticking = false;
+  const scheduleUpdate = () => {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(() => {
+      updateMobileNavActive();
+      ticking = false;
+    });
+  };
+  window.addEventListener('scroll', scheduleUpdate, { passive: true });
+  window.addEventListener('resize', scheduleUpdate);
+  mobileNavButtons.forEach(button => {
+    button.addEventListener('click', () => setMobileNavActive(button.dataset.mobileNav));
+  });
+  updateMobileNavActive();
 }
 
 function updateApiStatusBadge() {
