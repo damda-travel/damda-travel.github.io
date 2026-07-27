@@ -70,7 +70,6 @@ const I18N = {
     brandTitle: 'Viaja por Jeonbuk',
     searchPlaceholder: 'Busca un lugar, una región o una palabra clave',
     savedPlaces: 'Guardados',
-    regionCount: '14 municipios',
     catAll: 'Todo',
     catFood: 'Comida y cafés',
     catCulture: 'Historia y cultura',
@@ -122,6 +121,7 @@ const I18N = {
     regionSelectorTitle: '¿A dónde quieres ir?',
     regionSelectorDesc: 'Selecciona una región para ver sus lugares y fotos.',
     showAllRegions: 'Ver todo Jeonbuk',
+    categoryFilterKicker: 'Elige un tema',
     savedOnly: 'Solo guardados',
     sortResults: 'Ordenar resultados',
     sortRecommended: 'Recomendados',
@@ -158,7 +158,6 @@ const I18N = {
     brandTitle: '전북 관광',
     searchPlaceholder: '관광지, 지역, 키워드를 검색해보세요',
     savedPlaces: '여행 보관함',
-    regionCount: '14개 시·군',
     catAll: '전체',
     catFood: '맛집/카페',
     catCulture: '역사/문화',
@@ -210,6 +209,7 @@ const I18N = {
     regionSelectorTitle: '어디로 떠나고 싶나요?',
     regionSelectorDesc: '지역을 선택하면 해당 지역의 장소와 사진만 볼 수 있습니다.',
     showAllRegions: '전북 전체 보기',
+    categoryFilterKicker: '테마별로 둘러보기',
     savedOnly: '저장한 장소만',
     sortResults: '결과 정렬',
     sortRecommended: '추천순',
@@ -759,12 +759,6 @@ async function updateUI() {
   bannerCount.textContent = currentLanguage === 'ko'
     ? `${filteredTours.length.toLocaleString(getLocale())}개 장소`
     : `${filteredTours.length.toLocaleString(getLocale())} lugares`;
-  const totalCountPill = document.getElementById('totalTourCount');
-  if (totalCountPill) {
-    totalCountPill.textContent = currentLanguage === 'ko'
-      ? `${allTours.length.toLocaleString(getLocale())}개 여행정보`
-      : `${allTours.length.toLocaleString(getLocale())} lugares`;
-  }
   const heroTourCount = document.getElementById('heroTourCount');
   if (heroTourCount) heroTourCount.textContent = allTours.length.toLocaleString(getLocale());
   const heroRouteCount = document.getElementById('heroRouteCount');
@@ -1311,6 +1305,7 @@ function renderPlanTransfer(originTour, destinationTour) {
 }
 
 function renderTravelPlan(duration, customTitle = null, selectedRegionIds = [...selectedPlannerRegions]) {
+  plannerResult.hidden = false;
   if (!currentPlan.length) {
     plannerResult.innerHTML = `<div class="planner-empty"><p>${currentLanguage === 'ko' ? '선택한 조건에 맞는 관광지가 없습니다.' : 'No encontramos lugares para esta combinación.'}</p></div>`;
     return;
@@ -1399,12 +1394,8 @@ function restoreSavedPlan() {
 function clearCurrentPlan() {
   currentPlan = [];
   localStorage.removeItem('jeonbuk_travel_plan');
-  plannerResult.innerHTML = `
-    <div class="planner-empty">
-      <i class="fa-solid fa-map-location-dot"></i>
-      <p>${currentLanguage === 'ko' ? '동선과 조건을 선택한 뒤 여행 일정을 만들어보세요.' : 'Elige una combinación y crea tu itinerario.'}</p>
-    </div>
-  `;
+  plannerResult.innerHTML = '';
+  plannerResult.hidden = true;
   showToast(currentLanguage === 'ko' ? '저장된 여행 일정을 초기화했습니다.' : 'La ruta guardada se eliminó.');
 }
 
