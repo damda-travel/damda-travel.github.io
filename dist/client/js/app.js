@@ -437,6 +437,24 @@ function getTourDescription(tour) {
   return `${category} en ${region}. Conservamos el nombre y la dirección oficiales en coreano para que puedas encontrarlos fácilmente durante el viaje.`;
 }
 
+function getCardDescription(tour) {
+  if (currentLanguage === 'es') {
+    const region = getRegionName(tour.regionId, tour.regionName);
+    const descriptions = {
+      culture: `Historia y patrimonio para descubrir en ${region}.`,
+      nature: `Naturaleza y paisajes para disfrutar en ${region}.`,
+      food: `Un sabor local recomendado de ${region}.`,
+      festival: `Una experiencia cultural para vivir en ${region}.`
+    };
+    return descriptions[tour.category] || `Un lugar recomendado para conocer ${region}.`;
+  }
+
+  const source = String(tour.desc || tour.highlight || tour.overview || '').replace(/\s+/g, ' ').trim();
+  if (!source) return '';
+  const firstSentence = source.match(/^.*?[.!?。](?:\s|$)/)?.[0]?.trim();
+  return firstSentence || source;
+}
+
 function applyLanguage(language, persist = true) {
   currentLanguage = language === 'ko' ? 'ko' : 'es';
   document.documentElement.lang = currentLanguage;
@@ -904,6 +922,7 @@ function renderTourCards(tours) {
           </div>
           <p class="card-address"><i class="fa-solid fa-location-dot"></i> ${escapeHTML(tour.address)}</p>
           ${eventMeta}
+          ${getCardDescription(tour) ? `<p class="card-desc">${escapeHTML(getCardDescription(tour))}</p>` : ''}
           ${practicalMeta}
           <div class="card-tags">${tags}</div>
         </div>

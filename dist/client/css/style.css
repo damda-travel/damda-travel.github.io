@@ -37,6 +37,10 @@
   --radius-lg: 20px;
   --radius-full: 9999px;
 
+  --font-sans: 'Plus Jakarta Sans', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+  --type-leading: 1.55;
+  --type-tracking: -0.012em;
+
   --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-normal: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-bounce: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -56,13 +60,38 @@ html {
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--bg-main);
   color: var(--text-body);
-  line-height: 1.6;
+  line-height: var(--type-leading);
+  letter-spacing: var(--type-tracking);
   min-height: 100vh;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+strong {
+  letter-spacing: -0.025em;
+}
+
+p,
+span,
+button,
+a,
+label {
+  overflow-wrap: break-word;
 }
 
 .app-container {
@@ -120,7 +149,7 @@ body {
 .logo-badge {
   background: linear-gradient(135deg, #059669, #0D9488);
   color: white;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: var(--font-sans);
   font-weight: 800;
   font-size: 0.65rem;
   padding: 0.2rem 0.5rem;
@@ -1047,7 +1076,8 @@ body {
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--text-main);
-  line-height: 1.3;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
 }
 
 .card-region-label {
@@ -1066,14 +1096,16 @@ body {
   gap: 0.25rem;
   margin-bottom: 0.35rem;
   min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  align-items: flex-start;
+  white-space: normal;
+  line-height: 1.45;
 }
 
 .card-address i {
   font-size: 0.6rem;
   color: var(--text-light);
+  margin-top: 0.2rem;
+  flex: 0 0 auto;
 }
 
 .card-event-meta,
@@ -1089,9 +1121,7 @@ body {
 
 .card-event-meta > span:last-child {
   min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .event-status {
@@ -1114,22 +1144,18 @@ body {
 }
 
 .card-desc {
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   color: var(--text-body);
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  line-height: 1.45;
-  margin-bottom: 0.4rem;
+  line-height: 1.5;
+  margin: 0.15rem 0 0.45rem;
 }
 
 .card-practical-meta {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.35rem;
   margin: 0.25rem 0 0.45rem;
-  overflow: hidden;
 }
 
 .card-practical-meta span {
@@ -1140,9 +1166,8 @@ body {
   color: #475569;
   font-size: 0.66rem;
   font-weight: 700;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: normal;
+  line-height: 1.35;
 }
 
 .card-practical-meta i {
@@ -1152,9 +1177,8 @@ body {
 
 .card-tags {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 0.25rem;
-  overflow: hidden;
 }
 
 .tag-item {
@@ -1165,9 +1189,8 @@ body {
   background: var(--primary-light);
   padding: 0.1rem 0.4rem;
   border-radius: 5px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: normal;
+  line-height: 1.35;
 }
 
 .empty-state {
@@ -1199,8 +1222,13 @@ body {
 /* 8. Recommended Courses Section */
 .courses-section {
   max-width: 1440px;
-  margin: 2rem auto 1rem;
-  padding: 0 1.5rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background: linear-gradient(145deg, #FFFFFF 0%, #F0F9FF 100%);
+  border: 1px solid #DCEAF3;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
   animation: fadeInUp 0.6s ease 0.3s both;
 }
 
@@ -1224,6 +1252,8 @@ body {
   display: flex;
   align-items: center;
   gap: 0.45rem;
+  line-height: 1.35;
+  text-wrap: balance;
 }
 
 .section-title-box h2 i {
@@ -1234,6 +1264,7 @@ body {
   font-size: 0.82rem;
   color: var(--text-muted);
   margin-top: 0.15rem;
+  line-height: 1.55;
 }
 
 .courses-grid {
@@ -1297,14 +1328,16 @@ body {
   font-size: 1.15rem;
   font-weight: 800;
   margin-bottom: 0.45rem;
-  line-height: 1.35;
+  line-height: 1.42;
+  text-wrap: balance;
 }
 
 .course-desc {
   font-size: 0.8rem;
   opacity: 0.92;
-  line-height: 1.5;
+  line-height: 1.6;
   margin-bottom: 0.75rem;
+  overflow-wrap: anywhere;
 }
 
 .course-tags {
@@ -2212,6 +2245,7 @@ body.modal-open {
 
 .planner-step {
   flex: 0 0 26px;
+  width: 26px;
   height: 26px;
   display: inline-flex;
   align-items: center;
@@ -2844,6 +2878,16 @@ body.modal-open {
 }
 
 @media (max-width: 768px) {
+  body {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .app-container {
+    gap: 0;
+    padding: 0;
+  }
+
   .main-header {
     flex-direction: column;
     height: auto;
@@ -2993,15 +3037,73 @@ body.modal-open {
   }
 
   .planner-section {
-    margin: 1.25rem 0.75rem 0;
-    padding: 1rem;
+    margin: 0;
+    padding: 2.25rem 1rem;
+    border-width: 1px 0;
+    border-radius: 0;
+    box-shadow: none;
     scroll-margin-top: 4.5rem;
   }
 
+  .hero-section,
+  .tour-section,
   .map-section,
-  .sidebar-section,
   .courses-section {
     scroll-margin-top: 4.5rem;
+  }
+
+  .planner-intro,
+  .section-title-box,
+  .hero-content,
+  .region-info-banner,
+  .region-selector-heading {
+    text-align: center;
+  }
+
+  .planner-intro {
+    max-width: 34rem;
+    margin: 0 auto;
+  }
+
+  .planner-intro h2,
+  .section-title-box h2,
+  .region-selector-heading h3 {
+    justify-content: center;
+    text-align: center;
+    line-height: 1.4;
+    text-wrap: balance;
+  }
+
+  .planner-intro p,
+  .hero-desc,
+  .section-title-box p {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 32rem;
+    line-height: 1.65;
+  }
+
+  .planner-form {
+    margin-top: 1.25rem;
+  }
+
+  .planner-form label > span {
+    text-align: center;
+  }
+
+  .planner-form select {
+    height: 48px;
+    font-size: 0.82rem;
+    text-align: center;
+    text-align-last: center;
+  }
+
+  .planner-generate-btn {
+    min-height: 48px;
+    height: auto;
+    padding: 0.75rem 1rem;
+    white-space: normal;
+    line-height: 1.4;
   }
 
   .planner-form {
@@ -3013,11 +3115,42 @@ body.modal-open {
   }
 
   .planner-route-builder {
-    padding: 0.8rem;
+    margin-top: 0.35rem;
+    padding: 1rem 0.8rem;
+  }
+
+  .planner-route-heading,
+  .planner-region-builder {
+    text-align: center;
+  }
+
+  .planner-route-heading > div:first-child,
+  .planner-region-copy {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+  }
+
+  .planner-route-heading strong,
+  .planner-region-copy strong,
+  .planner-route-heading p,
+  .planner-region-copy p {
+    display: block;
+    text-align: center;
+    line-height: 1.5;
   }
 
   .route-presets {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .route-preset {
+    min-height: 54px;
+    padding: 0.65rem 0.5rem;
+    white-space: normal;
+    line-height: 1.35;
+    text-align: center;
   }
 
   .planner-region-chips {
@@ -3033,15 +3166,25 @@ body.modal-open {
 
   .planner-region-chip {
     flex: 0 0 auto;
+    height: auto;
+    min-height: 38px;
+    padding: 0.45rem 0.75rem;
+    white-space: normal;
+    line-height: 1.3;
   }
 
   .region-selector-heading {
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
   }
 
   .region-reset-btn {
     width: 100%;
+    height: auto;
+    min-height: 42px;
+    padding: 0.65rem 0.85rem;
+    white-space: normal;
+    line-height: 1.35;
   }
 
   .plan-day {
@@ -3085,6 +3228,160 @@ body.modal-open {
 
   .courses-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero-section {
+    margin: 0;
+    padding: 2.5rem 1rem;
+    border-width: 1px 0;
+    border-radius: 0;
+  }
+
+  .hero-title {
+    font-size: clamp(1.55rem, 7vw, 1.9rem);
+    line-height: 1.4;
+    text-wrap: balance;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+    max-width: 320px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .hero-stat-item {
+    min-width: 0;
+    padding: 0.8rem 0.45rem;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.65);
+  }
+
+  .hero-stat-item span {
+    white-space: normal;
+    line-height: 1.35;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-cta-primary,
+  .hero-cta-secondary {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+    white-space: normal;
+    line-height: 1.35;
+  }
+
+  .courses-section {
+    margin: 0;
+    padding: 2.25rem 1rem;
+    border-width: 1px 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .section-title-box {
+    margin-bottom: 1.25rem;
+  }
+
+  .course-card {
+    min-height: 220px;
+    padding: 1.4rem 1.1rem;
+    text-align: center;
+  }
+
+  .course-card-footer {
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .course-tags {
+    justify-content: center;
+  }
+
+  .course-open-label {
+    white-space: normal;
+    line-height: 1.4;
+  }
+
+  .tour-section {
+    margin: 0;
+    padding: 2.25rem 0.75rem;
+    border-width: 1px 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .region-info-banner {
+    padding: 1.35rem 1rem;
+  }
+
+  .banner-header {
+    align-items: center;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .banner-title,
+  .banner-desc {
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  .banner-count {
+    white-space: normal;
+    line-height: 1.35;
+  }
+
+  .region-selector-panel {
+    margin-top: 1.25rem;
+    padding: 1.25rem 0.8rem;
+  }
+
+  .region-selector-heading h3 {
+    font-size: 1.08rem;
+  }
+
+  .results-toolbar {
+    justify-content: center;
+  }
+
+  .filter-summary {
+    text-align: center;
+  }
+
+  .tour-card,
+  .tour-card * {
+    text-align: left;
+  }
+
+  .card-title-row {
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .card-region-label {
+    padding-top: 0.08rem;
+  }
+
+  .card-desc {
+    font-size: 0.79rem;
+    line-height: 1.55;
+  }
+
+  .map-section {
+    margin: 0;
+    padding: 2.25rem 0.75rem;
+    border-width: 1px 0;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .footer-links {
@@ -3237,5 +3534,15 @@ body.modal-open {
   .back-to-top-btn {
     right: 1rem;
     bottom: 5.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .planner-form {
+    grid-template-columns: 1fr;
+  }
+
+  .planner-generate-btn {
+    grid-column: 1;
   }
 }
