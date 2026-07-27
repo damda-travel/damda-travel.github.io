@@ -28,7 +28,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗺️</text></svg>">
 
   <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=31">
+  <link rel="stylesheet" href="css/style.css?v=32">
 </head>
 <body>
 
@@ -48,7 +48,7 @@
         <!-- Integrated Search Bar -->
         <div class="search-box">
           <i class="fa-solid fa-magnifying-glass search-icon"></i>
-          <input type="search" id="searchInput" aria-label="Buscar lugares turísticos en Jeonbuk" placeholder="Busca un lugar, una región o una palabra clave" data-i18n-placeholder="searchPlaceholder" oninput="handleSearch(event)">
+          <input type="search" id="searchInput" aria-label="Buscar lugares turísticos en Jeonbuk" placeholder="Busca un lugar, una región o una palabra clave" data-i18n-placeholder="searchPlaceholder" enterkeyhint="search" oninput="handleSearch(event)" onkeydown="handleSearchKeydown(event)">
           <button type="button" class="search-clear-btn" id="searchClearBtn" onclick="clearSearch()" aria-label="Borrar búsqueda"><i class="fa-solid fa-xmark"></i></button>
         </div>
       </div>
@@ -66,7 +66,24 @@
       </div>
     </header>
 
-    <!-- 1. PLANNER SECTION (TOP) -->
+    <!-- 1. HERO SECTION -->
+    <section class="hero-section" id="heroSection">
+      <div class="hero-content">
+        <span class="hero-kicker"><i class="fa-solid fa-compass"></i> <span data-i18n="heroKicker">Guía de Jeonbuk, Corea</span></span>
+        <h2 class="hero-title"><span data-i18n="heroTitleStart">Descubre</span> <strong data-i18n="heroTitleStrong">14 destinos distintos</strong> <span data-i18n="heroTitleEnd">en un solo viaje</span></h2>
+        <p class="hero-desc" data-i18n="heroDesc">Callejones hanok, montañas, costa, sabores locales y festivales: arma una ruta que conecte lo mejor de Jeonbuk.</p>
+        <div class="hero-actions">
+          <button type="button" class="hero-cta-primary" onclick="scrollToSection('tourSection')">
+            <i class="fa-solid fa-compass"></i> <span data-i18n="explorePlaces">Explorar lugares</span>
+          </button>
+          <button type="button" class="hero-cta-secondary" onclick="scrollToSection('plannerSection')">
+            <i class="fa-solid fa-route"></i> <span data-i18n="planTrip">Planear mi viaje</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. PLANNER SECTION -->
     <section class="planner-section" id="plannerSection">
       <div class="planner-intro">
         <span class="planner-kicker" data-i18n="plannerKicker">Tu viaje por Jeonbuk</span>
@@ -130,45 +147,6 @@
         </div>
       </div>
       <div class="planner-result" id="plannerResult" aria-live="polite" hidden></div>
-    </section>
-
-    <!-- 2. HERO SECTION -->
-    <section class="hero-section" id="heroSection">
-      <div class="hero-content">
-        <span class="hero-kicker"><i class="fa-solid fa-compass"></i> <span data-i18n="heroKicker">Guía de Jeonbuk, Corea</span></span>
-        <h2 class="hero-title"><span data-i18n="heroTitleStart">Descubre</span> <strong data-i18n="heroTitleStrong">14 destinos distintos</strong> <span data-i18n="heroTitleEnd">en un solo viaje</span></h2>
-        <p class="hero-desc" data-i18n="heroDesc">Callejones hanok, montañas, costa, sabores locales y festivales: arma una ruta que conecte lo mejor de Jeonbuk.</p>
-        <div class="hero-stats">
-          <div class="hero-stat-item">
-            <i class="fa-solid fa-map-location-dot"></i>
-            <strong>14</strong>
-            <span data-i18n="statRegions">municipios</span>
-          </div>
-          <div class="hero-stat-item">
-            <i class="fa-solid fa-camera-retro"></i>
-            <strong id="heroTourCount">812</strong>
-            <span data-i18n="statPlaces">lugares destacados</span>
-          </div>
-          <div class="hero-stat-item">
-            <i class="fa-solid fa-utensils"></i>
-            <strong>5</strong>
-            <span data-i18n="statThemes">temas</span>
-          </div>
-          <div class="hero-stat-item">
-            <i class="fa-solid fa-route"></i>
-            <strong id="heroRouteCount">3</strong>
-            <span data-i18n="statRoutes">rutas</span>
-          </div>
-        </div>
-        <div class="hero-actions">
-          <button type="button" class="hero-cta-primary" onclick="scrollToSection('tourSection')">
-            <i class="fa-solid fa-compass"></i> <span data-i18n="explorePlaces">Explorar lugares</span>
-          </button>
-          <button type="button" class="hero-cta-secondary" onclick="scrollToSection('plannerSection')">
-            <i class="fa-solid fa-route"></i> <span data-i18n="planTrip">Planear mi viaje</span>
-          </button>
-        </div>
-      </div>
     </section>
 
     <!-- 3. TOUR SPOTS SECTION -->
@@ -425,11 +403,11 @@
       <div class="drawer-header">
         <div>
           <span class="drawer-kicker" data-i18n="drawerKicker">Tu viaje</span>
-          <h2 id="savedDrawerTitle" data-i18n="drawerTitle">Lugares guardados</h2>
+          <h2 id="savedDrawerTitle" data-i18n="drawerTitle">Mi viaje</h2>
         </div>
         <button type="button" class="drawer-close-btn" onclick="closeSavedPanel()" aria-label="여행 보관함 닫기"><i class="fa-solid fa-xmark"></i></button>
       </div>
-      <p class="drawer-desc" data-i18n="drawerDesc">Revisa tus lugares y úsalos para crear una ruta.</p>
+      <p class="drawer-desc" data-i18n="drawerDesc">Revisa tus lugares guardados y conviértelos en una ruta.</p>
       <div class="saved-list" id="savedList"></div>
       <button type="button" class="drawer-plan-btn" id="savedPlanBtn" onclick="createPlanFromSaved()">
         <i class="fa-solid fa-route"></i> <span data-i18n="drawerPlan">Crear ruta con guardados</span>
@@ -438,9 +416,9 @@
   </div>
 
   <nav class="mobile-bottom-nav" aria-label="Navegación principal móvil">
-    <button type="button" data-mobile-nav="regions" onclick="scrollToSection('regionSelector')"><i class="fa-solid fa-location-dot"></i><span data-i18n="mobileRegions">Regiones</span></button>
+    <button type="button" class="active" data-mobile-nav="regions" onclick="scrollToSection('regionSelector')" aria-current="page"><i class="fa-solid fa-location-dot"></i><span data-i18n="mobileRegions">Regiones</span></button>
     <button type="button" data-mobile-nav="places" onclick="scrollToSection('tourCardList')"><i class="fa-solid fa-compass"></i><span data-i18n="mobilePlaces">Lugares</span></button>
-    <button type="button" class="active" data-mobile-nav="planner" onclick="scrollToSection('plannerSection')" aria-current="page"><i class="fa-solid fa-route"></i><span data-i18n="mobilePlanner">Mi ruta</span></button>
+    <button type="button" data-mobile-nav="planner" onclick="scrollToSection('plannerSection')"><i class="fa-solid fa-route"></i><span data-i18n="mobilePlanner">Mi ruta</span></button>
     <button type="button" data-mobile-nav="saved" onclick="openSavedPanel()"><i class="fa-solid fa-bookmark"></i><span><span data-i18n="mobileSaved">Guardados</span> <b id="mobileSavedCount">0</b></span></button>
   </nav>
 
@@ -456,6 +434,6 @@
   <script src="js/tourImages.js?v=25"></script>
   <script src="js/tourDetails.js?v=25"></script>
   <script src="js/tourApi.js?v=25"></script>
-  <script src="js/app.js?v=31"></script>
+  <script src="js/app.js?v=32"></script>
 </body>
 </html>

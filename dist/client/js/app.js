@@ -37,6 +37,80 @@ const REGION_NAMES_ES = {
   buan: 'Buan'
 };
 
+const TOUR_NAMES_ES = {
+  'jj-1': 'Aldea Hanok de Jeonju',
+  'jj-2': 'Santuario Gyeonggijeon y Museo del Retrato Real',
+  'jj-3': 'Parque Deokjin y Biblioteca Yeonhwajeong',
+  'jj-4': 'Catedral de Jeondong',
+  'jj-5': 'Mercado Nambu y Youth Mall',
+  'gs-1': 'Archipiélago Gogunsan e isla Seonyudo',
+  'gs-2': 'Museo de Historia Moderna de Gunsan',
+  'gs-3': 'Panadería Lee Sung Dang',
+  'gs-4': 'Aldea del Ferrocarril de Gyeongam-dong',
+  'is-1': 'Sitio de Mireuksaji y pagoda de piedra',
+  'is-2': 'Jardín Agape',
+  'ju-1': 'Parque Nacional Naejangsan y pabellón Uhwajeong',
+  'ju-2': 'Calle del ssanghwa-cha de Jeongeup',
+  'nw-1': 'Jardín Gwanghalluwon y puente Ojakgyo',
+  'nw-2': 'Valle Baemsagol de Jirisan',
+  'gj-1': 'Byeokgolje y los campos dorados de Gimje',
+  'gj-2': 'Templo Geumsansa en Moaksan',
+  'wj-1': 'Casa tradicional Awon y aldea Hanok de Oseong',
+  'wj-2': 'Daedunsan y puente colgante Geumgang',
+  'ja-1': 'Templo Tapsa de Maisan',
+  'ja-2': 'Spa de ginseng rojo de Jinan',
+  'mj-1': 'Pico Hyangjeokbong y teleférico de Deogyusan',
+  'mj-2': 'Cueva del vino de moras de Muju',
+  'js-1': 'Santuario Uiamsa de Nongae',
+  'js-2': 'Bosque recreativo Banghwadong',
+  'im-1': 'Parque temático del queso de Imsil',
+  'im-2': 'Lago Okjeong y puente colgante de Bungeoseom',
+  'sc-1': 'Parque de Gangcheonsan y cascada Byeongpung',
+  'sc-2': 'Aldea tradicional del gochujang de Sunchang',
+  'gc-1': 'Campos de cebada verde de Gochang',
+  'gc-2': 'Fortaleza Gochang-eupseong (Moyangseong)',
+  'ba-1': 'Acantilados Chaeseokgang y Jeokbyeokgang',
+  'ba-2': 'Templo Naesosa y bosque de abetos',
+  'official-a-24396': 'Colina de flores Wansan'
+};
+
+const TOUR_DESCRIPTIONS_ES = {
+  'jj-1': 'Un barrio histórico con más de 700 hanok, talleres tradicionales y calles ideales para recorrer a pie.',
+  'jj-2': 'El santuario conserva el retrato del fundador de Joseon y valiosos archivos de la antigua familia real.',
+  'jj-3': 'Un parque junto al lago, famoso por sus lotos de verano y una biblioteca contemporánea de estilo hanok.',
+  'jj-4': 'Una catedral románica levantada en un antiguo sitio de martirio, junto a la aldea hanok.',
+  'jj-5': 'Mercado tradicional con comida de Jeonju, puestos nocturnos y espacios gestionados por jóvenes.',
+  'gs-1': 'Islas, playas y miradores unidos por puentes: una de las mejores escapadas costeras de Jeonbuk.',
+  'gs-2': 'Un museo que explica el puerto, la ciudad moderna y la vida cotidiana de Gunsan durante el siglo XX.',
+  'gs-3': 'La panadería histórica más conocida de Gunsan, famosa por sus panes rellenos de frijol rojo y verduras.',
+  'gs-4': 'Casas y murales junto a una antigua vía férrea que atraviesa el corazón de un barrio residencial.',
+  'is-1': 'Restos de un gran templo de Baekje y su pagoda de piedra, reconocidos como Patrimonio Mundial de la UNESCO.',
+  'is-2': 'Un jardín privado de ambiente sereno con cipreses, senderos y rincones fotogénicos para caminar sin prisa.',
+  'ju-1': 'Montañas de intenso color otoñal, senderos panorámicos y un pabellón reflejado sobre el lago.',
+  'ju-2': 'Una calle de salones tradicionales dedicados al ssanghwa-cha, una bebida coreana de hierbas, frutos y nueces.',
+  'nw-1': 'Jardín histórico ligado a la historia de amor de Chunhyang, con pabellones, estanque y el puente Ojakgyo.',
+  'nw-2': 'Uno de los valles más conocidos de Jirisan, con agua clara, bosque denso y rutas para caminar.',
+  'gj-1': 'El mayor embalse antiguo de Corea y extensos campos que muestran la larga tradición agrícola de Gimje.',
+  'gj-2': 'Templo budista al pie de Moaksan, conocido por sus edificios históricos y su tranquilo paisaje de montaña.',
+  'wj-1': 'Arquitectura hanok, arte contemporáneo y vistas de montaña reunidos en una aldea tranquila cerca de Jeonju.',
+  'wj-2': 'Cumbres rocosas y un puente colgante con amplias vistas; el teleférico permite acortar el ascenso.',
+  'ja-1': 'Un templo singular rodeado por decenas de torres de piedra construidas al pie de los picos de Maisan.',
+  'ja-2': 'Circuitos de descanso inspirados en el ginseng rojo de Jinan, con piscinas y espacios de relajación.',
+  'mj-1': 'Teleférico hasta Seolcheonbong y una caminata final hacia las grandes vistas del pico Hyangjeokbong.',
+  'mj-2': 'Una antigua galería transformada en cava, donde se conoce y degusta el vino de moras de Muju.',
+  'js-1': 'Santuario dedicado a Nongae, figura histórica de Jangsu, con salas de exposición y un recinto tranquilo.',
+  'js-2': 'Bosque recreativo con valle, senderos y zonas de descanso para disfrutar de la naturaleza en familia.',
+  'im-1': 'Experiencias, exposiciones y restaurantes dedicados al queso que convirtió a Imsil en un destino gastronómico.',
+  'im-2': 'Un puente peatonal conduce a la isla Bungeoseom, rodeada por las curvas panorámicas del lago Okjeong.',
+  'sc-1': 'Senderos entre bosques, un puente colgante y la gran cascada Byeongpung en uno de los paisajes clásicos de Sunchang.',
+  'sc-2': 'Aldea dedicada al gochujang, con maestros artesanos, grandes tinajas y experiencias sobre la fermentación coreana.',
+  'gc-1': 'Campos ondulantes de cebada verde en primavera y flores estacionales en una extensa granja de paisaje abierto.',
+  'gc-2': 'Fortaleza de la era Joseon con una muralla transitable que rodea bosque, pabellones y edificios históricos.',
+  'ba-1': 'Capas de roca esculpidas por el mar, puestas de sol y senderos costeros dentro del Parque Nacional Byeonsanbando.',
+  'ba-2': 'Un camino bajo altos abetos conduce a un templo histórico entre montañas, especialmente sereno por la mañana.',
+  'official-a-24396': 'Una colina de Jeonju con unos 1.500 árboles florales, especialmente vistosa entre finales de abril y comienzos de mayo.'
+};
+
 const ROUTE_PRESETS = {
   heritage: ['jeonju', 'iksan', 'gunsan'],
   coast: ['gunsan', 'buan', 'gochang'],
@@ -150,9 +224,9 @@ const I18N = {
     modalSave: 'Guardar lugar',
     modalShare: 'Compartir',
     modalOfficial: 'Información oficial',
-    drawerKicker: 'Tu viaje',
-    drawerTitle: 'Lugares guardados',
-    drawerDesc: 'Revisa tus lugares y úsalos para crear una ruta.',
+    drawerKicker: 'Área personal',
+    drawerTitle: 'Mi viaje',
+    drawerDesc: 'Revisa tus lugares guardados y conviértelos en una ruta.',
     drawerPlan: 'Crear ruta con guardados'
   },
   ko: {
@@ -239,9 +313,9 @@ const I18N = {
     modalSave: '장소 저장하기',
     modalShare: '공유',
     modalOfficial: '공식 관광정보',
-    drawerKicker: '나만의 여행',
-    drawerTitle: '여행 보관함',
-    drawerDesc: '저장한 장소를 다시 확인하고 여행 일정에 활용할 수 있습니다.',
+    drawerKicker: '나의 전북 여행',
+    drawerTitle: '마이페이지',
+    drawerDesc: '저장한 장소와 여행 일정을 한곳에서 확인하세요.',
     drawerPlan: '저장한 장소로 일정 만들기'
   }
 };
@@ -406,6 +480,11 @@ function getRegionName(regionId, fallback = '') {
   return REGION_NAMES_ES[regionId] || fallback || 'Jeonbuk';
 }
 
+function getTourName(tour) {
+  if (!tour) return '';
+  return currentLanguage === 'ko' ? tour.name : (TOUR_NAMES_ES[tour.id] || tour.name);
+}
+
 function getCategoryName(category) {
   return {
     all: currentLanguage === 'ko' ? '전체 테마' : 'Todos los temas',
@@ -436,13 +515,15 @@ function getEventStatusLabel(status = '') {
 
 function getTourDescription(tour) {
   if (currentLanguage === 'ko') return tour.desc || tour.overview || '';
+  if (TOUR_DESCRIPTIONS_ES[tour.id]) return TOUR_DESCRIPTIONS_ES[tour.id];
   const region = getRegionName(tour.regionId, tour.regionName);
   const category = getCategoryName(tour.category);
-  return `${category} en ${region}. Conservamos el nombre y la dirección oficiales en coreano para que puedas encontrarlos fácilmente durante el viaje.`;
+  return `${category} en ${region}. Consulta la dirección oficial en coreano y la ruta actual antes de salir.`;
 }
 
 function getCardDescription(tour) {
   if (currentLanguage === 'es') {
+    if (TOUR_DESCRIPTIONS_ES[tour.id]) return TOUR_DESCRIPTIONS_ES[tour.id];
     const region = getRegionName(tour.regionId, tour.regionName);
     const descriptions = {
       culture: `Historia y patrimonio para descubrir en ${region}.`,
@@ -696,6 +777,13 @@ function handleSearch(event) {
   searchDebounceTimer = setTimeout(updateUI, tourApiClient.hasValidKey() ? 350 : 80);
 }
 
+function handleSearchKeydown(event) {
+  if (event.key !== 'Enter') return;
+  event.preventDefault();
+  clearTimeout(searchDebounceTimer);
+  Promise.resolve(updateUI()).then(scrollToResults);
+}
+
 function clearSearch() {
   if (searchInput) searchInput.value = '';
   currentSearchQuery = '';
@@ -755,6 +843,7 @@ async function updateUI() {
         ? '14개 시·군의 명소를 지역과 테마별로 살펴보세요.'
         : 'Explora lugares reales de los 14 municipios.');
   }
+  bannerDesc.hidden = !currentSelectedRegion && !currentSearchQuery;
 
   const filteredTours = await getFilteredTourList();
   const resultSignature = [
@@ -769,9 +858,17 @@ async function updateUI() {
     lastResultSignature = resultSignature;
   }
 
-  bannerCount.textContent = currentLanguage === 'ko'
-    ? `${filteredTours.length.toLocaleString(getLocale())}개 장소`
-    : `${filteredTours.length.toLocaleString(getLocale())} lugares`;
+  const hasActiveDiscoveryFilter = Boolean(
+    currentSelectedRegion
+    || currentSearchQuery
+    || currentSelectedCategory !== 'all'
+    || showSavedOnly
+  );
+  bannerCount.textContent = hasActiveDiscoveryFilter
+    ? (currentLanguage === 'ko'
+      ? `${filteredTours.length.toLocaleString(getLocale())}개 장소`
+      : `${filteredTours.length.toLocaleString(getLocale())} lugares`)
+    : (currentLanguage === 'ko' ? '엄선한 여행 정보' : 'Selección local');
   const heroTourCount = document.getElementById('heroTourCount');
   if (heroTourCount) heroTourCount.textContent = allTours.length.toLocaleString(getLocale());
   const heroRouteCount = document.getElementById('heroRouteCount');
@@ -814,6 +911,7 @@ async function getFilteredTourList() {
     tours = tours.filter(tour => {
       const searchable = [
         tour.name,
+        getTourName(tour),
         tour.regionName,
         tour.address,
         tour.desc,
@@ -839,14 +937,14 @@ function filterSavedTours(tours) {
 function sortTours(tours) {
   const sorted = [...tours];
   if (currentSortOrder === 'name') {
-    sorted.sort((a, b) => a.name.localeCompare(b.name, currentLanguage === 'ko' ? 'ko' : 'es'));
+    sorted.sort((a, b) => getTourName(a).localeCompare(getTourName(b), currentLanguage === 'ko' ? 'ko' : 'es'));
   } else if (currentSortOrder === 'region') {
     sorted.sort((a, b) => {
       const regionCompare = getRegionName(a.regionId, a.regionName).localeCompare(
         getRegionName(b.regionId, b.regionName),
         currentLanguage === 'ko' ? 'ko' : 'es'
       );
-      return regionCompare || a.name.localeCompare(b.name, currentLanguage === 'ko' ? 'ko' : 'es');
+      return regionCompare || getTourName(a).localeCompare(getTourName(b), currentLanguage === 'ko' ? 'ko' : 'es');
     });
   }
   return sorted;
@@ -864,8 +962,10 @@ function updateToolbarState(resultCount) {
   const activeFilters = [
     currentSelectedRegion ? getRegionName(currentSelectedRegion) : null,
     currentSelectedCategory !== 'all' ? getCategoryName(currentSelectedCategory) : null,
+    currentSearchQuery ? (currentLanguage === 'ko' ? '검색 결과' : 'Búsqueda') : null,
     showSavedOnly ? (currentLanguage === 'ko' ? '저장한 장소' : 'Guardados') : null
   ].filter(Boolean);
+  filterSummary.hidden = activeFilters.length === 0;
   filterSummary.textContent = currentLanguage === 'ko'
     ? `${resultCount.toLocaleString(getLocale())}곳${activeFilters.length ? ` · ${activeFilters.join(' · ')}` : ''}`
     : `${resultCount.toLocaleString(getLocale())} lugares${activeFilters.length ? ` · ${activeFilters.join(' · ')}` : ''}`;
@@ -892,12 +992,15 @@ function renderTourCards(tours) {
   const saved = new Set(getSavedIds());
   const visibleTours = tours.slice(0, visibleResultLimit);
   tourCardList.innerHTML = visibleTours.map(tour => {
-    const tags = (tour.tags || []).slice(0, 2).map(tag => `<span class="tag-item">${escapeHTML(tag)}</span>`).join('');
+    const tourName = getTourName(tour);
+    const tags = currentLanguage === 'ko'
+      ? (tour.tags || []).slice(0, 2).map(tag => `<span class="tag-item">${escapeHTML(tag)}</span>`).join('')
+      : '';
     const savedBadge = saved.has(tour.id)
       ? `<span class="card-saved-badge"><i class="fa-solid fa-bookmark"></i> ${currentLanguage === 'ko' ? '저장됨' : 'Guardado'}</span>`
       : '<span class="card-view-badge"><i class="fa-solid fa-arrow-right"></i></span>';
     const imageMarkup = tour.image
-      ? `<img src="${escapeHTML(tour.image)}" alt="${escapeHTML(tour.name)}" loading="lazy" decoding="async" onerror="handleImageError(this)">`
+      ? `<img src="${escapeHTML(tour.image)}" alt="${escapeHTML(tourName)}" loading="lazy" decoding="async" onerror="handleImageError(this)">`
       : '';
     const eventMeta = tour.eventPeriod
       ? `<div class="card-event-meta">
@@ -916,7 +1019,7 @@ function renderTourCards(tours) {
     const practicalMeta = practicalItems ? `<div class="card-practical-meta">${practicalItems}</div>` : '';
 
     return `
-      <button type="button" class="tour-card" onclick="openModal('${escapeHTML(tour.id)}')" aria-label="${escapeHTML(tour.name)} · ${currentLanguage === 'ko' ? '상세 정보 보기' : 'ver detalles'}">
+      <button type="button" class="tour-card" onclick="openModal('${escapeHTML(tour.id)}')" aria-label="${escapeHTML(tourName)} · ${currentLanguage === 'ko' ? '상세 정보 보기' : 'ver detalles'}">
         <div class="card-img-box${tour.image ? '' : ' image-unavailable'}">
           ${imageMarkup}
           <span class="card-cat-badge">${escapeHTML(getCategoryName(tour.category))}</span>
@@ -924,14 +1027,14 @@ function renderTourCards(tours) {
         </div>
         <div class="card-content">
           <div class="card-title-row">
-            <h3 class="card-title">${escapeHTML(tour.name)}</h3>
+            <h3 class="card-title">${escapeHTML(tourName)}</h3>
             <span class="card-region-label">${escapeHTML(getRegionName(tour.regionId, tour.regionName))}</span>
           </div>
           <p class="card-address"><i class="fa-solid fa-location-dot"></i> ${escapeHTML(tour.address)}</p>
           ${eventMeta}
           ${getCardDescription(tour) ? `<p class="card-desc">${escapeHTML(getCardDescription(tour))}</p>` : ''}
           ${practicalMeta}
-          <div class="card-tags">${tags}</div>
+          ${tags ? `<div class="card-tags">${tags}</div>` : ''}
         </div>
       </button>
     `;
@@ -999,9 +1102,9 @@ function openModal(tourId) {
     modalImg.removeAttribute('src');
     modalImageBox?.classList.add('image-unavailable');
   }
-  modalImg.alt = foundTour.name;
+  modalImg.alt = getTourName(foundTour);
   modalCategory.textContent = `${getRegionName(foundTour.regionId, foundTour.regionName)} · ${getCategoryName(foundTour.category)}`;
-  modalTitle.textContent = foundTour.name;
+  modalTitle.textContent = getTourName(foundTour);
   modalAddress.textContent = `📍 ${foundTour.address}`;
   const overviewText = decodeTextEntities(currentLanguage === 'ko'
     ? (foundTour.overview || foundTour.desc)
@@ -1018,7 +1121,10 @@ function openModal(tourId) {
       ? `${currentLanguage === 'ko' ? '설명 접기' : 'Ver menos'} <i class="fa-solid fa-chevron-up"></i>`
       : `${currentLanguage === 'ko' ? '설명 더 보기' : 'Ver más'} <i class="fa-solid fa-chevron-down"></i>`;
   };
-  modalTags.innerHTML = (foundTour.tags || []).map(tag => `<span class="tag-item">${escapeHTML(tag)}</span>`).join('');
+  modalTags.hidden = currentLanguage !== 'ko';
+  modalTags.innerHTML = currentLanguage === 'ko'
+    ? (foundTour.tags || []).map(tag => `<span class="tag-item">${escapeHTML(tag)}</span>`).join('')
+    : '';
   modalDuration.textContent = getLocalizedDuration(foundTour.recommendedDuration || '1~2시간');
   modalRecommendedFor.textContent = currentLanguage === 'ko'
     ? (foundTour.recommendedFor || foundTour.categoryName || '전북 여행')
@@ -1168,8 +1274,8 @@ function updateModalBookmarkButton(tourId) {
 
 async function shareTour(tour) {
   const shareData = {
-    title: `${tour.name} | ${currentLanguage === 'ko' ? '전북 관광 가이드' : 'Guía turística de Jeonbuk'}`,
-    text: `${tour.name} - ${tour.address}`,
+    title: `${getTourName(tour)} | ${currentLanguage === 'ko' ? '전북 관광 가이드' : 'Guía turística de Jeonbuk'}`,
+    text: `${getTourName(tour)} - ${tour.address}`,
     url: window.location.href.split('#')[0]
   };
 
@@ -1231,11 +1337,11 @@ function renderSavedList() {
       <button type="button" class="saved-item-main" onclick="openSavedTour('${escapeHTML(tour.id)}')">
         <img src="${escapeHTML(tour.image)}" alt="" loading="lazy" onerror="handleImageError(this)">
         <span>
-          <strong>${escapeHTML(tour.name)}</strong>
+          <strong>${escapeHTML(getTourName(tour))}</strong>
           <small>${escapeHTML(getRegionName(tour.regionId, tour.regionName))} · ${escapeHTML(getCategoryName(tour.category))}</small>
         </span>
       </button>
-      <button type="button" class="saved-remove-btn" onclick="toggleBookmark('${escapeHTML(tour.id)}')" aria-label="${escapeHTML(tour.name)} ${currentLanguage === 'ko' ? '저장 해제' : 'eliminar de guardados'}">
+      <button type="button" class="saved-remove-btn" onclick="toggleBookmark('${escapeHTML(tour.id)}')" aria-label="${escapeHTML(getTourName(tour))} ${currentLanguage === 'ko' ? '저장 해제' : 'eliminar de guardados'}">
         <i class="fa-solid fa-xmark"></i>
       </button>
     </article>
@@ -1343,7 +1449,7 @@ function renderTravelPlan(duration, customTitle = null, selectedRegionIds = [...
               <span class="plan-stop-number">${stopIndex + 1}</span>
               <img src="${escapeHTML(tour.image)}" alt="" loading="lazy" onerror="handleImageError(this)">
               <span class="plan-stop-copy">
-                <strong>${escapeHTML(tour.name)}</strong>
+                <strong>${escapeHTML(getTourName(tour))}</strong>
                 <small>${escapeHTML(getRegionName(tour.regionId, tour.regionName))} · ${escapeHTML(getCategoryName(tour.category))}</small>
               </span>
               <i class="fa-solid fa-chevron-right"></i>
@@ -1488,10 +1594,12 @@ function updateMobileNavActive() {
   const documentTop = element => element
     ? element.getBoundingClientRect().top + window.scrollY
     : Infinity;
-  const regionTop = documentTop(document.getElementById('regionSelector'));
+  const plannerTop = documentTop(document.getElementById('plannerSection'));
+  const tourTop = documentTop(document.getElementById('tourSection'));
   const placesTop = documentTop(document.getElementById('tourCardList'));
-  let active = 'planner';
-  if (probe >= regionTop) active = 'regions';
+  let active = 'regions';
+  if (probe >= plannerTop) active = 'planner';
+  if (probe >= tourTop) active = 'regions';
   if (probe >= placesTop) active = 'places';
   setMobileNavActive(active);
 }
