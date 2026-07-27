@@ -202,6 +202,10 @@ label {
   transition: var(--transition-fast);
 }
 
+.search-box input::-webkit-search-cancel-button {
+  display: none;
+}
+
 .search-box input::placeholder {
   color: var(--text-light);
 }
@@ -308,11 +312,12 @@ label {
 
 /* 4. Category Nav Bar */
 .category-filter-block {
-  margin: 1rem 0;
-  padding: 1rem;
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
-  background: #F8FAFC;
+  margin: 0;
+  padding: 1rem 1.15rem 1.15rem;
+  border: 0;
+  border-top: 1px solid rgba(186, 230, 253, 0.9);
+  border-radius: 0;
+  background: rgba(248, 250, 252, 0.82);
 }
 
 .category-filter-block > .section-kicker {
@@ -941,6 +946,7 @@ label {
   overflow: visible;
   padding-right: 4px;
   scroll-behavior: smooth;
+  scroll-margin-top: 84px;
 }
 
 .tour-list-container::-webkit-scrollbar {
@@ -2097,6 +2103,7 @@ body.modal-open {
   display: flex;
   align-items: center;
   gap: 0.45rem;
+  margin: 1rem 0 0.75rem;
 }
 
 .toolbar-btn,
@@ -3474,8 +3481,8 @@ body.modal-open {
   }
 
   .category-filter-block {
-    margin: 1rem 0;
-    padding: 1rem 0.75rem;
+    margin: 0;
+    padding: 1rem 0.75rem 1.15rem;
     text-align: center;
   }
 
