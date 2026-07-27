@@ -15,7 +15,234 @@ let lastFocusedElement = null;
 let searchDebounceTimer = null;
 let visibleResultLimit = 6;
 let lastResultSignature = '';
+let currentLanguage = localStorage.getItem('jeonbuk_language') === 'ko' ? 'ko' : 'es';
+let selectedPlannerRegions = new Set();
+let activeRoutePreset = 'heritage';
 const RESULTS_PAGE_SIZE = 6;
+
+const REGION_NAMES_ES = {
+  jeonju: 'Jeonju',
+  gunsan: 'Gunsan',
+  iksan: 'Iksan',
+  jeongeup: 'Jeongeup',
+  namwon: 'Namwon',
+  gimje: 'Gimje',
+  wanju: 'Wanju',
+  jinan: 'Jinan',
+  muju: 'Muju',
+  jangsu: 'Jangsu',
+  imsil: 'Imsil',
+  sunchang: 'Sunchang',
+  gochang: 'Gochang',
+  buan: 'Buan'
+};
+
+const ROUTE_PRESETS = {
+  heritage: ['jeonju', 'iksan', 'gunsan'],
+  coast: ['gunsan', 'buan', 'gochang'],
+  mountain: ['jeongeup', 'jinan', 'muju'],
+  flavor: ['jeonju', 'imsil', 'sunchang', 'namwon']
+};
+
+const COURSE_ES = [
+  {
+    period: '3 días / 2 noches',
+    title: 'Patrimonio y descanso: lo esencial de Jeonbuk',
+    desc: 'Jeonju Hanok Village ➔ Wanju ➔ patrimonio de Iksan ➔ historia y costa de Gunsan',
+    open: 'Usar esta ruta'
+  },
+  {
+    period: '2 días / 1 noche',
+    title: 'Costa de Byeonsan y sabores del oeste',
+    desc: 'Acantilados de Buan ➔ bosque de Naesosa ➔ sabores de Gochang ➔ tradición de Sunchang',
+    open: 'Usar esta ruta'
+  },
+  {
+    period: '1–2 días',
+    title: 'Montañas, paisajes y descanso',
+    desc: 'Naejangsan ➔ las torres de piedra de Maisan ➔ vistas de Deogyusan ➔ vino de moras de Muju',
+    open: 'Usar esta ruta'
+  }
+];
+
+const I18N = {
+  es: {
+    brandTitle: 'Viaja por Jeonbuk',
+    searchPlaceholder: 'Busca un lugar, una región o una palabra clave',
+    savedPlaces: 'Guardados',
+    regionCount: '14 municipios',
+    catAll: 'Todo',
+    catFood: 'Comida y cafés',
+    catCulture: 'Historia y cultura',
+    catNature: 'Naturaleza',
+    catFestival: 'Festivales',
+    catCourses: 'Rutas recomendadas',
+    plannerKicker: 'Tu viaje por Jeonbuk',
+    plannerTitle: 'Planificador de ruta',
+    plannerDesc: 'Combina varias regiones y crea una ruta práctica para cada día.',
+    duration: 'Duración',
+    dayTrip: '1 día',
+    twoDays: '2 días',
+    threeDays: '3 días',
+    fourDays: '4 días',
+    theme: 'Interés principal',
+    themeAll: 'Un poco de todo',
+    themeNature: 'Naturaleza',
+    themeCulture: 'Historia y cultura',
+    themeFood: 'Comida y cafés',
+    themeFestival: 'Festivales',
+    pace: 'Ritmo del viaje',
+    paceRelaxed: 'Tranquilo · 2 paradas/día',
+    paceBalanced: 'Equilibrado · 3 paradas/día',
+    paceIntense: 'Intenso · 4 paradas/día',
+    makeRoute: 'Crear mi ruta',
+    presetTitle: 'Elige una ruta base',
+    presetDesc: 'Usa una combinación recomendada y cambia las regiones después.',
+    presetHeritage: 'Esencia cultural',
+    presetCoast: 'Costa oeste',
+    presetMountain: 'Montaña y descanso',
+    presetFlavor: 'Sabores de Jeonbuk',
+    chooseRegions: 'Añade o quita regiones',
+    plannerEmpty: 'Elige una combinación y crea tu itinerario.',
+    heroKicker: 'Guía de Jeonbuk, Corea',
+    heroTitleStart: 'Descubre',
+    heroTitleStrong: '14 destinos distintos',
+    heroTitleEnd: 'en un solo viaje',
+    heroDesc: 'Callejones hanok, montañas, costa, sabores locales y festivales: arma una ruta que conecte lo mejor de Jeonbuk.',
+    statRegions: 'municipios',
+    statPlaces: 'lugares destacados',
+    statThemes: 'temas',
+    statRoutes: 'rutas',
+    explorePlaces: 'Explorar lugares',
+    planTrip: 'Planear mi viaje',
+    coursesKicker: 'Si es tu primera vez',
+    coursesTitle: 'Rutas recomendadas',
+    coursesDesc: 'Empieza con una ruta preparada y ajústala en el planificador.',
+    regionSelectorKicker: 'Explora por región',
+    regionSelectorTitle: '¿A dónde quieres ir?',
+    regionSelectorDesc: 'Selecciona una región para ver sus lugares y fotos.',
+    showAllRegions: 'Ver todo Jeonbuk',
+    savedOnly: 'Solo guardados',
+    sortResults: 'Ordenar resultados',
+    sortRecommended: 'Recomendados',
+    sortName: 'Por nombre',
+    sortRegion: 'Por región',
+    resetFilters: 'Quitar filtros',
+    mobileRegions: 'Regiones',
+    mobilePlaces: 'Lugares',
+    mobilePlanner: 'Mi ruta',
+    mobileSaved: 'Guardados',
+    footerTitle: 'Viaja por Jeonbuk',
+    footerDesc: 'Una guía para explorar cultura, comida y naturaleza en los 14 municipios de Jeonbuk.',
+    footerHome: 'Inicio',
+    footerRoutes: 'Rutas recomendadas',
+    footerSaved: 'Guardados',
+    footerData: 'Datos',
+    footerHelp: 'Ayuda turística 1330',
+    footerNotice: 'Confirma horarios y precios en la fuente oficial antes de visitar. · Información turística 1330',
+    modalStay: 'Tiempo recomendado',
+    modalGoodFor: 'Ideal para',
+    modalAbout: '¿Qué encontrarás aquí?',
+    modalCheck: 'Antes de visitar',
+    modalTip: 'Consejo de viaje',
+    modalDirections: 'Cómo llegar (KakaoMap)',
+    modalSave: 'Guardar lugar',
+    modalShare: 'Compartir',
+    modalOfficial: 'Información oficial',
+    drawerKicker: 'Tu viaje',
+    drawerTitle: 'Lugares guardados',
+    drawerDesc: 'Revisa tus lugares y úsalos para crear una ruta.',
+    drawerPlan: 'Crear ruta con guardados'
+  },
+  ko: {
+    brandTitle: '전북 관광',
+    searchPlaceholder: '관광지, 지역, 키워드를 검색해보세요',
+    savedPlaces: '여행 보관함',
+    regionCount: '14개 시·군',
+    catAll: '전체',
+    catFood: '맛집/카페',
+    catCulture: '역사/문화',
+    catNature: '자연/힐링',
+    catFestival: '축제/행사',
+    catCourses: '추천 여행 코스',
+    plannerKicker: '나만의 전북 여행',
+    plannerTitle: '다지역 여행 플래너',
+    plannerDesc: '여러 지역을 묶어 하루 단위로 이동하기 좋은 여행 일정을 만들어보세요.',
+    duration: '여행 기간',
+    dayTrip: '당일 여행',
+    twoDays: '1박 2일',
+    threeDays: '2박 3일',
+    fourDays: '3박 4일',
+    theme: '관심 테마',
+    themeAll: '골고루 둘러보기',
+    themeNature: '자연·힐링',
+    themeCulture: '역사·문화',
+    themeFood: '맛집·카페',
+    themeFestival: '축제·행사',
+    pace: '여행 속도',
+    paceRelaxed: '여유롭게 · 하루 2곳',
+    paceBalanced: '적당히 · 하루 3곳',
+    paceIntense: '알차게 · 하루 4곳',
+    makeRoute: '여행 일정 만들기',
+    presetTitle: '추천 동선을 선택하세요',
+    presetDesc: '추천 조합을 선택한 뒤 지역을 직접 추가하거나 뺄 수 있습니다.',
+    presetHeritage: '역사문화 핵심',
+    presetCoast: '서해안 여행',
+    presetMountain: '산과 휴식',
+    presetFlavor: '전북 미식 여행',
+    chooseRegions: '여행할 지역을 추가·제거하세요',
+    plannerEmpty: '동선과 조건을 선택한 뒤 여행 일정을 만들어보세요.',
+    heroKicker: '전북특별자치도 관광 안내',
+    heroTitleStart: '한 번의 여행으로',
+    heroTitleStrong: '14개 시·군',
+    heroTitleEnd: '을 만나보세요',
+    heroDesc: '한옥 골목, 산, 바다, 지역 음식과 축제를 연결해 전북만의 여행 동선을 만들어보세요.',
+    statRegions: '시·군',
+    statPlaces: '대표 명소',
+    statThemes: '테마',
+    statRoutes: '추천 코스',
+    explorePlaces: '관광지 둘러보기',
+    planTrip: '여행 계획 만들기',
+    coursesKicker: '처음이라면 여기부터',
+    coursesTitle: '테마별 추천 코스',
+    coursesDesc: '준비된 동선을 플래너에 담고 내 여행에 맞게 수정하세요.',
+    regionSelectorKicker: '지역별 탐색',
+    regionSelectorTitle: '어디로 떠나고 싶나요?',
+    regionSelectorDesc: '지역을 선택하면 해당 지역의 장소와 사진만 볼 수 있습니다.',
+    showAllRegions: '전북 전체 보기',
+    savedOnly: '저장한 장소만',
+    sortResults: '결과 정렬',
+    sortRecommended: '추천순',
+    sortName: '이름순',
+    sortRegion: '지역순',
+    resetFilters: '필터 초기화',
+    mobileRegions: '지역',
+    mobilePlaces: '관광지',
+    mobilePlanner: '플래너',
+    mobileSaved: '저장',
+    footerTitle: '전북 관광',
+    footerDesc: '전북 14개 시·군의 문화·미식·자연 명소를 탐색하고 일정을 만드는 여행 정보 서비스',
+    footerHome: '홈',
+    footerRoutes: '추천 여행 코스',
+    footerSaved: '여행 보관함',
+    footerData: '데이터 설정',
+    footerHelp: '관광안내 1330',
+    footerNotice: '관광지 운영시간·요금은 방문 전 공식 관광정보에서 다시 확인해주세요. · 관광안내 1330',
+    modalStay: '추천 체류',
+    modalGoodFor: '이런 여행에 추천',
+    modalAbout: '이곳은 어떤 곳인가요?',
+    modalCheck: '방문 전에 확인하세요',
+    modalTip: '여행 팁',
+    modalDirections: '길찾기 안내 (카카오맵)',
+    modalSave: '장소 저장하기',
+    modalShare: '공유',
+    modalOfficial: '공식 관광정보',
+    drawerKicker: '나만의 여행',
+    drawerTitle: '여행 보관함',
+    drawerDesc: '저장한 장소를 다시 확인하고 여행 일정에 활용할 수 있습니다.',
+    drawerPlan: '저장한 장소로 일정 만들기'
+  }
+};
 
 // DOM Elements
 const searchInput = document.getElementById('searchInput');
@@ -41,7 +268,8 @@ const apiKeyInput = document.getElementById('apiKeyInput');
 const courseGrid = document.getElementById('courseGrid');
 const courseSection = document.getElementById('courseSection');
 const plannerSection = document.getElementById('plannerSection');
-const plannerRegion = document.getElementById('plannerRegion');
+const plannerRegionChips = document.getElementById('plannerRegionChips');
+const plannerRegionSummary = document.getElementById('plannerRegionSummary');
 const plannerResult = document.getElementById('plannerResult');
 
 const tourModal = document.getElementById('tourModal');
@@ -67,12 +295,13 @@ const savedPlanBtn = document.getElementById('savedPlanBtn');
 const appToast = document.getElementById('appToast');
 
 document.addEventListener('DOMContentLoaded', () => {
+  applyRoutePreset(activeRoutePreset, false);
   initRegionChips();
-  initPlannerRegions();
   renderRecommendedCourses();
   restoreSavedPlan();
   updateApiStatusBadge();
   updateSavedUI();
+  applyLanguage(currentLanguage, false);
   updateUI();
 });
 
@@ -101,6 +330,83 @@ function escapeHTML(value = '') {
     .replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;')
     .replaceAll("'", '&#039;');
+}
+
+function t(key) {
+  return I18N[currentLanguage]?.[key] || I18N.es[key] || key;
+}
+
+function getLocale() {
+  return currentLanguage === 'ko' ? 'ko-KR' : 'es-419';
+}
+
+function getRegionName(regionId, fallback = '') {
+  if (currentLanguage === 'ko') return JEONBUK_REGIONS[regionId]?.name || fallback || '전북';
+  return REGION_NAMES_ES[regionId] || fallback || 'Jeonbuk';
+}
+
+function getCategoryName(category) {
+  return {
+    all: currentLanguage === 'ko' ? '전체 테마' : 'Todos los temas',
+    food: currentLanguage === 'ko' ? '맛집·카페' : 'Comida y cafés',
+    culture: currentLanguage === 'ko' ? '역사·문화' : 'Historia y cultura',
+    nature: currentLanguage === 'ko' ? '자연·힐링' : 'Naturaleza',
+    festival: currentLanguage === 'ko' ? '축제·행사' : 'Festivales'
+  }[category] || category;
+}
+
+function getEventStatusLabel(status = '') {
+  if (currentLanguage === 'ko') return status || '일정 확인';
+  return {
+    '진행 중': 'En curso',
+    '개최 예정': 'Próximamente',
+    '종료': 'Finalizado',
+    '일정 확인': 'Consultar fecha'
+  }[status] || 'Consultar fecha';
+}
+
+function getTourDescription(tour) {
+  if (currentLanguage === 'ko') return tour.desc || tour.overview || '';
+  const region = getRegionName(tour.regionId, tour.regionName);
+  const category = getCategoryName(tour.category);
+  return `${category} en ${region}. Conservamos el nombre y la dirección oficiales en coreano para que puedas encontrarlos fácilmente durante el viaje.`;
+}
+
+function applyLanguage(language, persist = true) {
+  currentLanguage = language === 'ko' ? 'ko' : 'es';
+  document.documentElement.lang = currentLanguage;
+  if (persist) localStorage.setItem('jeonbuk_language', currentLanguage);
+
+  document.querySelectorAll('[data-i18n]').forEach(element => {
+    const value = t(element.dataset.i18n);
+    if (value) element.textContent = value;
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+    const value = t(element.dataset.i18nPlaceholder);
+    if (value) element.setAttribute('placeholder', value);
+  });
+  document.querySelectorAll('.language-btn').forEach(button => {
+    const active = button.dataset.language === currentLanguage;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-pressed', String(active));
+  });
+  document.querySelectorAll('.api-settings-link').forEach(link => {
+    link.hidden = currentLanguage === 'es';
+  });
+
+  initRegionChips();
+  renderPlannerRegionOptions();
+  renderRecommendedCourses();
+  updateSavedUI();
+  if (currentPlan.length) {
+    const duration = Number(document.getElementById('plannerDuration')?.value || Math.ceil(currentPlan.length / 3));
+    renderTravelPlan(Math.max(1, duration));
+  }
+  updateUI();
+}
+
+function setLanguage(language) {
+  applyLanguage(language, true);
 }
 
 function getCurrentEventStatus(period = '') {
@@ -171,23 +477,71 @@ function setSavedIds(ids) {
 }
 
 function initRegionChips() {
-  let html = '<button type="button" class="chip-btn active" data-id="all" onclick="resetSelection()">전북 전체</button>';
+  if (!regionChips) return;
+  let html = `<button type="button" class="chip-btn active" data-id="all" onclick="resetSelection()">${currentLanguage === 'ko' ? '전북 전체' : 'Todo Jeonbuk'}</button>`;
   Object.keys(JEONBUK_REGIONS).forEach(key => {
     const region = JEONBUK_REGIONS[key];
-    html += `<button type="button" class="chip-btn" data-id="${escapeHTML(region.id)}" onclick="selectRegion('${escapeHTML(region.id)}')">${escapeHTML(region.name)}</button>`;
+    html += `<button type="button" class="chip-btn" data-id="${escapeHTML(region.id)}" onclick="selectRegion('${escapeHTML(region.id)}')">${escapeHTML(getRegionName(region.id, region.name))}</button>`;
   });
   regionChips.innerHTML = html;
 }
 
-function initPlannerRegions() {
-  if (!plannerRegion) return;
-  Object.keys(JEONBUK_REGIONS).forEach(key => {
-    const region = JEONBUK_REGIONS[key];
-    const option = document.createElement('option');
-    option.value = region.id;
-    option.textContent = region.name;
-    plannerRegion.appendChild(option);
+function renderPlannerRegionOptions() {
+  if (!plannerRegionChips) return;
+  plannerRegionChips.innerHTML = Object.keys(JEONBUK_REGIONS).map(regionId => {
+    const selected = selectedPlannerRegions.has(regionId);
+    return `
+      <button type="button" class="planner-region-chip${selected ? ' active' : ''}" data-region-id="${escapeHTML(regionId)}"
+        onclick="togglePlannerRegion('${escapeHTML(regionId)}')" aria-pressed="${selected}">
+        <i class="fa-solid ${selected ? 'fa-circle-check' : 'fa-circle-plus'}"></i>
+        ${escapeHTML(getRegionName(regionId, JEONBUK_REGIONS[regionId].name))}
+      </button>
+    `;
+  }).join('');
+  if (plannerRegionSummary) {
+    const count = selectedPlannerRegions.size;
+    plannerRegionSummary.textContent = currentLanguage === 'ko'
+      ? `${count}개 지역 선택됨 · 여행 순서대로 일정에 반영됩니다.`
+      : `${count} regiones seleccionadas · se incluirán en este orden.`;
+  }
+}
+
+function applyRoutePreset(presetId, announce = true) {
+  const regions = ROUTE_PRESETS[presetId];
+  if (!regions) return;
+  activeRoutePreset = presetId;
+  selectedPlannerRegions = new Set(regions);
+  document.querySelectorAll('.route-preset').forEach(button => {
+    const active = button.dataset.preset === presetId;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-pressed', String(active));
   });
+  renderPlannerRegionOptions();
+  if (announce) {
+    showToast(currentLanguage === 'ko' ? '추천 동선을 적용했습니다.' : 'Ruta base aplicada. Puedes cambiar las regiones.');
+  }
+}
+
+function togglePlannerRegion(regionId) {
+  if (!JEONBUK_REGIONS[regionId]) return;
+  if (selectedPlannerRegions.has(regionId)) {
+    if (selectedPlannerRegions.size === 1) {
+      showToast(currentLanguage === 'ko' ? '지역을 한 곳 이상 선택해주세요.' : 'Selecciona al menos una región.');
+      return;
+    }
+    selectedPlannerRegions.delete(regionId);
+  } else if (selectedPlannerRegions.size >= 6) {
+    showToast(currentLanguage === 'ko' ? '이동 동선을 위해 최대 6개 지역까지 선택할 수 있습니다.' : 'Puedes elegir hasta 6 regiones para mantener una ruta práctica.');
+    return;
+  } else {
+    selectedPlannerRegions.add(regionId);
+  }
+  activeRoutePreset = '';
+  document.querySelectorAll('.route-preset').forEach(button => {
+    button.classList.remove('active');
+    button.setAttribute('aria-pressed', 'false');
+  });
+  renderPlannerRegionOptions();
 }
 
 function selectRegion(regionId) {
@@ -271,13 +625,7 @@ async function updateUI() {
   }, { all: allTours.length });
   document.querySelectorAll('[data-count-category]').forEach(element => {
     const category = element.dataset.countCategory;
-    element.textContent = (categoryCounts[category] || 0).toLocaleString('ko-KR');
-  });
-
-  document.querySelectorAll('.illust-pin').forEach(pin => {
-    const pinRegion = pin.id.replace('pin-', '');
-    pin.classList.toggle('active', pinRegion === currentSelectedRegion);
-    pin.setAttribute('aria-pressed', String(pinRegion === currentSelectedRegion));
+    element.textContent = (categoryCounts[category] || 0).toLocaleString(getLocale());
   });
 
   document.querySelectorAll('.chip-btn').forEach(chip => {
@@ -289,15 +637,27 @@ async function updateUI() {
 
   if (currentSelectedRegion && JEONBUK_REGIONS[currentSelectedRegion]) {
     const region = JEONBUK_REGIONS[currentSelectedRegion];
-    bannerBadge.textContent = region.badge || '추천 관광지';
-    bannerTitle.textContent = `${region.name} 관광 안내`;
-    bannerDesc.textContent = region.description;
+    bannerBadge.textContent = currentLanguage === 'ko' ? (region.badge || '추천 관광지') : 'Región seleccionada';
+    bannerTitle.textContent = currentLanguage === 'ko'
+      ? `${region.name} 관광 안내`
+      : `Qué ver en ${getRegionName(region.id, region.name)}`;
+    bannerDesc.textContent = currentLanguage === 'ko'
+      ? region.description
+      : `Descubre lugares, comida y experiencias de ${getRegionName(region.id, region.name)}. Los nombres oficiales se mantienen en coreano para facilitar la búsqueda local.`;
   } else {
-    bannerBadge.textContent = currentSearchQuery ? '통합 검색' : '전북 전체';
-    bannerTitle.textContent = currentSearchQuery ? `'${searchInput.value.trim()}' 검색 결과` : '전라북도 대표 명소';
+    bannerBadge.textContent = currentSearchQuery
+      ? (currentLanguage === 'ko' ? '통합 검색' : 'Búsqueda')
+      : (currentLanguage === 'ko' ? '전북 전체' : 'Todo Jeonbuk');
+    bannerTitle.textContent = currentSearchQuery
+      ? (currentLanguage === 'ko' ? `'${searchInput.value.trim()}' 검색 결과` : `Resultados para “${searchInput.value.trim()}”`)
+      : (currentLanguage === 'ko' ? '전라북도 대표 명소' : 'Lugares destacados de Jeonbuk');
     bannerDesc.textContent = currentSearchQuery
-      ? '전북 14개 시·군 전체에서 관광지명, 지역, 주소와 키워드를 검색했습니다.'
-      : '14개 시·군의 실제 명소 사진을 비교하고, 지역과 테마에 맞춰 여행지를 골라보세요.';
+      ? (currentLanguage === 'ko'
+        ? '전북 14개 시·군 전체에서 관광지명, 지역, 주소와 키워드를 검색했습니다.'
+        : 'Buscamos nombres, regiones, direcciones y palabras clave en todo Jeonbuk.')
+      : (currentLanguage === 'ko'
+        ? '14개 시·군의 실제 명소 사진을 비교하고, 지역과 테마에 맞춰 여행지를 골라보세요.'
+        : 'Compara fotos y lugares reales de los 14 municipios y arma tu propia ruta.');
   }
 
   const filteredTours = await getFilteredTourList();
@@ -313,9 +673,19 @@ async function updateUI() {
     lastResultSignature = resultSignature;
   }
 
-  bannerCount.textContent = `${filteredTours.length.toLocaleString('ko-KR')}개 장소`;
+  bannerCount.textContent = currentLanguage === 'ko'
+    ? `${filteredTours.length.toLocaleString(getLocale())}개 장소`
+    : `${filteredTours.length.toLocaleString(getLocale())} lugares`;
   const totalCountPill = document.getElementById('totalTourCount');
-  if (totalCountPill) totalCountPill.textContent = `${allTours.length.toLocaleString('ko-KR')}개 여행정보`;
+  if (totalCountPill) {
+    totalCountPill.textContent = currentLanguage === 'ko'
+      ? `${allTours.length.toLocaleString(getLocale())}개 여행정보`
+      : `${allTours.length.toLocaleString(getLocale())} lugares`;
+  }
+  const heroTourCount = document.getElementById('heroTourCount');
+  if (heroTourCount) heroTourCount.textContent = allTours.length.toLocaleString(getLocale());
+  const heroRouteCount = document.getElementById('heroRouteCount');
+  if (heroRouteCount) heroRouteCount.textContent = String(RECOMMENDED_COURSES.length);
 
   updateToolbarState(filteredTours.length);
   renderTourCards(filteredTours);
@@ -379,11 +749,14 @@ function filterSavedTours(tours) {
 function sortTours(tours) {
   const sorted = [...tours];
   if (currentSortOrder === 'name') {
-    sorted.sort((a, b) => a.name.localeCompare(b.name, 'ko'));
+    sorted.sort((a, b) => a.name.localeCompare(b.name, currentLanguage === 'ko' ? 'ko' : 'es'));
   } else if (currentSortOrder === 'region') {
     sorted.sort((a, b) => {
-      const regionCompare = (a.regionName || '').localeCompare(b.regionName || '', 'ko');
-      return regionCompare || a.name.localeCompare(b.name, 'ko');
+      const regionCompare = getRegionName(a.regionId, a.regionName).localeCompare(
+        getRegionName(b.regionId, b.regionName),
+        currentLanguage === 'ko' ? 'ko' : 'es'
+      );
+      return regionCompare || a.name.localeCompare(b.name, currentLanguage === 'ko' ? 'ko' : 'es');
     });
   }
   return sorted;
@@ -393,24 +766,20 @@ function updateToolbarState(resultCount) {
   if (savedOnlyBtn) {
     savedOnlyBtn.classList.toggle('active', showSavedOnly);
     savedOnlyBtn.innerHTML = showSavedOnly
-      ? '<i class="fa-solid fa-bookmark"></i> 저장한 장소만'
-      : '<i class="fa-regular fa-bookmark"></i> 저장한 장소만';
+      ? `<i class="fa-solid fa-bookmark"></i> ${currentLanguage === 'ko' ? '저장한 장소만' : 'Solo guardados'}`
+      : `<i class="fa-regular fa-bookmark"></i> ${currentLanguage === 'ko' ? '저장한 장소만' : 'Solo guardados'}`;
     savedOnlyBtn.setAttribute('aria-pressed', String(showSavedOnly));
   }
 
-  const categoryName = {
-    all: '전체 테마',
-    food: '맛집·카페',
-    culture: '역사·문화',
-    nature: '자연·힐링',
-    festival: '축제·행사'
-  }[currentSelectedCategory];
+  const categoryName = getCategoryName(currentSelectedCategory);
   const parts = [
-    currentSelectedRegion ? JEONBUK_REGIONS[currentSelectedRegion].name : '전북 전체',
+    currentSelectedRegion ? getRegionName(currentSelectedRegion) : (currentLanguage === 'ko' ? '전북 전체' : 'Todo Jeonbuk'),
     categoryName,
-    showSavedOnly ? '저장한 장소' : null
+    showSavedOnly ? (currentLanguage === 'ko' ? '저장한 장소' : 'Guardados') : null
   ].filter(Boolean);
-  filterSummary.textContent = `${parts.join(' · ')}에서 ${resultCount}곳을 보고 있습니다.`;
+  filterSummary.textContent = currentLanguage === 'ko'
+    ? `${parts.join(' · ')}에서 ${resultCount}곳을 보고 있습니다.`
+    : `${resultCount.toLocaleString(getLocale())} resultados · ${parts.join(' · ')}`;
 }
 
 function renderTourCards(tours) {
@@ -419,9 +788,13 @@ function renderTourCards(tours) {
     tourCardList.innerHTML = `
       <div class="empty-state">
         <i class="fa-solid fa-map-location"></i>
-        <h3>${showSavedOnly ? '저장한 장소가 없습니다' : '검색된 관광명소가 없습니다'}</h3>
-        <p>${showSavedOnly ? '관광지 상세 화면에서 장소를 저장해보세요.' : '검색어나 지역·테마 필터를 바꿔보세요.'}</p>
-        <button type="button" class="empty-reset-btn" onclick="resetSelection()">전체 관광지 보기</button>
+        <h3>${currentLanguage === 'ko'
+          ? (showSavedOnly ? '저장한 장소가 없습니다' : '검색된 관광명소가 없습니다')
+          : (showSavedOnly ? 'Aún no guardaste lugares' : 'No encontramos lugares')}</h3>
+        <p>${currentLanguage === 'ko'
+          ? (showSavedOnly ? '관광지 상세 화면에서 장소를 저장해보세요.' : '검색어나 지역·테마 필터를 바꿔보세요.')
+          : (showSavedOnly ? 'Guarda lugares desde su ficha para verlos aquí.' : 'Prueba otra búsqueda, región o tema.')}</p>
+        <button type="button" class="empty-reset-btn" onclick="resetSelection()">${currentLanguage === 'ko' ? '전체 관광지 보기' : 'Ver todos los lugares'}</button>
       </div>
     `;
     return;
@@ -432,35 +805,35 @@ function renderTourCards(tours) {
   tourCardList.innerHTML = visibleTours.map(tour => {
     const tags = (tour.tags || []).slice(0, 3).map(tag => `<span class="tag-item">${escapeHTML(tag)}</span>`).join('');
     const savedBadge = saved.has(tour.id)
-      ? '<span class="card-saved-badge"><i class="fa-solid fa-bookmark"></i> 저장됨</span>'
+      ? `<span class="card-saved-badge"><i class="fa-solid fa-bookmark"></i> ${currentLanguage === 'ko' ? '저장됨' : 'Guardado'}</span>`
       : '<span class="card-view-badge"><i class="fa-solid fa-arrow-right"></i></span>';
     const imageMarkup = tour.image
       ? `<img src="${escapeHTML(tour.image)}" alt="${escapeHTML(tour.name)}" loading="lazy" decoding="async" onerror="handleImageError(this)">`
       : '';
     const eventMeta = tour.eventPeriod
       ? `<div class="card-event-meta">
-          <span class="event-status ${tour.eventStatus === '진행 중' ? 'active' : ''}">${escapeHTML(tour.eventStatus || '일정 확인')}</span>
+          <span class="event-status ${tour.eventStatus === '진행 중' ? 'active' : ''}">${escapeHTML(getEventStatusLabel(tour.eventStatus))}</span>
           <span><i class="fa-regular fa-calendar"></i> ${escapeHTML(tour.eventPeriod)}</span>
         </div>`
       : tour.subCategory
-        ? `<div class="card-subcategory"><i class="fa-solid fa-circle-info"></i> ${escapeHTML(tour.subCategory)}</div>`
+        ? `<div class="card-subcategory"><i class="fa-solid fa-circle-info"></i> ${escapeHTML(currentLanguage === 'ko' ? tour.subCategory : getCategoryName(tour.category))}</div>`
         : '';
 
     return `
-      <button type="button" class="tour-card" onclick="openModal('${escapeHTML(tour.id)}')" aria-label="${escapeHTML(tour.name)} 상세 정보 보기">
+      <button type="button" class="tour-card" onclick="openModal('${escapeHTML(tour.id)}')" aria-label="${escapeHTML(tour.name)} · ${currentLanguage === 'ko' ? '상세 정보 보기' : 'ver detalles'}">
         <div class="card-img-box${tour.image ? '' : ' image-unavailable'}">
           ${imageMarkup}
-          <span class="card-cat-badge">${escapeHTML(tour.categoryName)}</span>
+          <span class="card-cat-badge">${escapeHTML(getCategoryName(tour.category))}</span>
           ${savedBadge}
         </div>
         <div class="card-content">
           <div class="card-title-row">
             <h3 class="card-title">${escapeHTML(tour.name)}</h3>
-            <span class="card-region-label">${escapeHTML(tour.regionName || '전북')}</span>
+            <span class="card-region-label">${escapeHTML(getRegionName(tour.regionId, tour.regionName))}</span>
           </div>
           <p class="card-address"><i class="fa-solid fa-location-dot"></i> ${escapeHTML(tour.address)}</p>
           ${eventMeta}
-          <p class="card-desc">${escapeHTML(tour.desc)}</p>
+          <p class="card-desc">${escapeHTML(getTourDescription(tour))}</p>
           <div class="card-tags">${tags}</div>
         </div>
       </button>
@@ -472,8 +845,10 @@ function renderTourCards(tours) {
     loadMoreBtn.hidden = remaining === 0;
     if (loadMoreLabel) {
       loadMoreLabel.textContent = remaining
-        ? `더 많은 장소 보기 · ${remaining.toLocaleString('ko-KR')}곳 남음`
-        : '전체 장소를 모두 불러왔습니다';
+        ? (currentLanguage === 'ko'
+          ? `더 많은 장소 보기 · ${remaining.toLocaleString(getLocale())}곳 남음`
+          : `Ver más lugares · quedan ${remaining.toLocaleString(getLocale())}`)
+        : (currentLanguage === 'ko' ? '전체 장소를 모두 불러왔습니다' : 'Ya viste todos los lugares');
     }
   }
 }
@@ -494,17 +869,18 @@ function handleImageError(image) {
 function renderRecommendedCourses() {
   if (!courseGrid) return;
   courseGrid.innerHTML = RECOMMENDED_COURSES.map((course, index) => {
-    const tags = course.tags.map(tag => `<span class="course-tag">#${escapeHTML(tag)}</span>`).join('');
+    const translated = currentLanguage === 'es' ? COURSE_ES[index] : null;
+    const tags = course.tags.map(tag => `<span class="course-tag">#${escapeHTML(currentLanguage === 'ko' ? tag : (REGION_NAMES_ES[Object.keys(JEONBUK_REGIONS).find(id => JEONBUK_REGIONS[id].name.includes(tag))] || tag))}</span>`).join('');
     return `
       <button type="button" class="course-card" style="background:${course.bg}" onclick="applyRecommendedCourse(${index})">
         <div>
-          <span class="course-period">${escapeHTML(course.period)}</span>
-          <h3 class="course-title">${escapeHTML(course.title)}</h3>
-          <p class="course-desc">${escapeHTML(course.desc)}</p>
+          <span class="course-period">${escapeHTML(translated?.period || course.period)}</span>
+          <h3 class="course-title">${escapeHTML(translated?.title || course.title)}</h3>
+          <p class="course-desc">${escapeHTML(translated?.desc || course.desc)}</p>
         </div>
         <div class="course-card-footer">
           <div class="course-tags">${tags}</div>
-          <span class="course-open-label">일정 보기 <i class="fa-solid fa-arrow-right"></i></span>
+          <span class="course-open-label">${escapeHTML(translated?.open || '일정 보기')} <i class="fa-solid fa-arrow-right"></i></span>
         </div>
       </button>
     `;
@@ -527,52 +903,58 @@ function openModal(tourId) {
     modalImageBox?.classList.add('image-unavailable');
   }
   modalImg.alt = foundTour.name;
-  modalCategory.textContent = `${foundTour.regionName || '전북'} · ${foundTour.categoryName}`;
+  modalCategory.textContent = `${getRegionName(foundTour.regionId, foundTour.regionName)} · ${getCategoryName(foundTour.category)}`;
   modalTitle.textContent = foundTour.name;
   modalAddress.textContent = `📍 ${foundTour.address}`;
-  const overviewText = decodeTextEntities(foundTour.overview || foundTour.desc);
+  const overviewText = decodeTextEntities(currentLanguage === 'ko'
+    ? (foundTour.overview || foundTour.desc)
+    : getTourDescription(foundTour));
   modalDesc.textContent = overviewText;
   modalDesc.classList.remove('expanded');
   modalDescToggle.hidden = overviewText.length <= 220;
   modalDescToggle.setAttribute('aria-expanded', 'false');
-  modalDescToggle.innerHTML = '설명 더 보기 <i class="fa-solid fa-chevron-down"></i>';
+  modalDescToggle.innerHTML = `${currentLanguage === 'ko' ? '설명 더 보기' : 'Ver más'} <i class="fa-solid fa-chevron-down"></i>`;
   modalDescToggle.onclick = () => {
     const expanded = modalDesc.classList.toggle('expanded');
     modalDescToggle.setAttribute('aria-expanded', String(expanded));
     modalDescToggle.innerHTML = expanded
-      ? '설명 접기 <i class="fa-solid fa-chevron-up"></i>'
-      : '설명 더 보기 <i class="fa-solid fa-chevron-down"></i>';
+      ? `${currentLanguage === 'ko' ? '설명 접기' : 'Ver menos'} <i class="fa-solid fa-chevron-up"></i>`
+      : `${currentLanguage === 'ko' ? '설명 더 보기' : 'Ver más'} <i class="fa-solid fa-chevron-down"></i>`;
   };
   modalTags.innerHTML = (foundTour.tags || []).map(tag => `<span class="tag-item">${escapeHTML(tag)}</span>`).join('');
-  modalDuration.textContent = foundTour.recommendedDuration || '1~2시간';
-  modalRecommendedFor.textContent = foundTour.recommendedFor || foundTour.categoryName || '전북 여행';
+  modalDuration.textContent = currentLanguage === 'ko' ? (foundTour.recommendedDuration || '1~2시간') : '1–2 horas';
+  modalRecommendedFor.textContent = currentLanguage === 'ko'
+    ? (foundTour.recommendedFor || foundTour.categoryName || '전북 여행')
+    : getCategoryName(foundTour.category);
   if (modalStatusLabel) {
-    modalStatusLabel.textContent = foundTour.eventStatus || foundTour.subCategory || '추천 명소';
+    modalStatusLabel.textContent = currentLanguage === 'ko'
+      ? (foundTour.eventStatus || foundTour.subCategory || '추천 명소')
+      : (foundTour.eventStatus ? getEventStatusLabel(foundTour.eventStatus) : 'Lugar turístico');
   }
 
   const detailRows = [
-    { icon: 'fa-regular fa-calendar', label: '행사 기간', value: foundTour.eventPeriod },
-    { icon: 'fa-solid fa-signal', label: '행사 상태', value: foundTour.eventStatus },
-    { icon: 'fa-regular fa-clock', label: '운영시간', value: foundTour.hours },
-    { icon: 'fa-regular fa-calendar-xmark', label: '휴무일', value: foundTour.closed },
-    { icon: 'fa-solid fa-ticket', label: '이용요금', value: foundTour.fee },
-    { icon: 'fa-solid fa-square-parking', label: '주차', value: foundTour.parking },
+    { icon: 'fa-regular fa-calendar', label: currentLanguage === 'ko' ? '행사 기간' : 'Fechas', value: foundTour.eventPeriod },
+    { icon: 'fa-solid fa-signal', label: currentLanguage === 'ko' ? '행사 상태' : 'Estado', value: foundTour.eventStatus ? getEventStatusLabel(foundTour.eventStatus) : '' },
+    { icon: 'fa-regular fa-clock', label: currentLanguage === 'ko' ? '운영시간' : 'Horario', value: foundTour.hours },
+    { icon: 'fa-regular fa-calendar-xmark', label: currentLanguage === 'ko' ? '휴무일' : 'Días de cierre', value: foundTour.closed },
+    { icon: 'fa-solid fa-ticket', label: currentLanguage === 'ko' ? '이용요금' : 'Entrada', value: foundTour.fee },
+    { icon: 'fa-solid fa-square-parking', label: currentLanguage === 'ko' ? '주차' : 'Estacionamiento', value: foundTour.parking },
     {
       icon: 'fa-solid fa-phone',
-      label: '문의',
+      label: currentLanguage === 'ko' ? '문의' : 'Contacto',
       value: foundTour.phone,
       href: foundTour.phone ? `tel:${foundTour.phone.replace(/[^\d+]/g, '')}` : ''
     },
     {
       icon: 'fa-solid fa-globe',
-      label: '홈페이지',
-      value: foundTour.homepage ? '공식 홈페이지 열기' : '',
+      label: currentLanguage === 'ko' ? '홈페이지' : 'Sitio web',
+      value: foundTour.homepage ? (currentLanguage === 'ko' ? '공식 홈페이지 열기' : 'Abrir sitio oficial') : '',
       href: foundTour.homepage
     },
     {
       icon: 'fa-solid fa-shield-halved',
-      label: '정보 출처',
-      value: '공식 관광정보 확인',
+      label: currentLanguage === 'ko' ? '정보 출처' : 'Fuente',
+      value: currentLanguage === 'ko' ? '공식 관광정보 확인' : 'Consultar información oficial',
       href: foundTour.sourceUrl || (foundTour.isLiveApi
         ? 'https://korean.visitkorea.or.kr/main/cr_main.do'
         : 'https://tour.jb.go.kr/index.do')
@@ -595,7 +977,9 @@ function openModal(tourId) {
   }).join('');
   modalDetailSection.hidden = detailRows.length === 0;
 
-  modalVisitTipText.textContent = foundTour.visitTip || '날씨와 운영 정보가 달라질 수 있으니 출발 전 공식 관광정보를 확인하세요.';
+  modalVisitTipText.textContent = currentLanguage === 'ko'
+    ? (foundTour.visitTip || '날씨와 운영 정보가 달라질 수 있으니 출발 전 공식 관광정보를 확인하세요.')
+    : 'Los horarios y condiciones pueden cambiar. Confirma la información oficial antes de salir.';
   modalVisitTip.hidden = !modalVisitTipText.textContent;
   const hasVisitInfo = Boolean(
     foundTour.hours || foundTour.closed || foundTour.fee ||
@@ -603,8 +987,8 @@ function openModal(tourId) {
     foundTour.eventPeriod
   );
   modalVisitNotice.innerHTML = hasVisitInfo
-    ? '<i class="fa-solid fa-circle-exclamation"></i> 운영시간·휴무일·요금은 변경될 수 있으니 방문 전 공식 페이지에서 다시 확인해주세요.'
-    : '<i class="fa-solid fa-circle-exclamation"></i> 상세 운영 정보가 확인되지 않은 장소입니다. 방문 전 공식 관광정보를 확인해주세요.';
+    ? `<i class="fa-solid fa-circle-exclamation"></i> ${currentLanguage === 'ko' ? '운영시간·휴무일·요금은 변경될 수 있으니 방문 전 공식 페이지에서 다시 확인해주세요.' : 'Los horarios, cierres y precios pueden cambiar. Revísalos en la página oficial.'}`
+    : `<i class="fa-solid fa-circle-exclamation"></i> ${currentLanguage === 'ko' ? '상세 운영 정보가 확인되지 않은 장소입니다. 방문 전 공식 관광정보를 확인해주세요.' : 'No hay información operativa completa. Confirma los datos antes de visitar.'}`;
 
   const navBtn = document.getElementById('modalNavBtn');
   navBtn.href = `https://map.kakao.com/link/search/${encodeURIComponent(foundTour.name)}`;
@@ -622,12 +1006,12 @@ function openModal(tourId) {
   const sourceName = foundTour.imageSource || (foundTour.isLiveApi ? '한국관광공사 TourAPI' : '공식 관광정보');
   const photoSource = document.getElementById('modalPhotoSource');
   photoSource.href = officialUrl;
-  photoSource.textContent = `사진 · ${sourceName}`;
+  photoSource.textContent = currentLanguage === 'ko' ? `사진 · ${sourceName}` : 'Fuente de la foto';
   photoSource.hidden = !foundTour.image;
 
   const officialSource = document.getElementById('modalOfficialSource');
   officialSource.href = officialUrl;
-  officialSource.innerHTML = `<i class="fa-solid fa-arrow-up-right-from-square"></i> ${escapeHTML(sourceName)}에서 확인`;
+  officialSource.innerHTML = `<i class="fa-solid fa-arrow-up-right-from-square"></i> ${currentLanguage === 'ko' ? `${escapeHTML(sourceName)}에서 확인` : 'Consultar fuente oficial'}`;
 
   tourModal.classList.add('active');
   tourModal.setAttribute('aria-hidden', 'false');
@@ -654,7 +1038,9 @@ function toggleBookmark(tourId) {
   updateModalBookmarkButton(tourId);
   updateUI();
   if (savedDrawer?.classList.contains('active')) renderSavedList();
-  showToast(isSaved ? `${tour.name} 저장을 해제했습니다.` : `${tour.name}을 여행 보관함에 저장했습니다.`);
+  showToast(currentLanguage === 'ko'
+    ? (isSaved ? `${tour.name} 저장을 해제했습니다.` : `${tour.name}을 여행 보관함에 저장했습니다.`)
+    : (isSaved ? 'Se eliminó de tus guardados.' : 'Lugar guardado para tu viaje.'));
 }
 
 function updateModalBookmarkButton(tourId) {
@@ -663,13 +1049,13 @@ function updateModalBookmarkButton(tourId) {
   const isSaved = getSavedIds().includes(tourId);
   button.classList.toggle('bookmarked', isSaved);
   button.innerHTML = isSaved
-    ? '<i class="fa-solid fa-bookmark"></i> 저장 완료'
-    : '<i class="fa-regular fa-bookmark"></i> 장소 저장하기';
+    ? `<i class="fa-solid fa-bookmark"></i> ${currentLanguage === 'ko' ? '저장 완료' : 'Guardado'}`
+    : `<i class="fa-regular fa-bookmark"></i> ${currentLanguage === 'ko' ? '장소 저장하기' : 'Guardar lugar'}`;
 }
 
 async function shareTour(tour) {
   const shareData = {
-    title: `${tour.name} | 전북 관광 정보 지도`,
+    title: `${tour.name} | ${currentLanguage === 'ko' ? '전북 관광 가이드' : 'Guía turística de Jeonbuk'}`,
     text: `${tour.name} - ${tour.address}`,
     url: window.location.href.split('#')[0]
   };
@@ -718,8 +1104,8 @@ function renderSavedList() {
     savedList.innerHTML = `
       <div class="saved-empty">
         <i class="fa-regular fa-bookmark"></i>
-        <h3>아직 저장한 장소가 없습니다</h3>
-        <p>마음에 드는 관광지의 상세 화면에서 저장 버튼을 눌러보세요.</p>
+        <h3>${currentLanguage === 'ko' ? '아직 저장한 장소가 없습니다' : 'Aún no guardaste lugares'}</h3>
+        <p>${currentLanguage === 'ko' ? '마음에 드는 관광지의 상세 화면에서 저장 버튼을 눌러보세요.' : 'Abre la ficha de un lugar y toca Guardar.'}</p>
       </div>
     `;
     return;
@@ -731,10 +1117,10 @@ function renderSavedList() {
         <img src="${escapeHTML(tour.image)}" alt="" loading="lazy" onerror="handleImageError(this)">
         <span>
           <strong>${escapeHTML(tour.name)}</strong>
-          <small>${escapeHTML(tour.regionName)} · ${escapeHTML(tour.categoryName)}</small>
+          <small>${escapeHTML(getRegionName(tour.regionId, tour.regionName))} · ${escapeHTML(getCategoryName(tour.category))}</small>
         </span>
       </button>
-      <button type="button" class="saved-remove-btn" onclick="toggleBookmark('${escapeHTML(tour.id)}')" aria-label="${escapeHTML(tour.name)} 저장 해제">
+      <button type="button" class="saved-remove-btn" onclick="toggleBookmark('${escapeHTML(tour.id)}')" aria-label="${escapeHTML(tour.name)} ${currentLanguage === 'ko' ? '저장 해제' : 'eliminar de guardados'}">
         <i class="fa-solid fa-xmark"></i>
       </button>
     </article>
@@ -749,42 +1135,68 @@ function openSavedTour(tourId) {
 function generateTravelPlan(options = {}) {
   const duration = Number(options.duration || document.getElementById('plannerDuration').value);
   const theme = options.theme || document.getElementById('plannerTheme').value;
-  const regionId = options.regionId || document.getElementById('plannerRegion').value;
-  const targetCount = Math.max(1, duration) * 3;
+  const pace = Number(options.pace || document.getElementById('plannerPace')?.value || 3);
+  const targetCount = Math.max(1, duration) * Math.max(2, Math.min(4, pace));
+  const selectedRegionIds = options.regionIds?.length
+    ? options.regionIds.filter(regionId => JEONBUK_REGIONS[regionId])
+    : [...selectedPlannerRegions];
 
+  const allTours = getAllTours();
   let candidates = options.tourIds?.length
     ? options.tourIds.map(findTourById).filter(Boolean)
-    : getAllTours()
-      .map((tour, originalIndex) => ({
-        ...tour,
-        plannerScore:
-          (regionId !== 'all' && tour.regionId === regionId ? 100 : 0) +
-          (theme !== 'all' && tour.category === theme ? 20 : 0),
-        plannerIndex: originalIndex
-      }))
-      .sort((a, b) => b.plannerScore - a.plannerScore || a.plannerIndex - b.plannerIndex);
+    : selectedRegionIds.flatMap((regionId, regionIndex) => {
+      const regionTours = allTours
+        .filter(tour => tour.regionId === regionId)
+        .map((tour, originalIndex) => ({
+          ...tour,
+          plannerScore:
+            (theme !== 'all' && tour.category === theme ? 40 : 0) +
+            (tour.rating || 0) * 2 -
+            originalIndex * 0.001,
+          plannerRegionOrder: regionIndex
+        }))
+        .sort((a, b) => b.plannerScore - a.plannerScore);
+
+      const baseCount = Math.floor(targetCount / Math.max(1, selectedRegionIds.length));
+      const remainder = targetCount % Math.max(1, selectedRegionIds.length);
+      const regionTarget = baseCount + (regionIndex < remainder ? 1 : 0);
+      return regionTours.slice(0, Math.max(1, regionTarget));
+    });
+
+  if (!options.tourIds?.length && candidates.length < targetCount) {
+    const selectedIds = new Set(candidates.map(tour => tour.id));
+    const extras = allTours
+      .filter(tour => !selectedIds.has(tour.id) && (!selectedRegionIds.length || selectedRegionIds.includes(tour.regionId)))
+      .sort((a, b) => {
+        const aTheme = theme !== 'all' && a.category === theme ? 1 : 0;
+        const bTheme = theme !== 'all' && b.category === theme ? 1 : 0;
+        return bTheme - aTheme || (b.rating || 0) - (a.rating || 0);
+      });
+    candidates = [...candidates, ...extras.slice(0, targetCount - candidates.length)];
+  }
 
   const uniqueCandidates = [...new Map(candidates.map(tour => [tour.id, tour])).values()];
   currentPlan = uniqueCandidates.slice(0, Math.min(targetCount, uniqueCandidates.length));
-  renderTravelPlan(duration, options.title || null);
+  renderTravelPlan(duration, options.title || null, selectedRegionIds);
   scrollToSection('plannerSection');
 }
 
-function renderTravelPlan(duration, customTitle = null) {
+function renderTravelPlan(duration, customTitle = null, selectedRegionIds = [...selectedPlannerRegions]) {
   if (!currentPlan.length) {
-    plannerResult.innerHTML = '<div class="planner-empty"><p>선택한 조건에 맞는 관광지가 없습니다.</p></div>';
+    plannerResult.innerHTML = `<div class="planner-empty"><p>${currentLanguage === 'ko' ? '선택한 조건에 맞는 관광지가 없습니다.' : 'No encontramos lugares para esta combinación.'}</p></div>`;
     return;
   }
 
   const dayGroups = [];
+  const stopsPerDay = Math.max(1, Math.ceil(currentPlan.length / duration));
   for (let day = 0; day < duration; day += 1) {
-    const stops = currentPlan.slice(day * 3, day * 3 + 3);
+    const stops = currentPlan.slice(day * stopsPerDay, day * stopsPerDay + stopsPerDay);
     if (stops.length) dayGroups.push(stops);
   }
 
   const daysHTML = dayGroups.map((stops, dayIndex) => `
     <section class="plan-day">
-      <div class="plan-day-label">${dayIndex + 1}일차</div>
+      <div class="plan-day-label">${currentLanguage === 'ko' ? `${dayIndex + 1}일차` : `Día ${dayIndex + 1}`}</div>
       <div class="plan-stops">
         ${stops.map((tour, stopIndex) => `
           <button type="button" class="plan-stop" onclick="openModal('${escapeHTML(tour.id)}')">
@@ -792,7 +1204,7 @@ function renderTravelPlan(duration, customTitle = null) {
             <img src="${escapeHTML(tour.image)}" alt="" loading="lazy" onerror="handleImageError(this)">
             <span class="plan-stop-copy">
               <strong>${escapeHTML(tour.name)}</strong>
-              <small>${escapeHTML(tour.regionName)} · ${escapeHTML(tour.categoryName)}</small>
+              <small>${escapeHTML(getRegionName(tour.regionId, tour.regionName))} · ${escapeHTML(getCategoryName(tour.category))}</small>
             </span>
             <i class="fa-solid fa-chevron-right"></i>
           </button>
@@ -801,32 +1213,39 @@ function renderTravelPlan(duration, customTitle = null) {
     </section>
   `).join('');
 
+  const regionNames = selectedRegionIds.map(regionId => getRegionName(regionId)).filter(Boolean);
+  const routeTitle = customTitle || (currentLanguage === 'ko'
+    ? `${duration === 1 ? '당일' : `${duration - 1}박 ${duration}일`} · ${regionNames.join(' → ')}`
+    : `${duration} ${duration === 1 ? 'día' : 'días'} · ${regionNames.join(' → ')}`);
+
   plannerResult.innerHTML = `
     <div class="plan-result-header">
       <div>
-        <span>추천 일정 초안</span>
-        <h3>${escapeHTML(customTitle || `${duration === 1 ? '당일' : `${duration - 1}박 ${duration}일`} 전북 여행`)}</h3>
+        <span>${currentLanguage === 'ko' ? '추천 일정 초안' : 'Borrador de itinerario'}</span>
+        <h3>${escapeHTML(routeTitle)}</h3>
       </div>
       <div class="plan-header-actions">
-        <button type="button" class="clear-plan-btn" onclick="clearCurrentPlan()">초기화</button>
-        <button type="button" class="save-plan-btn" onclick="saveCurrentPlan()"><i class="fa-regular fa-floppy-disk"></i> 일정 저장</button>
+        <button type="button" class="clear-plan-btn" onclick="clearCurrentPlan()">${currentLanguage === 'ko' ? '초기화' : 'Borrar'}</button>
+        <button type="button" class="save-plan-btn" onclick="saveCurrentPlan()"><i class="fa-regular fa-floppy-disk"></i> ${currentLanguage === 'ko' ? '일정 저장' : 'Guardar ruta'}</button>
       </div>
     </div>
     ${daysHTML}
-    <p class="plan-disclaimer"><i class="fa-solid fa-circle-info"></i> 이동 거리와 운영시간은 반영하지 않은 일정 초안입니다. 방문 전 동선과 운영정보를 확인해주세요.</p>
+    <p class="plan-disclaimer"><i class="fa-solid fa-circle-info"></i> ${currentLanguage === 'ko'
+      ? '선택한 지역 순서를 기준으로 만든 초안입니다. 실제 이동 시간과 운영정보는 방문 전에 확인해주세요.'
+      : 'Es una propuesta basada en el orden de las regiones. Confirma los tiempos de traslado y horarios antes de viajar.'}</p>
   `;
 }
 
 function saveCurrentPlan() {
   if (!currentPlan.length) return;
-  const title = document.querySelector('.plan-result-header h3')?.textContent.trim() || '저장된 전북 여행';
+  const title = document.querySelector('.plan-result-header h3')?.textContent.trim() || (currentLanguage === 'ko' ? '저장된 전북 여행' : 'Ruta guardada en Jeonbuk');
   const plan = {
     savedAt: new Date().toISOString(),
     title,
     tourIds: currentPlan.map(tour => tour.id)
   };
   localStorage.setItem('jeonbuk_travel_plan', JSON.stringify(plan));
-  showToast('현재 여행 일정이 이 기기에 저장되었습니다.');
+  showToast(currentLanguage === 'ko' ? '현재 여행 일정이 이 기기에 저장되었습니다.' : 'La ruta se guardó en este dispositivo.');
 }
 
 function restoreSavedPlan() {
@@ -839,7 +1258,7 @@ function restoreSavedPlan() {
     const duration = Math.max(1, Math.min(3, Math.ceil(restoredTours.length / 3)));
     const durationSelect = document.getElementById('plannerDuration');
     if (durationSelect) durationSelect.value = String(duration);
-    renderTravelPlan(duration, savedPlan.title || '저장된 전북 여행');
+    renderTravelPlan(duration, savedPlan.title || (currentLanguage === 'ko' ? '저장된 전북 여행' : 'Ruta guardada en Jeonbuk'));
   } catch {
     localStorage.removeItem('jeonbuk_travel_plan');
   }
@@ -851,10 +1270,10 @@ function clearCurrentPlan() {
   plannerResult.innerHTML = `
     <div class="planner-empty">
       <i class="fa-solid fa-map-location-dot"></i>
-      <p>조건을 선택하고 일정 만들기를 눌러보세요.</p>
+      <p>${currentLanguage === 'ko' ? '동선과 조건을 선택한 뒤 여행 일정을 만들어보세요.' : 'Elige una combinación y crea tu itinerario.'}</p>
     </div>
   `;
-  showToast('저장된 여행 일정을 초기화했습니다.');
+  showToast(currentLanguage === 'ko' ? '저장된 여행 일정을 초기화했습니다.' : 'La ruta guardada se eliminó.');
 }
 
 function createPlanFromSaved() {
@@ -862,8 +1281,18 @@ function createPlanFromSaved() {
   if (!ids.length) return;
   closeSavedPanel();
   const duration = Math.max(1, Math.min(3, Math.ceil(ids.length / 3)));
+  const regionIds = [...new Set(ids.map(findTourById).filter(Boolean).map(tour => tour.regionId))];
+  if (regionIds.length) {
+    selectedPlannerRegions = new Set(regionIds.slice(0, 6));
+    renderPlannerRegionOptions();
+  }
   document.getElementById('plannerDuration').value = String(duration);
-  generateTravelPlan({ duration, tourIds: ids, title: '저장한 장소로 만든 여행' });
+  generateTravelPlan({
+    duration,
+    tourIds: ids,
+    regionIds,
+    title: currentLanguage === 'ko' ? '저장한 장소로 만든 여행' : 'Ruta con tus lugares guardados'
+  });
 }
 
 function applyRecommendedCourse(index) {
@@ -871,8 +1300,18 @@ function applyRecommendedCourse(index) {
   if (!course) return;
   const duration = course.period.includes('2박 3일') ? 3 : course.period.includes('1박 2일') ? 2 : 1;
   const ids = course.spotIds || [];
+  const regionIds = [...new Set(ids.map(findTourById).filter(Boolean).map(tour => tour.regionId))];
+  if (regionIds.length) {
+    selectedPlannerRegions = new Set(regionIds);
+    renderPlannerRegionOptions();
+  }
   document.getElementById('plannerDuration').value = String(duration);
-  generateTravelPlan({ duration, tourIds: ids, title: course.title });
+  generateTravelPlan({
+    duration,
+    tourIds: ids,
+    regionIds,
+    title: currentLanguage === 'ko' ? course.title : (COURSE_ES[index]?.title || course.title)
+  });
 }
 
 function showToast(message) {
@@ -888,7 +1327,7 @@ function scrollToSection(sectionId) {
 }
 
 function scrollToResults() {
-  document.querySelector('.sidebar-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  document.getElementById('tourSection')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function updateApiStatusBadge() {

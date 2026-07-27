@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="전북특별자치도 14개 시·군의 관광지와 추천 코스를 지도에서 탐색하고 나만의 여행 일정을 만들어보세요.">
+  <meta name="description" content="Descubre Jeonbuk, Corea: lugares turísticos, gastronomía, festivales y rutas por sus 14 ciudades y condados.">
   <meta name="theme-color" content="#059669">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="전북 관광 정보 지도">
-  <meta property="og:description" content="전북 14개 시·군의 관광지·맛집·카페·축제 정보를 탐색하고 나만의 여행 일정을 만들어보세요.">
+  <meta property="og:title" content="Viaja por Jeonbuk | Guía turística">
+  <meta property="og:description" content="Explora los 14 municipios de Jeonbuk y crea una ruta de viaje por varias regiones.">
   <meta property="og:url" content="https://jeonbuk-tour-guide.parkg9832.chatgpt.site/">
   <meta property="og:image" content="https://jeonbuk-tour-guide.parkg9832.chatgpt.site/images/og.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="전북 관광 정보 지도">
-  <meta name="twitter:description" content="전북 관광지를 지도에서 탐색하고 나만의 여행 일정을 만들어보세요.">
+  <meta name="twitter:title" content="Viaja por Jeonbuk | Guía turística">
+  <meta name="twitter:description" content="Lugares, sabores, festivales y rutas para descubrir Jeonbuk.">
   <meta name="twitter:image" content="https://jeonbuk-tour-guide.parkg9832.chatgpt.site/images/og.jpg">
-  <title>전북 관광 정보 지도 - Jeonbuk Illustrated Tour Map</title>
+  <title>Viaja por Jeonbuk - Guía turística de Corea</title>
 
   <!-- Google Fonts: Noto Sans KR, Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +28,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗺️</text></svg>">
 
   <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=26">
+  <link rel="stylesheet" href="css/style.css?v=27">
 </head>
 <body>
 
@@ -38,9 +38,9 @@
     <!-- TOP NAVIGATION & HEADER -->
     <header class="main-header">
       <div class="header-left">
-        <button type="button" class="brand-logo" onclick="resetSelection()" aria-label="전북 관광 지도 홈으로 이동">
+        <button type="button" class="brand-logo" onclick="resetSelection()" aria-label="Inicio de la guía turística de Jeonbuk">
           <span class="logo-badge">JEONBUK</span>
-          <h1 class="logo-title">전북관광 <span>정보지도</span></h1>
+          <h1 class="logo-title"><span data-i18n="brandTitle">Viaja por Jeonbuk</span></h1>
         </button>
       </div>
 
@@ -48,25 +48,29 @@
         <!-- Integrated Search Bar -->
         <div class="search-box">
           <i class="fa-solid fa-magnifying-glass search-icon"></i>
-          <input type="search" id="searchInput" aria-label="전북 관광지 통합 검색" placeholder="관광지, 지역, 키워드를 검색해보세요" oninput="handleSearch(event)">
-          <button type="button" class="search-clear-btn" id="searchClearBtn" onclick="clearSearch()" aria-label="검색어 지우기"><i class="fa-solid fa-xmark"></i></button>
+          <input type="search" id="searchInput" aria-label="Buscar lugares turísticos en Jeonbuk" placeholder="Busca un lugar, una región o una palabra clave" data-i18n-placeholder="searchPlaceholder" oninput="handleSearch(event)">
+          <button type="button" class="search-clear-btn" id="searchClearBtn" onclick="clearSearch()" aria-label="Borrar búsqueda"><i class="fa-solid fa-xmark"></i></button>
         </div>
       </div>
 
       <div class="header-right">
+        <div class="language-switch" role="group" aria-label="Idioma">
+          <button type="button" class="language-btn active" data-language="es" onclick="setLanguage('es')">ES</button>
+          <button type="button" class="language-btn" data-language="ko" onclick="setLanguage('ko')">한국어</button>
+        </div>
         <button type="button" class="saved-header-btn" id="savedHeaderBtn" onclick="openSavedPanel()">
           <i class="fa-solid fa-bookmark"></i>
-          <span>여행 보관함</span>
+          <span data-i18n="savedPlaces">Guardados</span>
           <strong id="savedCount">0</strong>
         </button>
 
         <div class="stat-pill">
           <i class="fa-solid fa-map-location-dot"></i>
-          <span>14개 시·군</span>
+          <span data-i18n="regionCount">14 municipios</span>
         </div>
         <div class="stat-pill highlight">
           <i class="fa-solid fa-compass"></i>
-          <span id="totalTourCount">관광정보 불러오는 중</span>
+          <span id="totalTourCount">Cargando lugares</span>
         </div>
       </div>
     </header>
@@ -75,22 +79,22 @@
     <nav class="category-nav">
       <div class="category-container">
         <button class="cat-btn active" data-category="all" onclick="setCategory('all', this)">
-          <i class="fa-solid fa-grid-2"></i> 전체 <span class="cat-count" data-count-category="all">0</span>
+          <i class="fa-solid fa-grid-2"></i> <span data-i18n="catAll">Todo</span> <span class="cat-count" data-count-category="all">0</span>
         </button>
         <button class="cat-btn" data-category="food" onclick="setCategory('food', this)">
-          🍱 맛집/카페 <span class="cat-count" data-count-category="food">0</span>
+          🍱 <span data-i18n="catFood">Comida y cafés</span> <span class="cat-count" data-count-category="food">0</span>
         </button>
         <button class="cat-btn" data-category="culture" onclick="setCategory('culture', this)">
-          🏛️ 역사/문화 <span class="cat-count" data-count-category="culture">0</span>
+          🏛️ <span data-i18n="catCulture">Historia y cultura</span> <span class="cat-count" data-count-category="culture">0</span>
         </button>
         <button class="cat-btn" data-category="nature" onclick="setCategory('nature', this)">
-          🌿 자연/힐링 <span class="cat-count" data-count-category="nature">0</span>
+          🌿 <span data-i18n="catNature">Naturaleza</span> <span class="cat-count" data-count-category="nature">0</span>
         </button>
         <button class="cat-btn" data-category="festival" onclick="setCategory('festival', this)">
-          🎉 축제/행사 <span class="cat-count" data-count-category="festival">0</span>
+          🎉 <span data-i18n="catFestival">Festivales</span> <span class="cat-count" data-count-category="festival">0</span>
         </button>
         <button class="cat-btn course-btn" data-category="course" onclick="setCategory('course', this)">
-          🚗 추천 여행 코스
+          🚗 <span data-i18n="catCourses">Rutas recomendadas</span>
         </button>
       </div>
     </nav>
@@ -98,43 +102,71 @@
     <!-- 1. PLANNER SECTION (TOP) -->
     <section class="planner-section" id="plannerSection">
       <div class="planner-intro">
-        <span class="planner-kicker">나만의 전북 여행</span>
-        <h2><i class="fa-solid fa-wand-magic-sparkles"></i> 간편 여행 플래너</h2>
-        <p>기간과 관심 테마를 선택하면 현재 등록된 관광지를 바탕으로 일정 초안을 만들어드립니다.</p>
+        <span class="planner-kicker" data-i18n="plannerKicker">Tu viaje por Jeonbuk</span>
+        <h2><i class="fa-solid fa-wand-magic-sparkles"></i> <span data-i18n="plannerTitle">Planificador de ruta</span></h2>
+        <p data-i18n="plannerDesc">Combina varias regiones y crea una ruta práctica para cada día.</p>
       </div>
       <div class="planner-form">
         <label>
-          <span>여행 기간</span>
+          <span data-i18n="duration">Duración</span>
           <select id="plannerDuration">
-            <option value="1">당일 여행</option>
-            <option value="2" selected>1박 2일</option>
-            <option value="3">2박 3일</option>
+            <option value="1" data-i18n="dayTrip">1 día</option>
+            <option value="2" selected data-i18n="twoDays">2 días</option>
+            <option value="3" data-i18n="threeDays">3 días</option>
+            <option value="4" data-i18n="fourDays">4 días</option>
           </select>
         </label>
         <label>
-          <span>관심 테마</span>
+          <span data-i18n="theme">Interés principal</span>
           <select id="plannerTheme">
-            <option value="all">골고루 둘러보기</option>
-            <option value="nature">자연·힐링</option>
-            <option value="culture">역사·문화</option>
-            <option value="food">맛집·카페</option>
-            <option value="festival">축제·행사</option>
+            <option value="all" data-i18n="themeAll">Un poco de todo</option>
+            <option value="nature" data-i18n="themeNature">Naturaleza</option>
+            <option value="culture" data-i18n="themeCulture">Historia y cultura</option>
+            <option value="food" data-i18n="themeFood">Comida y cafés</option>
+            <option value="festival" data-i18n="themeFestival">Festivales</option>
           </select>
         </label>
         <label>
-          <span>중심 지역</span>
-          <select id="plannerRegion">
-            <option value="all">전북 전체</option>
+          <span data-i18n="pace">Ritmo del viaje</span>
+          <select id="plannerPace">
+            <option value="2" data-i18n="paceRelaxed">Tranquilo · 2 paradas/día</option>
+            <option value="3" selected data-i18n="paceBalanced">Equilibrado · 3 paradas/día</option>
+            <option value="4" data-i18n="paceIntense">Intenso · 4 paradas/día</option>
           </select>
         </label>
         <button type="button" class="planner-generate-btn" onclick="generateTravelPlan()">
-          <i class="fa-solid fa-route"></i> 일정 만들기
+          <i class="fa-solid fa-route"></i> <span data-i18n="makeRoute">Crear mi ruta</span>
         </button>
+      </div>
+      <div class="planner-route-builder">
+        <div class="planner-route-heading">
+          <div>
+            <span class="planner-step">1</span>
+            <strong data-i18n="presetTitle">Elige una ruta base</strong>
+            <p data-i18n="presetDesc">Puedes usar una combinación recomendada y cambiar las regiones después.</p>
+          </div>
+          <div class="route-presets" id="routePresets">
+            <button type="button" class="route-preset active" data-preset="heritage" onclick="applyRoutePreset('heritage')"><i class="fa-solid fa-landmark"></i> <span data-i18n="presetHeritage">Esencia cultural</span></button>
+            <button type="button" class="route-preset" data-preset="coast" onclick="applyRoutePreset('coast')"><i class="fa-solid fa-water"></i> <span data-i18n="presetCoast">Costa oeste</span></button>
+            <button type="button" class="route-preset" data-preset="mountain" onclick="applyRoutePreset('mountain')"><i class="fa-solid fa-mountain-sun"></i> <span data-i18n="presetMountain">Montaña y descanso</span></button>
+            <button type="button" class="route-preset" data-preset="flavor" onclick="applyRoutePreset('flavor')"><i class="fa-solid fa-utensils"></i> <span data-i18n="presetFlavor">Sabores de Jeonbuk</span></button>
+          </div>
+        </div>
+        <div class="planner-region-builder">
+          <div class="planner-region-copy">
+            <span class="planner-step">2</span>
+            <div>
+              <strong data-i18n="chooseRegions">Añade o quita regiones</strong>
+              <p id="plannerRegionSummary">3 regiones seleccionadas</p>
+            </div>
+          </div>
+          <div class="planner-region-chips" id="plannerRegionChips" aria-label="Regiones para incluir en la ruta"></div>
+        </div>
       </div>
       <div class="planner-result" id="plannerResult" aria-live="polite">
         <div class="planner-empty">
           <i class="fa-solid fa-map-location-dot"></i>
-          <p>조건을 선택하고 일정 만들기를 눌러보세요.</p>
+          <p data-i18n="plannerEmpty">Elige una combinación y crea tu itinerario.</p>
         </div>
       </div>
     </section>
@@ -142,37 +174,37 @@
     <!-- 2. HERO SECTION -->
     <section class="hero-section" id="heroSection">
       <div class="hero-content">
-        <span class="hero-kicker"><i class="fa-solid fa-compass"></i> 전북특별자치도 관광 안내</span>
-        <h2 class="hero-title">전북의 아름다운 <strong>14개 시·군</strong>을 탐험하세요</h2>
-        <p class="hero-desc">한옥마을의 고즈넉한 골목부터, 내장산의 붉은 단풍, 서해의 에메랄드빛 바다까지 — 전라북도만의 특별한 여행을 시작해보세요.</p>
+        <span class="hero-kicker"><i class="fa-solid fa-compass"></i> <span data-i18n="heroKicker">Guía de Jeonbuk, Corea</span></span>
+        <h2 class="hero-title"><span data-i18n="heroTitleStart">Descubre</span> <strong data-i18n="heroTitleStrong">14 destinos distintos</strong> <span data-i18n="heroTitleEnd">en un solo viaje</span></h2>
+        <p class="hero-desc" data-i18n="heroDesc">Callejones hanok, montañas, costa, sabores locales y festivales: arma una ruta que conecte lo mejor de Jeonbuk.</p>
         <div class="hero-stats">
           <div class="hero-stat-item">
             <i class="fa-solid fa-map-location-dot"></i>
             <strong>14</strong>
-            <span>시·군</span>
+            <span data-i18n="statRegions">municipios</span>
           </div>
           <div class="hero-stat-item">
             <i class="fa-solid fa-camera-retro"></i>
-            <strong id="heroTourCount">33</strong>
-            <span>명소</span>
+            <strong id="heroTourCount">812</strong>
+            <span data-i18n="statPlaces">lugares destacados</span>
           </div>
           <div class="hero-stat-item">
             <i class="fa-solid fa-utensils"></i>
             <strong>5</strong>
-            <span>테마</span>
+            <span data-i18n="statThemes">temas</span>
           </div>
           <div class="hero-stat-item">
             <i class="fa-solid fa-route"></i>
-            <strong>4</strong>
-            <span>추천 코스</span>
+            <strong id="heroRouteCount">3</strong>
+            <span data-i18n="statRoutes">rutas</span>
           </div>
         </div>
         <div class="hero-actions">
           <button type="button" class="hero-cta-primary" onclick="scrollToSection('tourSection')">
-            <i class="fa-solid fa-compass"></i> 관광지 둘러보기
+            <i class="fa-solid fa-compass"></i> <span data-i18n="explorePlaces">Explorar lugares</span>
           </button>
-          <button type="button" class="hero-cta-secondary" onclick="scrollToSection('mapSection')">
-            <i class="fa-solid fa-map"></i> 지도에서 탐색
+          <button type="button" class="hero-cta-secondary" onclick="scrollToSection('plannerSection')">
+            <i class="fa-solid fa-route"></i> <span data-i18n="planTrip">Planear mi viaje</span>
           </button>
         </div>
       </div>
@@ -182,9 +214,9 @@
     <section class="courses-section" id="courseSection">
       <div class="section-title-box">
         <div>
-          <span class="section-kicker">처음이라면 여기부터</span>
-          <h2><i class="fa-solid fa-route"></i> 검증된 테마별 추천 코스</h2>
-          <p>일정 만들기가 막막할 때 바로 선택해 플래너에 담을 수 있는 대표 동선입니다.</p>
+          <span class="section-kicker" data-i18n="coursesKicker">Si es tu primera vez</span>
+          <h2><i class="fa-solid fa-route"></i> <span data-i18n="coursesTitle">Rutas recomendadas</span></h2>
+          <p data-i18n="coursesDesc">Empieza con una ruta preparada y ajústala en el planificador.</p>
         </div>
       </div>
       <div class="courses-grid" id="courseGrid">
@@ -199,29 +231,45 @@
       <div class="region-info-banner" id="regionBanner">
         <div class="banner-header">
           <div>
-            <span class="banner-badge" id="bannerBadge">전북 전체</span>
-            <h2 class="banner-title" id="bannerTitle">전라북도 대표 명소</h2>
+            <span class="banner-badge" id="bannerBadge">Todo Jeonbuk</span>
+            <h2 class="banner-title" id="bannerTitle">Lugares destacados de Jeonbuk</h2>
           </div>
-          <span class="banner-count" id="bannerCount">장소 불러오는 중</span>
+          <span class="banner-count" id="bannerCount">Cargando lugares</span>
         </div>
         <p class="banner-desc" id="bannerDesc">
-          전북 14개 시·군의 관광지·맛집·카페·축제 정보를 한곳에서 비교해보세요.
+          Compara lugares, comida, cafés y festivales de los 14 municipios.
         </p>
       </div>
 
-      <div class="results-toolbar" aria-label="관광지 결과 정렬 및 필터">
+      <div class="region-selector-panel" id="regionSelector">
+        <div class="region-selector-heading">
+          <div>
+            <span class="section-kicker" data-i18n="regionSelectorKicker">Explora por región</span>
+            <h3><i class="fa-solid fa-location-crosshairs"></i> <span data-i18n="regionSelectorTitle">¿A dónde quieres ir?</span></h3>
+            <p data-i18n="regionSelectorDesc">Selecciona una región para ver sus lugares y fotos.</p>
+          </div>
+          <button type="button" class="region-reset-btn" onclick="resetSelection()"><i class="fa-solid fa-rotate-left"></i> <span data-i18n="showAllRegions">Ver todo Jeonbuk</span></button>
+        </div>
+        <div class="region-chips-wrapper">
+          <div class="chips-container" id="regionChips">
+            <!-- Dynamically populated chips -->
+          </div>
+        </div>
+      </div>
+
+      <div class="results-toolbar" aria-label="Ordenar y filtrar lugares">
         <button type="button" class="toolbar-btn" id="savedOnlyBtn" onclick="toggleSavedOnly()">
-          <i class="fa-regular fa-bookmark"></i> 저장한 장소만
+          <i class="fa-regular fa-bookmark"></i> <span data-i18n="savedOnly">Solo guardados</span>
         </button>
         <label class="sort-control">
-          <span class="sr-only">결과 정렬</span>
+          <span class="sr-only" data-i18n="sortResults">Ordenar resultados</span>
           <select id="sortSelect" onchange="setSortOrder(this.value)">
-            <option value="recommended">추천순</option>
-            <option value="name">이름순</option>
-            <option value="region">지역순</option>
+            <option value="recommended" data-i18n="sortRecommended">Recomendados</option>
+            <option value="name" data-i18n="sortName">Por nombre</option>
+            <option value="region" data-i18n="sortRegion">Por región</option>
           </select>
         </label>
-        <button type="button" class="toolbar-reset" id="filterResetBtn" onclick="resetSelection()">필터 초기화</button>
+        <button type="button" class="toolbar-reset" id="filterResetBtn" onclick="resetSelection()" data-i18n="resetFilters">Quitar filtros</button>
       </div>
       <p class="filter-summary" id="filterSummary" aria-live="polite"></p>
 
@@ -231,129 +279,8 @@
       </div>
       <button type="button" class="load-more-btn" id="loadMoreBtn" onclick="loadMoreTours()" hidden>
         <i class="fa-solid fa-plus"></i>
-        <span id="loadMoreLabel">더 많은 장소 보기</span>
+        <span id="loadMoreLabel">Ver más lugares</span>
       </button>
-
-    </section>
-
-    <!-- 5. MAP SECTION (BOTTOM) -->
-    <section class="map-section" id="mapSection">
-
-      <!-- MAP HEADER / INSTRUCTION CONTROLS -->
-      <div class="map-controls-bar">
-        <div class="map-title-info">
-          <h2 id="currentMapHeading"><i class="fa-solid fa-map-marked-alt"></i> 지역으로 탐색</h2>
-          <p id="mapSubText">지도 핀이나 지역 버튼을 선택하면 해당 지역의 명소만 모아볼 수 있습니다.</p>
-        </div>
-        <div class="map-action-btns">
-          <button class="btn-secondary" onclick="resetSelection()">
-            <i class="fa-solid fa-rotate-left"></i> 전북 전체 보기
-          </button>
-        </div>
-      </div>
-
-      <!-- QUICK REGION CHIPS BAR -->
-      <div class="region-chips-wrapper">
-        <span class="chips-label"><i class="fa-solid fa-location-crosshairs"></i> 지역 선택</span>
-        <div class="chips-container" id="regionChips">
-          <!-- Dynamically populated chips -->
-        </div>
-      </div>
-
-      <!-- CLEAN TOUR MAP CONTAINER WITH INTERACTIVE PINS -->
-      <div class="real-map-wrapper">
-        <div class="illust-map-container">
-          <img src="images/jeonbuk_map_clean-v2.webp" width="1600" height="900" alt="서해와 산세를 단순화한 전북 지역 탐색 지도" class="illust-map-img" decoding="async" fetchpriority="high">
-
-          <div class="illust-overlay-pins">
-
-            <!-- 1. 전주시 핀 -->
-            <button type="button" class="illust-pin core-pin" style="top: 47%; left: 52%;" id="pin-jeonju" onclick="selectRegion('jeonju')" aria-label="전주시 관광지 보기">
-              <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>전주</span></div>
-              <div class="pin-popup">한옥마을 · 남부시장</div>
-            </button>
-
-            <!-- 2. 군산시 핀 -->
-            <button type="button" class="illust-pin" style="top: 28%; left: 30%;" id="pin-gunsan" onclick="selectRegion('gunsan')" aria-label="군산시 관광지 보기">
-              <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>군산</span></div>
-              <div class="pin-popup">선유도 · 근대역사</div>
-            </button>
-
-            <!-- 3. 익산시 핀 -->
-            <button type="button" class="illust-pin" style="top: 24%; left: 47%;" id="pin-iksan" onclick="selectRegion('iksan')" aria-label="익산시 관광지 보기">
-              <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>익산</span></div>
-              <div class="pin-popup">미륵사지 · 아가페정원</div>
-            </button>
-
-            <!-- 4. 부안군 핀 -->
-            <button type="button" class="illust-pin" style="top: 61%; left: 32%;" id="pin-buan" onclick="selectRegion('buan')" aria-label="부안군 관광지 보기">
-              <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>부안</span></div>
-              <div class="pin-popup">채석강 · 내소사</div>
-            </button>
-
-            <!-- 5. 고창군 핀 -->
-            <button type="button" class="illust-pin" style="top: 79%; left: 34%;" id="pin-gochang" onclick="selectRegion('gochang')" aria-label="고창군 관광지 보기">
-              <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>고창</span></div>
-              <div class="pin-popup">청보리밭 · 고창읍성</div>
-            </button>
-
-            <!-- 6. 정읍시 핀 -->
-            <button type="button" class="illust-pin" style="top: 68%; left: 46%;" id="pin-jeongeup" onclick="selectRegion('jeongeup')" aria-label="정읍시 관광지 보기">
-              <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>정읍</span></div>
-              <div class="pin-popup">내장산 단풍 · 쌍화차</div>
-            </button>
-
-            <!-- 7. 남원시 핀 -->
-            <button type="button" class="illust-pin" style="top: 77%; left: 68%;" id="pin-namwon" onclick="selectRegion('namwon')" aria-label="남원시 관광지 보기">
-              <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>남원</span></div>
-              <div class="pin-popup">광한루원 · 뱀사골</div>
-            </button>
-
-            <!-- 8. 완주군 핀 -->
-            <button type="button" class="illust-pin" style="top: 39%; left: 59%;" id="pin-wanju" onclick="selectRegion('wanju')" aria-label="완주군 관광지 보기">
-              <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>완주</span></div>
-              <div class="pin-popup">아원고택 · 대둔산</div>
-            </button>
-
-            <!-- 9. 진안군 핀 -->
-            <button type="button" class="illust-pin" style="top: 45%; left: 70%;" id="pin-jinan" onclick="selectRegion('jinan')" aria-label="진안군 관광지 보기">
-              <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>진안</span></div>
-              <div class="pin-popup">마이산 탑사 · 홍삼스파</div>
-            </button>
-
-            <!-- 10. 무주군 핀 -->
-            <button type="button" class="illust-pin" style="top: 27%; left: 82%;" id="pin-muju" onclick="selectRegion('muju')" aria-label="무주군 관광지 보기">
-              <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>무주</span></div>
-              <div class="pin-popup">덕유산 곤돌라 · 머루와인</div>
-            </button>
-
-            <!-- 11. 김제시 핀 -->
-            <button type="button" class="illust-pin" style="top: 43%; left: 41%;" id="pin-gimje" onclick="selectRegion('gimje')" aria-label="김제시 관광지 보기">
-              <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>김제</span></div>
-              <div class="pin-popup">벽골제 · 금산사</div>
-            </button>
-
-            <!-- 12. 임실군 핀 -->
-            <button type="button" class="illust-pin" style="top: 59%; left: 61%;" id="pin-imsil" onclick="selectRegion('imsil')" aria-label="임실군 관광지 보기">
-              <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>임실</span></div>
-              <div class="pin-popup">치즈테마파크 · 붕어섬</div>
-            </button>
-
-            <!-- 13. 순창군 핀 -->
-            <button type="button" class="illust-pin" style="top: 80%; left: 55%;" id="pin-sunchang" onclick="selectRegion('sunchang')" aria-label="순창군 관광지 보기">
-              <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>순창</span></div>
-              <div class="pin-popup">강천산 · 고추장마을</div>
-            </button>
-
-            <!-- 14. 장수군 핀 -->
-            <button type="button" class="illust-pin" style="top: 60%; left: 77%;" id="pin-jangsu" onclick="selectRegion('jangsu')" aria-label="장수군 관광지 보기">
-              <div class="pin-head"><i class="fa-solid fa-location-dot"></i><span>장수</span></div>
-              <div class="pin-popup">논개사당 · 자연휴양림</div>
-            </button>
-
-          </div>
-        </div>
-      </div>
 
     </section>
 
@@ -361,19 +288,19 @@
     <footer class="main-footer">
       <div class="footer-content">
         <div class="footer-brand">
-          <h3>전북관광 정보 지도</h3>
-          <p>전라북도 14개 시·군의 문화·미식·자연 명소를 탐색하고 일정을 만드는 여행 정보 서비스</p>
+          <h3 data-i18n="footerTitle">Viaja por Jeonbuk</h3>
+          <p data-i18n="footerDesc">Una guía para explorar cultura, comida y naturaleza en los 14 municipios de Jeonbuk.</p>
         </div>
         <div class="footer-links">
-          <a href="#" onclick="resetSelection(); return false;">전북 지도 홈</a>
-          <a href="#" onclick="setCategory('course', document.querySelector('.course-btn')); return false;">추천 여행 코스</a>
-          <a href="javascript:void(0)" onclick="openSavedPanel()">여행 보관함</a>
-          <a href="javascript:void(0)" onclick="openApiModal()">데이터 설정</a>
-          <a href="tel:1330">관광안내 1330</a>
+          <a href="#" onclick="resetSelection(); return false;" data-i18n="footerHome">Inicio</a>
+          <a href="#" onclick="setCategory('course', document.querySelector('.course-btn')); return false;" data-i18n="footerRoutes">Rutas recomendadas</a>
+          <a href="javascript:void(0)" onclick="openSavedPanel()" data-i18n="footerSaved">Guardados</a>
+          <a href="javascript:void(0)" class="api-settings-link" onclick="openApiModal()" data-i18n="footerData">Datos</a>
+          <a href="tel:1330" data-i18n="footerHelp">Ayuda turística 1330</a>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>관광지 운영시간·요금은 방문 전 공식 관광정보에서 다시 확인해주세요. · 관광안내 1330</p>
+        <p data-i18n="footerNotice">Confirma horarios y precios en la fuente oficial antes de visitar. · Información turística 1330</p>
       </div>
     </footer>
 
@@ -382,12 +309,12 @@
   <!-- TOUR DETAIL MODAL POPUP -->
   <div class="modal-overlay" id="tourModal" onclick="closeModal(event)" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
     <div class="modal-content" onclick="event.stopPropagation()">
-      <button type="button" class="modal-close-btn" onclick="closeModal()" aria-label="상세 정보 닫기"><i class="fa-solid fa-xmark"></i></button>
+      <button type="button" class="modal-close-btn" onclick="closeModal()" aria-label="Cerrar detalles"><i class="fa-solid fa-xmark"></i></button>
 
       <div class="modal-hero-img-box">
         <img id="modalImg" alt="관광지 이미지" decoding="async" onerror="handleImageError(this)">
         <span class="modal-cat-badge" id="modalCategory">카테고리</span>
-        <a class="modal-photo-source" id="modalPhotoSource" href="https://tour.jb.go.kr/index.do" target="_blank" rel="noopener noreferrer">사진 출처 확인</a>
+        <a class="modal-photo-source" id="modalPhotoSource" href="https://tour.jb.go.kr/index.do" target="_blank" rel="noopener noreferrer">Fuente de la foto</a>
       </div>
 
       <div class="modal-body">
@@ -403,17 +330,17 @@
 
         <div class="modal-snapshot" aria-label="명소 핵심 정보">
           <div class="snapshot-card">
-            <span><i class="fa-regular fa-clock"></i> 추천 체류</span>
+            <span><i class="fa-regular fa-clock"></i> <span data-i18n="modalStay">Tiempo recomendado</span></span>
             <strong id="modalDuration">1~2시간</strong>
           </div>
           <div class="snapshot-card">
-            <span><i class="fa-solid fa-user-group"></i> 이런 여행에 추천</span>
+            <span><i class="fa-solid fa-user-group"></i> <span data-i18n="modalGoodFor">Ideal para</span></span>
             <strong id="modalRecommendedFor">전북 여행</strong>
           </div>
         </div>
 
         <div class="modal-desc-box">
-          <h3><i class="fa-solid fa-circle-info"></i> 이곳은 어떤 곳인가요?</h3>
+          <h3><i class="fa-solid fa-circle-info"></i> <span data-i18n="modalAbout">¿Qué encontrarás aquí?</span></h3>
           <p id="modalDesc">관광지 설명 내용이 들어갑니다.</p>
           <button type="button" class="modal-desc-toggle" id="modalDescToggle" aria-expanded="false">설명 더 보기 <i class="fa-solid fa-chevron-down"></i></button>
         </div>
@@ -423,14 +350,14 @@
         </div>
 
         <section class="modal-detail-section" id="modalDetailSection" aria-labelledby="modalDetailTitle">
-          <h3 id="modalDetailTitle"><i class="fa-solid fa-clipboard-list"></i> 방문 전에 확인하세요</h3>
+          <h3 id="modalDetailTitle"><i class="fa-solid fa-clipboard-list"></i> <span data-i18n="modalCheck">Antes de visitar</span></h3>
           <div class="modal-detail-grid" id="modalDetailGrid"></div>
         </section>
 
         <div class="modal-visit-tip" id="modalVisitTip">
           <i class="fa-regular fa-lightbulb"></i>
           <div>
-            <strong>여행 팁</strong>
+            <strong data-i18n="modalTip">Consejo de viaje</strong>
             <p id="modalVisitTipText"></p>
           </div>
         </div>
@@ -439,15 +366,15 @@
 
         <div class="modal-action-row">
           <a class="btn-primary" id="modalNavBtn" href="#" target="_blank" rel="noopener noreferrer">
-            <i class="fa-solid fa-diamond-turn-right"></i> 길찾기 안내 (카카오맵)
+            <i class="fa-solid fa-diamond-turn-right"></i> <span data-i18n="modalDirections">Cómo llegar (KakaoMap)</span>
           </a>
           <button type="button" class="btn-outline" id="modalBookmarkBtn">
-            <i class="fa-regular fa-bookmark"></i> 장소 저장하기
+            <i class="fa-regular fa-bookmark"></i> <span data-i18n="modalSave">Guardar lugar</span>
           </button>
         </div>
         <div class="modal-secondary-actions">
-          <button type="button" class="text-action-btn" id="modalShareBtn"><i class="fa-solid fa-share-nodes"></i> 공유</button>
-          <a class="text-action-btn" id="modalOfficialSource" href="https://tour.jb.go.kr/index.do" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> 공식 관광정보</a>
+          <button type="button" class="text-action-btn" id="modalShareBtn"><i class="fa-solid fa-share-nodes"></i> <span data-i18n="modalShare">Compartir</span></button>
+          <a class="text-action-btn" id="modalOfficialSource" href="https://tour.jb.go.kr/index.do" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-i18n="modalOfficial">Información oficial</span></a>
         </div>
       </div>
     </div>
@@ -495,24 +422,24 @@
     <aside class="saved-drawer" onclick="event.stopPropagation()" role="dialog" aria-modal="true" aria-labelledby="savedDrawerTitle">
       <div class="drawer-header">
         <div>
-          <span class="drawer-kicker">나만의 여행</span>
-          <h2 id="savedDrawerTitle">여행 보관함</h2>
+          <span class="drawer-kicker" data-i18n="drawerKicker">Tu viaje</span>
+          <h2 id="savedDrawerTitle" data-i18n="drawerTitle">Lugares guardados</h2>
         </div>
         <button type="button" class="drawer-close-btn" onclick="closeSavedPanel()" aria-label="여행 보관함 닫기"><i class="fa-solid fa-xmark"></i></button>
       </div>
-      <p class="drawer-desc">저장한 장소를 다시 확인하고 여행 일정에 활용할 수 있습니다.</p>
+      <p class="drawer-desc" data-i18n="drawerDesc">Revisa tus lugares y úsalos para crear una ruta.</p>
       <div class="saved-list" id="savedList"></div>
       <button type="button" class="drawer-plan-btn" id="savedPlanBtn" onclick="createPlanFromSaved()">
-        <i class="fa-solid fa-route"></i> 저장한 장소로 일정 만들기
+        <i class="fa-solid fa-route"></i> <span data-i18n="drawerPlan">Crear ruta con guardados</span>
       </button>
     </aside>
   </div>
 
-  <nav class="mobile-bottom-nav" aria-label="모바일 주요 메뉴">
-    <button type="button" onclick="scrollToSection('mapSection')"><i class="fa-solid fa-map"></i><span>지도</span></button>
-    <button type="button" onclick="scrollToResults()"><i class="fa-solid fa-compass"></i><span>관광지</span></button>
-    <button type="button" onclick="scrollToSection('plannerSection')"><i class="fa-solid fa-route"></i><span>플래너</span></button>
-    <button type="button" onclick="openSavedPanel()"><i class="fa-solid fa-bookmark"></i><span>저장 <b id="mobileSavedCount">0</b></span></button>
+  <nav class="mobile-bottom-nav" aria-label="Navegación principal móvil">
+    <button type="button" onclick="scrollToSection('regionSelector')"><i class="fa-solid fa-location-dot"></i><span data-i18n="mobileRegions">Regiones</span></button>
+    <button type="button" onclick="scrollToResults()"><i class="fa-solid fa-compass"></i><span data-i18n="mobilePlaces">Lugares</span></button>
+    <button type="button" onclick="scrollToSection('plannerSection')"><i class="fa-solid fa-route"></i><span data-i18n="mobilePlanner">Mi ruta</span></button>
+    <button type="button" onclick="openSavedPanel()"><i class="fa-solid fa-bookmark"></i><span><span data-i18n="mobileSaved">Guardados</span> <b id="mobileSavedCount">0</b></span></button>
   </nav>
 
   <button type="button" class="back-to-top-btn" id="backToTopBtn" onclick="scrollToTop()" aria-label="맨 위로 이동">
@@ -527,6 +454,6 @@
   <script src="js/tourImages.js?v=25"></script>
   <script src="js/tourDetails.js?v=25"></script>
   <script src="js/tourApi.js?v=25"></script>
-  <script src="js/app.js?v=26"></script>
+  <script src="js/app.js?v=27"></script>
 </body>
 </html>
