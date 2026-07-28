@@ -231,7 +231,6 @@ const I18N = {
     footerData: 'Datos',
     footerHelp: 'Ayuda turística 1330',
     footerNotice: 'Confirma horarios y precios en la fuente oficial antes de visitar. · Información turística 1330',
-    modalStay: 'Tiempo recomendado',
     modalGoodFor: 'Ideal para',
     modalAbout: '¿Qué encontrarás aquí?',
     modalCheck: 'Antes de visitar',
@@ -240,8 +239,6 @@ const I18N = {
     modalSave: 'Guardar lugar',
     modalShare: 'Compartir',
     modalOfficial: 'Información oficial',
-    cardMore: 'Leer más',
-    cardLess: 'Ver menos',
     drawerKicker: 'Área personal',
     drawerTitle: 'Mi viaje',
     drawerDesc: 'Revisa tus lugares guardados y conviértelos en una ruta.',
@@ -325,7 +322,6 @@ const I18N = {
     footerData: '데이터 설정',
     footerHelp: '관광안내 1330',
     footerNotice: '관광지 운영시간·요금은 방문 전 공식 관광정보에서 다시 확인해주세요. · 관광안내 1330',
-    modalStay: '추천 체류',
     modalGoodFor: '이런 여행에 추천',
     modalAbout: '이곳은 어떤 곳인가요?',
     modalCheck: '방문 전에 확인하세요',
@@ -334,8 +330,6 @@ const I18N = {
     modalSave: '장소 저장하기',
     modalShare: '공유',
     modalOfficial: '공식 관광정보',
-    cardMore: '더보기',
-    cardLess: '접기',
     drawerKicker: '나의 전북 여행',
     drawerTitle: '마이페이지',
     drawerDesc: '저장한 장소와 여행 일정을 한곳에서 확인하세요.',
@@ -385,7 +379,6 @@ const modalAddress = document.getElementById('modalAddress');
 const modalDesc = document.getElementById('modalDesc');
 const modalDescToggle = document.getElementById('modalDescToggle');
 const modalTags = document.getElementById('modalTags');
-const modalDuration = document.getElementById('modalDuration');
 const modalRecommendedFor = document.getElementById('modalRecommendedFor');
 const modalDetailSection = document.getElementById('modalDetailSection');
 const modalDetailGrid = document.getElementById('modalDetailGrid');
@@ -572,50 +565,37 @@ function getEventStatusLabel(status = '') {
 }
 
 function getTourDescription(tour) {
-  if (currentLanguage === 'ko') return tour.desc || tour.overview || '';
-  if (TOUR_DESCRIPTIONS_ES[tour.id]) return TOUR_DESCRIPTIONS_ES[tour.id];
+  if (currentLanguage === 'ko') return tour.overview || tour.desc || tour.highlight || '';
   const region = getRegionName(tour.regionId, tour.regionName);
-  const category = getCategoryName(tour.category);
-  return `${category} en ${region}. Consulta la dirección oficial en coreano y la ruta actual antes de salir.`;
-}
-
-function normalizeCardDescription(value = '') {
-  return String(value)
-    .replace(/<[^>]*>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&middot;/gi, '·')
-    .replace(/&amp;/gi, '&')
-    .replace(/&quot;/gi, '"')
-    .replace(/&#39;|&apos;/gi, "'")
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
-function trimCardDescription(value, limit = 760) {
-  const text = normalizeCardDescription(value);
-  if (text.length <= limit) return text;
-  const shortened = text.slice(0, limit);
-  const lastBreak = Math.max(shortened.lastIndexOf('. '), shortened.lastIndexOf(' '));
-  return `${shortened.slice(0, lastBreak > limit * 0.72 ? lastBreak + 1 : limit).trim()}…`;
+  const tourName = getTourName(tour);
+  const base = TOUR_DESCRIPTIONS_ES[tour.id]
+    || `${tourName} permite conocer una faceta de ${getCategoryName(tour.category).toLowerCase()} de ${region}.`;
+  const context = {
+    culture: `Más que una parada para tomar fotos, es un lugar para entender mejor la historia, la arquitectura y las tradiciones de la región. Recorre el espacio con calma y revisa la información oficial para conocer exposiciones, actividades o restricciones vigentes.`,
+    nature: `El paisaje y el recorrido cambian según la estación y el clima. Es una buena opción para disfrutar el entorno de ${region}, detenerse en sus puntos principales y combinar la visita con otros lugares cercanos sin depender de un tiempo de estancia fijo.`,
+    food: `La experiencia se centra en un sabor, producto o espacio gastronómico ligado a ${region}. Antes de ir, revisa el horario, los días de cierre y si conviene reservar o esperar en horas de mayor afluencia.`,
+    festival: `El ambiente, los programas y las actividades pueden variar cada año. Confirma las fechas y el programa oficial para elegir el mejor momento y combinar la experiencia con otros lugares de ${region}.`
+  }[tour.category] || `Es una parada útil para conocer mejor ${region}. Revisa la información oficial, el acceso y las condiciones actuales antes de organizar tu visita.`;
+  return `${base}\n\n${context}`;
 }
 
 function getCardDescription(tour) {
   if (currentLanguage === 'es') {
+    if (TOUR_DESCRIPTIONS_ES[tour.id]) return TOUR_DESCRIPTIONS_ES[tour.id];
     const region = getRegionName(tour.regionId, tour.regionName);
-    const tourName = getTourName(tour);
-    if (TOUR_DESCRIPTIONS_ES[tour.id]) {
-      return `${TOUR_DESCRIPTIONS_ES[tour.id]} Consulta los consejos, el tiempo recomendado y cómo llegar antes de sumarlo a tu ruta por ${region}.`;
-    }
     const descriptions = {
-      culture: `${tourName} es una parada para acercarte a la historia y al patrimonio de ${region}. Revisa sus puntos destacados y la información práctica antes de sumarla a tu ruta.`,
-      nature: `${tourName} permite descubrir los paisajes y la naturaleza de ${region} con más calma. Consulta qué ver, cuánto tiempo dedicarle y cómo llegar antes de organizar la visita.`,
-      food: `${tourName} es una propuesta local para conocer los sabores de ${region}. Revisa qué la hace especial, el horario y la información práctica antes de visitarla.`,
-      festival: `${tourName} reúne ambiente local, cultura y experiencias propias de ${region}. Consulta las fechas, el programa y los consejos de visita antes de incluirla en tu viaje.`
+      culture: `Historia y patrimonio para descubrir en ${region}.`,
+      nature: `Naturaleza y paisajes para disfrutar en ${region}.`,
+      food: `Un sabor local recomendado de ${region}.`,
+      festival: `Una experiencia cultural para vivir en ${region}.`
     };
-    return descriptions[tour.category] || `${tourName} es un lugar recomendado para conocer mejor ${region}. Revisa sus atractivos y datos prácticos antes de organizar la visita.`;
+    return descriptions[tour.category] || `Un lugar recomendado para conocer ${region}.`;
   }
 
-  return trimCardDescription(tour.overview || tour.desc || tour.highlight || '');
+  const source = String(tour.overview || tour.desc || tour.highlight || '').replace(/\s+/g, ' ').trim();
+  if (!source) return '';
+  const firstSentence = source.match(/^.*?[.!?。](?:\s|$)/)?.[0]?.trim();
+  return firstSentence || source;
 }
 
 function applyLanguage(language, persist = true) {
@@ -1132,17 +1112,12 @@ function renderTourCards(tours) {
         </div>`
       : '';
     const practicalItems = [
-      tour.recommendedDuration
-        ? `<span><i class="fa-regular fa-clock"></i> ${escapeHTML(getLocalizedDuration(tour.recommendedDuration))}</span>`
-        : '',
       tour.fee && String(tour.fee).length <= 32
         ? `<span><i class="fa-solid fa-ticket"></i> ${escapeHTML(tour.fee)}</span>`
         : ''
     ].filter(Boolean).join('');
     const practicalMeta = practicalItems ? `<div class="card-practical-meta">${practicalItems}</div>` : '';
     const cardDescription = getCardDescription(tour);
-    const descriptionId = `card-desc-${String(tour.id).replace(/[^a-zA-Z0-9_-]/g, '-')}`;
-    const hasDescriptionToggle = cardDescription.length > (currentLanguage === 'ko' ? 90 : 125);
 
     return `
       <article class="tour-card">
@@ -1159,17 +1134,11 @@ function renderTourCards(tours) {
             </div>
             <p class="card-address"><i class="fa-solid fa-location-dot"></i> ${escapeHTML(tour.address)}</p>
             ${eventMeta}
-            ${cardDescription ? `<p class="card-desc" id="${descriptionId}">${escapeHTML(cardDescription)}</p>` : ''}
+            ${cardDescription ? `<p class="card-desc">${escapeHTML(cardDescription)}</p>` : ''}
             ${practicalMeta}
             ${tags ? `<div class="card-tags">${tags}</div>` : ''}
           </div>
         </button>
-        ${hasDescriptionToggle ? `
-          <button type="button" class="card-desc-toggle" aria-expanded="false" aria-controls="${descriptionId}" onclick="toggleCardDescription(event, this)">
-            <span>${escapeHTML(t('cardMore'))}</span>
-            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
-          </button>
-        ` : ''}
       </article>
     `;
   }).join('');
@@ -1185,18 +1154,6 @@ function renderTourCards(tours) {
         : (currentLanguage === 'ko' ? '전체 장소를 모두 불러왔습니다' : 'Ya viste todos los lugares');
     }
   }
-}
-
-function toggleCardDescription(event, button) {
-  event.preventDefault();
-  event.stopPropagation();
-  const card = button.closest('.tour-card');
-  if (!card) return;
-  const expanded = button.getAttribute('aria-expanded') === 'true';
-  card.classList.toggle('desc-expanded', !expanded);
-  button.setAttribute('aria-expanded', String(!expanded));
-  const label = button.querySelector('span');
-  if (label) label.textContent = t(expanded ? 'cardMore' : 'cardLess');
 }
 
 function loadMoreTours() {
@@ -1257,7 +1214,7 @@ function openModal(tourId) {
     : getTourDescription(foundTour));
   modalDesc.textContent = overviewText;
   modalDesc.classList.remove('expanded');
-  modalDescToggle.hidden = overviewText.length <= 220;
+  modalDescToggle.hidden = true;
   modalDescToggle.setAttribute('aria-expanded', 'false');
   modalDescToggle.innerHTML = `${currentLanguage === 'ko' ? '설명 더 보기' : 'Ver más'} <i class="fa-solid fa-chevron-down"></i>`;
   modalDescToggle.onclick = () => {
@@ -1271,7 +1228,6 @@ function openModal(tourId) {
   modalTags.innerHTML = currentLanguage === 'ko'
     ? (foundTour.tags || []).map(tag => `<span class="tag-item">${escapeHTML(tag)}</span>`).join('')
     : '';
-  modalDuration.textContent = getLocalizedDuration(foundTour.recommendedDuration || '1~2시간');
   modalRecommendedFor.textContent = currentLanguage === 'ko'
     ? (foundTour.recommendedFor || foundTour.categoryName || '전북 여행')
     : getCategoryName(foundTour.category);
@@ -1381,7 +1337,10 @@ function openModal(tourId) {
   tourModal.classList.add('active');
   tourModal.setAttribute('aria-hidden', 'false');
   document.body.classList.add('modal-open');
-  requestAnimationFrame(() => tourModal.querySelector('.modal-close-btn')?.focus());
+  requestAnimationFrame(() => {
+    modalDescToggle.hidden = modalDesc.scrollHeight <= modalDesc.clientHeight + 1;
+    tourModal.querySelector('.modal-close-btn')?.focus();
+  });
 }
 
 function closeModal(event) {
