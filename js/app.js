@@ -19,6 +19,9 @@ let currentLanguage = localStorage.getItem('jeonbuk_language') === 'ko' ? 'ko' :
 let selectedPlannerRegions = new Set();
 let activeRoutePreset = 'heritage';
 let plannerRegionsExpanded = false;
+let tourIndexCache = null;
+let categoryCountsCache = null;
+let uiRequestSequence = 0;
 const RESULTS_PAGE_SIZE = 6;
 
 const REGION_NAMES_ES = {
@@ -231,6 +234,10 @@ const I18N = {
     footerData: 'Datos',
     footerHelp: 'Ayuda turística 1330',
     footerNotice: 'Confirma horarios y precios en la fuente oficial antes de visitar. · Información turística 1330',
+    modalStay: 'Estancia sugerida',
+    estimateLabel: 'Estimación',
+    estimateNote: 'Estimación basada en el tipo de lugar y una visita habitual.',
+    officialLabel: 'Dato oficial',
     modalGoodFor: 'Ideal para',
     modalAbout: '¿Qué encontrarás aquí?',
     modalCheck: 'Antes de visitar',
@@ -322,6 +329,10 @@ const I18N = {
     footerData: '데이터 설정',
     footerHelp: '관광안내 1330',
     footerNotice: '관광지 운영시간·요금은 방문 전 공식 관광정보에서 다시 확인해주세요. · 관광안내 1330',
+    modalStay: '추천 체류',
+    estimateLabel: '예상',
+    estimateNote: '장소 유형과 일반적인 관람 범위를 기준으로 한 예상치입니다.',
+    officialLabel: '공식 안내',
     modalGoodFor: '이런 여행에 추천',
     modalAbout: '이곳은 어떤 곳인가요?',
     modalCheck: '방문 전에 확인하세요',
@@ -379,6 +390,9 @@ const modalAddress = document.getElementById('modalAddress');
 const modalDesc = document.getElementById('modalDesc');
 const modalDescToggle = document.getElementById('modalDescToggle');
 const modalTags = document.getElementById('modalTags');
+const modalDuration = document.getElementById('modalDuration');
+const modalDurationSource = document.getElementById('modalDurationSource');
+const modalDurationNote = document.getElementById('modalDurationNote');
 const modalRecommendedFor = document.getElementById('modalRecommendedFor');
 const modalDetailSection = document.getElementById('modalDetailSection');
 const modalDetailGrid = document.getElementById('modalDetailGrid');
@@ -413,14 +427,9 @@ window.addEventListener('pageshow', event => {
 
 document.addEventListener('DOMContentLoaded', () => {
   applyRoutePreset(activeRoutePreset, false);
-  initRegionChips();
-  initRegionSelect();
-  renderRecommendedCourses();
   restoreSavedPlan();
   updateApiStatusBadge();
-  updateSavedUI();
   applyLanguage(currentLanguage, false);
-  updateUI();
   initMobileNavigation();
 });
 
@@ -681,25 +690,113 @@ function getDisplaySubcategory(tour) {
   return '미식 명소';
 }
 
-function getAllTours() {
+/**
+ * TourAPI has operating hours and place details, but no standardized
+ * recommended-stay field shared by every content type. Estimates stay
+ * centralized here so generated values are never presented as official facts.
+ */
+function getRecommendedStay(tour) {
+  const language = currentLanguage === 'ko' ? 'ko' : 'es';
+  if (tour?.recommendedDuration && tour.recommendedDurationSource === 'official') {
+    return {
+      value: tour.recommendedDuration,
+      estimated: false,
+      label: I18N[language].officialLabel,
+      note: language === 'ko'
+        ? '관광지 공식 안내에서 확인한 체류시간입니다.'
+        : 'Duración indicada por la fuente turística oficial.'
+    };
+  }
+
+  const typeText = [
+    tour?.name,
+    tour?.subCategory,
+    tour?.categoryName,
+    ...(tour?.tags || [])
+  ].filter(Boolean).join(' ');
+
+  let koValue = '1–2시간';
+  let esValue = '1–2 h';
+
+  if (tour?.category === 'festival') {
+    koValue = '2–4시간';
+    esValue = '2–4 h';
+  } else if (/한옥마을|테마파크|동물원|수목원|자연휴양림/.test(typeText)) {
+    koValue = '2–4시간';
+    esValue = '2–4 h';
+  } else if (/시장|거리|마을/.test(typeText)) {
+    koValue = '1시간 30분–3시간';
+    esValue = '1,5–3 h';
+  } else if (tour?.category === 'food' || /카페|커피|다방|빵|제과|베이커리|맛집|식당|음식/.test(typeText)) {
+    koValue = '45–90분';
+    esValue = '45–90 min';
+  } else if (/동산|도시공원|정원|호수|저수지|수변/.test(typeText) && !/국립공원/.test(typeText)) {
+    koValue = '1시간 30분–2시간 30분';
+    esValue = '1,5–2,5 h';
+  } else if (/국립공원|계곡|해수욕장|해변|섬|둘레길|탐방로|트레킹|등산|산행|정상|봉우리/.test(typeText)) {
+    koValue = '반나절 · 3–5시간';
+    esValue = 'Medio día · 3–5 h';
+  } else if (/박물관|미술관|과학관|전시관|기념관/.test(typeText)) {
+    koValue = '1–2시간';
+    esValue = '1–2 h';
+  } else if (/공원|정원|호수|저수지|수변/.test(typeText)) {
+    koValue = '1시간 30분–2시간 30분';
+    esValue = '1,5–2,5 h';
+  } else if (/사찰|절|성당|교회|향교|서원|사당|유적|고분|기념탑/.test(typeText)) {
+    koValue = '45–90분';
+    esValue = '45–90 min';
+  } else if (tour?.category === 'nature') {
+    koValue = '2–3시간';
+    esValue = '2–3 h';
+  }
+
+  return {
+    value: language === 'ko' ? koValue : esValue,
+    estimated: true,
+    label: I18N[language].estimateLabel,
+    note: I18N[language].estimateNote
+  };
+}
+
+function ensureTourIndex() {
+  if (tourIndexCache) return;
+
   const tours = [];
+  const byId = new Map();
+  const counts = { all: 0 };
   Object.entries(JEONBUK_REGIONS).forEach(([regionId, region]) => {
     region.tours.forEach(tour => {
-      tours.push({
+      const indexedTour = {
         ...tour,
         eventStatus: tour.eventPeriod ? getCurrentEventStatus(tour.eventPeriod) : tour.eventStatus,
         subCategory: getDisplaySubcategory(tour),
         regionId,
         regionName: region.name
-      });
+      };
+      tours.push(indexedTour);
+      byId.set(indexedTour.id, indexedTour);
+      counts[indexedTour.category] = (counts[indexedTour.category] || 0) + 1;
     });
   });
-  return tours;
+  counts.all = tours.length;
+  tourIndexCache = { tours, byId };
+  categoryCountsCache = counts;
+}
+
+function getAllTours() {
+  ensureTourIndex();
+  return tourIndexCache.tours;
+}
+
+function getCategoryCounts() {
+  ensureTourIndex();
+  return categoryCountsCache;
 }
 
 function findTourById(tourId) {
   const apiTour = currentLiveApiData.find(tour => tour.id === tourId);
-  return apiTour || getAllTours().find(tour => tour.id === tourId) || null;
+  ensureTourIndex();
+  return apiTour || tourIndexCache.byId.get(tourId) || null;
 }
 
 function getSavedIds() {
@@ -901,11 +998,9 @@ function toggleSavedOnly() {
 }
 
 async function updateUI() {
+  const requestId = ++uiRequestSequence;
   const allTours = getAllTours();
-  const categoryCounts = allTours.reduce((counts, tour) => {
-    counts[tour.category] = (counts[tour.category] || 0) + 1;
-    return counts;
-  }, { all: allTours.length });
+  const categoryCounts = getCategoryCounts();
   document.querySelectorAll('[data-count-category]').forEach(element => {
     const category = element.dataset.countCategory;
     element.textContent = (categoryCounts[category] || 0).toLocaleString(getLocale());
@@ -946,6 +1041,8 @@ async function updateUI() {
   bannerDesc.hidden = !currentSelectedRegion && !currentSearchQuery;
 
   const filteredTours = await getFilteredTourList();
+  if (requestId !== uiRequestSequence) return;
+
   const resultSignature = [
     currentSelectedRegion || 'all',
     currentSelectedCategory,
@@ -1111,7 +1208,9 @@ function renderTourCards(tours) {
           <span><i class="fa-regular fa-calendar"></i> ${escapeHTML(tour.eventPeriod)}</span>
         </div>`
       : '';
+    const recommendedStay = getRecommendedStay(tour);
     const practicalItems = [
+      `<span class="card-stay-meta" title="${escapeHTML(recommendedStay.note)}"><i class="fa-regular fa-clock"></i> ≈ ${escapeHTML(recommendedStay.value)}</span>`,
       tour.fee && String(tour.fee).length <= 32
         ? `<span><i class="fa-solid fa-ticket"></i> ${escapeHTML(tour.fee)}</span>`
         : ''
@@ -1228,6 +1327,11 @@ function openModal(tourId) {
   modalTags.innerHTML = currentLanguage === 'ko'
     ? (foundTour.tags || []).map(tag => `<span class="tag-item">${escapeHTML(tag)}</span>`).join('')
     : '';
+  const recommendedStay = getRecommendedStay(foundTour);
+  modalDuration.textContent = recommendedStay.value;
+  modalDurationSource.textContent = recommendedStay.label;
+  modalDurationSource.classList.toggle('official', !recommendedStay.estimated);
+  modalDurationNote.textContent = recommendedStay.note;
   modalRecommendedFor.textContent = currentLanguage === 'ko'
     ? (foundTour.recommendedFor || foundTour.categoryName || '전북 여행')
     : getCategoryName(foundTour.category);
@@ -1781,13 +1885,14 @@ function updateMobileNavActive() {
 }
 
 function initMobileNavigation() {
-  if (!mobileNavButtons.length) return;
+  const backToTopBtn = document.getElementById('backToTopBtn');
   let ticking = false;
   const scheduleUpdate = () => {
     if (ticking) return;
     ticking = true;
     window.requestAnimationFrame(() => {
-      updateMobileNavActive();
+      if (mobileNavButtons.length) updateMobileNavActive();
+      backToTopBtn?.classList.toggle('visible', window.scrollY > 300);
       ticking = false;
     });
   };
@@ -1796,7 +1901,7 @@ function initMobileNavigation() {
   mobileNavButtons.forEach(button => {
     button.addEventListener('click', () => setMobileNavActive(button.dataset.mobileNav));
   });
-  updateMobileNavActive();
+  scheduleUpdate();
 }
 
 function updateApiStatusBadge() {
@@ -1841,22 +1946,7 @@ function clearApiKey() {
   updateUI();
 }
 
-// ── Back to Top ──
 function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
 }
-
-(function initBackToTop() {
-  const btn = document.getElementById('backToTopBtn');
-  if (!btn) return;
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        btn.classList.toggle('visible', window.scrollY > 300);
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }, { passive: true });
-})();

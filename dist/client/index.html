@@ -27,8 +27,10 @@
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗺️</text></svg>">
 
+  <link rel="preload" as="image" href="images/catalog/official-a-13479.webp" fetchpriority="high">
+
   <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=38">
+  <link rel="stylesheet" href="css/style.css?v=39">
 </head>
 <body>
 
@@ -314,6 +316,15 @@
         <p class="modal-address" id="modalAddress"><i class="fa-solid fa-location-dot"></i> 위치 정보</p>
 
         <div class="modal-snapshot" aria-label="명소 핵심 정보">
+          <div class="snapshot-card snapshot-stay-card">
+            <span>
+              <i class="fa-regular fa-clock"></i>
+              <span data-i18n="modalStay">Estancia sugerida</span>
+              <small class="snapshot-source-badge" id="modalDurationSource">Estimación</small>
+            </span>
+            <strong id="modalDuration">1–2 h</strong>
+            <small class="snapshot-note" id="modalDurationNote">Estimación basada en el tipo de lugar y una visita habitual.</small>
+          </div>
           <div class="snapshot-card">
             <span><i class="fa-solid fa-user-group"></i> <span data-i18n="modalGoodFor">Ideal para</span></span>
             <strong id="modalRecommendedFor">전북 여행</strong>
@@ -451,6 +462,6 @@
   <script src="js/tourImages.js?v=25"></script>
   <script src="js/tourDetails.js?v=25"></script>
   <script src="js/tourApi.js?v=25"></script>
-  <script src="js/app.js?v=40"></script>
+  <script src="js/app.js?v=41"></script>
 </body>
 </html>
