@@ -1010,6 +1010,20 @@ label {
   text-align: left;
   color: inherit;
   font: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.tour-card-main {
+  flex: 1;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
 }
 
 .tour-card:hover {
@@ -1176,6 +1190,42 @@ label {
   color: var(--text-body);
   line-height: 1.5;
   margin: 0.15rem 0 0.45rem;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.tour-card.desc-expanded .card-desc {
+  display: block;
+  overflow: visible;
+  -webkit-line-clamp: unset;
+}
+
+.card-desc-toggle {
+  width: 100%;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.35rem;
+  padding: 0 0.85rem 0.7rem;
+  border: 0;
+  background: transparent;
+  color: var(--primary);
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.3;
+  cursor: pointer;
+}
+
+.card-desc-toggle i {
+  font-size: 0.62rem;
+  transition: transform var(--transition-fast);
+}
+
+.card-desc-toggle[aria-expanded="true"] i {
+  transform: rotate(180deg);
 }
 
 .card-practical-meta {
@@ -2090,6 +2140,13 @@ body.modal-open {
 }
 
 .mypage-header-btn {
+  position: relative;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  justify-content: center;
+  padding: 0;
+  border-radius: 50%;
   border-color: var(--border-light);
   background: #fff;
   color: var(--text-body);
@@ -2097,6 +2154,21 @@ body.modal-open {
 
 .mypage-header-btn i {
   color: var(--primary);
+}
+
+.mypage-header-btn strong {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 0.25rem;
+  border: 2px solid #fff;
+  font-size: 0.58rem;
+}
+
+.mypage-header-btn strong[hidden] {
+  display: none;
 }
 
 .results-toolbar {
@@ -3885,6 +3957,7 @@ body.modal-open {
   color: #D1FAE5;
   background: rgba(255, 255, 255, 0.13);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 1rem;
 }
 
 .hero-title {
@@ -3893,6 +3966,7 @@ body.modal-open {
   font-size: clamp(2rem, 3.2vw, 3.2rem);
   line-height: 1.22;
   letter-spacing: -0.035em;
+  margin-bottom: 1rem;
 }
 
 .hero-title strong {
@@ -3904,10 +3978,12 @@ body.modal-open {
   color: rgba(255, 255, 255, 0.88);
   font-size: 0.98rem;
   line-height: 1.7;
+  margin-bottom: 1.75rem;
 }
 
 .hero-actions {
   justify-content: flex-start;
+  gap: 0.8rem;
 }
 
 .hero-cta-primary,
@@ -4134,10 +4210,15 @@ body.modal-open {
 
   .hero-title {
     font-size: clamp(1.75rem, 8vw, 2.25rem);
-    line-height: 1.3;
+    line-height: 1.24;
+    margin-bottom: 1.05rem;
   }
 
   .hero-desc {
+    max-width: 34rem;
+    margin-right: auto;
+    margin-bottom: 1.65rem;
+    margin-left: auto;
     color: rgba(255, 255, 255, 0.9);
     font-size: 0.88rem;
     line-height: 1.65;
