@@ -1753,13 +1753,17 @@ function updateMobileNavActive() {
   const documentTop = element => element
     ? element.getBoundingClientRect().top + window.scrollY
     : Infinity;
-  const plannerTop = documentTop(document.getElementById('plannerSection'));
-  const tourTop = documentTop(document.getElementById('tourSection'));
-  const placesTop = documentTop(document.getElementById('tourCardList'));
-  let active = 'regions';
-  if (probe >= plannerTop) active = 'planner';
-  if (probe >= tourTop) active = 'regions';
-  if (probe >= placesTop) active = 'places';
+  const navSections = [
+    { key: 'regions', element: document.getElementById('regionSelector') },
+    { key: 'places', element: document.getElementById('tourCardList') },
+    { key: 'planner', element: document.getElementById('plannerSection') }
+  ]
+    .filter(section => section.element)
+    .sort((a, b) => documentTop(a.element) - documentTop(b.element));
+  let active = navSections[0]?.key || 'regions';
+  navSections.forEach(section => {
+    if (probe >= documentTop(section.element)) active = section.key;
+  });
   setMobileNavActive(active);
 }
 

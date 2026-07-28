@@ -83,89 +83,7 @@
       </div>
     </section>
 
-    <!-- 2. PLANNER SECTION -->
-    <section class="planner-section" id="plannerSection">
-      <div class="planner-intro">
-        <span class="planner-kicker" data-i18n="plannerKicker">Tu viaje por Jeonbuk</span>
-        <h2><i class="fa-solid fa-wand-magic-sparkles"></i> <span data-i18n="plannerTitle">Planificador de ruta</span></h2>
-        <p data-i18n="plannerDesc">Combina varias regiones y crea una ruta práctica para cada día.</p>
-      </div>
-      <div class="planner-form">
-        <label>
-          <span data-i18n="duration">Duración</span>
-          <select id="plannerDuration">
-            <option value="1" data-i18n="dayTrip">1 día</option>
-            <option value="2" selected data-i18n="twoDays">2 días</option>
-            <option value="3" data-i18n="threeDays">3 días</option>
-            <option value="4" data-i18n="fourDays">4 días</option>
-          </select>
-        </label>
-        <label>
-          <span data-i18n="theme">Interés principal</span>
-          <select id="plannerTheme">
-            <option value="all" data-i18n="themeAll">Un poco de todo</option>
-            <option value="nature" data-i18n="themeNature">Naturaleza</option>
-            <option value="culture" data-i18n="themeCulture">Historia y cultura</option>
-            <option value="food" data-i18n="themeFood">Comida y cafés</option>
-            <option value="festival" data-i18n="themeFestival">Festivales</option>
-          </select>
-        </label>
-        <label>
-          <span data-i18n="pace">Ritmo del viaje</span>
-          <select id="plannerPace">
-            <option value="2" data-i18n="paceRelaxed">Tranquilo · 2 paradas/día</option>
-            <option value="3" selected data-i18n="paceBalanced">Equilibrado · 3 paradas/día</option>
-            <option value="4" data-i18n="paceIntense">Intenso · 4 paradas/día</option>
-          </select>
-        </label>
-        <button type="button" class="planner-generate-btn" onclick="generateTravelPlan()">
-          <i class="fa-solid fa-route"></i> <span data-i18n="makeRoute">Crear mi ruta</span>
-        </button>
-      </div>
-      <div class="planner-route-builder">
-        <div class="planner-route-heading">
-          <div>
-            <span class="planner-step">1</span>
-            <strong data-i18n="presetTitle">Elige una ruta base</strong>
-          </div>
-          <div class="route-presets" id="routePresets">
-            <button type="button" class="route-preset active" data-preset="heritage" onclick="applyRoutePreset('heritage')"><i class="fa-solid fa-landmark"></i> <span data-i18n="presetHeritage">Esencia cultural</span></button>
-            <button type="button" class="route-preset" data-preset="coast" onclick="applyRoutePreset('coast')"><i class="fa-solid fa-water"></i> <span data-i18n="presetCoast">Costa oeste</span></button>
-            <button type="button" class="route-preset" data-preset="mountain" onclick="applyRoutePreset('mountain')"><i class="fa-solid fa-mountain-sun"></i> <span data-i18n="presetMountain">Montaña y descanso</span></button>
-            <button type="button" class="route-preset" data-preset="flavor" onclick="applyRoutePreset('flavor')"><i class="fa-solid fa-utensils"></i> <span data-i18n="presetFlavor">Sabores de Jeonbuk</span></button>
-          </div>
-          <label class="route-preset-select-control">
-            <span class="sr-only" data-i18n="presetTitle">Elige una ruta base</span>
-            <select id="routePresetSelect" onchange="applyRoutePreset(this.value)">
-              <option value="" data-i18n="customRoute" hidden>Ruta personalizada</option>
-              <option value="heritage" data-i18n="presetHeritage">Esencia cultural</option>
-              <option value="coast" data-i18n="presetCoast">Costa oeste</option>
-              <option value="mountain" data-i18n="presetMountain">Montaña y descanso</option>
-              <option value="flavor" data-i18n="presetFlavor">Sabores de Jeonbuk</option>
-            </select>
-          </label>
-        </div>
-        <div class="planner-region-builder">
-          <div class="planner-region-copy">
-            <span class="planner-step">2</span>
-            <div>
-              <strong data-i18n="chooseRegions">Añade o quita regiones</strong>
-              <p id="plannerRegionSummary">3 regiones seleccionadas</p>
-            </div>
-          </div>
-          <div class="planner-region-controls">
-            <button type="button" class="planner-regions-toggle" id="plannerRegionsToggle" aria-expanded="false" onclick="togglePlannerRegionPicker()">
-              <span data-i18n="changeRegions">Cambiar regiones</span>
-              <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <div class="planner-region-chips" id="plannerRegionChips" aria-label="Regiones para incluir en la ruta"></div>
-          </div>
-        </div>
-      </div>
-      <div class="planner-result" id="plannerResult" aria-live="polite" hidden></div>
-    </section>
-
-    <!-- 3. TOUR SPOTS SECTION -->
+    <!-- 2. TOUR SPOTS SECTION -->
     <section class="tour-section" id="tourSection">
 
       <div class="region-explorer-card">
@@ -255,6 +173,88 @@
         <span id="loadMoreLabel">Ver más lugares</span>
       </button>
 
+    </section>
+
+    <!-- 3. PLANNER SECTION -->
+    <section class="planner-section" id="plannerSection">
+      <div class="planner-intro">
+        <span class="planner-kicker" data-i18n="plannerKicker">Tu viaje por Jeonbuk</span>
+        <h2><i class="fa-solid fa-wand-magic-sparkles"></i> <span data-i18n="plannerTitle">Planificador de ruta</span></h2>
+        <p data-i18n="plannerDesc">Combina varias regiones y crea una ruta práctica para cada día.</p>
+      </div>
+      <div class="planner-form">
+        <label>
+          <span data-i18n="duration">Duración</span>
+          <select id="plannerDuration">
+            <option value="1" data-i18n="dayTrip">1 día</option>
+            <option value="2" selected data-i18n="twoDays">2 días</option>
+            <option value="3" data-i18n="threeDays">3 días</option>
+            <option value="4" data-i18n="fourDays">4 días</option>
+          </select>
+        </label>
+        <label>
+          <span data-i18n="theme">Interés principal</span>
+          <select id="plannerTheme">
+            <option value="all" data-i18n="themeAll">Un poco de todo</option>
+            <option value="nature" data-i18n="themeNature">Naturaleza</option>
+            <option value="culture" data-i18n="themeCulture">Historia y cultura</option>
+            <option value="food" data-i18n="themeFood">Comida y cafés</option>
+            <option value="festival" data-i18n="themeFestival">Festivales</option>
+          </select>
+        </label>
+        <label>
+          <span data-i18n="pace">Ritmo del viaje</span>
+          <select id="plannerPace">
+            <option value="2" data-i18n="paceRelaxed">Tranquilo · 2 paradas/día</option>
+            <option value="3" selected data-i18n="paceBalanced">Equilibrado · 3 paradas/día</option>
+            <option value="4" data-i18n="paceIntense">Intenso · 4 paradas/día</option>
+          </select>
+        </label>
+        <button type="button" class="planner-generate-btn" onclick="generateTravelPlan()">
+          <i class="fa-solid fa-route"></i> <span data-i18n="makeRoute">Crear mi ruta</span>
+        </button>
+      </div>
+      <div class="planner-route-builder">
+        <div class="planner-route-heading">
+          <div>
+            <span class="planner-step">1</span>
+            <strong data-i18n="presetTitle">Elige una ruta base</strong>
+          </div>
+          <div class="route-presets" id="routePresets">
+            <button type="button" class="route-preset active" data-preset="heritage" onclick="applyRoutePreset('heritage')"><i class="fa-solid fa-landmark"></i> <span data-i18n="presetHeritage">Esencia cultural</span></button>
+            <button type="button" class="route-preset" data-preset="coast" onclick="applyRoutePreset('coast')"><i class="fa-solid fa-water"></i> <span data-i18n="presetCoast">Costa oeste</span></button>
+            <button type="button" class="route-preset" data-preset="mountain" onclick="applyRoutePreset('mountain')"><i class="fa-solid fa-mountain-sun"></i> <span data-i18n="presetMountain">Montaña y descanso</span></button>
+            <button type="button" class="route-preset" data-preset="flavor" onclick="applyRoutePreset('flavor')"><i class="fa-solid fa-utensils"></i> <span data-i18n="presetFlavor">Sabores de Jeonbuk</span></button>
+          </div>
+          <label class="route-preset-select-control">
+            <span class="sr-only" data-i18n="presetTitle">Elige una ruta base</span>
+            <select id="routePresetSelect" onchange="applyRoutePreset(this.value)">
+              <option value="" data-i18n="customRoute" hidden>Ruta personalizada</option>
+              <option value="heritage" data-i18n="presetHeritage">Esencia cultural</option>
+              <option value="coast" data-i18n="presetCoast">Costa oeste</option>
+              <option value="mountain" data-i18n="presetMountain">Montaña y descanso</option>
+              <option value="flavor" data-i18n="presetFlavor">Sabores de Jeonbuk</option>
+            </select>
+          </label>
+        </div>
+        <div class="planner-region-builder">
+          <div class="planner-region-copy">
+            <span class="planner-step">2</span>
+            <div>
+              <strong data-i18n="chooseRegions">Añade o quita regiones</strong>
+              <p id="plannerRegionSummary">3 regiones seleccionadas</p>
+            </div>
+          </div>
+          <div class="planner-region-controls">
+            <button type="button" class="planner-regions-toggle" id="plannerRegionsToggle" aria-expanded="false" onclick="togglePlannerRegionPicker()">
+              <span data-i18n="changeRegions">Cambiar regiones</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="planner-region-chips" id="plannerRegionChips" aria-label="Regiones para incluir en la ruta"></div>
+          </div>
+        </div>
+      </div>
+      <div class="planner-result" id="plannerResult" aria-live="polite" hidden></div>
     </section>
 
     <!-- 4. RECOMMENDED COURSES -->
@@ -456,6 +456,6 @@
   <script src="js/tourImages.js?v=25"></script>
   <script src="js/tourDetails.js?v=25"></script>
   <script src="js/tourApi.js?v=25"></script>
-  <script src="js/app.js?v=37"></script>
+  <script src="js/app.js?v=38"></script>
 </body>
 </html>
