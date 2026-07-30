@@ -954,6 +954,7 @@ html[lang='ko'] .hero-title {
   .hero-desc {
     font-size: 0.84rem;
     line-height: 1.7;
+    white-space: pre-line;
   }
 
   .hero-actions {

@@ -198,10 +198,10 @@ const I18N = {
     hideRegions: 'Ocultar regiones',
     plannerEmpty: 'Elige una combinación y crea tu itinerario.',
     heroKicker: 'Más allá de Seúl',
-    heroTitleStart: 'Corea no termina en Seúl.',
-    heroTitleStrong: 'Descubre Jeonbuk',
-    heroTitleEnd: 'a tu ritmo.',
-    heroDesc: 'A unas 1 h 30 min de Seúl: historia, mar, montaña y sabores locales en un mismo viaje.',
+    heroTitleStart: 'Jeonbuk,',
+    heroTitleStrong: 'a tu ritmo.',
+    heroTitleEnd: '',
+    heroDesc: 'Historia, mar, montaña y sabores locales.\nA solo 1 h 30 min de Seúl.',
     statRegions: 'municipios',
     statPlaces: 'lugares destacados',
     statThemes: 'temas',
@@ -305,10 +305,10 @@ const I18N = {
     hideRegions: '지역 선택 닫기',
     plannerEmpty: '동선과 조건을 선택한 뒤 여행 일정을 만들어보세요.',
     heroKicker: '서울 너머의 한국',
-    heroTitleStart: '한국은 서울에서 끝나지 않습니다.',
-    heroTitleStrong: '전북을',
-    heroTitleEnd: '당신의 속도로 만나보세요.',
-    heroDesc: '서울에서 약 1시간 30분. 역사와 바다, 산과 지역의 맛이 이어지는 전북을 여행해보세요.',
+    heroTitleStart: '전북,',
+    heroTitleStrong: '당신의 속도로.',
+    heroTitleEnd: '',
+    heroDesc: '역사, 바다, 산과 지역의 맛을 만나보세요.\n서울에서 약 1시간 30분 거리입니다.',
     statRegions: '시·군',
     statPlaces: '대표 명소',
     statThemes: '테마',
@@ -537,7 +537,14 @@ function renderRouteModeLink(originTour, destinationTour, mode, icon, label) {
 }
 
 function t(key) {
-  return I18N[currentLanguage]?.[key] || I18N.es[key] || key;
+  const currentDictionary = I18N[currentLanguage];
+  if (currentDictionary && Object.prototype.hasOwnProperty.call(currentDictionary, key)) {
+    return currentDictionary[key];
+  }
+  if (Object.prototype.hasOwnProperty.call(I18N.es, key)) {
+    return I18N.es[key];
+  }
+  return key;
 }
 
 function getLocale() {
@@ -649,7 +656,7 @@ function applyLanguage(language, persist = true) {
 
   document.querySelectorAll('[data-i18n]').forEach(element => {
     const value = t(element.dataset.i18n);
-    if (value) element.textContent = value;
+    if (value !== undefined && value !== null) element.textContent = value;
   });
   document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
     const value = t(element.dataset.i18nPlaceholder);
