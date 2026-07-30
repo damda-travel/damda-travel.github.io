@@ -478,22 +478,22 @@ body {
 .hero-visual-hanok {
   left: 0;
   z-index: 3;
-  width: 40%;
+  width: 36.5%;
   clip-path: polygon(0 0, 100% 0, 82% 100%, 0 100%);
 }
 
 .hero-visual-ski {
-  left: 32%;
+  left: 30%;
   z-index: 2;
-  width: 44%;
+  width: 40%;
   clip-path: polygon(16% 0, 100% 0, 84% 100%, 0 100%);
 }
 
 .hero-visual-coast {
-  left: 66%;
+  left: 63.5%;
   z-index: 1;
-  width: 34%;
-  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+  width: 36.5%;
+  clip-path: polygon(17% 0, 100% 0, 100% 100%, 0 100%);
 }
 
 .hero-visual-panel img {
@@ -1028,23 +1028,6 @@ html[lang='ko'] .hero-title {
 
   .hero-visual-grid {
     overflow: hidden;
-  }
-
-  .hero-visual-hanok {
-    width: 44%;
-    clip-path: polygon(0 0, 100% 0, 78% 100%, 0 100%);
-  }
-
-  .hero-visual-ski {
-    left: 31%;
-    width: 46%;
-    clip-path: polygon(14% 0, 100% 0, 86% 100%, 0 100%);
-  }
-
-  .hero-visual-coast {
-    left: 66%;
-    width: 34%;
-    clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
   }
 
   .hero-visual-grid::after {
