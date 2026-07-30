@@ -817,13 +817,36 @@ html[lang='ko'] .hero-title {
 }
 
 .course-period {
+  font-size: 0.75rem;
+  line-height: 1.35;
   border-radius: 5px;
+  background: rgba(255, 255, 255, 0.24);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
 }
 
 .course-title {
   font-size: 1.3rem;
+  line-height: 1.38;
+  letter-spacing: -0.025em;
+}
+
+.course-desc {
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.55;
+  opacity: 1;
+}
+
+.course-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.course-open-label {
+  font-size: 0.76rem;
+  line-height: 1.4;
 }
 
 .main-footer {
