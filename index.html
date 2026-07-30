@@ -31,6 +31,7 @@
 
   <!-- CSS Stylesheet -->
   <link rel="stylesheet" href="css/style.css?v=39">
+  <link rel="stylesheet" href="css/polish.css?v=1">
 </head>
 <body>
 
@@ -71,8 +72,8 @@
     <section class="hero-section" id="heroSection">
       <div class="hero-content">
         <span class="hero-kicker"><i class="fa-solid fa-compass"></i> <span data-i18n="heroKicker">Más allá de Seúl</span></span>
-        <h2 class="hero-title"><span data-i18n="heroTitleStart">¿Corea es solo Seúl?</span> <strong data-i18n="heroTitleStrong">Es hora de conocer</strong> <span data-i18n="heroTitleEnd">la Corea real.</span></h2>
-        <p class="hero-desc" data-i18n="heroDesc">A unos 90 minutos de Seúl, Jeonbuk reúne historia, tradición, montañas, mar y sabores locales en un solo viaje.</p>
+        <h2 class="hero-title"><span data-i18n="heroTitleStart">Corea no termina en Seúl.</span> <strong data-i18n="heroTitleStrong">Descubre Jeonbuk</strong> <span data-i18n="heroTitleEnd">a tu ritmo.</span></h2>
+        <p class="hero-desc" data-i18n="heroDesc">A unas 1 h 30 min de Seúl: historia, mar, montaña y sabores locales en un mismo viaje.</p>
         <div class="hero-actions">
           <button type="button" class="hero-cta-primary" onclick="scrollToSection('tourSection')">
             <i class="fa-solid fa-compass"></i> <span data-i18n="explorePlaces">Explorar lugares</span>
@@ -92,10 +93,10 @@
         <div class="region-info-banner" id="regionBanner">
           <div class="banner-header">
             <div>
-              <span class="banner-badge" id="bannerBadge">Todo Jeonbuk</span>
-              <h2 class="banner-title" id="bannerTitle">Lugares destacados de Jeonbuk</h2>
+              <span class="banner-badge" id="bannerBadge" hidden>Todo Jeonbuk</span>
+              <h2 class="banner-title" id="bannerTitle">Explora Jeonbuk</h2>
             </div>
-            <span class="banner-count" id="bannerCount">Cargando lugares</span>
+            <span class="banner-count" id="bannerCount" hidden>Cargando lugares</span>
           </div>
           <p class="banner-desc" id="bannerDesc">
             Compara lugares, comida, cafés y festivales de los 14 municipios.
@@ -105,13 +106,13 @@
         <div class="region-selector-panel" id="regionSelector">
           <div class="region-selector-heading">
             <div>
-              <span class="section-kicker" data-i18n="regionSelectorKicker">Explora por región</span>
-              <h3><i class="fa-solid fa-location-crosshairs"></i> <span data-i18n="regionSelectorTitle">¿A dónde quieres ir?</span></h3>
+              <span class="section-kicker" data-i18n="regionSelectorKicker">Elige tu zona</span>
+              <h3><i class="fa-solid fa-location-crosshairs"></i> <span data-i18n="regionSelectorTitle">Elige una región</span></h3>
             </div>
             <button type="button" class="region-reset-btn" id="regionResetBtn" onclick="resetSelection()" hidden><i class="fa-solid fa-rotate-left"></i> <span data-i18n="showAllRegions">Ver todo Jeonbuk</span></button>
           </div>
           <label class="mobile-region-select">
-            <span class="sr-only" data-i18n="regionSelectorTitle">¿A dónde quieres ir?</span>
+            <span class="sr-only" data-i18n="regionSelectorTitle">Elige una región</span>
             <i class="fa-solid fa-location-dot"></i>
             <select id="regionSelectMobile" onchange="handleMobileRegionSelect(this.value)" aria-label="Seleccionar región"></select>
           </label>
@@ -123,26 +124,26 @@
         </div>
 
         <div class="category-filter-block">
-          <span class="section-kicker" data-i18n="categoryFilterKicker">Elige un tema</span>
+          <span class="section-kicker" data-i18n="categoryFilterKicker">O explora por tema</span>
           <nav class="category-nav" aria-label="Filtrar lugares por tema">
             <div class="category-container">
               <button class="cat-btn active" data-category="all" onclick="setCategory('all', this)">
-                <i class="fa-solid fa-grid-2"></i> <span data-i18n="catAll">Todo</span> <span class="cat-count" data-count-category="all">0</span>
+                <i class="fa-solid fa-compass" aria-hidden="true"></i> <span data-i18n="catAll">Todo</span> <span class="cat-count" data-count-category="all">0</span>
               </button>
               <button class="cat-btn" data-category="food" onclick="setCategory('food', this)">
-                🍱 <span data-i18n="catFood">Comida y cafés</span> <span class="cat-count" data-count-category="food">0</span>
+                <i class="fa-solid fa-utensils" aria-hidden="true"></i> <span data-i18n="catFood">Comida y cafés</span> <span class="cat-count" data-count-category="food">0</span>
               </button>
               <button class="cat-btn" data-category="culture" onclick="setCategory('culture', this)">
-                🏛️ <span data-i18n="catCulture">Historia y cultura</span> <span class="cat-count" data-count-category="culture">0</span>
+                <i class="fa-solid fa-landmark" aria-hidden="true"></i> <span data-i18n="catCulture">Historia y cultura</span> <span class="cat-count" data-count-category="culture">0</span>
               </button>
               <button class="cat-btn" data-category="nature" onclick="setCategory('nature', this)">
-                🌿 <span data-i18n="catNature">Naturaleza</span> <span class="cat-count" data-count-category="nature">0</span>
+                <i class="fa-solid fa-leaf" aria-hidden="true"></i> <span data-i18n="catNature">Naturaleza</span> <span class="cat-count" data-count-category="nature">0</span>
               </button>
               <button class="cat-btn" data-category="festival" onclick="setCategory('festival', this)">
-                🎉 <span data-i18n="catFestival">Festivales</span> <span class="cat-count" data-count-category="festival">0</span>
+                <i class="fa-regular fa-calendar-days" aria-hidden="true"></i> <span data-i18n="catFestival">Festivales</span> <span class="cat-count" data-count-category="festival">0</span>
               </button>
               <button class="cat-btn course-btn" data-category="course" onclick="setCategory('course', this)">
-                🚗 <span data-i18n="catCourses">Rutas recomendadas</span>
+                <i class="fa-solid fa-route" aria-hidden="true"></i> <span data-i18n="catCourses">Rutas recomendadas</span>
               </button>
             </div>
           </nav>
@@ -315,7 +316,7 @@
 
         <p class="modal-address" id="modalAddress"><i class="fa-solid fa-location-dot"></i> 위치 정보</p>
 
-        <div class="modal-snapshot" aria-label="명소 핵심 정보">
+        <div class="modal-snapshot" aria-label="Información principal del lugar">
           <div class="snapshot-card snapshot-stay-card">
             <span>
               <i class="fa-regular fa-clock"></i>
@@ -450,7 +451,7 @@
     <button type="button" data-mobile-nav="saved" onclick="openSavedPanel()"><i class="fa-solid fa-bookmark"></i><span><span data-i18n="mobileSaved">Guardados</span> <b id="mobileSavedCount">0</b></span></button>
   </nav>
 
-  <button type="button" class="back-to-top-btn" id="backToTopBtn" onclick="scrollToTop()" aria-label="맨 위로 이동">
+  <button type="button" class="back-to-top-btn" id="backToTopBtn" onclick="scrollToTop()" aria-label="Volver arriba">
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 

@@ -1,0 +1,326 @@
+/*
+ * Editorial UX layer
+ * Final visual decisions live here so legacy rules in style.css stay stable.
+ */
+
+.tour-section {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  animation: none;
+}
+
+.region-explorer-card {
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.region-info-banner {
+  overflow: visible;
+  padding: 0 0 1rem;
+  background: transparent;
+  color: var(--text-main);
+  animation: none;
+}
+
+.region-info-banner::before {
+  display: none;
+}
+
+.banner-badge {
+  background: var(--primary-light);
+  color: #047857;
+}
+
+.banner-title {
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  letter-spacing: -0.035em;
+}
+
+.banner-count {
+  padding: 0.15rem 0;
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.banner-desc {
+  color: var(--text-muted);
+  opacity: 1;
+}
+
+.banner-badge[hidden],
+.banner-count[hidden] {
+  display: none !important;
+}
+
+.region-selector-panel {
+  border: 1px solid var(--border-light);
+  border-radius: 16px 16px 0 0;
+  background: #fff;
+}
+
+.category-filter-block {
+  border: 1px solid var(--border-light);
+  border-top: 0;
+  border-radius: 0 0 16px 16px;
+  background: #fff;
+}
+
+.cat-btn,
+.cat-btn.course-btn {
+  margin-left: 0;
+  border: 0;
+  background: #f1f5f9;
+  color: var(--text-body);
+  box-shadow: none;
+}
+
+.cat-btn:hover,
+.cat-btn.course-btn:hover {
+  transform: none;
+  border-color: transparent;
+  background: #e2e8f0;
+  box-shadow: none;
+  opacity: 1;
+}
+
+.cat-btn.active {
+  color: #fff;
+  background: var(--primary);
+  box-shadow: none;
+}
+
+.tour-card {
+  box-shadow: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tour-card:hover {
+  transform: none;
+  border-color: #94a3b8;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.card-img-box img,
+.tour-card:hover .card-img-box img {
+  transition: none;
+  transform: none;
+}
+
+.card-cat-badge,
+.card-saved-badge,
+.modal-close-btn {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.card-view-badge {
+  display: none;
+}
+
+.card-practical-meta span {
+  padding: 0;
+  background: transparent;
+  color: #64748b;
+}
+
+.modal-overlay {
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  transition: opacity 0.14s ease;
+}
+
+.modal-content {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.14s ease, transform 0.18s ease-out;
+}
+
+.modal-overlay.active .modal-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.modal-close-btn:hover {
+  transform: none;
+}
+
+.modal-rating[hidden] {
+  display: none !important;
+}
+
+.modal-address {
+  align-items: flex-start;
+}
+
+.modal-address > span {
+  display: block;
+  min-width: 0;
+}
+
+.modal-address strong {
+  display: block;
+  color: var(--text-body);
+  font-weight: 700;
+}
+
+.modal-address small {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  line-height: 1.45;
+}
+
+.modal-snapshot {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.snapshot-card {
+  padding: 0 0.85rem;
+  border: 0;
+  border-right: 1px solid var(--border-light);
+  border-radius: 0;
+  background: transparent;
+}
+
+.snapshot-card:first-child {
+  padding-left: 0;
+}
+
+.snapshot-card:last-child {
+  padding-right: 0;
+  border-right: 0;
+}
+
+.snapshot-source-badge {
+  background: #fff7e6;
+  color: #9a5b12;
+}
+
+.snapshot-note {
+  font-size: 0.6rem;
+}
+
+.modal-desc-box {
+  padding: 0.35rem 0 0.9rem;
+  border: 0;
+  border-bottom: 1px solid var(--border-light);
+  border-radius: 0;
+  background: transparent;
+}
+
+.modal-detail-grid {
+  gap: 0;
+}
+
+.modal-detail-item {
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 0.55rem;
+  padding: 0.7rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--border-light);
+  border-radius: 0;
+  background: transparent;
+}
+
+.modal-detail-item > i {
+  width: 24px;
+  height: 24px;
+  border-radius: 0;
+  background: transparent;
+}
+
+.modal-route-section {
+  border-radius: 12px;
+  background: #f8fbfa;
+}
+
+.back-to-top-btn {
+  width: 42px;
+  height: 42px;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.22);
+}
+
+@media (max-width: 768px) {
+  .tour-section {
+    padding: 1.75rem 0.85rem;
+  }
+
+  .region-info-banner {
+    padding: 0 0 0.85rem;
+  }
+
+  .banner-header {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .banner-title,
+  .banner-desc {
+    text-align: left;
+  }
+
+  .region-explorer-card {
+    border-radius: 0;
+  }
+
+  .region-selector-panel {
+    padding: 1rem 0.75rem;
+  }
+
+  .category-filter-block {
+    padding: 0.85rem 0.75rem 1rem;
+    text-align: left;
+  }
+
+  .category-container {
+    gap: 0.4rem;
+  }
+
+  .cat-btn {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.78rem;
+  }
+
+  .results-toolbar {
+    justify-content: space-between;
+  }
+
+  .modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .modal-content {
+    max-height: 94dvh;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .modal-body {
+    gap: 0.9rem;
+  }
+
+  .back-to-top-btn {
+    right: 0.75rem;
+    bottom: 5.7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tour-card,
+  .modal-overlay,
+  .modal-content {
+    transition: none;
+  }
+}

@@ -42,7 +42,8 @@ jeonbuk-tour-map/
 ├─ README.md
 ├─ index.html
 ├─ css/
-│  └─ style.css
+│  ├─ style.css
+│  └─ polish.css
 ├─ js/
 │  ├─ app.js
 │  ├─ tourApi.js
@@ -64,6 +65,7 @@ jeonbuk-tour-map/
 ```
 
 루트의 `index.html`, `css/`, `js/`, `images/`가 편집 원본입니다. 배포 전 변경 파일을 `dist/client/`에 동일하게 동기화합니다.
+기존 스타일 구조를 유지하고 최종 UX 보정은 `css/polish.css`에서만 관리합니다.
 
 ## 로컬 실행
 
