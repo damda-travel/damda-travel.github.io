@@ -452,8 +452,6 @@ body {
   position: absolute;
   inset: 0;
   z-index: -2;
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr 1fr;
   overflow: hidden;
 }
 
@@ -461,6 +459,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
+  z-index: 4;
   background:
     linear-gradient(90deg, rgba(9, 37, 29, 0.97) 0%, rgba(9, 37, 29, 0.88) 30%, rgba(9, 37, 29, 0.5) 58%, rgba(9, 37, 29, 0.22) 100%),
     linear-gradient(180deg, rgba(5, 23, 18, 0.08), rgba(5, 23, 18, 0.28));
@@ -468,14 +467,33 @@ body {
 }
 
 .hero-visual-panel {
-  min-width: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
   height: 100%;
   margin: 0;
   overflow: hidden;
 }
 
-.hero-visual-panel + .hero-visual-panel {
-  border-left: 1px solid rgba(255, 255, 255, 0.18);
+.hero-visual-hanok {
+  left: 0;
+  z-index: 3;
+  width: 40%;
+  clip-path: polygon(0 0, 100% 0, 82% 100%, 0 100%);
+}
+
+.hero-visual-ski {
+  left: 32%;
+  z-index: 2;
+  width: 44%;
+  clip-path: polygon(16% 0, 100% 0, 84% 100%, 0 100%);
+}
+
+.hero-visual-coast {
+  left: 66%;
+  z-index: 1;
+  width: 34%;
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
 }
 
 .hero-visual-panel img {
@@ -486,11 +504,11 @@ body {
 }
 
 .hero-visual-hanok img {
-  object-position: 50% 48%;
+  object-position: 52% 50%;
 }
 
-.hero-visual-mountain img {
-  object-position: 54% 50%;
+.hero-visual-ski img {
+  object-position: 52% 52%;
 }
 
 .hero-visual-coast img {
@@ -1009,7 +1027,24 @@ html[lang='ko'] .hero-title {
   }
 
   .hero-visual-grid {
-    grid-template-columns: 1.1fr 0.9fr 1fr;
+    overflow: hidden;
+  }
+
+  .hero-visual-hanok {
+    width: 44%;
+    clip-path: polygon(0 0, 100% 0, 78% 100%, 0 100%);
+  }
+
+  .hero-visual-ski {
+    left: 31%;
+    width: 46%;
+    clip-path: polygon(14% 0, 100% 0, 86% 100%, 0 100%);
+  }
+
+  .hero-visual-coast {
+    left: 66%;
+    width: 34%;
+    clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
   }
 
   .hero-visual-grid::after {
