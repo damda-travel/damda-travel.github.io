@@ -324,3 +324,773 @@
     transition: none;
   }
 }
+
+/* ==========================================================================
+   DAMDA editorial identity
+   A warmer, content-led visual system without changing product behavior.
+   ========================================================================== */
+
+:root {
+  --primary: #0b6b4f;
+  --primary-light: #e5f0e9;
+  --primary-hover: #07533e;
+  --primary-ring: rgba(11, 107, 79, 0.2);
+  --bg-main: #f4f1e8;
+  --bg-card: #fffefa;
+  --bg-sub: #eeeae0;
+  --text-main: #13231e;
+  --text-body: #3f4d47;
+  --text-muted: #65716c;
+  --text-light: #8b948f;
+  --border-light: #ded9ce;
+  --border-hover: #bbb5aa;
+  --damda-paper: #f4f1e8;
+  --damda-cream: #fffefa;
+  --damda-forest: #173d31;
+  --damda-leaf: #0b6b4f;
+  --damda-lime: #d4ee9b;
+  --damda-warm: #e98255;
+}
+
+body {
+  background: var(--damda-paper);
+}
+
+.app-container {
+  gap: 0;
+  padding: 0;
+}
+
+.main-header {
+  height: 76px;
+  padding: 0 max(2rem, calc((100vw - 1280px) / 2));
+  border-bottom: 1px solid rgba(19, 35, 30, 0.1);
+  background: rgba(255, 254, 250, 0.96);
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.brand-logo {
+  gap: 0.8rem;
+}
+
+.logo-title {
+  order: 1;
+  font-size: 1.4rem;
+  line-height: 1;
+  letter-spacing: 0.075em;
+}
+
+.logo-title span {
+  background: none;
+  color: var(--damda-forest);
+  -webkit-text-fill-color: currentColor;
+}
+
+.logo-badge {
+  order: 2;
+  padding: 0 0 0 0.8rem;
+  border-left: 1px solid rgba(19, 35, 30, 0.24);
+  border-radius: 0;
+  background: transparent;
+  color: var(--damda-leaf);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+}
+
+.search-box input {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: #f0ede5;
+}
+
+.search-box input:focus {
+  border-color: rgba(11, 107, 79, 0.4);
+  box-shadow: 0 0 0 3px rgba(11, 107, 79, 0.1);
+}
+
+.language-switch {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.language-btn {
+  height: 34px;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.language-btn.active {
+  background: var(--damda-forest);
+}
+
+.mypage-header-btn {
+  border-color: rgba(19, 35, 30, 0.16);
+  background: transparent;
+  box-shadow: none;
+}
+
+.hero-section {
+  width: 100%;
+  max-width: none;
+  min-height: 570px;
+  margin: 0;
+  padding: 5rem max(2rem, calc((100vw - 1280px) / 2));
+  border: 0;
+  border-radius: 0;
+  background:
+    linear-gradient(90deg, rgba(9, 37, 29, 0.98) 0%, rgba(9, 37, 29, 0.88) 45%, rgba(9, 37, 29, 0.18) 82%),
+    url('../images/catalog/official-a-13479.webp') center 46% / cover no-repeat;
+  box-shadow: none;
+}
+
+.hero-content {
+  max-width: 780px;
+}
+
+.hero-kicker {
+  gap: 0.55rem;
+  margin-bottom: 1.45rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.7rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.hero-kicker strong {
+  color: var(--damda-lime);
+  letter-spacing: 0.16em;
+}
+
+.hero-kicker-divider {
+  opacity: 0.55;
+}
+
+.hero-title {
+  max-width: 760px;
+  margin-bottom: 1.4rem;
+  font-size: clamp(3.15rem, 5.4vw, 5.3rem);
+  line-height: 1.02;
+  letter-spacing: -0.058em;
+  text-wrap: balance;
+}
+
+.hero-title strong {
+  display: block;
+  color: var(--damda-lime);
+}
+
+html[lang='ko'] .hero-title {
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+
+.hero-desc {
+  max-width: 610px;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.hero-actions {
+  gap: 0.65rem;
+}
+
+.hero-cta-primary,
+.hero-cta-secondary {
+  min-height: 50px;
+  padding: 0.8rem 1.3rem;
+  border-radius: 9px;
+  box-shadow: none;
+}
+
+.hero-cta-primary {
+  background: var(--damda-warm);
+}
+
+.hero-cta-primary:hover {
+  background: #d87147;
+  box-shadow: none;
+}
+
+.hero-cta-secondary {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.tour-section {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 5rem 2rem 5.5rem;
+}
+
+.region-info-banner {
+  padding-bottom: 1.6rem;
+}
+
+.banner-title {
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.05em;
+}
+
+.banner-desc {
+  max-width: 38rem;
+  margin-top: 0.65rem;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.region-explorer-card {
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  background: var(--damda-cream);
+}
+
+.region-selector-panel,
+.category-filter-block {
+  padding: 1.35rem 1.5rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.category-filter-block {
+  border-top: 1px solid var(--border-light);
+}
+
+.section-kicker,
+.planner-kicker {
+  color: var(--damda-leaf);
+  font-size: 0.67rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.region-selector-heading h3 {
+  margin-top: 0.25rem;
+  font-size: 1.1rem;
+}
+
+.chip-btn,
+.cat-btn,
+.cat-btn.course-btn,
+.region-reset-btn,
+.toolbar-btn,
+.toolbar-reset,
+.sort-control select {
+  border-radius: 9px;
+  box-shadow: none;
+}
+
+.chip-btn {
+  border-color: var(--border-light);
+  background: transparent;
+}
+
+.chip-btn.active,
+.cat-btn.active {
+  border-color: var(--damda-forest);
+  background: var(--damda-forest);
+}
+
+.cat-btn,
+.cat-btn.course-btn {
+  background: #efede6;
+}
+
+.cat-btn:hover,
+.cat-btn.course-btn:hover {
+  background: #e3dfd4;
+}
+
+.results-toolbar {
+  margin-top: 1rem;
+}
+
+.tour-list-container {
+  gap: 1.25rem;
+  padding-right: 0;
+}
+
+.tour-card {
+  border: 1px solid rgba(19, 35, 30, 0.1);
+  border-radius: 8px;
+  background: var(--damda-cream);
+  box-shadow: 0 8px 24px rgba(42, 50, 46, 0.05);
+}
+
+.tour-card:hover {
+  border-color: rgba(19, 35, 30, 0.28);
+  box-shadow: 0 14px 32px rgba(42, 50, 46, 0.09);
+}
+
+.tour-card-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+}
+
+.card-img-box,
+.card-img-box img {
+  height: 180px;
+}
+
+.card-cat-badge {
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 5px;
+  background: rgba(19, 35, 30, 0.88);
+  font-size: 0.63rem;
+  letter-spacing: 0.02em;
+}
+
+.card-content {
+  padding: 1rem 1rem 1.1rem;
+}
+
+.card-title {
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.card-region-label {
+  color: var(--damda-leaf);
+}
+
+.card-desc {
+  color: #4f5a55;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.load-more-btn {
+  margin-top: 1.25rem;
+  border-color: rgba(19, 35, 30, 0.18);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--damda-forest);
+}
+
+.load-more-btn:hover {
+  border-color: var(--damda-forest);
+  background: rgba(255, 254, 250, 0.7);
+  transform: none;
+}
+
+.planner-section {
+  width: calc(100% - 4rem);
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2.5rem;
+  border: 0;
+  border-radius: 18px;
+  background: var(--damda-forest);
+  box-shadow: none;
+}
+
+.planner-kicker {
+  color: var(--damda-lime);
+}
+
+.planner-intro h2 {
+  color: #fff;
+  font-size: 1.65rem;
+}
+
+.planner-intro h2 i {
+  color: var(--damda-lime);
+}
+
+.planner-intro p,
+.planner-form label > span {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.planner-form select {
+  border-color: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+}
+
+.planner-generate-btn {
+  border-radius: 8px;
+  background: var(--damda-warm);
+  box-shadow: none;
+}
+
+.planner-route-builder {
+  border: 0;
+  border-radius: 10px;
+  background: var(--damda-cream);
+}
+
+.route-preset,
+.planner-regions-toggle,
+.planner-region-chip {
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.courses-section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 5.5rem 2rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.section-title-box {
+  margin-bottom: 1.6rem;
+}
+
+.section-title-box h2 {
+  font-size: clamp(2rem, 3vw, 3rem);
+  letter-spacing: -0.05em;
+}
+
+.section-title-box h2 i {
+  display: none;
+}
+
+.course-card {
+  min-height: 240px;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.course-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.course-card::before,
+.course-card::after {
+  display: none;
+}
+
+.course-card-1 {
+  background: #1c4a3b;
+}
+
+.course-card-2 {
+  background: #596b3d;
+}
+
+.course-card-3 {
+  background: #27495b;
+}
+
+.course-period {
+  border-radius: 5px;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.course-title {
+  font-size: 1.3rem;
+}
+
+.main-footer {
+  margin-top: 0;
+  padding: 3rem max(2rem, calc((100vw - 1280px) / 2)) 2rem;
+  border-top: 0;
+  background: #102d25;
+}
+
+.footer-brand h3 {
+  color: var(--damda-lime);
+  font-size: 1.25rem;
+  letter-spacing: 0.08em;
+}
+
+.footer-brand p,
+.footer-links a,
+.footer-bottom {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.footer-bottom {
+  border-top-color: rgba(255, 255, 255, 0.12);
+}
+
+@media (min-width: 1101px) {
+  .tour-list-container {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .tour-card {
+    grid-column: span 4;
+  }
+
+  .tour-card:first-child {
+    grid-column: span 6;
+  }
+
+  .tour-card:nth-child(2),
+  .tour-card:nth-child(3) {
+    grid-column: span 3;
+  }
+
+  .tour-card:first-child .card-img-box,
+  .tour-card:first-child .card-img-box img {
+    height: 240px;
+  }
+
+  .tour-card:first-child .card-desc {
+    -webkit-line-clamp: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-bottom: calc(70px + env(safe-area-inset-bottom));
+  }
+
+  .main-header {
+    min-height: 122px;
+    padding: 0.7rem 0.9rem 0.85rem;
+    gap: 0.5rem;
+    background: var(--damda-cream);
+  }
+
+  .header-left {
+    min-height: 50px;
+    align-items: center;
+  }
+
+  .brand-logo {
+    gap: 0.55rem;
+  }
+
+  .logo-title {
+    font-size: 1.22rem;
+  }
+
+  .logo-badge {
+    display: none;
+  }
+
+  .header-right {
+    top: 0.65rem;
+    right: 0.7rem;
+  }
+
+  .language-btn {
+    min-width: 34px;
+    height: 32px;
+  }
+
+  .mypage-header-btn {
+    min-width: 36px;
+    width: 36px;
+    height: 34px;
+  }
+
+  .search-box input {
+    height: 42px;
+    border-radius: 9px;
+  }
+
+  .hero-section {
+    min-height: 520px;
+    padding: 3.6rem 1.25rem 3.2rem;
+    background:
+      linear-gradient(180deg, rgba(9, 37, 29, 0.34) 0%, rgba(9, 37, 29, 0.78) 55%, rgba(9, 37, 29, 0.98) 100%),
+      url('../images/catalog/official-a-13479.webp') center / cover no-repeat;
+  }
+
+  .hero-kicker {
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    font-size: 0.62rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.3rem, 10.7vw, 3.05rem);
+    line-height: 1.06;
+    letter-spacing: -0.055em;
+  }
+
+  .hero-title strong {
+    margin: 0.14em 0;
+  }
+
+  .hero-desc {
+    font-size: 0.84rem;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    gap: 0.55rem;
+  }
+
+  .hero-cta-primary,
+  .hero-cta-secondary {
+    min-height: 48px;
+    border-radius: 8px;
+  }
+
+  .tour-section {
+    padding: 3.75rem 0.9rem 4.25rem;
+  }
+
+  .region-info-banner {
+    padding-bottom: 1.25rem;
+  }
+
+  .banner-header,
+  .banner-title,
+  .banner-desc {
+    text-align: left;
+  }
+
+  .banner-title {
+    font-size: 2rem;
+  }
+
+  .region-explorer-card {
+    border-radius: 10px;
+  }
+
+  .region-selector-panel,
+  .category-filter-block {
+    padding: 1rem;
+  }
+
+  .category-filter-block {
+    padding-bottom: 1.1rem;
+  }
+
+  .mobile-region-select select {
+    border-radius: 8px;
+  }
+
+  .cat-btn {
+    min-height: 40px;
+    padding: 0.46rem 0.72rem;
+    border-radius: 8px;
+  }
+
+  .results-toolbar {
+    margin-top: 0.8rem;
+  }
+
+  .toolbar-btn,
+  .sort-control select {
+    border-radius: 8px;
+  }
+
+  .tour-list-container {
+    gap: 0.9rem;
+  }
+
+  .tour-card {
+    border-radius: 7px;
+  }
+
+  .card-img-box,
+  .card-img-box img {
+    height: 190px;
+  }
+
+  .planner-section {
+    width: 100%;
+    margin: 0;
+    padding: 3.5rem 1rem;
+    border-radius: 0;
+  }
+
+  .planner-intro {
+    margin-bottom: 1.2rem;
+  }
+
+  .planner-intro h2 {
+    font-size: 1.75rem;
+  }
+
+  .planner-form {
+    gap: 0.55rem;
+  }
+
+  .planner-route-builder {
+    padding: 0.85rem;
+  }
+
+  .courses-section {
+    padding: 4rem 1rem;
+  }
+
+  .section-title-box h2 {
+    font-size: 2rem;
+  }
+
+  .course-card {
+    min-height: 210px;
+    border-radius: 7px;
+    text-align: left;
+  }
+
+  .course-card-footer,
+  .course-tags {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .mobile-bottom-nav {
+    left: 0.6rem;
+    right: 0.6rem;
+    bottom: calc(0.5rem + env(safe-area-inset-bottom));
+    padding: 0.3rem;
+    border-color: rgba(19, 35, 30, 0.13);
+    border-radius: 14px;
+    background: rgba(255, 254, 250, 0.98);
+    box-shadow: 0 10px 26px rgba(19, 35, 30, 0.16);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(calc(100% + 1.5rem));
+    transition: opacity 0.2s ease, transform 0.24s ease;
+  }
+
+  body.mobile-nav-visible .mobile-bottom-nav {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .mobile-bottom-nav button {
+    min-height: 42px;
+    border-radius: 10px;
+  }
+
+  .mobile-bottom-nav button.active {
+    background: #e5ede8;
+    color: var(--damda-forest);
+    transform: none;
+  }
+
+  .back-to-top-btn {
+    bottom: calc(5.25rem + env(safe-area-inset-bottom));
+    border-radius: 10px;
+  }
+
+  .main-footer {
+    padding: 2.75rem 1rem 5.5rem;
+  }
+}

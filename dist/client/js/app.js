@@ -157,7 +157,7 @@ const COURSE_ES = [
 
 const I18N = {
   es: {
-    brandTitle: 'Viaja por Jeonbuk',
+    brandTitle: 'DAMDA',
     searchPlaceholder: 'Busca lugares o regiones',
     savedPlaces: 'Guardados',
     myPage: 'Mi',
@@ -226,7 +226,7 @@ const I18N = {
     mobilePlaces: 'Lugares',
     mobilePlanner: 'Mi ruta',
     mobileSaved: 'Guardados',
-    footerTitle: 'Viaja por Jeonbuk',
+    footerTitle: 'DAMDA',
     footerDesc: 'Una guía para explorar cultura, comida y naturaleza en los 14 municipios de Jeonbuk.',
     footerHome: 'Inicio',
     footerRoutes: 'Rutas recomendadas',
@@ -264,7 +264,7 @@ const I18N = {
     drawerPlan: 'Crear ruta con guardados'
   },
   ko: {
-    brandTitle: '전북 관광',
+    brandTitle: 'DAMDA',
     searchPlaceholder: '관광지나 지역을 검색해보세요',
     savedPlaces: '여행 보관함',
     myPage: '마이',
@@ -333,7 +333,7 @@ const I18N = {
     mobilePlaces: '관광지',
     mobilePlanner: '플래너',
     mobileSaved: '저장',
-    footerTitle: '전북 관광',
+    footerTitle: 'DAMDA',
     footerDesc: '전북 14개 시·군의 문화·미식·자연 명소를 탐색하고 일정을 만드는 여행 정보 서비스',
     footerHome: '홈',
     footerRoutes: '추천 여행 코스',
@@ -1957,6 +1957,7 @@ function initMobileNavigation() {
     ticking = true;
     window.requestAnimationFrame(() => {
       if (mobileNavButtons.length) updateMobileNavActive();
+      document.body.classList.toggle('mobile-nav-visible', window.scrollY > 420);
       backToTopBtn?.classList.toggle('visible', window.scrollY > 900);
       ticking = false;
     });
