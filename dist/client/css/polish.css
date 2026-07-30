@@ -536,18 +536,31 @@ html[lang='ko'] .hero-title {
 }
 
 .region-info-banner {
-  padding-bottom: 1.6rem;
+  padding: 1.75rem 1.5rem 1rem;
+  text-align: center;
+}
+
+.banner-header {
+  justify-content: center;
+}
+
+.banner-header > div {
+  width: 100%;
 }
 
 .banner-title {
+  width: 100%;
+  text-align: center;
   font-size: clamp(2rem, 3vw, 3rem);
   line-height: 1.08;
   letter-spacing: -0.05em;
+  text-wrap: balance;
 }
 
 .banner-desc {
   max-width: 38rem;
-  margin-top: 0.65rem;
+  margin: 0.65rem auto 0;
+  text-align: center;
   font-size: 0.9rem;
   line-height: 1.65;
 }
@@ -568,6 +581,12 @@ html[lang='ko'] .hero-title {
 
 .category-filter-block {
   border-top: 1px solid var(--border-light);
+}
+
+.category-filter-block > .section-kicker {
+  display: block;
+  width: 100%;
+  text-align: center;
 }
 
 .section-kicker,
@@ -952,13 +971,13 @@ html[lang='ko'] .hero-title {
   }
 
   .region-info-banner {
-    padding-bottom: 1.25rem;
+    padding: 1.5rem 1rem 0.8rem;
   }
 
   .banner-header,
   .banner-title,
   .banner-desc {
-    text-align: left;
+    text-align: center;
   }
 
   .banner-title {
@@ -1051,6 +1070,17 @@ html[lang='ko'] .hero-title {
   .course-tags {
     align-items: flex-start;
     justify-content: flex-start;
+  }
+
+  .footer-content,
+  .footer-brand,
+  .footer-links {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-links {
+    justify-content: center;
   }
 
   .mobile-bottom-nav {
