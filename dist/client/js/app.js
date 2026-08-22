@@ -261,7 +261,45 @@ const I18N = {
     drawerKicker: 'Área personal',
     drawerTitle: 'Mi viaje',
     drawerDesc: 'Revisa tus lugares guardados y conviértelos en una ruta.',
-    drawerPlan: 'Crear ruta con guardados'
+    drawerPlan: 'Crear ruta con guardados',
+    footerDiagnosis: 'Tu perfil de viaje',
+    funnelSkip: 'Ahora no',
+    funnelKicker: 'Tu próxima experiencia en Corea',
+    funnelStatusTitle: '¿Cuál de estas opciones te describe mejor?',
+    funnelStatusDesc: 'Elige una opción. Así podremos entender mejor qué información necesitas.',
+    funnelFirstTrip: 'Estoy planeando mi primer viaje a Corea',
+    funnelVisited: 'Ya viajé a Corea',
+    funnelReturn: 'Estoy planeando volver a Corea',
+    funnelResident: 'Vivo actualmente en Corea',
+    funnelCountryKicker: 'Cuéntanos de dónde vienes',
+    funnelCountryTitle: '¿Cuál es tu país?',
+    funnelCountryDesc: 'Esto nos ayuda a preparar información útil para cada mercado.',
+    funnelCountryLabel: 'País',
+    funnelCountryPlaceholder: 'Ej. México',
+    funnelInterestKicker: 'Diseña tu viaje ideal',
+    funnelInterestTitle: '¿Qué tipo de viaje buscas?',
+    funnelInterestDesc: 'Puedes elegir hasta 3 opciones.',
+    funnelTradition: 'Tradición y hanok',
+    funnelFood: 'Comida y cafés',
+    funnelNature: 'Montañas y naturaleza',
+    funnelCoast: 'Mar y costa',
+    funnelFestival: 'Festivales y eventos',
+    funnelLocal: 'Vida local',
+    funnelWellness: 'Descanso y bienestar',
+    funnelWinter: 'Invierno y esquí',
+    funnelContactKicker: 'Mantente cerca de DAMDA',
+    funnelContactTitle: '¿Quieres recibir rutas y futuras invitaciones?',
+    funnelContactDesc: 'El contacto es opcional. Tu respuesta de viaje se guardará aunque lo dejes vacío.',
+    funnelContactType: 'Cómo prefieres recibir información',
+    funnelContactValue: 'Tu contacto',
+    funnelConsent: 'Acepto recibir información de DAMDA relacionada con viajes y experiencias. Puedo solicitar dejar de recibirla.',
+    funnelPrivacy: 'DAMDA utiliza estas respuestas para analizar intereses turísticos y solo usa tu contacto si das permiso.',
+    funnelBack: 'Atrás',
+    funnelNext: 'Continuar',
+    funnelSubmit: 'Guardar mi perfil',
+    funnelSuccessTitle: 'Gracias. Ya conocemos mejor tu viaje.',
+    funnelSuccessDesc: 'Ahora explora lugares que encajan con lo que buscas.',
+    funnelExplore: 'Ver recomendaciones'
   },
   ko: {
     brandTitle: 'DAMDA',
@@ -368,7 +406,45 @@ const I18N = {
     drawerKicker: '나의 전북 여행',
     drawerTitle: '마이페이지',
     drawerDesc: '저장한 장소와 여행 일정을 한곳에서 확인하세요.',
-    drawerPlan: '저장한 장소로 일정 만들기'
+    drawerPlan: '저장한 장소로 일정 만들기',
+    footerDiagnosis: '여행 성향 진단',
+    funnelSkip: '다음에 하기',
+    funnelKicker: '당신의 다음 한국 여행',
+    funnelStatusTitle: '현재 상황에 가장 가까운 항목은 무엇인가요?',
+    funnelStatusDesc: '한 가지를 선택해주세요. 필요한 여행 정보를 이해하는 데 도움이 됩니다.',
+    funnelFirstTrip: '첫 한국 여행을 계획하고 있어요',
+    funnelVisited: '한국을 여행해본 적이 있어요',
+    funnelReturn: '한국 재방문을 계획하고 있어요',
+    funnelResident: '현재 한국에 거주하고 있어요',
+    funnelCountryKicker: '어디에서 오셨나요?',
+    funnelCountryTitle: '당신의 나라는 어디인가요?',
+    funnelCountryDesc: '국가별로 더 유용한 여행 정보를 준비하는 데 활용합니다.',
+    funnelCountryLabel: '국가',
+    funnelCountryPlaceholder: '예: 멕시코',
+    funnelInterestKicker: '원하는 여행을 알려주세요',
+    funnelInterestTitle: '어떤 여행을 원하시나요?',
+    funnelInterestDesc: '최대 3개까지 선택할 수 있습니다.',
+    funnelTradition: '전통문화와 한옥',
+    funnelFood: '음식과 카페',
+    funnelNature: '산과 자연',
+    funnelCoast: '바다와 해안',
+    funnelFestival: '축제와 행사',
+    funnelLocal: '로컬 일상 체험',
+    funnelWellness: '휴식과 웰니스',
+    funnelWinter: '겨울과 스키',
+    funnelContactKicker: 'DAMDA와 계속 연결되기',
+    funnelContactTitle: '추천 코스와 향후 초대 소식을 받아보시겠어요?',
+    funnelContactDesc: '연락처는 선택사항입니다. 입력하지 않아도 여행 성향 답변은 저장됩니다.',
+    funnelContactType: '정보를 받을 방법',
+    funnelContactValue: '연락처',
+    funnelConsent: 'DAMDA의 여행·체험 관련 정보를 받는 것에 동의합니다. 언제든 수신 중지를 요청할 수 있습니다.',
+    funnelPrivacy: 'DAMDA는 관광 수요 분석에 답변을 활용하며, 동의한 경우에만 연락처를 사용합니다.',
+    funnelBack: '이전',
+    funnelNext: '계속하기',
+    funnelSubmit: '내 여행 성향 저장',
+    funnelSuccessTitle: '감사합니다. 당신의 여행을 더 잘 알게 됐어요.',
+    funnelSuccessDesc: '이제 관심사에 맞는 전북 여행지를 둘러보세요.',
+    funnelExplore: '추천 여행지 보기'
   }
 };
 
@@ -436,6 +512,20 @@ const savedPlanBtn = document.getElementById('savedPlanBtn');
 const savedPlanSummary = document.getElementById('savedPlanSummary');
 const appToast = document.getElementById('appToast');
 const mobileNavButtons = [...document.querySelectorAll('.mobile-bottom-nav [data-mobile-nav]')];
+const travelFunnel = document.getElementById('travelFunnel');
+const travelFunnelForm = document.getElementById('travelFunnelForm');
+const travelFunnelSuccess = document.getElementById('travelFunnelSuccess');
+const funnelProgressBar = document.getElementById('funnelProgressBar');
+const funnelStepLabel = document.getElementById('funnelStepLabel');
+const funnelBackBtn = document.getElementById('funnelBackBtn');
+const funnelNextBtn = document.getElementById('funnelNextBtn');
+const funnelSubmitBtn = document.getElementById('funnelSubmitBtn');
+const funnelError = document.getElementById('funnelError');
+const funnelContactType = document.getElementById('funnelContactType');
+const funnelContactValue = document.getElementById('funnelContactValue');
+let travelFunnelStep = 1;
+let travelFunnelStartedAt = 0;
+let travelFunnelCategory = 'all';
 
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
@@ -455,11 +545,14 @@ document.addEventListener('DOMContentLoaded', () => {
   updateApiStatusBadge();
   applyLanguage(currentLanguage, false);
   initMobileNavigation();
+  initTravelFunnel();
 });
 
 document.addEventListener('keydown', event => {
   if (event.key !== 'Escape') return;
-  if (tourModal?.classList.contains('active')) {
+  if (travelFunnel?.classList.contains('active')) {
+    snoozeTravelFunnel();
+  } else if (tourModal?.classList.contains('active')) {
     closeModal();
   } else if (savedDrawer?.classList.contains('active')) {
     closeSavedPanel();
@@ -710,6 +803,203 @@ function handleLanguageButton(language) {
     return;
   }
   setLanguage(language);
+}
+
+function initTravelFunnel() {
+  if (!travelFunnel || !travelFunnelForm) return;
+
+  travelFunnelForm.addEventListener('submit', submitTravelFunnel);
+  travelFunnelForm.querySelectorAll('input[name="interests"]').forEach(input => {
+    input.addEventListener('change', event => {
+      const selected = travelFunnelForm.querySelectorAll('input[name="interests"]:checked');
+      if (selected.length > 3) {
+        event.currentTarget.checked = false;
+        showTravelFunnelError(currentLanguage === 'ko' ? '관심사는 최대 3개까지 선택할 수 있습니다.' : 'Puedes elegir hasta 3 intereses.');
+      } else {
+        clearTravelFunnelError();
+      }
+    });
+  });
+
+  funnelContactType?.addEventListener('change', updateTravelFunnelContactField);
+  updateTravelFunnelContactField();
+
+  const completed = localStorage.getItem('damda_travel_profile_completed');
+  const snoozedUntil = Number(localStorage.getItem('damda_travel_profile_snoozed_until') || 0);
+  if (!completed && Date.now() > snoozedUntil) {
+    window.setTimeout(() => openTravelFunnel(false), 900);
+  }
+}
+
+function openTravelFunnel(manual = false) {
+  if (!travelFunnel || !travelFunnelForm) return;
+  if (manual) resetTravelFunnel();
+  travelFunnel.classList.add('active');
+  travelFunnel.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('funnel-open');
+  travelFunnelStartedAt = Date.now();
+  renderTravelFunnelStep();
+  window.requestAnimationFrame(() => {
+    travelFunnel.querySelector('.travel-funnel-step.active input')?.focus();
+  });
+}
+
+function closeTravelFunnel() {
+  if (!travelFunnel) return;
+  travelFunnel.classList.remove('active');
+  travelFunnel.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('funnel-open');
+}
+
+function snoozeTravelFunnel() {
+  if (!localStorage.getItem('damda_travel_profile_completed')) {
+    localStorage.setItem('damda_travel_profile_snoozed_until', String(Date.now() + 7 * 24 * 60 * 60 * 1000));
+  }
+  closeTravelFunnel();
+}
+
+function resetTravelFunnel() {
+  travelFunnelForm?.reset();
+  travelFunnelStep = 1;
+  travelFunnelCategory = 'all';
+  if (travelFunnelForm) travelFunnelForm.hidden = false;
+  if (travelFunnelSuccess) travelFunnelSuccess.hidden = true;
+  clearTravelFunnelError();
+  updateTravelFunnelContactField();
+}
+
+function renderTravelFunnelStep() {
+  if (!travelFunnelForm) return;
+  travelFunnelForm.querySelectorAll('[data-funnel-step]').forEach(section => {
+    const active = Number(section.dataset.funnelStep) === travelFunnelStep;
+    section.hidden = !active;
+    section.classList.toggle('active', active);
+  });
+  if (funnelProgressBar) funnelProgressBar.style.width = `${travelFunnelStep * 25}%`;
+  if (funnelStepLabel) funnelStepLabel.textContent = `${travelFunnelStep} / 4`;
+  if (funnelBackBtn) funnelBackBtn.hidden = travelFunnelStep === 1;
+  if (funnelNextBtn) funnelNextBtn.hidden = travelFunnelStep === 4;
+  if (funnelSubmitBtn) funnelSubmitBtn.hidden = travelFunnelStep !== 4;
+  clearTravelFunnelError();
+}
+
+function changeTravelFunnelStep(direction) {
+  if (direction > 0 && !validateTravelFunnelStep(travelFunnelStep)) return;
+  travelFunnelStep = Math.max(1, Math.min(4, travelFunnelStep + direction));
+  renderTravelFunnelStep();
+  travelFunnelForm?.querySelector('.travel-funnel-step.active input, .travel-funnel-step.active select')?.focus();
+}
+
+function validateTravelFunnelStep(step) {
+  if (!travelFunnelForm) return false;
+  if (step === 1 && !travelFunnelForm.querySelector('input[name="journeyStatus"]:checked')) {
+    showTravelFunnelError(currentLanguage === 'ko' ? '현재 상황을 한 가지 선택해주세요.' : 'Elige una opción para continuar.');
+    return false;
+  }
+  if (step === 2) {
+    const country = travelFunnelForm.elements.country.value.trim();
+    if (country.length < 2) {
+      showTravelFunnelError(currentLanguage === 'ko' ? '국가를 입력해주세요.' : 'Escribe tu país para continuar.');
+      return false;
+    }
+  }
+  if (step === 3) {
+    const interestCount = travelFunnelForm.querySelectorAll('input[name="interests"]:checked').length;
+    if (!interestCount) {
+      showTravelFunnelError(currentLanguage === 'ko' ? '원하는 여행을 한 가지 이상 선택해주세요.' : 'Elige al menos un tipo de viaje.');
+      return false;
+    }
+  }
+  if (step === 4) {
+    const contact = funnelContactValue?.value.trim() || '';
+    const consent = document.getElementById('funnelConsent')?.checked;
+    if (contact && !consent) {
+      showTravelFunnelError(currentLanguage === 'ko' ? '연락처를 남기려면 정보 수신에 동의해주세요.' : 'Para dejar tu contacto, acepta recibir información de DAMDA.');
+      return false;
+    }
+    if (contact && funnelContactType?.value === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact)) {
+      showTravelFunnelError(currentLanguage === 'ko' ? '이메일 주소를 확인해주세요.' : 'Revisa tu dirección de email.');
+      return false;
+    }
+  }
+  clearTravelFunnelError();
+  return true;
+}
+
+function updateTravelFunnelContactField() {
+  if (!funnelContactValue || !funnelContactType) return;
+  const isEmail = funnelContactType.value === 'email';
+  funnelContactValue.inputMode = isEmail ? 'email' : 'tel';
+  funnelContactValue.autocomplete = isEmail ? 'email' : 'tel';
+  funnelContactValue.placeholder = isEmail ? 'nombre@email.com' : '+52 55 0000 0000';
+}
+
+function showTravelFunnelError(message) {
+  if (!funnelError) return;
+  funnelError.textContent = message;
+  funnelError.hidden = false;
+}
+
+function clearTravelFunnelError() {
+  if (!funnelError) return;
+  funnelError.textContent = '';
+  funnelError.hidden = true;
+}
+
+async function submitTravelFunnel(event) {
+  event.preventDefault();
+  if (!travelFunnelForm || !validateTravelFunnelStep(4)) return;
+
+  const submitButton = funnelSubmitBtn;
+  const formData = new FormData(travelFunnelForm);
+  const interests = formData.getAll('interests').map(String);
+  const contactValue = String(formData.get('contactValue') || '').trim();
+  const contactConsent = formData.get('contactConsent') === 'on';
+  const categoryMap = { tradition: 'culture', food: 'food', festival: 'festival' };
+  travelFunnelCategory = categoryMap[interests[0]] || 'nature';
+
+  const payload = {
+    journeyStatus: String(formData.get('journeyStatus') || ''),
+    country: String(formData.get('country') || '').trim(),
+    interests,
+    contactType: contactValue ? String(formData.get('contactType') || '') : '',
+    contactValue: contactConsent ? contactValue : '',
+    contactConsent: Boolean(contactValue && contactConsent),
+    language: currentLanguage,
+    website: String(formData.get('website') || ''),
+    elapsedMs: Math.max(0, Date.now() - travelFunnelStartedAt)
+  };
+
+  if (submitButton) {
+    submitButton.disabled = true;
+    submitButton.classList.add('loading');
+  }
+
+  try {
+    const response = await fetch('/api/travel-demand', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    if (!response.ok) throw new Error('submit_failed');
+    localStorage.setItem('damda_travel_profile_completed', new Date().toISOString());
+    localStorage.removeItem('damda_travel_profile_snoozed_until');
+    travelFunnelForm.hidden = true;
+    if (travelFunnelSuccess) travelFunnelSuccess.hidden = false;
+  } catch {
+    showTravelFunnelError(currentLanguage === 'ko' ? '저장하지 못했습니다. 잠시 후 다시 시도해주세요.' : 'No pudimos guardar tu respuesta. Inténtalo de nuevo en un momento.');
+  } finally {
+    if (submitButton) {
+      submitButton.disabled = false;
+      submitButton.classList.remove('loading');
+    }
+  }
+}
+
+function finishTravelFunnel() {
+  closeTravelFunnel();
+  const targetButton = document.querySelector(`.cat-btn[data-category="${travelFunnelCategory}"]`);
+  setCategory(travelFunnelCategory, targetButton);
 }
 
 function getCurrentEventStatus(period = '') {

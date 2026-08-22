@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="DAMDA: descubre Jeonbuk, Corea más allá de Seúl. Cultura, naturaleza, sabores locales y rutas prácticas en español.">
+  <meta name="description" content="DAMDA: descubre Jeonbuk a través de su cultura, naturaleza, sabores locales y rutas prácticas en español.">
   <meta name="theme-color" content="#173D31">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="DAMDA | Jeonbuk, Corea más allá de Seúl">
+  <meta property="og:title" content="DAMDA">
   <meta property="og:description" content="A unos 90 minutos de Seúl, descubre la historia, tradición, montañas, mar y sabores de Jeonbuk.">
-  <meta property="og:url" content="https://jeonbuk-tour-guide.parkg9832.chatgpt.site/">
-  <meta property="og:image" content="https://jeonbuk-tour-guide.parkg9832.chatgpt.site/images/og-v2.jpg">
+  <meta property="og:url" content="https://damda.parkg9832.chatgpt.site/">
+  <meta property="og:image" content="https://damda.parkg9832.chatgpt.site/images/og-v2.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="DAMDA | Jeonbuk, Corea más allá de Seúl">
+  <meta name="twitter:title" content="DAMDA">
   <meta name="twitter:description" content="Más allá de Seúl: conoce la Corea real en Jeonbuk.">
-  <meta name="twitter:image" content="https://jeonbuk-tour-guide.parkg9832.chatgpt.site/images/og-v2.jpg">
-  <title>DAMDA | Jeonbuk, Corea más allá de Seúl</title>
+  <meta name="twitter:image" content="https://damda.parkg9832.chatgpt.site/images/og-v2.jpg">
+  <title>DAMDA</title>
 
   <!-- Google Fonts: Noto Sans KR, Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,11 +27,11 @@
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗺️</text></svg>">
 
-  <link rel="preload" as="image" href="images/catalog/official-a-13479.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="images/hero-jeonju-hanok.webp" fetchpriority="high">
 
   <!-- CSS Stylesheet -->
   <link rel="stylesheet" href="css/style.css?v=39">
-  <link rel="stylesheet" href="css/polish.css?v=8">
+  <link rel="stylesheet" href="css/polish.css?v=9">
 </head>
 <body>
 
@@ -294,6 +294,7 @@
           <a href="#" onclick="resetSelection(); return false;" data-i18n="footerHome">Inicio</a>
           <a href="#" onclick="setCategory('course', document.querySelector('.course-btn')); return false;" data-i18n="footerRoutes">Rutas recomendadas</a>
           <a href="javascript:void(0)" onclick="openSavedPanel()" data-i18n="footerSaved">Guardados</a>
+          <a href="javascript:void(0)" onclick="openTravelFunnel(true)" data-i18n="footerDiagnosis">Tu perfil de viaje</a>
           <a href="javascript:void(0)" class="api-settings-link" onclick="openApiModal()" data-i18n="footerData">Datos</a>
           <a href="tel:1330" data-i18n="footerHelp">Ayuda turística 1330</a>
         </div>
@@ -468,12 +469,109 @@
 
   <div class="toast" id="appToast" role="status" aria-live="polite"></div>
 
+  <div class="travel-funnel" id="travelFunnel" role="dialog" aria-modal="true" aria-labelledby="funnelTitle" aria-hidden="true">
+    <div class="travel-funnel-backdrop" onclick="snoozeTravelFunnel()"></div>
+    <div class="travel-funnel-panel">
+      <header class="travel-funnel-header">
+        <div class="travel-funnel-brand">DAMDA</div>
+        <button type="button" class="travel-funnel-skip" onclick="snoozeTravelFunnel()" data-i18n="funnelSkip">Ahora no</button>
+      </header>
+
+      <div class="travel-funnel-progress" aria-hidden="true">
+        <span id="funnelProgressBar"></span>
+      </div>
+      <p class="travel-funnel-step-label" id="funnelStepLabel">1 / 4</p>
+
+      <form id="travelFunnelForm" novalidate>
+        <section class="travel-funnel-step active" data-funnel-step="1">
+          <span class="travel-funnel-kicker" data-i18n="funnelKicker">Tu próxima experiencia en Corea</span>
+          <h2 id="funnelTitle" data-i18n="funnelStatusTitle">¿Cuál de estas opciones te describe mejor?</h2>
+          <p data-i18n="funnelStatusDesc">Elige una opción. Así podremos entender mejor qué información necesitas.</p>
+          <div class="travel-funnel-options">
+            <label class="travel-funnel-option"><input type="radio" name="journeyStatus" value="planning_first" required><span><i class="fa-regular fa-map"></i><b data-i18n="funnelFirstTrip">Estoy planeando mi primer viaje a Corea</b></span></label>
+            <label class="travel-funnel-option"><input type="radio" name="journeyStatus" value="visited_before"><span><i class="fa-solid fa-plane-arrival"></i><b data-i18n="funnelVisited">Ya viajé a Corea</b></span></label>
+            <label class="travel-funnel-option"><input type="radio" name="journeyStatus" value="planning_return"><span><i class="fa-solid fa-rotate"></i><b data-i18n="funnelReturn">Estoy planeando volver a Corea</b></span></label>
+            <label class="travel-funnel-option"><input type="radio" name="journeyStatus" value="living_in_korea"><span><i class="fa-solid fa-house"></i><b data-i18n="funnelResident">Vivo actualmente en Corea</b></span></label>
+          </div>
+        </section>
+
+        <section class="travel-funnel-step" data-funnel-step="2" hidden>
+          <span class="travel-funnel-kicker" data-i18n="funnelCountryKicker">Cuéntanos de dónde vienes</span>
+          <h2 data-i18n="funnelCountryTitle">¿Cuál es tu país?</h2>
+          <p data-i18n="funnelCountryDesc">Esto nos ayuda a preparar información útil para cada mercado.</p>
+          <label class="travel-funnel-field">
+            <span data-i18n="funnelCountryLabel">País</span>
+            <input type="text" id="funnelCountry" name="country" list="funnelCountryList" maxlength="80" autocomplete="country-name" placeholder="Ej. México" data-i18n-placeholder="funnelCountryPlaceholder" required>
+          </label>
+          <datalist id="funnelCountryList">
+            <option value="México"><option value="Perú"><option value="Colombia"><option value="Chile"><option value="Argentina"><option value="Brasil"><option value="Ecuador"><option value="Bolivia"><option value="Paraguay"><option value="Uruguay"><option value="Costa Rica"><option value="Guatemala"><option value="España"><option value="Estados Unidos"><option value="Canadá">
+          </datalist>
+        </section>
+
+        <section class="travel-funnel-step" data-funnel-step="3" hidden>
+          <span class="travel-funnel-kicker" data-i18n="funnelInterestKicker">Diseña tu viaje ideal</span>
+          <h2 data-i18n="funnelInterestTitle">¿Qué tipo de viaje buscas?</h2>
+          <p data-i18n="funnelInterestDesc">Puedes elegir hasta 3 opciones.</p>
+          <div class="travel-funnel-interests">
+            <label><input type="checkbox" name="interests" value="tradition"><span><i class="fa-solid fa-landmark"></i><b data-i18n="funnelTradition">Tradición y hanok</b></span></label>
+            <label><input type="checkbox" name="interests" value="food"><span><i class="fa-solid fa-utensils"></i><b data-i18n="funnelFood">Comida y cafés</b></span></label>
+            <label><input type="checkbox" name="interests" value="nature"><span><i class="fa-solid fa-mountain-sun"></i><b data-i18n="funnelNature">Montañas y naturaleza</b></span></label>
+            <label><input type="checkbox" name="interests" value="coast"><span><i class="fa-solid fa-water"></i><b data-i18n="funnelCoast">Mar y costa</b></span></label>
+            <label><input type="checkbox" name="interests" value="festival"><span><i class="fa-solid fa-champagne-glasses"></i><b data-i18n="funnelFestival">Festivales y eventos</b></span></label>
+            <label><input type="checkbox" name="interests" value="local"><span><i class="fa-solid fa-people-group"></i><b data-i18n="funnelLocal">Vida local</b></span></label>
+            <label><input type="checkbox" name="interests" value="wellness"><span><i class="fa-solid fa-spa"></i><b data-i18n="funnelWellness">Descanso y bienestar</b></span></label>
+            <label><input type="checkbox" name="interests" value="winter"><span><i class="fa-solid fa-person-skiing"></i><b data-i18n="funnelWinter">Invierno y esquí</b></span></label>
+          </div>
+        </section>
+
+        <section class="travel-funnel-step" data-funnel-step="4" hidden>
+          <span class="travel-funnel-kicker" data-i18n="funnelContactKicker">Mantente cerca de DAMDA</span>
+          <h2 data-i18n="funnelContactTitle">¿Quieres recibir rutas y futuras invitaciones?</h2>
+          <p data-i18n="funnelContactDesc">El contacto es opcional. Tu respuesta de viaje se guardará aunque lo dejes vacío.</p>
+          <div class="travel-funnel-contact-grid">
+            <label class="travel-funnel-field">
+              <span data-i18n="funnelContactType">Cómo prefieres recibir información</span>
+              <select id="funnelContactType" name="contactType">
+                <option value="email">Email</option>
+                <option value="whatsapp">WhatsApp</option>
+              </select>
+            </label>
+            <label class="travel-funnel-field">
+              <span data-i18n="funnelContactValue">Tu contacto</span>
+              <input type="text" id="funnelContactValue" name="contactValue" maxlength="160" autocomplete="email" placeholder="nombre@email.com">
+            </label>
+          </div>
+          <label class="travel-funnel-consent">
+            <input type="checkbox" id="funnelConsent" name="contactConsent">
+            <span data-i18n="funnelConsent">Acepto recibir información de DAMDA relacionada con viajes y experiencias. Puedo solicitar dejar de recibirla.</span>
+          </label>
+          <p class="travel-funnel-privacy" data-i18n="funnelPrivacy">DAMDA utiliza estas respuestas para analizar intereses turísticos y solo usa tu contacto si das permiso.</p>
+          <label class="travel-funnel-honeypot" aria-hidden="true">Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+        </section>
+
+        <p class="travel-funnel-error" id="funnelError" role="alert" hidden></p>
+        <footer class="travel-funnel-actions">
+          <button type="button" class="travel-funnel-back" id="funnelBackBtn" onclick="changeTravelFunnelStep(-1)" hidden><i class="fa-solid fa-arrow-left"></i> <span data-i18n="funnelBack">Atrás</span></button>
+          <button type="button" class="travel-funnel-next" id="funnelNextBtn" onclick="changeTravelFunnelStep(1)"><span data-i18n="funnelNext">Continuar</span> <i class="fa-solid fa-arrow-right"></i></button>
+          <button type="submit" class="travel-funnel-submit" id="funnelSubmitBtn" hidden><span data-i18n="funnelSubmit">Guardar mi perfil</span> <i class="fa-solid fa-check"></i></button>
+        </footer>
+      </form>
+
+      <section class="travel-funnel-success" id="travelFunnelSuccess" hidden>
+        <span class="travel-funnel-success-icon"><i class="fa-solid fa-check"></i></span>
+        <h2 data-i18n="funnelSuccessTitle">Gracias. Ya conocemos mejor tu viaje.</h2>
+        <p data-i18n="funnelSuccessDesc">Ahora explora lugares que encajan con lo que buscas.</p>
+        <button type="button" onclick="finishTravelFunnel()"><span data-i18n="funnelExplore">Ver recomendaciones</span> <i class="fa-solid fa-arrow-right"></i></button>
+      </section>
+    </div>
+  </div>
+
   <!-- Scripts -->
   <script src="js/tourData.js?v=25"></script>
   <script src="js/tourCatalog.js?v=25"></script>
   <script src="js/tourImages.js?v=25"></script>
   <script src="js/tourDetails.js?v=25"></script>
   <script src="js/tourApi.js?v=25"></script>
-  <script src="js/app.js?v=44"></script>
+  <script src="js/app.js?v=45"></script>
 </body>
 </html>
