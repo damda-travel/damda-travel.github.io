@@ -707,6 +707,73 @@ body.funnel-open {
   }
 }
 
+/* DAMDA supplied brand mark */
+.brand-logo {
+  width: 92px;
+  min-width: 92px;
+  justify-content: center;
+}
+
+.damda-logo-image {
+  display: block;
+  width: 92px;
+  height: auto;
+  max-height: 70px;
+  object-fit: contain;
+}
+
+/* Keep route-result copy readable on the forest planner surface. */
+.planner-result {
+  color: #fff;
+}
+
+.plan-result-header span,
+.plan-day-label {
+  color: var(--damda-lime);
+}
+
+.plan-result-header h3,
+.plan-transfer-copy strong {
+  color: #fff;
+}
+
+.clear-plan-btn,
+.plan-transfer-copy small,
+.plan-disclaimer {
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.clear-plan-btn:hover {
+  color: #fff;
+}
+
+.plan-transfer {
+  border-left-color: rgba(212, 238, 155, 0.52);
+}
+
+.plan-transfer-icon {
+  border-color: var(--damda-forest);
+  background: var(--damda-lime);
+  color: var(--damda-forest);
+}
+
+@media (max-width: 768px) {
+  .brand-logo {
+    width: 78px;
+    min-width: 78px;
+  }
+
+  .damda-logo-image {
+    width: 78px;
+    max-height: 62px;
+  }
+
+  .plan-result-header {
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .tour-card,
   .modal-overlay,
