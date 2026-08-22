@@ -19,7 +19,7 @@ const TRAVEL_INTERESTS = new Set([
 let schemaReady;
 
 const CORS_ALLOWED_ORIGINS = new Set([
-  'https://damda-korea.github.io'
+  'https://damda-travel.github.io'
 ]);
 
 function corsHeaders(request) {

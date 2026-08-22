@@ -104,7 +104,7 @@ npx http-server . -p 8085 -a 127.0.0.1 -c-1
 
 ## 운영 배포
 
-- 공개 프런트엔드: `https://damda-korea.github.io/`
+- 공개 프런트엔드: `https://damda-travel.github.io/`
 - `main` 브랜치에 푸시하면 `.github/workflows/pages.yml`이 `dist/client/`를 GitHub Pages에 자동 배포합니다.
 - 여행 수요 저장 API와 D1은 기존 Sites 서버 `https://damda.parkg9832.chatgpt.site/api/travel-demand`를 사용합니다.
 - `dist/server/`가 변경되면 GitHub Pages 배포와 별도로 기존 Sites 프로젝트에도 서버를 재배포합니다.
