@@ -53,7 +53,9 @@
 
 ## 배포
 
-- `.openai/hosting.json`의 기존 Sites `project_id`를 재사용한다.
+- 공개 프런트는 `main` 푸시 후 GitHub Actions가 `dist/client/`를 GitHub Pages에 자동 배포한다.
+- `.openai/hosting.json`의 기존 Sites `project_id`는 D1 기반 여행 수요 API 서버에 계속 재사용한다.
+- `dist/server/` 변경 시 Sites 서버도 함께 배포하고, GitHub Pages 출처의 CORS 사전 요청을 검증한다.
 - 변경 소스를 `dist/client/`에 동기화하고 검증한 커밋만 저장·배포한다.
-- 공개 배포는 사용자 승인 후 진행한다.
+- 이 프로젝트는 사용자가 자동 배포를 상시 요청했으므로 검증 완료 후 푸시와 배포를 연속해서 진행한다.
 - `scripts/local_server.js`는 로컬 검수용 사용자 파일이다. 명시 요청 없이 삭제하거나 커밋하지 않는다.

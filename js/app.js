@@ -16,6 +16,10 @@ let searchDebounceTimer = null;
 let visibleResultLimit = 6;
 let lastResultSignature = '';
 let currentLanguage = localStorage.getItem('jeonbuk_language') === 'ko' ? 'ko' : 'es';
+const TRAVEL_DEMAND_API_URL = window.location.hostname.endsWith('github.io')
+  ? 'https://damda.parkg9832.chatgpt.site/api/travel-demand'
+  : '/api/travel-demand';
+const SHARED_PLACE_QUERY_KEY = 'place';
 let selectedPlannerRegions = new Set();
 let activeRoutePreset = 'heritage';
 let plannerRegionsExpanded = false;
@@ -546,6 +550,7 @@ document.addEventListener('DOMContentLoaded', () => {
   applyLanguage(currentLanguage, false);
   initMobileNavigation();
   initTravelFunnel();
+  openSharedTourFromUrl();
 });
 
 document.addEventListener('keydown', event => {
@@ -826,8 +831,9 @@ function initTravelFunnel() {
 
   const completed = localStorage.getItem('damda_travel_profile_completed');
   const snoozedUntil = Number(localStorage.getItem('damda_travel_profile_snoozed_until') || 0);
-  if (!completed && Date.now() > snoozedUntil) {
-    window.setTimeout(() => openTravelFunnel(false), 900);
+  const hasSharedPlace = Boolean(getSharedTourId());
+  if (!completed && !hasSharedPlace && Date.now() > snoozedUntil) {
+    window.setTimeout(() => openTravelFunnel(false), 1400);
   }
 }
 
@@ -976,7 +982,7 @@ async function submitTravelFunnel(event) {
   }
 
   try {
-    const response = await fetch('/api/travel-demand', {
+    const response = await fetch(TRAVEL_DEMAND_API_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
@@ -1141,6 +1147,18 @@ function findTourById(tourId) {
   const apiTour = currentLiveApiData.find(tour => tour.id === tourId);
   ensureTourIndex();
   return apiTour || tourIndexCache.byId.get(tourId) || null;
+}
+
+function getSharedTourId() {
+  return String(new URLSearchParams(window.location.search).get(SHARED_PLACE_QUERY_KEY) || '')
+    .trim()
+    .slice(0, 120);
+}
+
+function openSharedTourFromUrl() {
+  const sharedTourId = getSharedTourId();
+  if (!sharedTourId || !findTourById(sharedTourId)) return;
+  window.setTimeout(() => openModal(sharedTourId), 0);
 }
 
 function getSavedIds() {
@@ -1844,10 +1862,14 @@ function updateModalBookmarkButton(tourId) {
 }
 
 async function shareTour(tour) {
+  const shareUrl = new URL(window.location.href);
+  shareUrl.hash = '';
+  shareUrl.search = '';
+  shareUrl.searchParams.set(SHARED_PLACE_QUERY_KEY, tour.id);
   const shareData = {
     title: `${getTourName(tour)} | ${currentLanguage === 'ko' ? '전북 관광 가이드' : 'Guía turística de Jeonbuk'}`,
-    text: `${getTourName(tour)} - ${tour.address}`,
-    url: window.location.href.split('#')[0]
+    text: `${getTourName(tour)} · ${getLocalizedAddress(tour)}`,
+    url: shareUrl.href
   };
 
   try {
@@ -1855,12 +1877,14 @@ async function shareTour(tour) {
       await navigator.share(shareData);
     } else if (navigator.clipboard) {
       await navigator.clipboard.writeText(`${shareData.title}\n${shareData.text}\n${shareData.url}`);
-      showToast('관광지 정보가 클립보드에 복사되었습니다.');
+      showToast(currentLanguage === 'ko' ? '장소 링크를 복사했습니다.' : 'Enlace del lugar copiado.');
     } else {
-      showToast('이 브라우저에서는 공유 기능을 지원하지 않습니다.');
+      showToast(currentLanguage === 'ko' ? '이 브라우저에서는 공유 기능을 지원하지 않습니다.' : 'Este navegador no permite compartir.');
     }
   } catch (error) {
-    if (error.name !== 'AbortError') showToast('공유하지 못했습니다. 다시 시도해주세요.');
+    if (error.name !== 'AbortError') {
+      showToast(currentLanguage === 'ko' ? '공유하지 못했습니다. 다시 시도해주세요.' : 'No se pudo compartir. Inténtalo de nuevo.');
+    }
   }
 }
 

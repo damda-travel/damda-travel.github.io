@@ -18,12 +18,29 @@ const TRAVEL_INTERESTS = new Set([
 
 let schemaReady;
 
-function jsonResponse(body, status = 200) {
+const CORS_ALLOWED_ORIGINS = new Set([
+  'https://parkg9832.github.io'
+]);
+
+function corsHeaders(request) {
+  const origin = request.headers.get('origin');
+  if (!origin || !CORS_ALLOWED_ORIGINS.has(origin)) return {};
+  return {
+    'Access-Control-Allow-Origin': origin,
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Max-Age': '86400',
+    'Vary': 'Origin'
+  };
+}
+
+function jsonResponse(body, status = 200, request = null) {
   return new Response(JSON.stringify(body), {
     status,
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
-      'Cache-Control': 'no-store'
+      'Cache-Control': 'no-store',
+      ...(request ? corsHeaders(request) : {})
     }
   });
 }
@@ -58,24 +75,25 @@ async function ensureTravelDemandSchema(db) {
 }
 
 async function saveTravelDemand(request, env) {
-  if (!env.DB) return jsonResponse({ ok: false, error: 'database_unavailable' }, 503);
+  const respond = (body, status) => jsonResponse(body, status, request);
+  if (!env.DB) return respond({ ok: false, error: 'database_unavailable' }, 503);
 
   const contentLength = Number(request.headers.get('content-length') || 0);
-  if (contentLength > 8192) return jsonResponse({ ok: false, error: 'payload_too_large' }, 413);
+  if (contentLength > 8192) return respond({ ok: false, error: 'payload_too_large' }, 413);
   if (!request.headers.get('content-type')?.includes('application/json')) {
-    return jsonResponse({ ok: false, error: 'invalid_content_type' }, 415);
+    return respond({ ok: false, error: 'invalid_content_type' }, 415);
   }
 
   let body;
   try {
     body = await request.json();
   } catch {
-    return jsonResponse({ ok: false, error: 'invalid_json' }, 400);
+    return respond({ ok: false, error: 'invalid_json' }, 400);
   }
 
-  if (cleanText(body.website, 120)) return jsonResponse({ ok: true }, 201);
+  if (cleanText(body.website, 120)) return respond({ ok: true }, 201);
   if (!Number.isFinite(body.elapsedMs) || body.elapsedMs < 900) {
-    return jsonResponse({ ok: false, error: 'invalid_submission' }, 400);
+    return respond({ ok: false, error: 'invalid_submission' }, 400);
   }
 
   const journeyStatus = cleanText(body.journeyStatus, 40);
@@ -89,16 +107,16 @@ async function saveTravelDemand(request, env) {
   const contactValue = contactConsent ? cleanText(body.contactValue, 160) : '';
 
   if (!JOURNEY_STATUSES.has(journeyStatus) || country.length < 2 || !interests.length) {
-    return jsonResponse({ ok: false, error: 'invalid_fields' }, 400);
+    return respond({ ok: false, error: 'invalid_fields' }, 400);
   }
   if (contactType === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactValue)) {
-    return jsonResponse({ ok: false, error: 'invalid_contact' }, 400);
+    return respond({ ok: false, error: 'invalid_contact' }, 400);
   }
   if (contactType === 'whatsapp' && !/^[+()\d\s.-]{7,24}$/.test(contactValue)) {
-    return jsonResponse({ ok: false, error: 'invalid_contact' }, 400);
+    return respond({ ok: false, error: 'invalid_contact' }, 400);
   }
   if (contactConsent && (!contactType || !contactValue)) {
-    return jsonResponse({ ok: false, error: 'invalid_contact' }, 400);
+    return respond({ ok: false, error: 'invalid_contact' }, 400);
   }
 
   await ensureTravelDemandSchema(env.DB);
@@ -118,19 +136,26 @@ async function saveTravelDemand(request, env) {
     )
     .run();
 
-  return jsonResponse({ ok: true }, 201);
+  return respond({ ok: true }, 201);
 }
 
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     if (url.pathname === '/api/travel-demand') {
-      if (request.method !== 'POST') return jsonResponse({ ok: false, error: 'method_not_allowed' }, 405);
+      if (request.method === 'OPTIONS') {
+        const origin = request.headers.get('origin');
+        if (origin && !CORS_ALLOWED_ORIGINS.has(origin)) {
+          return jsonResponse({ ok: false, error: 'origin_not_allowed' }, 403, request);
+        }
+        return new Response(null, { status: 204, headers: corsHeaders(request) });
+      }
+      if (request.method !== 'POST') return jsonResponse({ ok: false, error: 'method_not_allowed' }, 405, request);
       try {
         return await saveTravelDemand(request, env);
       } catch (error) {
         console.error('travel_demand_submit_failed', error);
-        return jsonResponse({ ok: false, error: 'submit_failed' }, 500);
+        return jsonResponse({ ok: false, error: 'submit_failed' }, 500, request);
       }
     }
     return env.ASSETS.fetch(request);

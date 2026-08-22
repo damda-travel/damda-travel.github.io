@@ -12,6 +12,8 @@
 - 다지역 추천 코스와 기간·테마·여행 속도 기반 플래너
 - 모바일 하단 내비게이션과 반응형 레이아웃
 - 첫 방문 여행 성향 진단과 수요 데이터 수집
+- 장소별 공유 링크로 해당 상세 화면 바로 열기
+- 모바일 홈 화면 설치용 웹앱 매니페스트
 
 ## 여행 수요 퍼널
 
@@ -99,3 +101,11 @@ npx http-server . -p 8085 -a 127.0.0.1 -c-1
 9. 첫 방문 진단 ES/KR, 건너뛰기, 최대 3개 테마, 선택 연락처 동의, 완료 후 필터 연결
 
 배포 프로젝트 ID는 `.openai/hosting.json`을 기준으로 재사용합니다. 공개 배포는 검증된 커밋으로만 진행합니다.
+
+## 운영 배포
+
+- 공개 프런트엔드: `https://parkg9832.github.io/damda-jeonbuk-travel/`
+- `main` 브랜치에 푸시하면 `.github/workflows/pages.yml`이 `dist/client/`를 GitHub Pages에 자동 배포합니다.
+- 여행 수요 저장 API와 D1은 기존 Sites 서버 `https://damda.parkg9832.chatgpt.site/api/travel-demand`를 사용합니다.
+- `dist/server/`가 변경되면 GitHub Pages 배포와 별도로 기존 Sites 프로젝트에도 서버를 재배포합니다.
+- GitHub Pages는 정적 호스팅이므로 API 주소를 GitHub 프런트 코드와 같은 상대 경로로 바꾸지 않습니다.
