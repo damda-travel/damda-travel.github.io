@@ -237,7 +237,18 @@ const I18N = {
     footerSaved: 'Guardados',
     footerData: 'Datos',
     footerHelp: 'Ayuda turística 1330',
-    footerNotice: 'Confirma horarios y precios en la fuente oficial antes de visitar. · Información turística 1330',
+    footerNotice: 'Confirma horarios y precios antes de visitar. · Información turística 1330',
+    footerPrivacy: 'Política de privacidad',
+    footerTerms: 'Términos de uso',
+    footerBusinessTitle: 'Información de la empresa',
+    footerCompanyLabel: 'Empresa',
+    footerCompany: '먹다 (MOKDA)',
+    footerCeoLabel: 'Representante',
+    footerCeo: 'Gyeom Park',
+    footerRegistrationLabel: 'Registro comercial',
+    footerAddressLabel: 'Dirección',
+    footerAddress: '44 Nambuk 10-gil, 2F, Gimje-si, Jeonbuk, República de Corea',
+    footerCopyright: '© 2026 DAMDA by MOKDA. Todos los derechos reservados.',
     modalStay: 'Estancia sugerida',
     estimateLabel: 'Estimación',
     estimateNote: 'Estimación basada en el tipo de lugar y una visita habitual.',
@@ -382,7 +393,18 @@ const I18N = {
     footerSaved: '여행 보관함',
     footerData: '데이터 설정',
     footerHelp: '관광안내 1330',
-    footerNotice: '관광지 운영시간·요금은 방문 전 공식 관광정보에서 다시 확인해주세요. · 관광안내 1330',
+    footerNotice: '관광지 운영시간·요금은 방문 전에 다시 확인해주세요. · 관광안내 1330',
+    footerPrivacy: '개인정보 처리방침',
+    footerTerms: '이용약관',
+    footerBusinessTitle: '사업자 정보',
+    footerCompanyLabel: '상호',
+    footerCompany: '먹다 (MOKDA)',
+    footerCeoLabel: '대표',
+    footerCeo: '박겸',
+    footerRegistrationLabel: '사업자등록번호',
+    footerAddressLabel: '주소',
+    footerAddress: '전북특별자치도 김제시 남북10길 44, 2층',
+    footerCopyright: '© 2026 DAMDA by MOKDA. 모든 권리 보유.',
     modalStay: '추천 체류',
     estimateLabel: '예상',
     estimateNote: '장소 유형과 일반적인 관람 범위를 기준으로 한 예상치입니다.',
@@ -1812,10 +1834,6 @@ function openModal(tourId) {
   photoSource.href = officialUrl;
   photoSource.textContent = currentLanguage === 'ko' ? `사진 · ${sourceName}` : 'Fuente de la foto';
   photoSource.hidden = !foundTour.image;
-
-  const officialSource = document.getElementById('modalOfficialSource');
-  officialSource.href = officialUrl;
-  officialSource.innerHTML = `<i class="fa-solid fa-arrow-up-right-from-square"></i> ${currentLanguage === 'ko' ? `${escapeHTML(sourceName)}에서 확인` : 'Consultar fuente oficial'}`;
 
   tourModal.querySelector('.modal-content')?.scrollTo({ top: 0, behavior: 'auto' });
   tourModal.classList.add('active');

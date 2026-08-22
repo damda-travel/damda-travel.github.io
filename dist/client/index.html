@@ -6,16 +6,16 @@
   <meta name="description" content="DAMDA: descubre Jeonbuk a través de su cultura, naturaleza, sabores locales y rutas prácticas en español.">
   <meta name="theme-color" content="#173D31">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="DAMDA">
+  <meta property="og:title" content="DAMDA | K-Travel">
   <meta property="og:description" content="A unos 90 minutos de Seúl, descubre la historia, tradición, montañas, mar y sabores de Jeonbuk.">
   <meta property="og:url" content="https://damda-travel.github.io/">
   <meta property="og:image" content="https://damda-travel.github.io/images/og-v2.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="DAMDA">
+  <meta name="twitter:title" content="DAMDA | K-Travel">
   <meta name="twitter:description" content="Más allá de Seúl: conoce la Corea real en Jeonbuk.">
   <meta name="twitter:image" content="https://damda-travel.github.io/images/og-v2.jpg">
   <link rel="canonical" href="https://damda-travel.github.io/">
-  <title>DAMDA</title>
+  <title>DAMDA | K-Travel</title>
 
   <!-- Google Fonts: Noto Sans KR, Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +34,7 @@
 
   <!-- CSS Stylesheet -->
   <link rel="stylesheet" href="css/style.css?v=39">
-  <link rel="stylesheet" href="css/polish.css?v=10">
+  <link rel="stylesheet" href="css/polish.css?v=11">
 </head>
 <body>
 
@@ -288,22 +288,34 @@
 
     <!-- FOOTER -->
     <footer class="main-footer">
-      <div class="footer-content">
-        <div class="footer-brand">
-          <h3 data-i18n="footerTitle">DAMDA</h3>
+      <div class="footer-shell">
+        <div class="footer-content">
+          <div class="footer-brand">
+          <h3><span>DAMDA</span><i aria-hidden="true"></i><span>K-Travel</span></h3>
           <p data-i18n="footerDesc">Una guía para explorar cultura, comida y naturaleza en los 14 municipios de Jeonbuk.</p>
+          </div>
+          <nav class="footer-links" aria-label="Footer">
+            <a href="#" onclick="resetSelection(); return false;" data-i18n="footerHome">Inicio</a>
+            <a href="#" onclick="setCategory('course', document.querySelector('.course-btn')); return false;" data-i18n="footerRoutes">Rutas recomendadas</a>
+            <a href="javascript:void(0)" onclick="openSavedPanel()" data-i18n="footerSaved">Guardados</a>
+            <a href="javascript:void(0)" onclick="openTravelFunnel(true)" data-i18n="footerDiagnosis">Tu perfil de viaje</a>
+            <a href="privacy.html" data-i18n="footerPrivacy">Política de privacidad</a>
+            <a href="terms.html" data-i18n="footerTerms">Términos de uso</a>
+          </nav>
         </div>
-        <div class="footer-links">
-          <a href="#" onclick="resetSelection(); return false;" data-i18n="footerHome">Inicio</a>
-          <a href="#" onclick="setCategory('course', document.querySelector('.course-btn')); return false;" data-i18n="footerRoutes">Rutas recomendadas</a>
-          <a href="javascript:void(0)" onclick="openSavedPanel()" data-i18n="footerSaved">Guardados</a>
-          <a href="javascript:void(0)" onclick="openTravelFunnel(true)" data-i18n="footerDiagnosis">Tu perfil de viaje</a>
-          <a href="javascript:void(0)" class="api-settings-link" onclick="openApiModal()" data-i18n="footerData">Datos</a>
-          <a href="tel:1330" data-i18n="footerHelp">Ayuda turística 1330</a>
+        <section class="footer-business" aria-labelledby="footerBusinessTitle">
+          <h4 id="footerBusinessTitle" data-i18n="footerBusinessTitle">Información de la empresa</h4>
+          <dl>
+            <div><dt data-i18n="footerCompanyLabel">Empresa</dt><dd data-i18n="footerCompany">먹다 (MOKDA)</dd></div>
+            <div><dt data-i18n="footerCeoLabel">Representante</dt><dd data-i18n="footerCeo">Gyeom Park</dd></div>
+            <div><dt data-i18n="footerRegistrationLabel">Registro comercial</dt><dd>161-07-03392</dd></div>
+            <div><dt data-i18n="footerAddressLabel">Dirección</dt><dd data-i18n="footerAddress">44 Nambuk 10-gil, 2F, Gimje-si, Jeonbuk, República de Corea</dd></div>
+          </dl>
+        </section>
+        <div class="footer-bottom">
+          <p data-i18n="footerNotice">Confirma horarios y precios antes de visitar. · Información turística 1330</p>
+          <p data-i18n="footerCopyright">© 2026 DAMDA by MOKDA. Todos los derechos reservados.</p>
         </div>
-      </div>
-      <div class="footer-bottom">
-        <p data-i18n="footerNotice">Confirma horarios y precios en la fuente oficial antes de visitar. · Información turística 1330</p>
       </div>
     </footer>
 
@@ -397,7 +409,6 @@
         </div>
         <div class="modal-secondary-actions">
           <button type="button" class="text-action-btn" id="modalShareBtn"><i class="fa-solid fa-share-nodes"></i> <span data-i18n="modalShare">Compartir</span></button>
-          <a class="text-action-btn" id="modalOfficialSource" href="https://tour.jb.go.kr/index.do" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-i18n="modalOfficial">Información oficial</span></a>
         </div>
       </div>
     </div>
@@ -575,6 +586,6 @@
   <script src="js/tourImages.js?v=25"></script>
   <script src="js/tourDetails.js?v=25"></script>
   <script src="js/tourApi.js?v=25"></script>
-  <script src="js/app.js?v=46"></script>
+  <script src="js/app.js?v=47"></script>
 </body>
 </html>
