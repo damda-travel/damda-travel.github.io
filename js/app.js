@@ -35,6 +35,8 @@ let plannerRegionsExpanded = false;
 let tourIndexCache = null;
 let categoryCountsCache = null;
 let uiRequestSequence = 0;
+let modalRequestSequence = 0;
+const catalogDetailPromises = new Map();
 const RESULTS_PAGE_SIZE = 6;
 
 const REGION_NAMES_ES = {
@@ -1093,7 +1095,7 @@ function getRegionName(regionId, fallback = '') {
 
 function getTourName(tour) {
   if (!tour) return '';
-  return currentLanguage === 'ko' ? tour.name : (TOUR_NAMES_ES[tour.id] || romanizeKorean(tour.name));
+  return currentLanguage === 'ko' ? tour.name : (TOUR_NAMES_ES[tour.id] || localizeKoreanPlaceName(tour.name));
 }
 
 function getLocalizedAddress(tour) {
@@ -1115,6 +1117,106 @@ function romanizeKorean(value = '') {
     return `${initials[initial]}${vowels[vowel]}${finals[final]}`;
   }).join('');
   return romanized.replace(/\b[a-z]/g, letter => letter.toUpperCase());
+}
+
+const KOREAN_PLACE_TYPES_ES = [
+  { suffix: '호수공원', label: 'Parque del Lago' },
+  { suffix: '국립공원', label: 'Parque Nacional' },
+  { suffix: '도립공원', label: 'Parque Provincial' },
+  { suffix: '군립공원', label: 'Parque Comarcal' },
+  { suffix: '자연휴양림', label: 'Bosque Recreativo' },
+  { suffix: '생태공원', label: 'Parque Ecológico' },
+  { suffix: '테마공원', label: 'Parque Temático' },
+  { suffix: '테마파크', label: 'Parque Temático' },
+  { suffix: '해수욕장', label: 'Playa' },
+  { suffix: '출렁다리', label: 'Puente Colgante' },
+  { suffix: '전통시장', label: 'Mercado Tradicional' },
+  { suffix: '한옥마을', label: 'Aldea Hanok' },
+  { suffix: '문화예술촌', label: 'Aldea de Arte y Cultura' },
+  { suffix: '박물관', label: 'Museo' },
+  { suffix: '미술관', label: 'Museo de Arte' },
+  { suffix: '문학관', label: 'Museo Literario' },
+  { suffix: '기념관', label: 'Memorial' },
+  { suffix: '문화관', label: 'Centro Cultural' },
+  { suffix: '전시관', label: 'Centro de Exposiciones' },
+  { suffix: '체험관', label: 'Centro de Experiencias' },
+  { suffix: '수목원', label: 'Jardín Botánico' },
+  { suffix: '식물원', label: 'Jardín Botánico' },
+  { suffix: '동물원', label: 'Zoológico' },
+  { suffix: '스키장', label: 'Estación de Esquí' },
+  { suffix: '전망대', label: 'Mirador' },
+  { suffix: '폭포', label: 'Cascada' },
+  { suffix: '계곡', label: 'Valle' },
+  { suffix: '저수지', label: 'Embalse' },
+  { suffix: '호수', label: 'Lago' },
+  { suffix: '정원', label: 'Jardín' },
+  { suffix: '공원', label: 'Parque' },
+  { suffix: '성당', label: 'Catedral' },
+  { suffix: '향교', label: 'Escuela Confuciana' },
+  { suffix: '서원', label: 'Academia Confuciana' },
+  { suffix: '산성', label: 'Fortaleza de Montaña' },
+  { suffix: '읍성', label: 'Fortaleza' },
+  { suffix: '시장', label: 'Mercado' },
+  { suffix: '마을', label: 'Aldea' },
+  { suffix: '축제', label: 'Festival' },
+  { suffix: '농장', label: 'Granja' },
+  { suffix: '목장', label: 'Rancho' },
+  { suffix: '온천', label: 'Termas' },
+  { suffix: '캠핑장', label: 'Camping' },
+  { suffix: '둘레길', label: 'Sendero Circular' },
+  { suffix: '산책길', label: 'Paseo' },
+  { suffix: '길', label: 'Sendero' }
+];
+
+function localizeKoreanPlaceName(value = '') {
+  const cleanName = String(value).replace(/\s+/g, ' ').trim();
+  if (!/[가-힣]/.test(cleanName)) return cleanName;
+
+  const nationalMuseum = cleanName.match(/^국립(.+)박물관$/);
+  if (nationalMuseum) return `Museo Nacional de ${romanizeKorean(nationalMuseum[1])}`;
+
+  const matchedType = KOREAN_PLACE_TYPES_ES.find(type => cleanName.endsWith(type.suffix));
+  if (matchedType) {
+    const baseName = cleanName.slice(0, -matchedType.suffix.length).trim();
+    return baseName ? `${matchedType.label} ${romanizeKorean(baseName)}` : matchedType.label;
+  }
+
+  if (/^[가-힣\s]{2,}사$/.test(cleanName)) return `Templo ${romanizeKorean(cleanName)}`;
+  if (/^[가-힣\s]{2,}산$/.test(cleanName)) return `Monte ${romanizeKorean(cleanName)}`;
+  return romanizeKorean(cleanName);
+}
+
+function getResolvedCategory(tour) {
+  if (!tour || tour.category === 'festival' || tour.category === 'food') return tour?.category || 'culture';
+  const value = `${tour.name || ''} ${tour.subCategory || ''}`;
+  if (/박물관|미술관|문학관|기념관|문화관|전시관|성당|교회|사찰|향교|서원|사당|고택|생가|한옥|읍성|산성|유적|문화|예술|역사/.test(value)) return 'culture';
+  if (/국립공원|도립공원|군립공원|자연휴양림|생태|수목원|식물원|동물원|해수욕장|계곡|폭포|호수|저수지|습지|숲|정원|둘레길|산책길|산$|섬$/.test(value)) return 'nature';
+  if (/시장|장터|카페|커피|다방|빵|제과|베이커리|음식|식당/.test(value)) return 'food';
+  return tour.category;
+}
+
+function getSpanishTypeDescription(tour) {
+  const region = getRegionName(tour.regionId, tour.regionName);
+  const value = `${tour.name || ''} ${tour.subCategory || ''}`;
+  if (/박물관|미술관|문학관|기념관|문화관|전시관/.test(value)) return `Un espacio para conocer la historia, el arte y la identidad local de ${region}.`;
+  if (/해수욕장|해변|바다|해안/.test(value)) return `Costa de ${region} para pasear junto al mar y disfrutar del paisaje.`;
+  if (/자연휴양림|숲/.test(value)) return `Bosque y senderos para descansar y caminar al aire libre en ${region}.`;
+  if (/국립공원|도립공원|군립공원|산$/.test(value)) return `Paisaje de montaña y rutas al aire libre para descubrir en ${region}.`;
+  if (/계곡|폭포/.test(value)) return `Agua, bosque y senderos para una escapada de naturaleza en ${region}.`;
+  if (/수목원|식물원|정원/.test(value)) return `Jardines y senderos para una pausa tranquila entre plantas y paisaje.`;
+  if (/성당|교회/.test(value)) return `Arquitectura religiosa e historia local para conocer en ${region}.`;
+  if (/사찰|^[가-힣\s]{2,}사$/.test(value)) return `Patrimonio budista y un entorno sereno para recorrer sin prisa.`;
+  if (/시장|장터/.test(value)) return `Un mercado local para probar sabores y observar la vida cotidiana de ${region}.`;
+  if (/카페|커피|다방|빵|제과|베이커리/.test(value)) return `Una parada local para descansar y descubrir los sabores de ${region}.`;
+  if (/마을|한옥/.test(value)) return `Una aldea para acercarse al paisaje, los oficios y la cultura local de ${region}.`;
+  if (/축제|행사/.test(value)) return `Una celebración local para vivir la cultura y el ambiente de ${region}.`;
+  if (/공원|호수|저수지/.test(value)) return `Un espacio abierto para caminar, descansar y conocer el paisaje de ${region}.`;
+  return {
+    culture: `Historia y patrimonio para descubrir en ${region}.`,
+    nature: `Naturaleza y paisajes para disfrutar en ${region}.`,
+    food: `Una parada para conocer los sabores locales de ${region}.`,
+    festival: `Una experiencia cultural para vivir en ${region}.`
+  }[tour.category] || `Un lugar recomendado para conocer ${region}.`;
 }
 
 function getCategoryName(category) {
@@ -1161,15 +1263,8 @@ function getEventStatusLabel(status = '') {
 
 function getTourDescription(tour) {
   if (currentLanguage === 'ko') return tour.overview || tour.desc || tour.highlight || '';
-  const region = getRegionName(tour.regionId, tour.regionName);
-  const tourName = getTourName(tour);
   const curated = TOUR_DESCRIPTIONS_ES[tour.id];
-  const fallback = {
-    culture: `${tourName} forma parte del patrimonio cultural de ${region}.`,
-    nature: `${tourName} es una parada al aire libre en ${region}.`,
-    food: `${tourName} es una propuesta local para comer o tomar café en ${region}.`,
-    festival: `${tourName} reúne actividades y ambiente festivo en ${region}.`
-  }[tour.category] || `${tourName} es un lugar para conocer durante tu paso por ${region}.`;
+  const fallback = getSpanishTypeDescription(tour);
   const practicalTip = {
     culture: 'Recórrelo sin prisa y presta atención a los detalles del lugar.',
     nature: 'La experiencia cambia con la estación y el clima; lleva calzado cómodo.',
@@ -1182,14 +1277,7 @@ function getTourDescription(tour) {
 function getCardDescription(tour) {
   if (currentLanguage === 'es') {
     if (TOUR_DESCRIPTIONS_ES[tour.id]) return TOUR_DESCRIPTIONS_ES[tour.id];
-    const region = getRegionName(tour.regionId, tour.regionName);
-    const descriptions = {
-      culture: `Historia y patrimonio para descubrir en ${region}.`,
-      nature: `Naturaleza y paisajes para disfrutar en ${region}.`,
-      food: `Un sabor local recomendado de ${region}.`,
-      festival: `Una experiencia cultural para vivir en ${region}.`
-    };
-    return descriptions[tour.category] || `Un lugar recomendado para conocer ${region}.`;
+    return getSpanishTypeDescription(tour);
   }
 
   const source = String(tour.overview || tour.desc || tour.highlight || '').replace(/\s+/g, ' ').trim();
@@ -1607,10 +1695,12 @@ function ensureTourIndex() {
   const counts = { all: 0 };
   Object.entries(JEONBUK_REGIONS).forEach(([regionId, region]) => {
     region.tours.forEach(tour => {
+      const category = getResolvedCategory(tour);
       const indexedTour = {
         ...tour,
+        category,
         eventStatus: tour.eventPeriod ? getCurrentEventStatus(tour.eventPeriod) : tour.eventStatus,
-        subCategory: getDisplaySubcategory(tour),
+        subCategory: getDisplaySubcategory({ ...tour, category }),
         regionId,
         regionName: region.name
       };
@@ -2186,6 +2276,25 @@ function handleImageError(image) {
   image.parentElement?.classList.add('image-unavailable');
 }
 
+async function getTourWithLazyDetails(tour) {
+  if (!tour || tour.overview || !tour.id.startsWith('official-')) return tour;
+  const regionId = tour.regionId;
+  if (!catalogDetailPromises.has(regionId)) {
+    const request = fetch(`data/catalog-details/${encodeURIComponent(regionId)}.json?v=1`, { cache: 'force-cache' })
+      .then(response => {
+        if (!response.ok) throw new Error(`Catalog details HTTP ${response.status}`);
+        return response.json();
+      })
+      .catch(error => {
+        console.warn('DAMDA catalog details fallback:', error.message);
+        return {};
+      });
+    catalogDetailPromises.set(regionId, request);
+  }
+  const regionDetails = await catalogDetailPromises.get(regionId);
+  return { ...tour, ...(regionDetails[tour.id] || {}) };
+}
+
 function renderRecommendedCourses() {
   if (!courseGrid) return;
   courseGrid.innerHTML = RECOMMENDED_COURSES.map((course, index) => {
@@ -2207,9 +2316,12 @@ function renderRecommendedCourses() {
   }).join('');
 }
 
-function openModal(tourId, shouldTrack = true) {
-  const foundTour = findTourById(tourId);
-  if (!foundTour) return;
+async function openModal(tourId, shouldTrack = true) {
+  const requestId = ++modalRequestSequence;
+  const indexedTour = findTourById(tourId);
+  if (!indexedTour) return;
+  const foundTour = await getTourWithLazyDetails(indexedTour);
+  if (requestId !== modalRequestSequence) return;
 
   activeTourId = foundTour.id;
   lastFocusedElement = document.activeElement;
@@ -2389,6 +2501,7 @@ function openModal(tourId, shouldTrack = true) {
 
 function closeModal(event) {
   if (event && event.target !== tourModal) return;
+  modalRequestSequence += 1;
   tourModal.classList.remove('active');
   tourModal.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('modal-open');
@@ -3193,13 +3306,16 @@ function updateMobileNavActive() {
 
 function initMobileNavigation() {
   const backToTopBtn = document.getElementById('backToTopBtn');
+  const footer = document.querySelector('.main-footer');
   let ticking = false;
   const scheduleUpdate = () => {
     if (ticking) return;
     ticking = true;
     window.requestAnimationFrame(() => {
       if (mobileNavButtons.length) updateMobileNavActive();
-      document.body.classList.toggle('mobile-nav-visible', window.scrollY > 420);
+      const footerVisible = Boolean(footer && footer.getBoundingClientRect().top < window.innerHeight);
+      document.body.classList.toggle('mobile-footer-visible', footerVisible);
+      document.body.classList.toggle('mobile-nav-visible', window.scrollY > 420 && !footerVisible);
       backToTopBtn?.classList.toggle('visible', window.scrollY > 900);
       ticking = false;
     });

@@ -813,6 +813,13 @@ body {
   background: var(--damda-paper);
 }
 
+/* Horizontal carousels must never widen the page itself on narrow phones. */
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
 .app-container {
   gap: 0;
   padding: 0;
@@ -2914,6 +2921,59 @@ html[lang='ko'] .hero-title {
 }
 
 @media (max-width: 420px) {
+  .planner-section .planner-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "duration pace"
+      "theme theme"
+      "origin origin"
+      "date time"
+      "transport transport"
+      "action action";
+  }
+
+  .planner-section .planner-form > label:nth-child(1) {
+    grid-area: duration;
+  }
+
+  .planner-section .planner-form > label:nth-child(2) {
+    grid-area: theme;
+  }
+
+  .planner-section .planner-form > label:nth-child(3) {
+    grid-area: pace;
+  }
+
+  .planner-section .planner-form > label:nth-child(4) {
+    grid-area: origin;
+  }
+
+  .planner-section .planner-form > label:nth-child(5) {
+    grid-area: date;
+  }
+
+  .planner-section .planner-form > label:nth-child(6) {
+    grid-area: time;
+  }
+
+  .planner-section .planner-form > label:nth-child(7) {
+    grid-area: transport;
+  }
+
+  .planner-section .planner-form > .planner-generate-btn {
+    grid-area: action;
+  }
+
+  .planner-section .planner-form select,
+  .planner-section .planner-form input {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  body.mobile-footer-visible .back-to-top-btn {
+    bottom: calc(1rem + env(safe-area-inset-bottom));
+  }
+
   .damda-pick-card {
     flex-basis: 86%;
   }

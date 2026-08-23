@@ -27,6 +27,7 @@
 ## 데이터와 신뢰도
 
 - `js/tourCatalog.js`: 투어전북 공식 목록을 기준으로 동기화한 전체 카탈로그
+- `data/catalog-details/*.json`: 긴 소개·연락처·운영정보를 14개 지역별로 분리한 상세 데이터
 - `js/tourDetails.js`: 공식 상세 소개·연락처·운영정보 보강 데이터
 - `js/tourImages.js`: 장소별 사진과 출처 매핑
 - `js/tourApi.js`: 한국관광공사 `KorService2` 개발·검수용 선택 연동
@@ -48,6 +49,9 @@
 ## 성능 구조
 
 - 전체 관광 데이터는 처음 한 번만 색인하고 이후 검색·필터·상세 조회에서 재사용합니다.
+- 초기 목록에는 카드에 필요한 필드만 포함하고, 긴 상세정보는 사용자가 공식 카드를 열 때 해당 지역 파일 하나만 지연 로딩합니다.
+- 한국어 고유명은 스페인어 장소 유형(박물관·공원·해변·시장 등)과 로마자 고유명을 조합해 붙여쓰기식 기계 번역을 피합니다.
+- 공식 목록의 테마가 명칭과 어긋나는 경우 박물관·성당·자연공원 등 장소 유형 규칙으로 화면 분류를 보정합니다.
 - 초기 화면은 카드 6개만 렌더링하며 이미지는 WebP와 지연 로딩을 사용합니다.
 - 비동기 검색에는 요청 순번을 적용해 늦게 도착한 이전 응답이 최신 화면을 덮어쓰지 못하게 합니다.
 - 스크롤 기반 모바일 메뉴와 맨 위로 버튼은 하나의 `requestAnimationFrame` 루프로 처리합니다.
@@ -70,6 +74,9 @@ jeonbuk-tour-map/
 │  ├─ tourData.js
 │  ├─ tourDetails.js
 │  └─ tourImages.js
+├─ data/
+│  └─ catalog-details/
+│     └─ {regionId}.json
 ├─ images/
 │  ├─ catalog/
 │  └─ spots/
@@ -107,7 +114,9 @@ npx http-server . -p 8085 -a 127.0.0.1 -c-1
 7. 데스크톱 1280px에서 카드·모달·섹션 배치
 8. 브라우저 콘솔 오류 없음
 9. 첫 방문 진단 ES/KR, 건너뛰기, 최대 3개 테마, 선택 연락처 동의, 완료 후 필터 연결
-10. `node scripts/audit_catalog_quality.mjs`와 `node scripts/test_server.mjs`
+10. `node scripts/test_client_catalog.mjs`, `node scripts/audit_catalog_quality.mjs`, `node scripts/test_server.mjs`
+
+공식 카탈로그를 다시 동기화하면 `scripts/sync_official_catalog.js`가 `scripts/split_catalog_details.mjs`를 이어서 실행해 목록과 지역별 상세 파일을 다시 분리합니다.
 
 배포 프로젝트 ID는 `.openai/hosting.json`을 기준으로 재사용합니다. 공개 배포는 검증된 커밋으로만 진행합니다.
 

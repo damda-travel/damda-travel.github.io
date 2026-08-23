@@ -25,6 +25,8 @@
 - `dist/client/`은 배포 복사본이다. 배포 전 변경 파일을 동일 경로로 동기화한다.
 - `js/app.js`의 상태, 렌더링, 모달, 플래너 책임을 유지하되 새 기능은 관련 함수 옆에 작게 추가한다.
 - 전체 카탈로그를 반복해서 재조립하지 않는다. `ensureTourIndex()`의 캐시를 사용한다.
+- `js/tourCatalog.js`에는 목록용 필드만 둔다. 긴 소개·연락처·운영정보는 `data/catalog-details/{regionId}.json`에 유지하고 `getTourWithLazyDetails()`로 지연 로딩한다.
+- 공식 카탈로그 동기화 후에는 `scripts/split_catalog_details.mjs`를 실행해 목록 파일이 다시 비대해지지 않도록 한다.
 - 비동기 필터 결과는 `uiRequestSequence` 검사를 통과한 최신 요청만 렌더링한다.
 - 스크롤 이벤트마다 직접 DOM을 갱신하지 않는다. 기존 단일 `requestAnimationFrame` 스케줄러에 합친다.
 - 요청 없는 라이브러리 추가, 전면 리팩토링, 데이터 삭제, 폴더 이동을 하지 않는다.

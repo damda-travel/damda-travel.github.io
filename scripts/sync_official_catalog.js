@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { execFileSync } = require('child_process');
 const vm = require('vm');
 
 const ROOT = path.resolve(__dirname, '..');
@@ -177,7 +178,8 @@ function parseDetail(html) {
 function attractionCategory(card) {
   const value = `${card.name} ${card.listCategory} ${card.listItems.join(' ')}`;
   if (/시장|야시장|카페|커피|와인|식당|먹거리|푸드|빵|베이커리/.test(value)) return 'food';
-  if (/산|해수욕장|자연|공원|계곡|휴양림|수목원|섬|호수|저수지|폭포|숲|해안|습지|동굴|수변|정원|고원|생태|둘레길|산책길/.test(value)) return 'nature';
+  if (/박물관|미술관|문학관|기념관|문화관|전시관|성당|교회|사찰|향교|서원|사당|고택|생가|한옥|읍성|산성|유적|문화|예술|역사/.test(value)) return 'culture';
+  if (/국립공원|도립공원|군립공원|해수욕장|자연|공원|계곡|휴양림|수목원|식물원|동물원|섬|호수|저수지|폭포|숲|해안|습지|동굴|수변|정원|고원|생태|둘레길|산책길|산$/.test(value)) return 'nature';
   return 'culture';
 }
 
@@ -477,6 +479,7 @@ async function main() {
     `${JSON.stringify(audit, null, 2)}\n`,
     'utf8'
   );
+  execFileSync(process.execPath, ['scripts/split_catalog_details.mjs'], { cwd: ROOT, stdio: 'inherit' });
   console.log(JSON.stringify(audit, null, 2));
 }
 

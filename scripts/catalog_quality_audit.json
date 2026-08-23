@@ -1,17 +1,18 @@
 {
-  "generatedAt": "2026-08-23T08:13:13.103Z",
+  "generatedAt": "2026-08-23T09:00:33.608Z",
   "sourceReviewedAt": "2026-07-24",
   "total": 812,
   "byCategory": {
-    "culture": 217,
+    "culture": 306,
     "festival": 144,
     "food": 34,
-    "nature": 417
+    "nature": 328
   },
   "completeness": {
     "image": 812,
     "sourceUrl": 812,
     "address": 812,
+    "regionAddressConsistent": 812,
     "coordinates": 754,
     "overview": 812,
     "officialHours": 4,
@@ -84,5 +85,10 @@
       "official-food-1"
     ]
   },
+  "regionAddressExceptions": [
+    "official-a-25822",
+    "official-a-25785"
+  ],
+  "regionAddressMismatches": [],
   "duplicates": []
 }
