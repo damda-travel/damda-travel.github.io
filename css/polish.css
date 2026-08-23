@@ -2031,3 +2031,370 @@ html[lang='ko'] .hero-title {
     padding-bottom: 2rem;
   }
 }
+
+/* Functional journey layer: personalization, editable routes, and reports */
+.personalized-panel {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.82fr) minmax(0, 1.45fr);
+  gap: clamp(1.2rem, 3vw, 2.5rem);
+  align-items: center;
+  margin: 0;
+  padding: clamp(1.25rem, 3vw, 2.1rem);
+  border: 1px solid #c9ddd5;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #f2fbf7 0%, #fffdf7 58%, #f6f1e8 100%);
+  box-shadow: 0 14px 34px rgba(18, 61, 49, 0.07);
+}
+
+.personalized-panel[hidden] {
+  display: none;
+}
+
+.personalized-kicker {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: #00865f;
+  font-size: 0.74rem;
+  font-weight: 850;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+}
+
+.personalized-copy h3 {
+  margin: 0;
+  color: #143d31;
+  font-size: clamp(1.35rem, 2.3vw, 2.1rem);
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+}
+
+.personalized-copy p {
+  margin: 0.75rem 0 0;
+  color: #405a50;
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+.personalized-tags,
+.personalized-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.85rem;
+}
+
+.personalized-tags span {
+  padding: 0.38rem 0.62rem;
+  border-radius: 999px;
+  background: #e0f4eb;
+  color: #12664f;
+  font-size: 0.72rem;
+  font-weight: 750;
+}
+
+.personalized-actions button {
+  min-height: 42px;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid #c5d9d1;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 0.79rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.personalized-plan-btn {
+  border-color: #008e66 !important;
+  background: #008e66;
+  color: #fff;
+}
+
+.personalized-edit-btn {
+  background: rgba(255, 255, 255, 0.78);
+  color: #294c40;
+}
+
+.personalized-spots {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.personalized-spot {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #d8e3de;
+  border-radius: 12px;
+  background: #fff;
+  color: #173d31;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 5px 16px rgba(20, 61, 49, 0.06);
+}
+
+.personalized-spot > i {
+  position: absolute;
+  right: 0.55rem;
+  bottom: 0.72rem;
+  color: #00865f;
+  font-size: 0.65rem;
+}
+
+.personalized-spot img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: block;
+  object-fit: cover;
+}
+
+.personalized-spot span {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.65rem;
+}
+
+.personalized-spot strong,
+.personalized-spot small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.personalized-spot strong {
+  font-size: 0.78rem;
+}
+
+.personalized-spot small {
+  color: #667a72;
+  font-size: 0.68rem;
+}
+
+.plan-day-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.plan-day-label a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 0.7rem;
+  border-radius: 999px;
+  background: #e9f7f1;
+  color: #006e50;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.plan-stop-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.5rem;
+  align-items: stretch;
+}
+
+.plan-stop-row .plan-stop {
+  width: 100%;
+}
+
+.plan-stop-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.28rem;
+}
+
+.plan-stop-controls button {
+  width: 34px;
+  min-width: 34px;
+  height: 34px;
+  border: 1px solid #d2ddd8;
+  border-radius: 999px;
+  background: #fff;
+  color: #2e574a;
+  cursor: pointer;
+}
+
+.plan-stop-controls button:disabled {
+  opacity: 0.32;
+  cursor: default;
+}
+
+.plan-stop-controls .plan-stop-remove {
+  color: #9f3d31;
+}
+
+.plan-header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.45rem;
+}
+
+.share-plan-btn {
+  min-height: 40px;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+#modalPlanBtn.in-plan {
+  border-color: #d4e7df;
+  background: #edf7f3;
+  color: #245345;
+}
+
+.report-modal-box {
+  width: min(calc(100% - 2rem), 480px);
+  max-height: min(86vh, 620px);
+  padding: 1.4rem;
+  border-radius: 16px;
+  background: #fffdfa;
+}
+
+.report-modal-header {
+  padding-right: 2.2rem;
+}
+
+.report-modal-header span {
+  color: #00865f;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.report-modal-header h2 {
+  margin: 0.35rem 0 0;
+  color: #163b30;
+  font-size: 1.35rem;
+  letter-spacing: -0.03em;
+}
+
+.report-modal-box form {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1.1rem;
+}
+
+.report-modal-box label {
+  display: grid;
+  gap: 0.4rem;
+  color: #344f46;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.report-modal-box select,
+.report-modal-box textarea {
+  width: 100%;
+  border: 1px solid #cad8d2;
+  border-radius: 10px;
+  background: #fff;
+  color: #173d31;
+  font: inherit;
+  font-size: 0.85rem;
+}
+
+.report-modal-box select {
+  min-height: 46px;
+  padding: 0 0.8rem;
+}
+
+.report-modal-box textarea {
+  min-height: 120px;
+  padding: 0.8rem;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.report-submit {
+  min-height: 46px;
+  border: 0;
+  border-radius: 10px;
+  background: #008e66;
+  color: #fff;
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .personalized-panel {
+    grid-template-columns: 1fr;
+    padding: 1.1rem;
+    border-radius: 14px;
+  }
+
+  .personalized-copy {
+    text-align: center;
+  }
+
+  .personalized-tags,
+  .personalized-actions {
+    justify-content: center;
+  }
+
+  .personalized-spots {
+    display: flex;
+    gap: 0.6rem;
+    overflow-x: auto;
+    padding-bottom: 0.35rem;
+    scroll-snap-type: x mandatory;
+  }
+
+  .personalized-spot {
+    flex: 0 0 42%;
+    scroll-snap-align: start;
+  }
+
+  .plan-stop-row {
+    grid-template-columns: 1fr;
+  }
+
+  .plan-stop-controls {
+    justify-content: flex-end;
+    padding: 0 0.2rem 0.35rem;
+  }
+
+  .plan-header-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .plan-header-actions button {
+    flex: 1 1 0;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 420px) {
+  .personalized-spot {
+    flex-basis: 58%;
+  }
+
+  .plan-day-label {
+    align-items: flex-start;
+  }
+
+  .plan-day-label a {
+    max-width: 62%;
+    text-align: right;
+  }
+
+  .report-modal-box {
+    width: calc(100% - 1rem);
+    padding: 1.1rem;
+  }
+}

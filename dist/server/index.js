@@ -16,10 +16,24 @@ const TRAVEL_INTERESTS = new Set([
   'winter'
 ]);
 
+const PRODUCT_EVENTS = new Set([
+  'page_view', 'region_select', 'category_select', 'discovery_filter', 'load_more',
+  'place_open', 'place_save', 'place_unsave', 'place_share', 'maps_open',
+  'funnel_open', 'funnel_step', 'funnel_complete', 'personalized_plan_create',
+  'planner_generate', 'plan_stop_add', 'plan_stop_remove', 'plan_reorder',
+  'plan_save', 'plan_share', 'day_route_open', 'shared_plan_open',
+  'place_report_open', 'place_report_submit'
+]);
+
+const PLACE_REPORT_ISSUES = new Set([
+  'photo', 'details', 'location', 'closed', 'translation', 'other'
+]);
+
 let schemaReady;
 
 const CORS_ALLOWED_ORIGINS = new Set([
-  'https://damda-travel.github.io'
+  'https://damda-travel.github.io',
+  'https://damda.parkg9832.chatgpt.site'
 ]);
 
 function corsHeaders(request) {
@@ -32,6 +46,11 @@ function corsHeaders(request) {
     'Access-Control-Max-Age': '86400',
     'Vary': 'Origin'
   };
+}
+
+function isAllowedRequestOrigin(request) {
+  const origin = request.headers.get('origin');
+  return !origin || CORS_ALLOWED_ORIGINS.has(origin);
 }
 
 function jsonResponse(body, status = 200, request = null) {
@@ -65,13 +84,48 @@ async function ensureTravelDemandSchema(db) {
         source TEXT NOT NULL DEFAULT 'welcome_funnel'
       )`),
       db.prepare('CREATE INDEX IF NOT EXISTS idx_travel_demand_created_at ON travel_demand(created_at)'),
-      db.prepare('CREATE INDEX IF NOT EXISTS idx_travel_demand_country_status ON travel_demand(country, journey_status)')
+      db.prepare('CREATE INDEX IF NOT EXISTS idx_travel_demand_country_status ON travel_demand(country, journey_status)'),
+      db.prepare(`CREATE TABLE IF NOT EXISTS product_event (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        event_name TEXT NOT NULL,
+        session_id TEXT NOT NULL,
+        language TEXT NOT NULL DEFAULT 'es',
+        page_path TEXT NOT NULL DEFAULT '/',
+        context TEXT NOT NULL DEFAULT '{}'
+      )`),
+      db.prepare('CREATE INDEX IF NOT EXISTS idx_product_event_created_at ON product_event(created_at)'),
+      db.prepare('CREATE INDEX IF NOT EXISTS idx_product_event_name_created ON product_event(event_name, created_at)'),
+      db.prepare(`CREATE TABLE IF NOT EXISTS place_report (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        tour_id TEXT NOT NULL,
+        issue_type TEXT NOT NULL,
+        note TEXT,
+        language TEXT NOT NULL DEFAULT 'es',
+        status TEXT NOT NULL DEFAULT 'open'
+      )`),
+      db.prepare('CREATE INDEX IF NOT EXISTS idx_place_report_status_created ON place_report(status, created_at)'),
+      db.prepare('CREATE INDEX IF NOT EXISTS idx_place_report_tour_id ON place_report(tour_id)')
     ]).catch(error => {
       schemaReady = undefined;
       throw error;
     });
   }
   return schemaReady;
+}
+
+async function parseJsonBody(request, maxBytes = 4096) {
+  const contentLength = Number(request.headers.get('content-length') || 0);
+  if (contentLength > maxBytes) return { error: 'payload_too_large', status: 413 };
+  if (!request.headers.get('content-type')?.includes('application/json')) {
+    return { error: 'invalid_content_type', status: 415 };
+  }
+  try {
+    return { body: await request.json() };
+  } catch {
+    return { error: 'invalid_json', status: 400 };
+  }
 }
 
 async function saveTravelDemand(request, env) {
@@ -139,22 +193,82 @@ async function saveTravelDemand(request, env) {
   return respond({ ok: true }, 201);
 }
 
+async function saveProductEvent(request, env) {
+  const respond = (body, status) => jsonResponse(body, status, request);
+  if (!env.DB) return respond({ ok: false, error: 'database_unavailable' }, 503);
+  const parsed = await parseJsonBody(request);
+  if (parsed.error) return respond({ ok: false, error: parsed.error }, parsed.status);
+
+  const body = parsed.body;
+  const eventName = cleanText(body.eventName, 50);
+  const sessionId = cleanText(body.sessionId, 80);
+  const language = body.language === 'ko' ? 'ko' : 'es';
+  const pagePath = cleanText(body.pagePath, 180) || '/';
+  let context = '{}';
+  try {
+    context = JSON.stringify(body.context && typeof body.context === 'object' ? body.context : {});
+  } catch {
+    return respond({ ok: false, error: 'invalid_context' }, 400);
+  }
+  if (!PRODUCT_EVENTS.has(eventName) || !/^[a-zA-Z0-9_-]{8,80}$/.test(sessionId) || context.length > 1200) {
+    return respond({ ok: false, error: 'invalid_fields' }, 400);
+  }
+
+  await ensureTravelDemandSchema(env.DB);
+  await env.DB.prepare(`INSERT INTO product_event (
+    event_name, session_id, language, page_path, context
+  ) VALUES (?, ?, ?, ?, ?)`)
+    .bind(eventName, sessionId, language, pagePath, context)
+    .run();
+  return respond({ ok: true }, 201);
+}
+
+async function savePlaceReport(request, env) {
+  const respond = (body, status) => jsonResponse(body, status, request);
+  if (!env.DB) return respond({ ok: false, error: 'database_unavailable' }, 503);
+  const parsed = await parseJsonBody(request);
+  if (parsed.error) return respond({ ok: false, error: parsed.error }, parsed.status);
+
+  const body = parsed.body;
+  const tourId = cleanText(body.tourId, 120);
+  const issueType = cleanText(body.issueType, 30);
+  const note = cleanText(body.note, 500);
+  const language = body.language === 'ko' ? 'ko' : 'es';
+  if (tourId.length < 2 || !PLACE_REPORT_ISSUES.has(issueType)) {
+    return respond({ ok: false, error: 'invalid_fields' }, 400);
+  }
+
+  await ensureTravelDemandSchema(env.DB);
+  await env.DB.prepare(`INSERT INTO place_report (
+    tour_id, issue_type, note, language, status
+  ) VALUES (?, ?, ?, ?, 'open')`)
+    .bind(tourId, issueType, note || null, language)
+    .run();
+  return respond({ ok: true }, 201);
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    if (url.pathname === '/api/travel-demand') {
+    const apiHandlers = {
+      '/api/travel-demand': saveTravelDemand,
+      '/api/product-event': saveProductEvent,
+      '/api/place-report': savePlaceReport
+    };
+    const handler = apiHandlers[url.pathname];
+    if (handler) {
       if (request.method === 'OPTIONS') {
-        const origin = request.headers.get('origin');
-        if (origin && !CORS_ALLOWED_ORIGINS.has(origin)) {
+        if (!isAllowedRequestOrigin(request)) {
           return jsonResponse({ ok: false, error: 'origin_not_allowed' }, 403, request);
         }
         return new Response(null, { status: 204, headers: corsHeaders(request) });
       }
       if (request.method !== 'POST') return jsonResponse({ ok: false, error: 'method_not_allowed' }, 405, request);
+      if (!isAllowedRequestOrigin(request)) return jsonResponse({ ok: false, error: 'origin_not_allowed' }, 403, request);
       try {
-        return await saveTravelDemand(request, env);
+        return await handler(request, env);
       } catch (error) {
-        console.error('travel_demand_submit_failed', error);
+        console.error('damda_api_submit_failed', url.pathname, error);
         return jsonResponse({ ok: false, error: 'submit_failed' }, 500, request);
       }
     }

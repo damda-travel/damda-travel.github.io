@@ -34,7 +34,7 @@
 
   <!-- CSS Stylesheet -->
   <link rel="stylesheet" href="css/style.css?v=39">
-  <link rel="stylesheet" href="css/polish.css?v=11">
+  <link rel="stylesheet" href="css/polish.css?v=12">
 </head>
 <body>
 
@@ -163,6 +163,20 @@
           </nav>
         </div>
       </div>
+
+      <section class="personalized-panel" id="personalizedPanel" aria-labelledby="personalizedTitle" hidden>
+        <div class="personalized-copy">
+          <span class="personalized-kicker" data-i18n="personalizedKicker">Seleccionado para ti</span>
+          <h3 id="personalizedTitle" data-i18n="personalizedTitle">Tu Jeonbuk, según tu forma de viajar</h3>
+          <p id="personalizedSummary"></p>
+          <div class="personalized-tags" id="personalizedTags"></div>
+          <div class="personalized-actions">
+            <button type="button" class="personalized-plan-btn" onclick="createPersonalizedPlan()"><i class="fa-solid fa-route"></i> <span data-i18n="personalizedPlan">Crear mi ruta recomendada</span></button>
+            <button type="button" class="personalized-edit-btn" onclick="openTravelFunnel(true)"><i class="fa-solid fa-sliders"></i> <span data-i18n="personalizedEdit">Editar mi perfil</span></button>
+          </div>
+        </div>
+        <div class="personalized-spots" id="personalizedSpots" aria-live="polite"></div>
+      </section>
 
       <div class="results-toolbar" aria-label="Ordenar y filtrar lugares">
         <button type="button" class="toolbar-btn" id="savedOnlyBtn" onclick="toggleSavedOnly()">
@@ -408,9 +422,42 @@
           </button>
         </div>
         <div class="modal-secondary-actions">
+          <button type="button" class="text-action-btn" id="modalPlanBtn"><i class="fa-solid fa-route"></i> <span data-i18n="modalAddPlan">Añadir a mi ruta</span></button>
           <button type="button" class="text-action-btn" id="modalShareBtn"><i class="fa-solid fa-share-nodes"></i> <span data-i18n="modalShare">Compartir</span></button>
+          <button type="button" class="text-action-btn" id="modalReportBtn"><i class="fa-regular fa-flag"></i> <span data-i18n="modalReport">Reportar información</span></button>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="reportModal" onclick="closeReportModal(event)" role="dialog" aria-modal="true" aria-labelledby="reportModalTitle" aria-hidden="true">
+    <div class="modal-content report-modal-box" onclick="event.stopPropagation()">
+      <button type="button" class="modal-close-btn report-close-btn" onclick="closeReportModal()" aria-label="Cerrar reporte"><i class="fa-solid fa-xmark"></i></button>
+      <div class="report-modal-header">
+        <span><i class="fa-regular fa-flag"></i></span>
+        <p data-i18n="reportKicker">Ayúdanos a mantener DAMDA al día</p>
+        <h2 id="reportModalTitle" data-i18n="reportTitle">¿Qué información debemos revisar?</h2>
+        <p id="reportPlaceName"></p>
+      </div>
+      <form id="reportForm">
+        <label class="report-field">
+          <span data-i18n="reportType">Tipo de corrección</span>
+          <select id="reportIssueType" name="issueType" required>
+            <option value="photo" data-i18n="reportPhoto">La foto no corresponde</option>
+            <option value="details" data-i18n="reportDetails">Horario, precio o contacto</option>
+            <option value="location" data-i18n="reportLocation">Dirección o ubicación</option>
+            <option value="closed" data-i18n="reportClosed">Cerrado o ya no existe</option>
+            <option value="translation" data-i18n="reportTranslation">Nombre o traducción</option>
+            <option value="other" data-i18n="reportOther">Otro</option>
+          </select>
+        </label>
+        <label class="report-field">
+          <span data-i18n="reportNote">Cuéntanos qué encontraste</span>
+          <textarea id="reportNote" name="note" maxlength="500" rows="4" data-i18n-placeholder="reportPlaceholder" placeholder="Escribe un detalle breve. No incluyas información personal."></textarea>
+        </label>
+        <p class="report-error" id="reportError" role="alert" hidden></p>
+        <button type="submit" class="report-submit" id="reportSubmitBtn"><i class="fa-solid fa-paper-plane"></i> <span data-i18n="reportSubmit">Enviar reporte</span></button>
+      </form>
     </div>
   </div>
 
@@ -559,7 +606,7 @@
             <input type="checkbox" id="funnelConsent" name="contactConsent">
             <span data-i18n="funnelConsent">Acepto recibir información de DAMDA relacionada con viajes y experiencias. Puedo solicitar dejar de recibirla.</span>
           </label>
-          <p class="travel-funnel-privacy" data-i18n="funnelPrivacy">DAMDA utiliza estas respuestas para analizar intereses turísticos y solo usa tu contacto si das permiso.</p>
+          <p class="travel-funnel-privacy"><span data-i18n="funnelPrivacy">DAMDA utiliza estas respuestas para analizar intereses turísticos y solo usa tu contacto si das permiso.</span> <a href="privacy.html" target="_blank" rel="noopener noreferrer" data-i18n="funnelPrivacyLink">Ver política de privacidad</a></p>
           <label class="travel-funnel-honeypot" aria-hidden="true">Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
         </section>
 
@@ -586,6 +633,6 @@
   <script src="js/tourImages.js?v=25"></script>
   <script src="js/tourDetails.js?v=25"></script>
   <script src="js/tourApi.js?v=25"></script>
-  <script src="js/app.js?v=47"></script>
+  <script src="js/app.js?v=48"></script>
 </body>
 </html>
