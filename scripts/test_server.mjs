@@ -68,6 +68,23 @@ async function post(path, body, env, origin = 'https://damda-travel.github.io') 
 
 {
   const { env } = createEnvironment();
+  const routeEstimate = await post('/api/route-estimate', {
+    origin: { lat: 35.8499, lng: 127.1618 },
+    destination: { lat: 35.815, lng: 127.153 },
+    mode: 'transit',
+    departureTime: '2026-09-01T09:30:00+09:00'
+  }, env);
+  assert.equal(routeEstimate.status, 200);
+  const routeBody = await routeEstimate.json();
+  assert.equal(routeBody.provider, 'damda_estimate');
+  assert.ok(routeBody.durationMinutes > 0);
+
+  const invalidRoute = await post('/api/route-estimate', {
+    origin: { lat: 999, lng: 127 },
+    destination: { lat: 35, lng: 127 }
+  }, env);
+  assert.equal(invalidRoute.status, 400);
+
   const invalidEvent = await post('/api/product-event', {
     eventName: 'unknown',
     sessionId: 'test-session-1234'

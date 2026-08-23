@@ -9,7 +9,7 @@ let currentSearchQuery = '';
 let currentSortOrder = 'recommended';
 let currentLiveApiData = [];
 let currentPlan = [];
-let currentPlanContext = { duration: 2, title: null, regionIds: [] };
+let currentPlanContext = { duration: 2, title: null, regionIds: [], origin: 'jeonju', date: '', startTime: '09:30', mode: 'transit' };
 let personalizedTourIds = [];
 let showSavedOnly = false;
 let activeTourId = null;
@@ -23,9 +23,12 @@ const DAMDA_API_BASE = window.location.hostname.endsWith('github.io') ? 'https:/
 const TRAVEL_DEMAND_API_URL = `${DAMDA_API_BASE}/api/travel-demand`;
 const ANALYTICS_API_URL = `${DAMDA_API_BASE}/api/product-event`;
 const PLACE_REPORT_API_URL = `${DAMDA_API_BASE}/api/place-report`;
+const ROUTE_ESTIMATE_API_URL = `${DAMDA_API_BASE}/api/route-estimate`;
 const TRAVEL_PROFILE_STORAGE_KEY = 'damda_travel_profile';
+const TRAVEL_PROFILE_DRAFT_KEY = 'damda_travel_profile_draft_status';
 const SHARED_PLACE_QUERY_KEY = 'place';
 const SHARED_PLAN_QUERY_KEY = 'route';
+const CATALOG_VERIFIED_AT = '2026-07-24';
 let selectedPlannerRegions = new Set();
 let activeRoutePreset = 'heritage';
 let plannerRegionsExpanded = false;
@@ -165,6 +168,40 @@ const COURSE_ES = [
   }
 ];
 
+const DAMDA_COLLECTIONS = [
+  {
+    id: 'first-jeonbuk',
+    icon: 'fa-solid fa-compass',
+    es: { title: 'Mi primera vez en Jeonbuk', desc: 'Hanok, patrimonio y sabores locales sin intentar verlo todo.' },
+    ko: { title: '첫 전북 여행', desc: '한옥·역사·로컬 미식을 무리하지 않는 동선으로 만나요.' },
+    spotIds: ['jj-1', 'jj-5', 'wj-1']
+  },
+  {
+    id: 'seoul-day',
+    coverId: 'jj-2',
+    icon: 'fa-solid fa-train-subway',
+    es: { title: 'Una escapada desde Seúl', desc: 'Una ruta compacta para descubrir otra Corea en un solo día.' },
+    ko: { title: '서울에서 떠나는 하루', desc: '하루 안에 서울과 다른 한국의 표정을 만나는 압축 코스예요.' },
+    spotIds: ['jj-1', 'jj-2', 'jj-5']
+  },
+  {
+    id: 'local-flavors',
+    coverId: 'sc-2',
+    icon: 'fa-solid fa-utensils',
+    es: { title: 'Sabores que cuentan Jeonbuk', desc: 'Mercados, fermentación y especialidades con una historia local.' },
+    ko: { title: '전북을 기억하게 하는 맛', desc: '시장·발효·지역 음식을 그 지역의 이야기와 함께 담았어요.' },
+    spotIds: ['jj-5', 'gs-3', 'sc-2']
+  },
+  {
+    id: 'rainy-day',
+    coverId: 'gs-2',
+    icon: 'fa-solid fa-cloud-rain',
+    es: { title: 'Jeonbuk para un día de lluvia', desc: 'Museos, arquitectura y experiencias que no dependen del clima.' },
+    ko: { title: '비 오는 날의 전북', desc: '날씨 걱정 없이 즐길 수 있는 박물관·건축·실내 경험이에요.' },
+    spotIds: ['gs-2', 'jj-2', 'im-1']
+  }
+];
+
 const I18N = {
   es: {
     brandTitle: 'DAMDA',
@@ -196,6 +233,16 @@ const I18N = {
     paceBalanced: 'Normal · 3',
     paceIntense: 'Intenso · 4',
     makeRoute: 'Crear mi ruta',
+    plannerOrigin: 'Punto de partida',
+    originSeoul: 'Seúl · Estación de Seúl',
+    originJeonju: 'Jeonju · Estación de Jeonju',
+    originCurrent: 'Mi alojamiento / ubicación',
+    plannerDate: 'Fecha de inicio',
+    plannerStartTime: 'Hora de salida',
+    plannerTransport: 'Transporte principal',
+    transportTransit: 'Transporte público',
+    transportDriving: 'Auto',
+    transportWalking: 'A pie',
     presetTitle: 'Elige una ruta base',
     presetDesc: 'Usa una combinación recomendada y cambia las regiones después.',
     presetHeritage: 'Esencia cultural',
@@ -218,6 +265,21 @@ const I18N = {
     statRoutes: 'rutas',
     explorePlaces: 'Explorar lugares',
     planTrip: 'Planear mi viaje',
+    profileInviteKicker: 'Recomendaciones que empiezan contigo',
+    profileInviteTitle: '¿Qué momento de tu viaje estás viviendo?',
+    profileInviteDesc: 'Responde una sola pregunta ahora. Completa tu perfil solo cuando quieras una ruta personalizada.',
+    profileInviteFirst: 'Mi primer viaje',
+    profileInviteReturn: 'Quiero volver',
+    profileInviteResident: 'Vivo en Corea',
+    profileInviteVisited: 'Ya conozco Corea',
+    profileInviteContinue: 'Personalizar mis recomendaciones',
+    picksKicker: 'Selección editorial',
+    picksTitle: 'DAMDA Picks',
+    picksDesc: 'No es una lista de popularidad. Son lugares elegidos por el tipo de viaje que quieres vivir.',
+    picksAll: 'Ver todos los lugares',
+    allPlacesKicker: 'Guía completa',
+    allPlacesTitle: 'Más lugares de Jeonbuk',
+    allPlacesDesc: 'Busca por región o tema y guarda lo que quieras comparar después.',
     coursesKicker: 'Si es tu primera vez',
     coursesTitle: 'Rutas recomendadas',
     coursesDesc: 'Empieza con una ruta preparada y ajústala en el planificador.',
@@ -372,6 +434,16 @@ const I18N = {
     paceBalanced: '보통 · 3곳',
     paceIntense: '알차게 · 4곳',
     makeRoute: '여행 일정 만들기',
+    plannerOrigin: '출발 기준',
+    originSeoul: '서울 · 서울역',
+    originJeonju: '전주 · 전주역',
+    originCurrent: '숙소 / 현재 위치',
+    plannerDate: '여행 시작일',
+    plannerStartTime: '출발 시간',
+    plannerTransport: '주요 이동수단',
+    transportTransit: '대중교통',
+    transportDriving: '자동차',
+    transportWalking: '도보',
     presetTitle: '추천 동선을 선택하세요',
     presetDesc: '추천 조합을 선택한 뒤 지역을 직접 추가하거나 뺄 수 있습니다.',
     presetHeritage: '역사문화 핵심',
@@ -394,6 +466,21 @@ const I18N = {
     statRoutes: '추천 코스',
     explorePlaces: '관광지 둘러보기',
     planTrip: '여행 계획 만들기',
+    profileInviteKicker: '당신에게서 시작하는 추천',
+    profileInviteTitle: '지금 어떤 여행을 준비하고 있나요?',
+    profileInviteDesc: '지금은 한 가지만 답하세요. 맞춤 일정이 필요할 때 나머지를 이어서 입력할 수 있어요.',
+    profileInviteFirst: '첫 한국 여행',
+    profileInviteReturn: '다시 가는 한국',
+    profileInviteResident: '한국 거주 중',
+    profileInviteVisited: '한국 여행 경험 있음',
+    profileInviteContinue: '내 추천 맞춤 설정하기',
+    picksKicker: 'DAMDA 에디터 셀렉션',
+    picksTitle: 'DAMDA Picks',
+    picksDesc: '인기순 목록이 아니라, 여행의 상황과 취향에 맞춰 직접 고른 장소입니다.',
+    picksAll: '모든 장소 보기',
+    allPlacesKicker: '전체 여행 정보',
+    allPlacesTitle: '전북의 더 많은 장소',
+    allPlacesDesc: '지역과 테마로 찾고, 나중에 비교할 장소를 저장해보세요.',
     coursesKicker: '처음이라면 여기부터',
     coursesTitle: '테마별 추천 코스',
     coursesDesc: '준비된 동선을 플래너에 담고 내 여행에 맞게 수정하세요.',
@@ -542,6 +629,9 @@ const personalizedPanel = document.getElementById('personalizedPanel');
 const personalizedSummary = document.getElementById('personalizedSummary');
 const personalizedTags = document.getElementById('personalizedTags');
 const personalizedSpots = document.getElementById('personalizedSpots');
+const travelProfileInvite = document.getElementById('travelProfileInvite');
+const profileInviteContinue = document.getElementById('profileInviteContinue');
+const damdaPicksGrid = document.getElementById('damdaPicksGrid');
 
 const apiStatusBadge = document.getElementById('apiStatusBadge');
 const apiStatusText = document.getElementById('apiStatusText');
@@ -556,6 +646,10 @@ const plannerRegionSummary = document.getElementById('plannerRegionSummary');
 const plannerRegionsToggle = document.getElementById('plannerRegionsToggle');
 const routePresetSelect = document.getElementById('routePresetSelect');
 const plannerResult = document.getElementById('plannerResult');
+const plannerOrigin = document.getElementById('plannerOrigin');
+const plannerDate = document.getElementById('plannerDate');
+const plannerStartTime = document.getElementById('plannerStartTime');
+const plannerTransport = document.getElementById('plannerTransport');
 const regionSelectMobile = document.getElementById('regionSelectMobile');
 
 const tourModal = document.getElementById('tourModal');
@@ -623,12 +717,17 @@ window.addEventListener('pageshow', event => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+  if (plannerDate && !plannerDate.value) {
+    const tomorrow = new Date(Date.now() + 24 * 60 * 60 * 1000);
+    plannerDate.value = tomorrow.toISOString().slice(0, 10);
+  }
   applyRoutePreset(activeRoutePreset, false);
   restoreSavedPlan();
   updateApiStatusBadge();
   applyLanguage(currentLanguage, false);
   initMobileNavigation();
   initTravelFunnel();
+  renderDamdaPicks();
   initPlaceReport();
   renderPersonalizedPanel();
   openSharedTourFromUrl();
@@ -777,6 +876,97 @@ function getJourneyLabel(status) {
   return labels[status] || (currentLanguage === 'ko' ? '전북 여행' : 'tu viaje por Jeonbuk');
 }
 
+function renderTravelProfileInvite() {
+  if (!travelProfileInvite) return;
+  const completed = Boolean(localStorage.getItem('damda_travel_profile_completed'));
+  travelProfileInvite.hidden = completed;
+  if (completed) return;
+  const draftStatus = localStorage.getItem(TRAVEL_PROFILE_DRAFT_KEY) || '';
+  travelProfileInvite.querySelectorAll('[data-journey-status]').forEach(button => {
+    const selected = button.dataset.journeyStatus === draftStatus;
+    button.classList.toggle('selected', selected);
+    button.setAttribute('aria-pressed', String(selected));
+  });
+  if (profileInviteContinue) profileInviteContinue.hidden = !draftStatus;
+}
+
+function startTravelProfile(status) {
+  if (!['planning_first', 'visited_before', 'planning_return', 'living_in_korea'].includes(status)) return;
+  localStorage.setItem(TRAVEL_PROFILE_DRAFT_KEY, status);
+  renderTravelProfileInvite();
+  showToast(currentLanguage === 'ko'
+    ? '저장했습니다. 맞춤 추천이 필요할 때 이어서 입력하세요.'
+    : 'Guardado. Completa el perfil cuando quieras recomendaciones personales.');
+  trackEvent('profile_invite_answer', { journeyStatus: status });
+}
+
+function continueTravelProfile() {
+  const draftStatus = localStorage.getItem(TRAVEL_PROFILE_DRAFT_KEY);
+  openTravelFunnel(true);
+  const input = travelFunnelForm?.querySelector(`input[name="journeyStatus"][value="${draftStatus}"]`);
+  if (input) input.checked = true;
+  travelFunnelStep = input ? 2 : 1;
+  renderTravelFunnelStep();
+}
+
+function getPersonalizedReason(tour, profile) {
+  const match = (profile?.interests || []).find(interest => {
+    const rule = PERSONALIZATION_RULES[interest];
+    return rule && (rule.categories.includes(tour.category) || rule.regions.includes(tour.regionId));
+  });
+  if (!match) return currentLanguage === 'ko' ? 'DAMDA 편집 추천' : 'Selección editorial DAMDA';
+  return currentLanguage === 'ko'
+    ? `${getInterestLabel(match)} 관심사와 잘 맞아요`
+    : `Porque elegiste ${getInterestLabel(match).toLowerCase()}`;
+}
+
+function renderDamdaPicks() {
+  if (!damdaPicksGrid) return;
+  damdaPicksGrid.innerHTML = DAMDA_COLLECTIONS.map(collection => {
+    const localized = collection[currentLanguage === 'ko' ? 'ko' : 'es'];
+    const spots = collection.spotIds.map(findTourById).filter(Boolean);
+    const cover = findTourById(collection.coverId) || spots[0];
+    return `
+      <article class="damda-pick-card">
+        <button type="button" onclick="applyDamdaCollection('${escapeHTML(collection.id)}')">
+          <span class="damda-pick-image${cover?.image ? '' : ' image-unavailable'}">
+            ${cover?.image ? `<img src="${escapeHTML(cover.image)}" alt="" loading="lazy" decoding="async" onerror="handleImageError(this)">` : ''}
+            <i class="${collection.icon}" aria-hidden="true"></i>
+          </span>
+          <span class="damda-pick-copy">
+            <small>DAMDA PICK</small>
+            <strong>${escapeHTML(localized.title)}</strong>
+            <span>${escapeHTML(localized.desc)}</span>
+            <em>${spots.map(tour => escapeHTML(getRegionName(tour.regionId, tour.regionName))).filter((name, index, all) => all.indexOf(name) === index).join(' · ')}</em>
+          </span>
+          <span class="damda-pick-action">${currentLanguage === 'ko' ? '이 코스로 시작' : 'Empezar con esta ruta'} <i class="fa-solid fa-arrow-right"></i></span>
+        </button>
+      </article>`;
+  }).join('');
+}
+
+function applyDamdaCollection(collectionId) {
+  const collection = DAMDA_COLLECTIONS.find(item => item.id === collectionId);
+  if (!collection) return;
+  const tours = collection.spotIds.map(findTourById).filter(Boolean);
+  const regionIds = [...new Set(tours.map(tour => tour.regionId))];
+  selectedPlannerRegions = new Set(regionIds);
+  renderPlannerRegionOptions();
+  const localized = collection[currentLanguage === 'ko' ? 'ko' : 'es'];
+  generateTravelPlan({
+    duration: collection.id === 'first-jeonbuk' ? 2 : 1,
+    pace: 3,
+    tourIds: collection.spotIds,
+    regionIds,
+    title: localized.title
+  });
+  trackEvent('damda_pick_open', { collection: collection.id });
+}
+
+function scrollToAllPlaces() {
+  document.getElementById('regionSelector')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
 function getPersonalizedTours(profile, limit = 6) {
   if (!profile) return [];
   const interests = profile.interests.filter(interest => PERSONALIZATION_RULES[interest]);
@@ -826,7 +1016,7 @@ function renderPersonalizedPanel() {
   personalizedSpots.innerHTML = recommendations.slice(0, 3).map(tour => `
     <button type="button" class="personalized-spot" onclick="openModal('${escapeHTML(tour.id)}')">
       <img src="${escapeHTML(tour.image)}" alt="" loading="lazy" decoding="async" onerror="handleImageError(this)">
-      <span><small>${escapeHTML(getRegionName(tour.regionId, tour.regionName))}</small><strong>${escapeHTML(getTourName(tour))}</strong></span>
+      <span><small>${escapeHTML(getRegionName(tour.regionId, tour.regionName))}</small><strong>${escapeHTML(getTourName(tour))}</strong><em>${escapeHTML(getPersonalizedReason(tour, profile))}</em></span>
       <i class="fa-solid fa-chevron-right"></i>
     </button>
   `).join('');
@@ -937,6 +1127,20 @@ function getCategoryName(category) {
   }[category] || category;
 }
 
+function getTourTrustMeta(tour) {
+  const sourceUrl = tour?.sourceUrl || '';
+  const officialSource = /tour\.jb\.go\.kr|visitkorea\.or\.kr|korean\.visitkorea\.or\.kr/i.test(sourceUrl);
+  const damdaPick = DAMDA_COLLECTIONS.some(collection => collection.spotIds.includes(tour?.id));
+  return {
+    officialSource,
+    damdaPick,
+    label: currentLanguage === 'ko'
+      ? `${damdaPick ? 'DAMDA Pick · ' : ''}${officialSource ? '공식 출처 확인' : '출처 확인 필요'}`
+      : `${damdaPick ? 'DAMDA Pick · ' : ''}${officialSource ? 'fuente oficial revisada' : 'fuente por verificar'}`,
+    reviewedAt: CATALOG_VERIFIED_AT
+  };
+}
+
 function getLocalizedDuration(value = '') {
   if (!value || currentLanguage === 'ko') return value;
   return String(value)
@@ -1037,6 +1241,8 @@ function applyLanguage(language, persist = true) {
   renderPlannerRegionOptions();
   updatePlannerRegionPickerUI();
   renderRecommendedCourses();
+  renderDamdaPicks();
+  renderTravelProfileInvite();
   renderPersonalizedPanel();
   updateSavedUI();
   if (currentPlan.length) {
@@ -1084,12 +1290,7 @@ function initTravelFunnel() {
   funnelContactType?.addEventListener('change', updateTravelFunnelContactField);
   updateTravelFunnelContactField();
 
-  const completed = localStorage.getItem('damda_travel_profile_completed');
-  const snoozedUntil = Number(localStorage.getItem('damda_travel_profile_snoozed_until') || 0);
-  const hasSharedPlace = Boolean(getSharedTourId());
-  if (!completed && !hasSharedPlace && Date.now() > snoozedUntil) {
-    window.setTimeout(() => openTravelFunnel(false), 1400);
-  }
+  renderTravelProfileInvite();
 }
 
 function openTravelFunnel(manual = false) {
@@ -1254,9 +1455,11 @@ async function submitTravelFunnel(event) {
     }));
     localStorage.setItem('damda_travel_profile_completed', new Date().toISOString());
     localStorage.removeItem('damda_travel_profile_snoozed_until');
+    localStorage.removeItem(TRAVEL_PROFILE_DRAFT_KEY);
     travelFunnelForm.hidden = true;
     if (travelFunnelSuccess) travelFunnelSuccess.hidden = false;
     renderPersonalizedPanel();
+    renderTravelProfileInvite();
     trackEvent('funnel_complete', { interests: interests.length, hasContact: payload.contactConsent });
   } catch {
     showTravelFunnelError(currentLanguage === 'ko' ? '저장하지 못했습니다. 잠시 후 다시 시도해주세요.' : 'No pudimos guardar tu respuesta. Inténtalo de nuevo en un momento.');
@@ -1318,6 +1521,7 @@ function getRecommendedStay(tour) {
   if (tour?.recommendedDuration && tour.recommendedDurationSource === 'official') {
     return {
       value: tour.recommendedDuration,
+      minutes: parseDurationMinutes(tour.recommendedDuration, 90),
       estimated: false,
       label: I18N[language].officialLabel,
       note: language === 'ko'
@@ -1335,45 +1539,64 @@ function getRecommendedStay(tour) {
 
   let koValue = '1–2시간';
   let esValue = '1–2 h';
+  let minutes = 90;
 
   if (tour?.category === 'festival') {
     koValue = '2–4시간';
     esValue = '2–4 h';
+    minutes = 180;
   } else if (/한옥마을|테마파크|동물원|수목원|자연휴양림/.test(typeText)) {
     koValue = '2–4시간';
     esValue = '2–4 h';
+    minutes = 180;
   } else if (/시장|거리|마을/.test(typeText)) {
     koValue = '1시간 30분–3시간';
     esValue = '1,5–3 h';
+    minutes = 120;
   } else if (tour?.category === 'food' || /카페|커피|다방|빵|제과|베이커리|맛집|식당|음식/.test(typeText)) {
     koValue = '45–90분';
     esValue = '45–90 min';
+    minutes = 70;
   } else if (/동산|도시공원|정원|호수|저수지|수변/.test(typeText) && !/국립공원/.test(typeText)) {
     koValue = '1시간 30분–2시간 30분';
     esValue = '1,5–2,5 h';
+    minutes = 120;
   } else if (/국립공원|계곡|해수욕장|해변|섬|둘레길|탐방로|트레킹|등산|산행|정상|봉우리/.test(typeText)) {
     koValue = '반나절 · 3–5시간';
     esValue = 'Medio día · 3–5 h';
+    minutes = 240;
   } else if (/박물관|미술관|과학관|전시관|기념관/.test(typeText)) {
     koValue = '1–2시간';
     esValue = '1–2 h';
   } else if (/공원|정원|호수|저수지|수변/.test(typeText)) {
     koValue = '1시간 30분–2시간 30분';
     esValue = '1,5–2,5 h';
+    minutes = 120;
   } else if (/사찰|절|성당|교회|향교|서원|사당|유적|고분|기념탑/.test(typeText)) {
     koValue = '45–90분';
     esValue = '45–90 min';
+    minutes = 70;
   } else if (tour?.category === 'nature') {
     koValue = '2–3시간';
     esValue = '2–3 h';
+    minutes = 150;
   }
 
   return {
     value: language === 'ko' ? koValue : esValue,
+    minutes,
     estimated: true,
     label: I18N[language].estimateLabel,
     note: I18N[language].estimateNote
   };
+}
+
+function parseDurationMinutes(value = '', fallback = 90) {
+  const normalized = String(value).replace(',', '.');
+  const hourMatches = [...normalized.matchAll(/(\d+(?:\.\d+)?)\s*(?:시간|h)/gi)].map(match => Number(match[1]) * 60);
+  const minuteMatches = [...normalized.matchAll(/(\d+)\s*(?:분|min)/gi)].map(match => Number(match[1]));
+  const values = [...hourMatches, ...minuteMatches].filter(Number.isFinite);
+  return values.length ? Math.round(values.reduce((sum, item) => sum + item, 0) / values.length) : fallback;
 }
 
 function ensureTourIndex() {
@@ -1438,11 +1661,15 @@ function getSharedPlanData() {
     .filter(Boolean)
     .slice(0, 12);
   const duration = Math.max(1, Math.min(4, Number.parseInt(params.get('days'), 10) || 1));
-  return { ids, duration };
+  const origin = ['seoul', 'jeonju', 'current'].includes(params.get('origin')) ? params.get('origin') : 'jeonju';
+  const mode = ['transit', 'driving', 'walking'].includes(params.get('mode')) ? params.get('mode') : 'transit';
+  const date = /^20\d{2}-\d{2}-\d{2}$/.test(params.get('date') || '') ? params.get('date') : '';
+  const startTime = /^\d{2}:\d{2}$/.test(params.get('start') || '') ? params.get('start') : '09:30';
+  return { ids, duration, origin, mode, date, startTime };
 }
 
 function openSharedPlanFromUrl() {
-  const { ids, duration } = getSharedPlanData();
+  const { ids, duration, origin, mode, date, startTime } = getSharedPlanData();
   const tours = [...new Set(ids)].map(findTourById).filter(Boolean);
   if (!tours.length) return;
   currentPlan = tours;
@@ -1450,10 +1677,18 @@ function openSharedPlanFromUrl() {
   currentPlanContext = {
     duration: Math.min(4, Math.max(duration, Math.ceil(tours.length / 4))),
     title: currentLanguage === 'ko' ? '공유받은 DAMDA 여행' : 'Ruta DAMDA compartida',
-    regionIds
+    regionIds,
+    origin,
+    mode,
+    date,
+    startTime
   };
   const durationSelect = document.getElementById('plannerDuration');
   if (durationSelect) durationSelect.value = String(currentPlanContext.duration);
+  if (plannerOrigin) plannerOrigin.value = origin;
+  if (plannerTransport) plannerTransport.value = mode;
+  if (plannerDate) plannerDate.value = date;
+  if (plannerStartTime) plannerStartTime.value = startTime;
   selectedPlannerRegions = new Set(regionIds.slice(0, 6));
   renderPlannerRegionOptions();
   renderTravelPlan(currentPlanContext.duration, currentPlanContext.title, regionIds);
@@ -1889,6 +2124,7 @@ function renderTourCards(tours) {
         </div>`
       : '';
     const recommendedStay = getRecommendedStay(tour);
+    const trustMeta = getTourTrustMeta(tour);
     const practicalItems = [
       `<span class="card-stay-meta" title="${escapeHTML(recommendedStay.note)}"><i class="fa-regular fa-clock"></i> ≈ ${escapeHTML(recommendedStay.value)}</span>`,
       tour.fee && String(tour.fee).length <= 32
@@ -1915,6 +2151,7 @@ function renderTourCards(tours) {
             ${eventMeta}
             ${cardDescription ? `<p class="card-desc">${escapeHTML(cardDescription)}</p>` : ''}
             ${practicalMeta}
+            ${trustMeta.damdaPick ? `<p class="card-trust-meta"><i class="fa-solid fa-circle-check"></i> ${escapeHTML(trustMeta.label)}</p>` : ''}
             ${tags ? `<div class="card-tags">${tags}</div>` : ''}
           </div>
         </button>
@@ -2020,6 +2257,7 @@ function openModal(tourId, shouldTrack = true) {
     ? (foundTour.tags || []).map(tag => `<span class="tag-item">${escapeHTML(tag)}</span>`).join('')
     : '';
   const recommendedStay = getRecommendedStay(foundTour);
+  const trustMeta = getTourTrustMeta(foundTour);
   modalDuration.textContent = recommendedStay.value;
   modalDurationSource.textContent = recommendedStay.label;
   modalDurationSource.classList.toggle('official', !recommendedStay.estimated);
@@ -2058,7 +2296,7 @@ function openModal(tourId, shouldTrack = true) {
     {
       icon: 'fa-solid fa-shield-halved',
       label: currentLanguage === 'ko' ? '정보 출처' : 'Fuente',
-      value: currentLanguage === 'ko' ? '공식 관광정보 확인' : 'Consultar información oficial',
+      value: `${trustMeta.label} · ${trustMeta.reviewedAt}`,
       href: foundTour.sourceUrl || (foundTour.isLiveApi
         ? 'https://korean.visitkorea.or.kr/main/cr_main.do'
         : 'https://tour.jb.go.kr/index.do')
@@ -2399,10 +2637,106 @@ function openSavedTour(tourId) {
   openModal(tourId);
 }
 
+const PLANNER_ORIGINS = {
+  seoul: { id: 'origin-seoul', name: 'Seoul Station', lat: 37.5547, lng: 126.9707 },
+  jeonju: { id: 'origin-jeonju', name: 'Jeonju Station', lat: 35.8499, lng: 127.1618 }
+};
+
+function getPlanOrigin(key = currentPlanContext.origin) {
+  return PLANNER_ORIGINS[key] || null;
+}
+
+function optimizePlanOrder(tours, origin = null) {
+  const remaining = [...tours];
+  const ordered = [];
+  let cursor = origin;
+  while (remaining.length) {
+    let bestIndex = 0;
+    let bestScore = Infinity;
+    remaining.forEach((tour, index) => {
+      const distance = cursor ? getDirectDistanceKm(cursor, tour) : null;
+      const regionPenalty = ordered.length && ordered.at(-1).regionId !== tour.regionId ? 8 : 0;
+      const score = (distance ?? index * 0.01) + regionPenalty;
+      if (score < bestScore) {
+        bestScore = score;
+        bestIndex = index;
+      }
+    });
+    const [next] = remaining.splice(bestIndex, 1);
+    ordered.push(next);
+    cursor = next;
+  }
+  return ordered;
+}
+
+function estimateRouteSegment(originTour, destinationTour, mode = 'transit') {
+  const directKm = getDirectDistanceKm(originTour, destinationTour);
+  if (directKm === null) return null;
+  const distanceKm = directKm * (mode === 'walking' ? 1.18 : 1.28);
+  let minutes;
+  let costKrw = 0;
+  if (mode === 'walking') {
+    minutes = distanceKm / 4.5 * 60;
+  } else if (mode === 'driving') {
+    minutes = distanceKm / (distanceKm > 80 ? 75 : 48) * 60 + 10;
+    costKrw = distanceKm * 185 + 3000;
+  } else {
+    minutes = distanceKm / (distanceKm > 80 ? 72 : 27) * 60 + (distanceKm > 80 ? 28 : 16);
+    costKrw = distanceKm > 80 ? 18000 + distanceKm * 35 : 1450 + distanceKm * 115;
+  }
+  return {
+    distanceKm,
+    minutes: Math.max(5, Math.round(minutes / 5) * 5),
+    costKrw: mode === 'walking' ? 0 : Math.max(0, Math.round(costKrw / 500) * 500),
+    provider: 'damda_estimate'
+  };
+}
+
+function formatPlanDuration(minutes) {
+  if (!Number.isFinite(minutes)) return '';
+  if (minutes < 60) return currentLanguage === 'ko' ? `약 ${minutes}분` : `aprox. ${minutes} min`;
+  const hours = Math.floor(minutes / 60);
+  const rest = minutes % 60;
+  return currentLanguage === 'ko'
+    ? `약 ${hours}시간${rest ? ` ${rest}분` : ''}`
+    : `aprox. ${hours} h${rest ? ` ${rest} min` : ''}`;
+}
+
+function formatPlanCost(costKrw) {
+  if (!Number.isFinite(costKrw)) return '';
+  if (costKrw === 0) return currentLanguage === 'ko' ? '이동비 없음' : 'sin costo de transporte';
+  return `≈ ₩${Math.round(costKrw).toLocaleString('ko-KR')}`;
+}
+
+function addMinutesToTime(time = '09:30', minutes = 0) {
+  const [hours, mins] = String(time).split(':').map(Number);
+  const total = Math.max(0, (Number.isFinite(hours) ? hours : 9) * 60 + (Number.isFinite(mins) ? mins : 30) + minutes);
+  return `${String(Math.floor(total / 60) % 24).padStart(2, '0')}:${String(total % 60).padStart(2, '0')}`;
+}
+
+function getPlanDateLabel(dayIndex = 0) {
+  if (!currentPlanContext.date) return '';
+  const date = new Date(`${currentPlanContext.date}T12:00:00`);
+  if (Number.isNaN(date.getTime())) return '';
+  date.setDate(date.getDate() + dayIndex);
+  return new Intl.DateTimeFormat(getLocale(), { month: 'short', day: 'numeric', weekday: 'short' }).format(date);
+}
+
+function getRouteModeLabel(mode) {
+  const labels = currentLanguage === 'ko'
+    ? { transit: '대중교통', driving: '자동차', walking: '도보' }
+    : { transit: 'Transporte público', driving: 'Auto', walking: 'A pie' };
+  return labels[mode] || labels.transit;
+}
+
 function generateTravelPlan(options = {}) {
   const duration = Number(options.duration || document.getElementById('plannerDuration').value);
   const theme = options.theme || document.getElementById('plannerTheme').value;
   const pace = Number(options.pace || document.getElementById('plannerPace')?.value || 3);
+  const origin = options.origin || plannerOrigin?.value || 'jeonju';
+  const date = options.date || plannerDate?.value || '';
+  const startTime = options.startTime || plannerStartTime?.value || '09:30';
+  const mode = options.mode || plannerTransport?.value || 'transit';
   const targetCount = Math.max(1, duration) * Math.max(2, Math.min(4, pace));
   const selectedRegionIds = options.regionIds?.length
     ? options.regionIds.filter(regionId => JEONBUK_REGIONS[regionId])
@@ -2443,29 +2777,39 @@ function generateTravelPlan(options = {}) {
   }
 
   const uniqueCandidates = [...new Map(candidates.map(tour => [tour.id, tour])).values()];
-  currentPlan = uniqueCandidates.slice(0, Math.min(targetCount, uniqueCandidates.length));
+  currentPlan = optimizePlanOrder(
+    uniqueCandidates.slice(0, Math.min(targetCount, uniqueCandidates.length)),
+    getPlanOrigin(origin)
+  );
   currentPlanContext = {
     duration: Math.max(1, duration),
     title: options.title || null,
-    regionIds: selectedRegionIds
+    regionIds: selectedRegionIds,
+    origin,
+    date,
+    startTime,
+    mode
   };
   renderTravelPlan(duration, options.title || null, selectedRegionIds);
   trackEvent('planner_generate', { duration, theme, pace, stops: currentPlan.length, regions: selectedRegionIds.length });
   requestAnimationFrame(() => plannerResult?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
 }
 
-function renderPlanTransfer(originTour, destinationTour) {
-  const directDistance = formatDirectDistance(originTour, destinationTour);
+function renderPlanTransfer(originTour, destinationTour, segmentKey = '') {
+  const mode = currentPlanContext.mode || 'transit';
+  const estimate = estimateRouteSegment(originTour, destinationTour, mode);
+  const originCoords = getTourCoordinates(originTour);
+  const destinationCoords = getTourCoordinates(destinationTour);
   const labels = currentLanguage === 'ko'
-    ? { title: '다음 장소로 이동', distance: '직선거리', walk: '도보', transit: '대중교통', drive: '자동차' }
-    : { title: 'Siguiente trayecto', distance: 'Distancia directa', walk: 'A pie', transit: 'Transporte', drive: 'Auto' };
+    ? { title: '다음 장소로 이동', estimate: 'DAMDA 예상', walk: '도보', transit: '대중교통', drive: '자동차' }
+    : { title: 'Siguiente trayecto', estimate: 'Estimación DAMDA', walk: 'A pie', transit: 'Transporte', drive: 'Auto' };
   return `
-    <div class="plan-transfer">
+    <div class="plan-transfer" ${originCoords && destinationCoords ? `data-route-estimate="${escapeHTML(segmentKey)}" data-origin-lat="${originCoords.lat}" data-origin-lng="${originCoords.lng}" data-destination-lat="${destinationCoords.lat}" data-destination-lng="${destinationCoords.lng}" data-mode="${escapeHTML(mode)}"` : ''}>
       <div class="plan-transfer-copy">
         <span class="plan-transfer-icon"><i class="fa-solid fa-route"></i></span>
         <div>
           <strong>${labels.title}</strong>
-          ${directDistance ? `<small>${labels.distance} · ${escapeHTML(directDistance)}</small>` : ''}
+          ${estimate ? `<small class="plan-transfer-metrics"><b>${labels.estimate}</b> · ${escapeHTML(formatPlanDuration(estimate.minutes))} · ${escapeHTML(formatPlanCost(estimate.costKrw))}</small>` : ''}
         </div>
       </div>
       <div class="plan-transfer-actions">
@@ -2491,39 +2835,57 @@ function renderTravelPlan(duration, customTitle = null, selectedRegionIds = [...
     if (stops.length) dayGroups.push(stops);
   }
 
-  const daysHTML = dayGroups.map((stops, dayIndex) => `
-    <section class="plan-day">
-      <div class="plan-day-label">
-        <span>${currentLanguage === 'ko' ? `${dayIndex + 1}일차` : `Día ${dayIndex + 1}`}</span>
-        <a href="${escapeHTML(buildGoogleMapsDayRouteUrl(stops, 'transit'))}" target="_blank" rel="noopener noreferrer" onclick="trackEvent('day_route_open', { day: ${dayIndex + 1}, stops: ${stops.length} })"><i class="fa-brands fa-google"></i> ${currentLanguage === 'ko' ? '하루 동선 열기' : 'Abrir ruta del día'}</a>
-      </div>
-      <div class="plan-stops">
-        ${stops.map((tour, stopIndex) => {
-          const globalStopIndex = dayIndex * stopsPerDay + stopIndex;
-          return `
-          <div class="plan-stop-group">
-            <div class="plan-stop-row">
-              <button type="button" class="plan-stop" onclick="openModal('${escapeHTML(tour.id)}')">
-                <span class="plan-stop-number">${stopIndex + 1}</span>
-                <img src="${escapeHTML(tour.image)}" alt="" loading="lazy" onerror="handleImageError(this)">
-                <span class="plan-stop-copy">
-                  <strong>${escapeHTML(getTourName(tour))}</strong>
-                  <small>${escapeHTML(getRegionName(tour.regionId, tour.regionName))} · ${escapeHTML(getCategoryName(tour.category))}</small>
-                </span>
-                <i class="fa-solid fa-chevron-right"></i>
-              </button>
-              <div class="plan-stop-controls" aria-label="${currentLanguage === 'ko' ? '일정 편집' : 'Editar parada'}">
-                <button type="button" onclick="movePlanStop(${globalStopIndex}, -1)" ${globalStopIndex === 0 ? 'disabled' : ''} aria-label="${currentLanguage === 'ko' ? '앞으로 이동' : 'Mover antes'}"><i class="fa-solid fa-arrow-up"></i></button>
-                <button type="button" onclick="movePlanStop(${globalStopIndex}, 1)" ${globalStopIndex === currentPlan.length - 1 ? 'disabled' : ''} aria-label="${currentLanguage === 'ko' ? '뒤로 이동' : 'Mover después'}"><i class="fa-solid fa-arrow-down"></i></button>
-                <button type="button" class="plan-stop-remove" onclick="removePlanStop(${globalStopIndex})" aria-label="${currentLanguage === 'ko' ? '일정에서 삭제' : 'Quitar de la ruta'}"><i class="fa-solid fa-xmark"></i></button>
-              </div>
+  const mode = currentPlanContext.mode || 'transit';
+  const planOrigin = getPlanOrigin(currentPlanContext.origin);
+  let estimatedTransportCost = 0;
+  const daysHTML = dayGroups.map((stops, dayIndex) => {
+    let currentTime = currentPlanContext.startTime || '09:30';
+    const dayDate = getPlanDateLabel(dayIndex);
+    const dayStopsHTML = stops.map((tour, stopIndex) => {
+      const globalStopIndex = dayIndex * stopsPerDay + stopIndex;
+      const incomingOrigin = stopIndex > 0 ? stops[stopIndex - 1] : (dayIndex === 0 ? planOrigin : null);
+      const incomingEstimate = incomingOrigin ? estimateRouteSegment(incomingOrigin, tour, mode) : null;
+      if (incomingEstimate) {
+        currentTime = addMinutesToTime(currentTime, incomingEstimate.minutes);
+        estimatedTransportCost += incomingEstimate.costKrw;
+      }
+      const arrivalTime = currentTime;
+      const stay = getRecommendedStay(tour);
+      const departureTime = addMinutesToTime(arrivalTime, stay.minutes || 90);
+      currentTime = departureTime;
+      const transferKey = `d${dayIndex + 1}-s${stopIndex + 1}`;
+      return `
+        <div class="plan-stop-group">
+          ${incomingOrigin ? renderPlanTransfer(incomingOrigin, tour, transferKey) : `<div class="plan-day-start"><i class="fa-solid fa-bed"></i> ${currentLanguage === 'ko' ? '숙소 인근에서 출발하는 일정입니다.' : 'El día comienza cerca de tu alojamiento.'}</div>`}
+          <div class="plan-stop-row">
+            <button type="button" class="plan-stop" onclick="openModal('${escapeHTML(tour.id)}')">
+              <span class="plan-stop-number">${stopIndex + 1}</span>
+              <img src="${escapeHTML(tour.image)}" alt="" loading="lazy" decoding="async" onerror="handleImageError(this)">
+              <span class="plan-stop-copy">
+                <strong>${escapeHTML(getTourName(tour))}</strong>
+                <small>${escapeHTML(getRegionName(tour.regionId, tour.regionName))} · ${escapeHTML(getCategoryName(tour.category))}</small>
+                <span class="plan-stop-time"><i class="fa-regular fa-clock"></i> ${arrivalTime}–${departureTime} · ${currentLanguage === 'ko' ? '추천 체류' : 'estancia sugerida'} ${escapeHTML(stay.value)}</span>
+                ${tour.hours ? `<span class="plan-stop-hours"><i class="fa-regular fa-calendar-check"></i> ${currentLanguage === 'ko' ? '공식 운영시간 있음 · 상세에서 확인' : 'Horario oficial disponible · ver detalle'}</span>` : `<span class="plan-stop-hours needs-check"><i class="fa-solid fa-triangle-exclamation"></i> ${currentLanguage === 'ko' ? '운영시간 확인 필요' : 'Horario por confirmar'}</span>`}
+              </span>
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+            <div class="plan-stop-controls" aria-label="${currentLanguage === 'ko' ? '일정 편집' : 'Editar parada'}">
+              <button type="button" onclick="movePlanStop(${globalStopIndex}, -1)" ${globalStopIndex === 0 ? 'disabled' : ''} aria-label="${currentLanguage === 'ko' ? '앞으로 이동' : 'Mover antes'}"><i class="fa-solid fa-arrow-up"></i></button>
+              <button type="button" onclick="movePlanStop(${globalStopIndex}, 1)" ${globalStopIndex === currentPlan.length - 1 ? 'disabled' : ''} aria-label="${currentLanguage === 'ko' ? '뒤로 이동' : 'Mover después'}"><i class="fa-solid fa-arrow-down"></i></button>
+              <button type="button" class="plan-stop-remove" onclick="removePlanStop(${globalStopIndex})" aria-label="${currentLanguage === 'ko' ? '일정에서 삭제' : 'Quitar de la ruta'}"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            ${stopIndex < stops.length - 1 ? renderPlanTransfer(tour, stops[stopIndex + 1]) : ''}
-          </div>`;
-        }).join('')}
-      </div>
-    </section>
-  `).join('');
+          </div>
+        </div>`;
+    }).join('');
+    return `
+      <section class="plan-day">
+        <div class="plan-day-label">
+          <span>${currentLanguage === 'ko' ? `${dayIndex + 1}일차` : `Día ${dayIndex + 1}`} ${dayDate ? `<small>${escapeHTML(dayDate)}</small>` : ''}</span>
+          <a href="${escapeHTML(buildGoogleMapsDayRouteUrl(stops, mode))}" target="_blank" rel="noopener noreferrer" onclick="trackEvent('day_route_open', { day: ${dayIndex + 1}, stops: ${stops.length} })"><i class="fa-brands fa-google"></i> ${currentLanguage === 'ko' ? '하루 동선 열기' : 'Abrir ruta del día'}</a>
+        </div>
+        <div class="plan-stops">${dayStopsHTML}</div>
+      </section>`;
+  }).join('');
 
   const regionNames = selectedRegionIds.map(regionId => getRegionName(regionId)).filter(Boolean);
   const routeTitle = customTitle || (currentLanguage === 'ko'
@@ -2542,12 +2904,47 @@ function renderTravelPlan(duration, customTitle = null, selectedRegionIds = [...
         <button type="button" class="save-plan-btn" onclick="saveCurrentPlan()"><i class="fa-regular fa-floppy-disk"></i> ${currentLanguage === 'ko' ? '일정 저장' : 'Guardar ruta'}</button>
       </div>
     </div>
+    <div class="plan-practical-summary">
+      <span><i class="fa-solid fa-location-arrow"></i><b>${currentLanguage === 'ko' ? '출발' : 'Salida'}</b>${escapeHTML(getPlanOrigin(currentPlanContext.origin)?.name || (currentLanguage === 'ko' ? '숙소 / 현재 위치' : 'Alojamiento / ubicación'))}</span>
+      <span><i class="fa-regular fa-clock"></i><b>${currentLanguage === 'ko' ? '시작' : 'Inicio'}</b>${escapeHTML(currentPlanContext.startTime || '09:30')}</span>
+      <span><i class="fa-solid fa-bus-simple"></i><b>${currentLanguage === 'ko' ? '이동' : 'Movilidad'}</b>${escapeHTML(getRouteModeLabel(mode))}</span>
+      <span><i class="fa-solid fa-won-sign"></i><b>${currentLanguage === 'ko' ? '예상 교통비' : 'Costo estimado'}</b>${escapeHTML(formatPlanCost(estimatedTransportCost))}</span>
+    </div>
     ${daysHTML}
     <p class="plan-disclaimer"><i class="fa-solid fa-circle-info"></i> ${currentLanguage === 'ko'
-      ? '직선거리는 참고용입니다. 실제 이동시간·교통비는 각 Google Maps 버튼에서 확인해주세요.'
-      : 'La distancia directa es orientativa. Consulta tiempo y costo actual en cada enlace de Google Maps.'}</p>
+      ? 'DAMDA 예상 시간·교통비는 일정 비교를 위한 참고치입니다. 실제 경로·운임·운영시간은 Google Maps와 공식 페이지에서 확인해주세요.'
+      : 'Los tiempos y costos DAMDA son orientativos. Confirma ruta, tarifa y horario actual en Google Maps y la fuente oficial.'}</p>
   `;
+  hydratePlanRouteEstimates();
   if (activeTourId) updateModalPlanButton(activeTourId);
+}
+
+async function hydratePlanRouteEstimates() {
+  const segments = [...plannerResult.querySelectorAll('[data-route-estimate]')];
+  if (!segments.length) return;
+  const departureTime = currentPlanContext.date && currentPlanContext.startTime
+    ? new Date(`${currentPlanContext.date}T${currentPlanContext.startTime}:00+09:00`).toISOString()
+    : '';
+  await Promise.allSettled(segments.map(async element => {
+    const response = await fetch(ROUTE_ESTIMATE_API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        origin: { lat: Number(element.dataset.originLat), lng: Number(element.dataset.originLng) },
+        destination: { lat: Number(element.dataset.destinationLat), lng: Number(element.dataset.destinationLng) },
+        mode: element.dataset.mode || 'transit',
+        departureTime
+      })
+    });
+    if (!response.ok) return;
+    const data = await response.json();
+    if (!data?.ok || data.provider !== 'google') return;
+    const metrics = element.querySelector('.plan-transfer-metrics');
+    if (!metrics) return;
+    const cost = data.fare?.text || (Number.isFinite(data.costKrw) ? formatPlanCost(data.costKrw) : '');
+    metrics.innerHTML = `<b>Google Maps</b> · ${escapeHTML(data.durationText || formatPlanDuration(data.durationMinutes))}${cost ? ` · ${escapeHTML(cost)}` : ''}`;
+    element.classList.add('google-route-data');
+  }));
 }
 
 function updateModalPlanButton(tourId) {
@@ -2620,6 +3017,10 @@ async function shareCurrentPlan() {
   shareUrl.search = '';
   shareUrl.searchParams.set(SHARED_PLAN_QUERY_KEY, currentPlan.map(tour => tour.id).join(','));
   shareUrl.searchParams.set('days', String(currentPlanContext.duration || 1));
+  shareUrl.searchParams.set('origin', currentPlanContext.origin || 'jeonju');
+  shareUrl.searchParams.set('mode', currentPlanContext.mode || 'transit');
+  if (currentPlanContext.date) shareUrl.searchParams.set('date', currentPlanContext.date);
+  if (currentPlanContext.startTime) shareUrl.searchParams.set('start', currentPlanContext.startTime);
   const title = document.querySelector('.plan-result-header h3')?.textContent.trim() || 'DAMDA';
   const shareData = {
     title: `${title} | DAMDA`,
@@ -2644,7 +3045,11 @@ function saveCurrentPlan() {
     title,
     tourIds: currentPlan.map(tour => tour.id),
     duration: currentPlanContext.duration || 1,
-    regionIds: currentPlanContext.regionIds || []
+    regionIds: currentPlanContext.regionIds || [],
+    origin: currentPlanContext.origin || 'jeonju',
+    date: currentPlanContext.date || '',
+    startTime: currentPlanContext.startTime || '09:30',
+    mode: currentPlanContext.mode || 'transit'
   };
   localStorage.setItem('jeonbuk_travel_plan', JSON.stringify(plan));
   renderSavedPlanSummary();
@@ -2666,9 +3071,21 @@ function restoreSavedPlan() {
     const regionIds = Array.isArray(savedPlan.regionIds) && savedPlan.regionIds.length
       ? savedPlan.regionIds.filter(regionId => JEONBUK_REGIONS[regionId])
       : [...new Set(restoredTours.map(tour => tour.regionId).filter(Boolean))];
-    currentPlanContext = { duration, title: savedPlan.title || null, regionIds };
+    currentPlanContext = {
+      duration,
+      title: savedPlan.title || null,
+      regionIds,
+      origin: savedPlan.origin || 'jeonju',
+      date: savedPlan.date || '',
+      startTime: savedPlan.startTime || '09:30',
+      mode: savedPlan.mode || 'transit'
+    };
     const durationSelect = document.getElementById('plannerDuration');
     if (durationSelect) durationSelect.value = String(duration);
+    if (plannerOrigin) plannerOrigin.value = currentPlanContext.origin;
+    if (plannerDate) plannerDate.value = currentPlanContext.date;
+    if (plannerStartTime) plannerStartTime.value = currentPlanContext.startTime;
+    if (plannerTransport) plannerTransport.value = currentPlanContext.mode;
     renderTravelPlan(duration, currentPlanContext.title || (currentLanguage === 'ko' ? '저장된 전북 여행' : 'Ruta guardada en Jeonbuk'), regionIds);
   } catch {
     localStorage.removeItem('jeonbuk_travel_plan');
@@ -2677,7 +3094,7 @@ function restoreSavedPlan() {
 
 function clearCurrentPlan(showMessage = true) {
   currentPlan = [];
-  currentPlanContext = { duration: 2, title: null, regionIds: [] };
+  currentPlanContext = { duration: 2, title: null, regionIds: [], origin: 'jeonju', date: '', startTime: '09:30', mode: 'transit' };
   localStorage.removeItem('jeonbuk_travel_plan');
   plannerResult.innerHTML = '';
   plannerResult.hidden = true;

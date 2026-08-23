@@ -34,7 +34,7 @@
 
   <!-- CSS Stylesheet -->
   <link rel="stylesheet" href="css/style.css?v=39">
-  <link rel="stylesheet" href="css/polish.css?v=12">
+  <link rel="stylesheet" href="css/polish.css?v=13">
 </head>
 <body>
 
@@ -99,8 +99,35 @@
       </div>
     </section>
 
+    <section class="travel-profile-invite" id="travelProfileInvite" aria-labelledby="travelProfileInviteTitle" hidden>
+      <div>
+        <span class="profile-invite-kicker" data-i18n="profileInviteKicker">Recomendaciones que empiezan contigo</span>
+        <h2 id="travelProfileInviteTitle" data-i18n="profileInviteTitle">¿Qué momento de tu viaje estás viviendo?</h2>
+        <p data-i18n="profileInviteDesc">Responde una sola pregunta ahora. Podrás completar tu perfil cuando quieras una ruta personalizada.</p>
+      </div>
+      <div class="profile-invite-options" role="group" aria-label="Situación del viaje">
+        <button type="button" data-journey-status="planning_first" onclick="startTravelProfile('planning_first')"><i class="fa-regular fa-map"></i><span data-i18n="profileInviteFirst">Mi primer viaje</span></button>
+        <button type="button" data-journey-status="planning_return" onclick="startTravelProfile('planning_return')"><i class="fa-solid fa-rotate"></i><span data-i18n="profileInviteReturn">Quiero volver</span></button>
+        <button type="button" data-journey-status="living_in_korea" onclick="startTravelProfile('living_in_korea')"><i class="fa-solid fa-house"></i><span data-i18n="profileInviteResident">Vivo en Corea</span></button>
+        <button type="button" data-journey-status="visited_before" onclick="startTravelProfile('visited_before')"><i class="fa-solid fa-plane-arrival"></i><span data-i18n="profileInviteVisited">Ya conozco Corea</span></button>
+      </div>
+      <button type="button" class="profile-invite-continue" id="profileInviteContinue" onclick="continueTravelProfile()" hidden><span data-i18n="profileInviteContinue">Personalizar mis recomendaciones</span><i class="fa-solid fa-arrow-right"></i></button>
+    </section>
+
     <!-- 2. TOUR SPOTS SECTION -->
     <section class="tour-section" id="tourSection">
+
+      <section class="damda-picks" id="damdaPicks" aria-labelledby="damdaPicksTitle">
+        <div class="damda-picks-heading">
+          <div>
+            <span class="section-kicker" data-i18n="picksKicker">Selección editorial</span>
+            <h2 id="damdaPicksTitle" data-i18n="picksTitle">DAMDA Picks</h2>
+            <p data-i18n="picksDesc">No es una lista de popularidad. Son lugares elegidos por el tipo de viaje que quieres vivir.</p>
+          </div>
+          <button type="button" class="picks-all-btn" onclick="scrollToAllPlaces()"><span data-i18n="picksAll">Ver todos los lugares</span><i class="fa-solid fa-arrow-down"></i></button>
+        </div>
+        <div class="damda-picks-grid" id="damdaPicksGrid"></div>
+      </section>
 
       <div class="region-explorer-card">
         <!-- SELECTED REGION BANNER INFO -->
@@ -178,6 +205,12 @@
         <div class="personalized-spots" id="personalizedSpots" aria-live="polite"></div>
       </section>
 
+      <div class="all-places-heading" id="allPlacesHeading">
+        <span class="section-kicker" data-i18n="allPlacesKicker">Guía completa</span>
+        <h2 data-i18n="allPlacesTitle">Más lugares de Jeonbuk</h2>
+        <p data-i18n="allPlacesDesc">Busca por región o tema y guarda lo que quieras comparar después.</p>
+      </div>
+
       <div class="results-toolbar" aria-label="Ordenar y filtrar lugares">
         <button type="button" class="toolbar-btn" id="savedOnlyBtn" onclick="toggleSavedOnly()">
           <i class="fa-regular fa-bookmark"></i> <span data-i18n="savedOnly">Solo guardados</span>
@@ -238,6 +271,30 @@
             <option value="2" data-i18n="paceRelaxed">Tranquilo · 2 paradas/día</option>
             <option value="3" selected data-i18n="paceBalanced">Equilibrado · 3 paradas/día</option>
             <option value="4" data-i18n="paceIntense">Intenso · 4 paradas/día</option>
+          </select>
+        </label>
+        <label>
+          <span data-i18n="plannerOrigin">Punto de partida</span>
+          <select id="plannerOrigin">
+            <option value="seoul" data-i18n="originSeoul">Seúl · Estación de Seúl</option>
+            <option value="jeonju" selected data-i18n="originJeonju">Jeonju · Estación de Jeonju</option>
+            <option value="current" data-i18n="originCurrent">Mi alojamiento / ubicación</option>
+          </select>
+        </label>
+        <label>
+          <span data-i18n="plannerDate">Fecha de inicio</span>
+          <input id="plannerDate" type="date">
+        </label>
+        <label>
+          <span data-i18n="plannerStartTime">Hora de salida</span>
+          <input id="plannerStartTime" type="time" value="09:30">
+        </label>
+        <label>
+          <span data-i18n="plannerTransport">Transporte principal</span>
+          <select id="plannerTransport">
+            <option value="transit" selected data-i18n="transportTransit">Transporte público</option>
+            <option value="driving" data-i18n="transportDriving">Auto</option>
+            <option value="walking" data-i18n="transportWalking">A pie</option>
           </select>
         </label>
         <button type="button" class="planner-generate-btn" onclick="generateTravelPlan()">
@@ -633,6 +690,6 @@
   <script src="js/tourImages.js?v=25"></script>
   <script src="js/tourDetails.js?v=25"></script>
   <script src="js/tourApi.js?v=25"></script>
-  <script src="js/app.js?v=48"></script>
+  <script src="js/app.js?v=49"></script>
 </body>
 </html>

@@ -20,6 +20,7 @@ const PRODUCT_EVENTS = new Set([
   'page_view', 'region_select', 'category_select', 'discovery_filter', 'load_more',
   'place_open', 'place_save', 'place_unsave', 'place_share', 'maps_open',
   'funnel_open', 'funnel_step', 'funnel_complete', 'personalized_plan_create',
+  'profile_invite_answer', 'damda_pick_open',
   'planner_generate', 'plan_stop_add', 'plan_stop_remove', 'plan_reorder',
   'plan_save', 'plan_share', 'day_route_open', 'shared_plan_open',
   'place_report_open', 'place_report_submit'
@@ -247,13 +248,112 @@ async function savePlaceReport(request, env) {
   return respond({ ok: true }, 201);
 }
 
+function getRouteDistanceKm(origin, destination) {
+  const toRadians = value => value * Math.PI / 180;
+  const earthRadiusKm = 6371;
+  const latDelta = toRadians(destination.lat - origin.lat);
+  const lngDelta = toRadians(destination.lng - origin.lng);
+  const a = Math.sin(latDelta / 2) ** 2
+    + Math.cos(toRadians(origin.lat)) * Math.cos(toRadians(destination.lat))
+    * Math.sin(lngDelta / 2) ** 2;
+  return earthRadiusKm * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+function createRouteFallback(origin, destination, mode) {
+  const directKm = getRouteDistanceKm(origin, destination);
+  const distanceKm = directKm * (mode === 'walking' ? 1.18 : 1.28);
+  let durationMinutes;
+  let costKrw = 0;
+  if (mode === 'walking') {
+    durationMinutes = distanceKm / 4.5 * 60;
+  } else if (mode === 'driving') {
+    durationMinutes = distanceKm / (distanceKm > 80 ? 75 : 48) * 60 + 10;
+    costKrw = distanceKm * 185 + 3000;
+  } else {
+    durationMinutes = distanceKm / (distanceKm > 80 ? 72 : 27) * 60 + (distanceKm > 80 ? 28 : 16);
+    costKrw = distanceKm > 80 ? 18000 + distanceKm * 35 : 1450 + distanceKm * 115;
+  }
+  return {
+    distanceMeters: Math.round(distanceKm * 1000),
+    durationMinutes: Math.max(5, Math.round(durationMinutes / 5) * 5),
+    costKrw: mode === 'walking' ? 0 : Math.max(0, Math.round(costKrw / 500) * 500)
+  };
+}
+
+function validLatLng(value) {
+  return value && Number.isFinite(value.lat) && Number.isFinite(value.lng)
+    && Math.abs(value.lat) <= 90 && Math.abs(value.lng) <= 180;
+}
+
+async function getRouteEstimate(request, env) {
+  const respond = (body, status = 200) => jsonResponse(body, status, request);
+  const parsed = await parseJsonBody(request, 2048);
+  if (parsed.error) return respond({ ok: false, error: parsed.error }, parsed.status);
+  const origin = { lat: Number(parsed.body?.origin?.lat), lng: Number(parsed.body?.origin?.lng) };
+  const destination = { lat: Number(parsed.body?.destination?.lat), lng: Number(parsed.body?.destination?.lng) };
+  const mode = ['transit', 'driving', 'walking'].includes(parsed.body?.mode) ? parsed.body.mode : 'transit';
+  const departureTime = cleanText(parsed.body?.departureTime, 40);
+  if (!validLatLng(origin) || !validLatLng(destination)) {
+    return respond({ ok: false, error: 'invalid_coordinates' }, 400);
+  }
+
+  const fallback = createRouteFallback(origin, destination, mode);
+  if (!env.GOOGLE_MAPS_API_KEY) {
+    return respond({ ok: true, provider: 'damda_estimate', ...fallback });
+  }
+
+  const travelMode = { transit: 'TRANSIT', driving: 'DRIVE', walking: 'WALK' }[mode];
+  const routeRequest = {
+    origin: { location: { latLng: { latitude: origin.lat, longitude: origin.lng } } },
+    destination: { location: { latLng: { latitude: destination.lat, longitude: destination.lng } } },
+    travelMode,
+    languageCode: 'es-419',
+    units: 'METRIC'
+  };
+  if (departureTime && !Number.isNaN(Date.parse(departureTime))) routeRequest.departureTime = departureTime;
+
+  try {
+    const routeResponse = await fetch('https://routes.googleapis.com/directions/v2:computeRoutes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Goog-Api-Key': env.GOOGLE_MAPS_API_KEY,
+        'X-Goog-FieldMask': 'routes.duration,routes.distanceMeters,routes.localizedValues,routes.travelAdvisory.transitFare'
+      },
+      body: JSON.stringify(routeRequest)
+    });
+    if (!routeResponse.ok) return respond({ ok: true, provider: 'damda_estimate', ...fallback });
+    const routeData = await routeResponse.json();
+    const route = routeData.routes?.[0];
+    if (!route) return respond({ ok: true, provider: 'damda_estimate', ...fallback });
+    const durationSeconds = Number.parseFloat(String(route.duration || '').replace('s', ''));
+    const fare = route.travelAdvisory?.transitFare;
+    const fareAmount = fare ? Number(fare.units || 0) + Number(fare.nanos || 0) / 1e9 : null;
+    return respond({
+      ok: true,
+      provider: 'google',
+      distanceMeters: Number(route.distanceMeters) || fallback.distanceMeters,
+      durationMinutes: Number.isFinite(durationSeconds) ? Math.max(1, Math.round(durationSeconds / 60)) : fallback.durationMinutes,
+      durationText: route.localizedValues?.duration?.text || '',
+      distanceText: route.localizedValues?.distance?.text || '',
+      fare: Number.isFinite(fareAmount) ? {
+        text: `${fare.currencyCode || ''} ${fareAmount.toLocaleString('en-US')}`.trim(),
+        currencyCode: fare.currencyCode || ''
+      } : null
+    });
+  } catch {
+    return respond({ ok: true, provider: 'damda_estimate', ...fallback });
+  }
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const apiHandlers = {
       '/api/travel-demand': saveTravelDemand,
       '/api/product-event': saveProductEvent,
-      '/api/place-report': savePlaceReport
+      '/api/place-report': savePlaceReport,
+      '/api/route-estimate': getRouteEstimate
     };
     const handler = apiHandlers[url.pathname];
     if (handler) {
