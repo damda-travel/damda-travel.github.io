@@ -422,19 +422,21 @@
 
   .damda-stories-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-auto-rows: 205px;
+    grid-template-rows: 310px 205px;
+    grid-auto-rows: auto;
     gap: 0.55rem;
   }
 
   .damda-story-card.story-hanok {
     grid-column: span 2;
-    grid-row: auto;
-    min-height: 310px;
+    grid-row: 1;
+    min-height: 0;
   }
 
   .damda-story-card.story-coast,
   .damda-story-card.story-winter {
     grid-column: span 1;
+    grid-row: 2;
   }
 
   .story-copy {
