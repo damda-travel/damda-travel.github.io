@@ -4024,3 +4024,220 @@ html[lang='ko'] .hero-title {
     font-size: 1rem;
   }
 }
+
+/* ===========================================================================
+   Destination palette v6
+   Brighter editorial bands inspired by image-led destination magazines.
+   ========================================================================== */
+
+:root {
+  --damda-sky: #e7f3f4;
+  --damda-sand: #f7ead8;
+  --damda-peach: #f6dfd2;
+  --damda-sage: #e8f1df;
+  --damda-sun: #f4c96f;
+}
+
+body,
+.app-container {
+  background: #fffdf8;
+}
+
+.damda-stories {
+  background:
+    radial-gradient(circle at 12% 12%, rgba(244, 201, 111, 0.12), transparent 28%),
+    radial-gradient(circle at 88% 72%, rgba(104, 182, 199, 0.16), transparent 34%),
+    linear-gradient(135deg, #124f45 0%, #13545a 52%, #173f59 100%);
+}
+
+.stories-kicker,
+.damda-editor-note {
+  color: rgba(255, 235, 177, 0.9);
+}
+
+.travel-profile-invite {
+  width: min(calc(100% - 4rem), 1280px);
+  margin-top: 2.5rem;
+  padding: clamp(1.8rem, 4vw, 2.7rem);
+  border: 1px solid rgba(165, 121, 74, 0.16);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 9% 18%, rgba(244, 201, 111, 0.28), transparent 26%),
+    linear-gradient(118deg, #fff4d9 0%, #f9e9df 52%, #e9f5ef 100%);
+  box-shadow: 0 16px 44px rgba(83, 71, 51, 0.07);
+}
+
+.profile-invite-kicker {
+  color: #9a5b37;
+}
+
+.profile-invite-continue {
+  border: 0;
+  background: #174c3f;
+  color: #fff;
+  box-shadow: none;
+}
+
+.tour-section {
+  position: relative;
+  isolation: isolate;
+}
+
+.tour-section::before {
+  position: absolute;
+  z-index: -1;
+  top: 8rem;
+  right: -8vw;
+  width: 28rem;
+  height: 28rem;
+  border-radius: 50%;
+  background: rgba(231, 243, 244, 0.58);
+  content: '';
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.damda-picks {
+  padding: clamp(2rem, 4vw, 3.25rem);
+  border: 1px solid rgba(176, 108, 76, 0.12);
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg, rgba(255, 250, 241, 0.72), transparent 42%),
+    var(--damda-peach);
+  box-shadow: 0 18px 50px rgba(102, 69, 52, 0.07);
+}
+
+.picks-all-btn {
+  border-color: rgba(125, 73, 51, 0.22);
+  background: rgba(255, 253, 248, 0.74);
+}
+
+.damda-pick-action {
+  border-color: rgba(108, 70, 51, 0.16);
+  color: #9c5137;
+}
+
+.region-explorer-card {
+  overflow: hidden;
+  border-color: #c9dfe0;
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.38), transparent 44%),
+    var(--damda-sky);
+  box-shadow: 0 18px 52px rgba(44, 92, 97, 0.07);
+}
+
+.region-selector-panel,
+.category-filter-block {
+  border-color: rgba(61, 107, 109, 0.14);
+}
+
+.chip-btn,
+.cat-btn,
+.cat-btn.course-btn,
+.region-reset-btn {
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.chip-btn:hover,
+.cat-btn:hover,
+.cat-btn.course-btn:hover {
+  background: #fff;
+}
+
+.all-places-heading {
+  border-top-color: rgba(19, 77, 66, 0.13);
+}
+
+.tour-card {
+  border-color: rgba(21, 76, 66, 0.11);
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(33, 70, 62, 0.06);
+}
+
+.planner-section {
+  background:
+    radial-gradient(circle at 8% 0%, rgba(244, 201, 111, 0.18), transparent 26%),
+    linear-gradient(135deg, #0d7564 0%, #126a70 54%, #20516f 100%);
+  box-shadow: 0 22px 54px rgba(21, 74, 72, 0.16);
+}
+
+.planner-kicker,
+.plan-data-source i {
+  color: #ffe39b;
+}
+
+.courses-section {
+  width: calc(100% - 4rem);
+  margin-top: 4.5rem;
+  margin-bottom: 4.5rem;
+  padding: clamp(2.5rem, 5vw, 4.5rem);
+  border: 1px solid rgba(89, 112, 66, 0.12);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(244, 201, 111, 0.22), transparent 24%),
+    linear-gradient(135deg, var(--damda-sage) 0%, #f7f3df 100%);
+  box-shadow: 0 18px 48px rgba(64, 82, 47, 0.07);
+}
+
+.course-card-1 {
+  background: #17634e;
+}
+
+.course-card-2 {
+  background: #9a673f;
+}
+
+.course-card-3 {
+  background: #28657d;
+}
+
+.main-footer {
+  background: linear-gradient(120deg, #102f27 0%, #133f43 58%, #17364b 100%);
+}
+
+@media (max-width: 768px) {
+  .travel-profile-invite {
+    width: calc(100% - 2rem);
+    margin-top: 1.5rem;
+    padding: 1.75rem 1.15rem;
+    border-width: 1px;
+    border-radius: 18px;
+  }
+
+  .tour-section {
+    padding-top: 3.5rem;
+  }
+
+  .tour-section::before {
+    top: 18rem;
+    right: -12rem;
+    width: 22rem;
+    height: 22rem;
+  }
+
+  .damda-picks {
+    margin-right: 0;
+    margin-left: 0;
+    padding: 2rem 1rem 2.25rem;
+    border-width: 1px;
+    border-radius: 18px;
+  }
+
+  .region-explorer-card {
+    border-radius: 18px;
+  }
+
+  .planner-section {
+    width: calc(100% - 2rem);
+    border-radius: 18px;
+  }
+
+  .courses-section {
+    width: calc(100% - 2rem);
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding: 2.5rem 1rem;
+    border-radius: 18px;
+  }
+}
