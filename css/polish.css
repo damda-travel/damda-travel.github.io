@@ -4245,3 +4245,282 @@ body,
     border-radius: 18px;
   }
 }
+
+/* ===========================================================================
+   Typography and discovery grouping v7
+   One reading rhythm, with region and theme controls as separate decisions.
+   ========================================================================== */
+
+:root {
+  --font-display: 'Plus Jakarta Sans', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Plus Jakarta Sans', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.65;
+  letter-spacing: -0.014em;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: -0.014em;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.048em;
+  text-wrap: balance;
+}
+
+p {
+  line-height: 1.68;
+  letter-spacing: -0.012em;
+}
+
+.hero-title,
+.damda-stories-heading h2,
+.damda-picks-heading h2,
+.banner-title,
+.all-places-heading h2,
+.planner-intro h2,
+.section-title-box h2 {
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.052em;
+}
+
+.hero-desc,
+.damda-stories-heading p,
+.damda-picks-heading p,
+.banner-desc,
+.all-places-heading p,
+.planner-intro p,
+.travel-profile-invite p {
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+  font-weight: 500;
+  line-height: 1.68;
+}
+
+.section-kicker,
+.planner-kicker,
+.stories-kicker,
+.profile-invite-kicker,
+.personalized-kicker {
+  font-size: 0.76rem;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: 0.022em;
+}
+
+.featured-regions-heading h3 {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+}
+
+.region-selector-heading h3 {
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.all-places-heading h2 {
+  font-size: clamp(2.15rem, 4.2vw, 3.35rem);
+}
+
+.chip-btn,
+.cat-btn,
+.cat-btn.course-btn,
+.region-reset-btn,
+.toolbar-btn,
+.toolbar-reset,
+.sort-control select,
+.picks-all-btn,
+.load-more-btn {
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.016em;
+}
+
+.cat-count {
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.03em;
+}
+
+.card-desc {
+  font-size: 0.84rem;
+  font-weight: 500;
+  line-height: 1.62;
+  letter-spacing: -0.01em;
+}
+
+.card-cat-badge,
+.card-region-label,
+.course-period,
+.course-tag {
+  font-weight: 700;
+  letter-spacing: -0.008em;
+}
+
+.course-title {
+  font-size: clamp(1.18rem, 1.8vw, 1.4rem);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.032em;
+}
+
+.course-desc {
+  font-weight: 500;
+  line-height: 1.62;
+  letter-spacing: -0.012em;
+}
+
+/* Keep discovery controls together: region, theme, then the resulting places. */
+.region-explorer-card {
+  display: block;
+  overflow: hidden;
+  border: 1px solid #c9dfe0;
+  border-radius: 22px;
+  background:
+    linear-gradient(150deg, rgba(255, 255, 255, 0.5), transparent 52%),
+    var(--damda-sky);
+  box-shadow: 0 14px 38px rgba(44, 92, 97, 0.06);
+}
+
+.region-info-banner {
+  padding: 2rem 1.5rem 0.9rem;
+  background: transparent;
+}
+
+.featured-region-strip {
+  padding: clamp(1.6rem, 3vw, 2.3rem);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.featured-regions-heading {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.region-selector-panel {
+  margin-top: 0;
+  padding: 1.65rem 1.5rem;
+  border: 0;
+  border-top: 1px solid rgba(44, 92, 97, 0.14);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.category-filter-block {
+  margin-top: 0;
+  padding: 1.5rem;
+  border: 0;
+  border-top: 1px solid rgba(44, 92, 97, 0.14);
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+}
+
+.category-filter-block > .section-kicker {
+  margin-bottom: 0.9rem;
+  color: var(--damda-leaf);
+}
+
+.all-places-heading {
+  margin-top: 0;
+  padding-top: 3.6rem;
+  border-top: 0;
+}
+
+.results-toolbar {
+  padding: 0.7rem;
+  border: 1px solid rgba(31, 73, 64, 0.1);
+  border-radius: 14px;
+  background: #f6f6f1;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 0.96rem;
+  }
+
+  .hero-desc,
+  .damda-stories-heading p,
+  .damda-picks-heading p,
+  .banner-desc,
+  .all-places-heading p,
+  .planner-intro p,
+  .travel-profile-invite p {
+    font-size: 0.9rem;
+    line-height: 1.66;
+  }
+
+  .section-kicker,
+  .planner-kicker,
+  .stories-kicker,
+  .profile-invite-kicker,
+  .personalized-kicker {
+    font-size: 0.72rem;
+  }
+
+  .region-info-banner {
+    padding: 1.5rem 0.75rem 0.7rem;
+  }
+
+  .featured-region-strip {
+    padding: 1.4rem 0.75rem 1rem;
+  }
+
+  .region-selector-panel,
+  .category-filter-block {
+    padding: 1.35rem 0.9rem;
+    border-radius: 0;
+  }
+
+  .all-places-heading {
+    margin-top: 0;
+    padding-top: 2.8rem;
+  }
+
+  .all-places-heading h2 {
+    font-size: clamp(2rem, 10vw, 2.7rem);
+  }
+
+  .chip-btn,
+  .cat-btn,
+  .cat-btn.course-btn,
+  .region-reset-btn,
+  .toolbar-btn,
+  .toolbar-reset,
+  .sort-control select {
+    font-size: 0.76rem;
+  }
+
+  .results-toolbar {
+    padding: 0.55rem;
+  }
+}
