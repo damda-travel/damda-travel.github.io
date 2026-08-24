@@ -3831,6 +3831,145 @@ html[lang='ko'] .hero-title {
   }
 }
 
+/* ===========================================================================
+   Alignment system v5
+   Center short editorial introductions; keep dense, actionable content left.
+   ========================================================================== */
+
+.damda-stories-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  gap: 0.85rem;
+  max-width: 900px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.damda-stories-heading h2,
+.damda-stories-heading p {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.damda-stories-heading p {
+  max-width: 650px;
+}
+
+.damda-editor-note {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.travel-profile-invite {
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  text-align: center;
+}
+
+.travel-profile-invite > div,
+.travel-profile-invite p {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.profile-invite-continue {
+  justify-self: center;
+}
+
+.damda-picks-heading {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.damda-picks-heading > div,
+.damda-picks-heading p {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.picks-all-btn {
+  align-self: center;
+}
+
+.featured-regions-heading {
+  display: block;
+  text-align: center;
+}
+
+.region-selector-heading {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.region-selector-heading > div {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.region-reset-btn {
+  margin-top: 0.8rem;
+}
+
+.planner-intro,
+.section-title-box {
+  text-align: center;
+}
+
+.planner-intro p {
+  max-width: 650px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Reading and decision surfaces stay left-aligned for faster scanning. */
+.story-copy,
+.damda-pick-card button,
+.damda-pick-copy,
+.damda-pick-action,
+.featured-region-card,
+.tour-card,
+.planner-form,
+.planner-route-builder,
+.planner-result,
+.plan-day,
+.course-card,
+.modal-content,
+.footer-content {
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .damda-stories-heading {
+    max-width: 360px;
+  }
+
+  .travel-profile-invite {
+    text-align: center;
+  }
+
+  .profile-invite-continue,
+  .picks-all-btn {
+    width: min(100%, 360px);
+    justify-content: center;
+  }
+
+  .damda-picks-heading {
+    align-items: center;
+    text-align: center;
+  }
+
+  .damda-picks-heading p {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
 /* Final collection grid override: keep the editorial rhythm above legacy rules. */
 .damda-picks-grid {
   grid-template-columns: repeat(12, minmax(0, 1fr));
