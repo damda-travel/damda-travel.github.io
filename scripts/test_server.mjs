@@ -43,15 +43,43 @@ async function post(path, body, env, origin = 'https://damda-travel.github.io') 
 
 {
   const { env, inserts } = createEnvironment();
-  const response = await post('/api/product-event', {
-    eventName: 'planner_generate',
-    sessionId: 'test-session-1234',
+  const response = await post('/api/travel-demand', {
+    journeyStatus: 'planning_first',
+    country: 'México',
+    interests: ['tradition', 'food'],
+    contactType: 'email',
+    contactValue: 'not-consented@example.com',
+    contactConsent: false,
     language: 'es',
-    pagePath: '/',
-    context: { days: 2, stops: 6 }
+    website: '',
+    elapsedMs: 1200
   }, env);
   assert.equal(response.status, 201);
-  assert.match(inserts.at(-1).sql, /INSERT INTO product_event/);
+  assert.match(inserts.at(-1).sql, /INSERT INTO travel_demand/);
+  assert.equal(inserts.at(-1).values[3], null, 'contact type must not be stored without consent');
+  assert.equal(inserts.at(-1).values[4], null, 'contact value must not be stored without consent');
+}
+
+{
+  const { env, inserts } = createEnvironment();
+  const events = [
+    'planner_generate', 'language_change', 'hero_cta', 'mobile_nav_select',
+    'funnel_skip', 'funnel_back', 'funnel_validation_error', 'funnel_submit_error',
+    'saved_panel_open', 'saved_filter_toggle', 'sort_change', 'filter_reset',
+    'planner_preset_select', 'planner_region_toggle', 'planner_regions_toggle',
+    'planner_route_mode_open', 'plan_clear'
+  ];
+  for (const eventName of events) {
+    const response = await post('/api/product-event', {
+      eventName,
+      sessionId: 'test-session-1234',
+      language: 'es',
+      pagePath: '/',
+      context: { source: 'regression' }
+    }, env);
+    assert.equal(response.status, 201, `${eventName} should be accepted`);
+    assert.match(inserts.at(-1).sql, /INSERT INTO product_event/);
+  }
 }
 
 {

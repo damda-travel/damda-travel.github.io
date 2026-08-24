@@ -89,10 +89,10 @@
         <h2 class="hero-title"><span data-i18n="heroTitleStart">Más que un viaje</span> <strong data-i18n="heroTitleStrong">Una Corea para recordar</strong><span data-i18n="heroTitleEnd"></span></h2>
         <p class="hero-desc" data-i18n="heroDesc">A solo 1 h 30 min de Seúl: hanok, montañas, mar y sabores locales en un solo viaje.</p>
         <div class="hero-actions">
-          <button type="button" class="hero-cta-primary" onclick="scrollToSection('tourSection')">
+          <button type="button" class="hero-cta-primary" onclick="handleHeroCta('places', 'tourSection')">
             <i class="fa-solid fa-compass"></i> <span data-i18n="explorePlaces">Explorar lugares</span>
           </button>
-          <button type="button" class="hero-cta-secondary" onclick="scrollToSection('plannerSection')">
+          <button type="button" class="hero-cta-secondary" onclick="handleHeroCta('planner', 'plannerSection')">
             <i class="fa-solid fa-route"></i> <span data-i18n="planTrip">Planear mi viaje</span>
           </button>
         </div>
@@ -575,10 +575,10 @@
   </div>
 
   <nav class="mobile-bottom-nav" aria-label="Navegación principal móvil">
-    <button type="button" class="active" data-mobile-nav="regions" onclick="scrollToSection('regionSelector')" aria-current="page"><i class="fa-solid fa-location-dot"></i><span data-i18n="mobileRegions">Regiones</span></button>
-    <button type="button" data-mobile-nav="places" onclick="scrollToSection('tourCardList')"><i class="fa-solid fa-compass"></i><span data-i18n="mobilePlaces">Lugares</span></button>
-    <button type="button" data-mobile-nav="planner" onclick="scrollToSection('plannerSection')"><i class="fa-solid fa-route"></i><span data-i18n="mobilePlanner">Mi ruta</span></button>
-    <button type="button" data-mobile-nav="saved" onclick="openSavedPanel()"><i class="fa-solid fa-bookmark"></i><span><span data-i18n="mobileSaved">Guardados</span> <b id="mobileSavedCount">0</b></span></button>
+    <button type="button" class="active" data-mobile-nav="regions" onclick="handleMobileNav('regions', 'regionSelector')" aria-current="page"><i class="fa-solid fa-location-dot"></i><span data-i18n="mobileRegions">Regiones</span></button>
+    <button type="button" data-mobile-nav="places" onclick="handleMobileNav('places', 'tourCardList')"><i class="fa-solid fa-compass"></i><span data-i18n="mobilePlaces">Lugares</span></button>
+    <button type="button" data-mobile-nav="planner" onclick="handleMobileNav('planner', 'plannerSection')"><i class="fa-solid fa-route"></i><span data-i18n="mobilePlanner">Mi ruta</span></button>
+    <button type="button" data-mobile-nav="saved" onclick="handleMobileNav('saved')"><i class="fa-solid fa-bookmark"></i><span><span data-i18n="mobileSaved">Guardados</span> <b id="mobileSavedCount">0</b></span></button>
   </nav>
 
   <button type="button" class="back-to-top-btn" id="backToTopBtn" onclick="scrollToTop()" aria-label="Volver arriba">

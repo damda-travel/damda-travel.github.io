@@ -20,7 +20,12 @@ const PRODUCT_EVENTS = new Set([
   'page_view', 'region_select', 'category_select', 'discovery_filter', 'load_more',
   'place_open', 'place_save', 'place_unsave', 'place_share', 'maps_open',
   'funnel_open', 'funnel_step', 'funnel_complete', 'personalized_plan_create',
+  'funnel_skip', 'funnel_back', 'funnel_validation_error', 'funnel_submit_error',
   'profile_invite_answer', 'damda_pick_open',
+  'language_change', 'hero_cta', 'mobile_nav_select',
+  'saved_panel_open', 'saved_filter_toggle', 'sort_change', 'filter_reset',
+  'planner_preset_select', 'planner_region_toggle', 'planner_regions_toggle',
+  'planner_route_mode_open', 'plan_clear',
   'planner_generate', 'plan_stop_add', 'plan_stop_remove', 'plan_reorder',
   'plan_save', 'plan_share', 'day_route_open', 'shared_plan_open',
   'place_report_open', 'place_report_submit'

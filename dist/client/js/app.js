@@ -705,6 +705,7 @@ const funnelContactValue = document.getElementById('funnelContactValue');
 let travelFunnelStep = 1;
 let travelFunnelStartedAt = 0;
 let travelFunnelCategory = 'all';
+let travelFunnelOpenedManually = false;
 
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
@@ -841,6 +842,14 @@ function trackEvent(eventName, context = {}) {
     }),
     keepalive: true
   }).catch(() => {});
+}
+
+function trackFunnelValidationError(field) {
+  trackEvent('funnel_validation_error', {
+    step: travelFunnelStep,
+    field,
+    manual: travelFunnelOpenedManually
+  });
 }
 
 const PERSONALIZATION_RULES = {
@@ -1070,7 +1079,7 @@ function formatDirectDistance(originTour, destinationTour) {
 }
 
 function renderRouteModeLink(originTour, destinationTour, mode, icon, label) {
-  return `<a href="${escapeHTML(buildGoogleMapsDirectionsUrl(destinationTour, mode, originTour))}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHTML(label)} · Google Maps"><i class="${icon}"></i><span>${escapeHTML(label)}</span></a>`;
+  return `<a href="${escapeHTML(buildGoogleMapsDirectionsUrl(destinationTour, mode, originTour))}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHTML(label)} · Google Maps" onclick="trackEvent('planner_route_mode_open', { mode: '${escapeHTML(mode)}', source: 'segment' })"><i class="${icon}"></i><span>${escapeHTML(label)}</span></a>`;
 }
 
 function t(key) {
@@ -1347,7 +1356,11 @@ function applyLanguage(language, persist = true) {
 }
 
 function setLanguage(language) {
+  const previousLanguage = currentLanguage;
   applyLanguage(language, true);
+  if (previousLanguage !== currentLanguage) {
+    trackEvent('language_change', { from: previousLanguage, to: currentLanguage });
+  }
 }
 
 function handleLanguageButton(language) {
@@ -1388,6 +1401,7 @@ function openTravelFunnel(manual = false) {
   travelFunnel.setAttribute('aria-hidden', 'false');
   document.body.classList.add('funnel-open');
   travelFunnelStartedAt = Date.now();
+  travelFunnelOpenedManually = manual;
   renderTravelFunnelStep();
   trackEvent('funnel_open', { manual });
   window.requestAnimationFrame(() => {
@@ -1403,6 +1417,11 @@ function closeTravelFunnel() {
 }
 
 function snoozeTravelFunnel() {
+  trackEvent('funnel_skip', {
+    step: travelFunnelStep,
+    manual: travelFunnelOpenedManually,
+    elapsedMs: Math.max(0, Date.now() - travelFunnelStartedAt)
+  });
   if (!localStorage.getItem('damda_travel_profile_completed')) {
     localStorage.setItem('damda_travel_profile_snoozed_until', String(Date.now() + 7 * 24 * 60 * 60 * 1000));
   }
@@ -1436,8 +1455,12 @@ function renderTravelFunnelStep() {
 
 function changeTravelFunnelStep(direction) {
   if (direction > 0 && !validateTravelFunnelStep(travelFunnelStep)) return;
+  const previousStep = travelFunnelStep;
   travelFunnelStep = Math.max(1, Math.min(4, travelFunnelStep + direction));
   renderTravelFunnelStep();
+  if (direction < 0) {
+    trackEvent('funnel_back', { fromStep: previousStep, toStep: travelFunnelStep });
+  }
   trackEvent('funnel_step', { step: travelFunnelStep });
   travelFunnelForm?.querySelector('.travel-funnel-step.active input, .travel-funnel-step.active select')?.focus();
 }
@@ -1445,12 +1468,14 @@ function changeTravelFunnelStep(direction) {
 function validateTravelFunnelStep(step) {
   if (!travelFunnelForm) return false;
   if (step === 1 && !travelFunnelForm.querySelector('input[name="journeyStatus"]:checked')) {
+    trackFunnelValidationError('journey_status');
     showTravelFunnelError(currentLanguage === 'ko' ? '현재 상황을 한 가지 선택해주세요.' : 'Elige una opción para continuar.');
     return false;
   }
   if (step === 2) {
     const country = travelFunnelForm.elements.country.value.trim();
     if (country.length < 2) {
+      trackFunnelValidationError('country');
       showTravelFunnelError(currentLanguage === 'ko' ? '국가를 입력해주세요.' : 'Escribe tu país para continuar.');
       return false;
     }
@@ -1458,6 +1483,7 @@ function validateTravelFunnelStep(step) {
   if (step === 3) {
     const interestCount = travelFunnelForm.querySelectorAll('input[name="interests"]:checked').length;
     if (!interestCount) {
+      trackFunnelValidationError('interests');
       showTravelFunnelError(currentLanguage === 'ko' ? '원하는 여행을 한 가지 이상 선택해주세요.' : 'Elige al menos un tipo de viaje.');
       return false;
     }
@@ -1466,10 +1492,12 @@ function validateTravelFunnelStep(step) {
     const contact = funnelContactValue?.value.trim() || '';
     const consent = document.getElementById('funnelConsent')?.checked;
     if (contact && !consent) {
+      trackFunnelValidationError('contact_consent');
       showTravelFunnelError(currentLanguage === 'ko' ? '연락처를 남기려면 정보 수신에 동의해주세요.' : 'Para dejar tu contacto, acepta recibir información de DAMDA.');
       return false;
     }
     if (contact && funnelContactType?.value === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact)) {
+      trackFunnelValidationError('contact_format');
       showTravelFunnelError(currentLanguage === 'ko' ? '이메일 주소를 확인해주세요.' : 'Revisa tu dirección de email.');
       return false;
     }
@@ -1550,6 +1578,10 @@ async function submitTravelFunnel(event) {
     renderTravelProfileInvite();
     trackEvent('funnel_complete', { interests: interests.length, hasContact: payload.contactConsent });
   } catch {
+    trackEvent('funnel_submit_error', {
+      step: travelFunnelStep,
+      hasContact: payload.contactConsent
+    });
     showTravelFunnelError(currentLanguage === 'ko' ? '저장하지 못했습니다. 잠시 후 다시 시도해주세요.' : 'No pudimos guardar tu respuesta. Inténtalo de nuevo en un momento.');
   } finally {
     if (submitButton) {
@@ -1850,6 +1882,7 @@ function updatePlannerRegionPickerUI() {
 function togglePlannerRegionPicker() {
   plannerRegionsExpanded = !plannerRegionsExpanded;
   updatePlannerRegionPickerUI();
+  trackEvent('planner_regions_toggle', { expanded: plannerRegionsExpanded });
 }
 
 function applyRoutePreset(presetId, announce = true) {
@@ -1867,6 +1900,7 @@ function applyRoutePreset(presetId, announce = true) {
   renderPlannerRegionOptions();
   updatePlannerRegionPickerUI();
   if (announce) {
+    trackEvent('planner_preset_select', { preset: presetId, regions: selectedPlannerRegions.size });
     showToast(currentLanguage === 'ko' ? '추천 동선을 적용했습니다.' : 'Ruta base aplicada. Puedes cambiar las regiones.');
   }
 }
@@ -1892,6 +1926,11 @@ function togglePlannerRegion(regionId) {
     button.setAttribute('aria-pressed', 'false');
   });
   renderPlannerRegionOptions();
+  trackEvent('planner_region_toggle', {
+    region: regionId,
+    selected: selectedPlannerRegions.has(regionId),
+    regions: selectedPlannerRegions.size
+  });
 }
 
 function selectRegion(regionId) {
@@ -1921,6 +1960,7 @@ function resetSelection() {
     button.classList.toggle('active', button.dataset.category === 'all');
   });
   updateUI();
+  trackEvent('filter_reset');
 }
 
 function handleMobileRegionSelect(regionId) {
@@ -1979,11 +2019,13 @@ function clearSearch() {
 function setSortOrder(sortOrder) {
   currentSortOrder = ['recommended', 'name', 'region'].includes(sortOrder) ? sortOrder : 'recommended';
   updateUI();
+  trackEvent('sort_change', { sort: currentSortOrder });
 }
 
 function toggleSavedOnly() {
   showSavedOnly = !showSavedOnly;
   updateUI();
+  trackEvent('saved_filter_toggle', { enabled: showSavedOnly });
 }
 
 async function updateUI() {
@@ -2642,6 +2684,10 @@ function openSavedPanel() {
   savedDrawer.setAttribute('aria-hidden', 'false');
   document.body.classList.add('modal-open');
   setMobileNavActive('saved');
+  trackEvent('saved_panel_open', {
+    savedPlaces: getSavedIds().length,
+    hasSavedPlan: Boolean(getSavedPlan())
+  });
   requestAnimationFrame(() => savedDrawer.querySelector('.drawer-close-btn')?.focus());
 }
 
@@ -3206,6 +3252,7 @@ function restoreSavedPlan() {
 }
 
 function clearCurrentPlan(showMessage = true) {
+  const previousStops = currentPlan.length;
   currentPlan = [];
   currentPlanContext = { duration: 2, title: null, regionIds: [], origin: 'jeonju', date: '', startTime: '09:30', mode: 'transit' };
   localStorage.removeItem('jeonbuk_travel_plan');
@@ -3213,6 +3260,7 @@ function clearCurrentPlan(showMessage = true) {
   plannerResult.hidden = true;
   renderSavedPlanSummary();
   if (activeTourId) updateModalPlanButton(activeTourId);
+  if (showMessage) trackEvent('plan_clear', { stops: previousStops });
   if (showMessage) showToast(currentLanguage === 'ko' ? '저장된 여행 일정을 초기화했습니다.' : 'La ruta guardada se eliminó.');
 }
 
@@ -3264,6 +3312,20 @@ function showToast(message) {
 
 function scrollToSection(sectionId) {
   document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function handleHeroCta(destination, sectionId) {
+  trackEvent('hero_cta', { destination });
+  scrollToSection(sectionId);
+}
+
+function handleMobileNav(destination, sectionId = '') {
+  trackEvent('mobile_nav_select', { destination });
+  if (destination === 'saved') {
+    openSavedPanel();
+    return;
+  }
+  scrollToSection(sectionId);
 }
 
 function scrollToResults() {
