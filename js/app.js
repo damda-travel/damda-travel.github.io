@@ -26,6 +26,7 @@ const PLACE_REPORT_API_URL = `${DAMDA_API_BASE}/api/place-report`;
 const ROUTE_ESTIMATE_API_URL = `${DAMDA_API_BASE}/api/route-estimate`;
 const TRAVEL_PROFILE_STORAGE_KEY = 'damda_travel_profile';
 const TRAVEL_PROFILE_DRAFT_KEY = 'damda_travel_profile_draft_status';
+const ATTRIBUTION_STORAGE_KEY = 'damda_attribution_v1';
 const SHARED_PLACE_QUERY_KEY = 'place';
 const SHARED_PLAN_QUERY_KEY = 'route';
 const CATALOG_VERIFIED_AT = '2026-07-24';
@@ -268,13 +269,13 @@ const I18N = {
     explorePlaces: 'Explorar lugares',
     planTrip: 'Planear mi viaje',
     profileInviteKicker: 'Recomendaciones que empiezan contigo',
-    profileInviteTitle: '¿Qué momento de tu viaje estás viviendo?',
-    profileInviteDesc: 'Responde una sola pregunta ahora. Completa tu perfil solo cuando quieras una ruta personalizada.',
+    profileInviteTitle: 'Haz que DAMDA elija mejor para ti',
+    profileInviteDesc: 'Completa un perfil breve para recibir lugares y rutas según tu forma de viajar.',
     profileInviteFirst: 'Mi primer viaje',
     profileInviteReturn: 'Quiero volver',
     profileInviteResident: 'Vivo en Corea',
     profileInviteVisited: 'Ya conozco Corea',
-    profileInviteContinue: 'Personalizar mis recomendaciones',
+    profileInviteContinue: 'Completar mi perfil',
     picksKicker: 'Selección editorial',
     picksTitle: 'DAMDA Picks',
     picksDesc: 'No es una lista de popularidad. Son lugares elegidos por el tipo de viaje que quieres vivir.',
@@ -469,13 +470,13 @@ const I18N = {
     explorePlaces: '관광지 둘러보기',
     planTrip: '여행 계획 만들기',
     profileInviteKicker: '당신에게서 시작하는 추천',
-    profileInviteTitle: '지금 어떤 여행을 준비하고 있나요?',
-    profileInviteDesc: '지금은 한 가지만 답하세요. 맞춤 일정이 필요할 때 나머지를 이어서 입력할 수 있어요.',
+    profileInviteTitle: 'DAMDA가 더 잘 골라드릴게요',
+    profileInviteDesc: '짧은 여행 성향을 입력하면 관심사에 맞는 장소와 동선을 추천합니다.',
     profileInviteFirst: '첫 한국 여행',
     profileInviteReturn: '다시 가는 한국',
     profileInviteResident: '한국 거주 중',
     profileInviteVisited: '한국 여행 경험 있음',
-    profileInviteContinue: '내 추천 맞춤 설정하기',
+    profileInviteContinue: '여행 성향 입력하기',
     picksKicker: 'DAMDA 에디터 셀렉션',
     picksTitle: 'DAMDA Picks',
     picksDesc: '인기순 목록이 아니라, 여행의 상황과 취향에 맞춰 직접 고른 장소입니다.',
@@ -720,9 +721,13 @@ window.addEventListener('pageshow', event => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+  const today = new Date();
+  const toLocalDateInput = date => new Date(date.getTime() - date.getTimezoneOffset() * 60 * 1000).toISOString().slice(0, 10);
+  const todayISO = toLocalDateInput(today);
+  if (plannerDate) plannerDate.min = todayISO;
   if (plannerDate && !plannerDate.value) {
     const tomorrow = new Date(Date.now() + 24 * 60 * 60 * 1000);
-    plannerDate.value = tomorrow.toISOString().slice(0, 10);
+    plannerDate.value = toLocalDateInput(tomorrow);
   }
   applyRoutePreset(activeRoutePreset, false);
   restoreSavedPlan();
@@ -825,11 +830,57 @@ function getAnalyticsSessionId() {
   }
 }
 
+let attributionContextCache = null;
+
+function cleanAttributionValue(value, maxLength = 80) {
+  return String(value || '')
+    .replace(/[\u0000-\u001f\u007f]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, maxLength);
+}
+
+function getAttributionContext() {
+  if (attributionContextCache) return attributionContextCache;
+  try {
+    const stored = JSON.parse(sessionStorage.getItem(ATTRIBUTION_STORAGE_KEY) || 'null');
+    if (stored && typeof stored === 'object') {
+      attributionContextCache = stored;
+      return attributionContextCache;
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    let referrerHost = '';
+    try {
+      referrerHost = document.referrer ? new URL(document.referrer).hostname : '';
+    } catch {
+      referrerHost = '';
+    }
+    const utmSource = cleanAttributionValue(params.get('utm_source'));
+    const context = {
+      trafficSource: utmSource || cleanAttributionValue(referrerHost) || 'direct',
+      trafficMedium: cleanAttributionValue(params.get('utm_medium')) || (utmSource ? 'campaign' : (referrerHost ? 'referral' : 'none')),
+      campaign: cleanAttributionValue(params.get('utm_campaign')),
+      campaignContent: cleanAttributionValue(params.get('utm_content')),
+      episodeId: cleanAttributionValue(params.get('episode') || params.get('video') || params.get('content_id'))
+    };
+    attributionContextCache = Object.fromEntries(Object.entries(context).filter(([, value]) => value));
+    sessionStorage.setItem(ATTRIBUTION_STORAGE_KEY, JSON.stringify(attributionContextCache));
+    return attributionContextCache;
+  } catch {
+    return { trafficSource: 'direct', trafficMedium: 'none' };
+  }
+}
+
 function trackEvent(eventName, context = {}) {
   if (window.location.protocol !== 'https:' || !eventName) return;
   const safeContext = Object.fromEntries(Object.entries(context)
     .filter(([, value]) => ['string', 'number', 'boolean'].includes(typeof value))
     .slice(0, 10));
+  const eventContext = Object.fromEntries(Object.entries({
+    ...getAttributionContext(),
+    ...safeContext
+  }).slice(0, 16));
   fetch(ANALYTICS_API_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -838,7 +889,7 @@ function trackEvent(eventName, context = {}) {
       sessionId: getAnalyticsSessionId(),
       language: currentLanguage,
       pagePath: window.location.pathname,
-      context: safeContext
+      context: eventContext
     }),
     keepalive: true
   }).catch(() => {});
@@ -892,13 +943,7 @@ function renderTravelProfileInvite() {
   const completed = Boolean(localStorage.getItem('damda_travel_profile_completed'));
   travelProfileInvite.hidden = completed;
   if (completed) return;
-  const draftStatus = localStorage.getItem(TRAVEL_PROFILE_DRAFT_KEY) || '';
-  travelProfileInvite.querySelectorAll('[data-journey-status]').forEach(button => {
-    const selected = button.dataset.journeyStatus === draftStatus;
-    button.classList.toggle('selected', selected);
-    button.setAttribute('aria-pressed', String(selected));
-  });
-  if (profileInviteContinue) profileInviteContinue.hidden = !draftStatus;
+  if (profileInviteContinue) profileInviteContinue.hidden = false;
 }
 
 function startTravelProfile(status) {
@@ -969,6 +1014,7 @@ function applyDamdaCollection(collectionId) {
     pace: 3,
     tourIds: collection.spotIds,
     regionIds,
+    source: 'damda_pick',
     title: localized.title
   });
   trackEvent('damda_pick_open', { collection: collection.id });
@@ -1052,6 +1098,7 @@ function createPersonalizedPlan() {
     pace: 3,
     tourIds: tours.slice(0, duration * 3).map(tour => tour.id),
     regionIds,
+    source: 'personalized',
     title: currentLanguage === 'ko' ? '나를 위한 DAMDA 추천 여행' : 'Mi ruta recomendada por DAMDA'
   });
   trackEvent('personalized_plan_create', { interests: profile.interests.length, duration });
@@ -1250,6 +1297,17 @@ function getTourTrustMeta(tour) {
       : `${damdaPick ? 'DAMDA Pick · ' : ''}${officialSource ? 'fuente oficial revisada' : 'fuente por verificar'}`,
     reviewedAt: CATALOG_VERIFIED_AT
   };
+}
+
+function getEditorialContentScore(tour) {
+  const trust = getTourTrustMeta(tour);
+  const hasCuratedSpanish = Boolean(TOUR_NAMES_ES[tour?.id] && TOUR_DESCRIPTIONS_ES[tour?.id]);
+  const hasSpecificImage = Boolean(tour?.image && !/placeholder|fallback/i.test(tour.image));
+  return (trust.damdaPick ? 1000 : 0)
+    + (hasCuratedSpanish ? 320 : 0)
+    + (trust.officialSource ? 120 : 0)
+    + (hasSpecificImage ? 30 : 0)
+    + (tour?.address ? 10 : 0);
 }
 
 function getLocalizedDuration(value = '') {
@@ -2196,7 +2254,9 @@ function filterSavedTours(tours) {
 
 function sortTours(tours) {
   const sorted = [...tours];
-  if (currentSortOrder === 'name') {
+  if (currentSortOrder === 'recommended') {
+    sorted.sort((a, b) => getEditorialContentScore(b) - getEditorialContentScore(a));
+  } else if (currentSortOrder === 'name') {
     sorted.sort((a, b) => getTourName(a).localeCompare(getTourName(b), currentLanguage === 'ko' ? 'ko' : 'es'));
   } else if (currentSortOrder === 'region') {
     sorted.sort((a, b) => {
@@ -2966,7 +3026,16 @@ function generateTravelPlan(options = {}) {
     mode
   };
   renderTravelPlan(duration, options.title || null, selectedRegionIds);
-  trackEvent('planner_generate', { duration, theme, pace, stops: currentPlan.length, regions: selectedRegionIds.length });
+  trackEvent('planner_generate', {
+    duration,
+    theme,
+    pace,
+    stops: currentPlan.length,
+    regions: selectedRegionIds.length,
+    mode,
+    origin,
+    source: options.source || 'manual'
+  });
   requestAnimationFrame(() => plannerResult?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
 }
 
@@ -3085,6 +3154,10 @@ function renderTravelPlan(duration, customTitle = null, selectedRegionIds = [...
       <span><i class="fa-solid fa-bus-simple"></i><b>${currentLanguage === 'ko' ? '이동' : 'Movilidad'}</b>${escapeHTML(getRouteModeLabel(mode))}</span>
       <span><i class="fa-solid fa-won-sign"></i><b>${currentLanguage === 'ko' ? '예상 교통비' : 'Costo estimado'}</b>${escapeHTML(formatPlanCost(estimatedTransportCost))}</span>
     </div>
+    <div class="plan-data-source" id="planDataSource" role="status" aria-live="polite">
+      <i class="fa-solid fa-arrows-rotate"></i>
+      <span>${currentLanguage === 'ko' ? '실제 경로 데이터를 확인하고 있습니다.' : 'Comprobando datos de ruta disponibles.'}</span>
+    </div>
     ${daysHTML}
     <p class="plan-disclaimer"><i class="fa-solid fa-circle-info"></i> ${currentLanguage === 'ko'
       ? 'DAMDA 예상 시간·교통비는 일정 비교를 위한 참고치입니다. 실제 경로·운임·운영시간은 Google Maps와 공식 페이지에서 확인해주세요.'
@@ -3096,7 +3169,11 @@ function renderTravelPlan(duration, customTitle = null, selectedRegionIds = [...
 
 async function hydratePlanRouteEstimates() {
   const segments = [...plannerResult.querySelectorAll('[data-route-estimate]')];
-  if (!segments.length) return;
+  if (!segments.length) {
+    updatePlanDataSourceStatus(0, 0);
+    return;
+  }
+  let googleSegments = 0;
   const departureTime = currentPlanContext.date && currentPlanContext.startTime
     ? new Date(`${currentPlanContext.date}T${currentPlanContext.startTime}:00+09:00`).toISOString()
     : '';
@@ -3114,12 +3191,42 @@ async function hydratePlanRouteEstimates() {
     if (!response.ok) return;
     const data = await response.json();
     if (!data?.ok || data.provider !== 'google') return;
+    googleSegments += 1;
     const metrics = element.querySelector('.plan-transfer-metrics');
     if (!metrics) return;
     const cost = data.fare?.text || (Number.isFinite(data.costKrw) ? formatPlanCost(data.costKrw) : '');
     metrics.innerHTML = `<b>Google Maps</b> · ${escapeHTML(data.durationText || formatPlanDuration(data.durationMinutes))}${cost ? ` · ${escapeHTML(cost)}` : ''}`;
     element.classList.add('google-route-data');
   }));
+  updatePlanDataSourceStatus(googleSegments, segments.length);
+  trackEvent('route_provider_summary', {
+    googleSegments,
+    totalSegments: segments.length
+  });
+}
+
+function updatePlanDataSourceStatus(googleSegments, totalSegments) {
+  const status = document.getElementById('planDataSource');
+  if (!status) return;
+  let message;
+  let icon = 'fa-solid fa-circle-info';
+  if (!totalSegments) {
+    message = currentLanguage === 'ko' ? '장소를 추가하면 이동 경로를 비교합니다.' : 'Añade lugares para comparar los trayectos.';
+  } else if (googleSegments === totalSegments) {
+    icon = 'fa-brands fa-google';
+    message = currentLanguage === 'ko' ? '모든 구간을 Google Routes 경로 데이터로 갱신했습니다.' : 'Todos los trayectos se actualizaron con rutas de Google.';
+  } else if (googleSegments > 0) {
+    icon = 'fa-brands fa-google';
+    message = currentLanguage === 'ko'
+      ? `${totalSegments}개 구간 중 ${googleSegments}개를 Google 경로로 갱신했습니다. 나머지는 DAMDA 예상값입니다.`
+      : `${googleSegments} de ${totalSegments} trayectos usan rutas de Google; el resto son estimaciones DAMDA.`;
+  } else {
+    message = currentLanguage === 'ko'
+      ? '현재는 DAMDA 예상값입니다. 각 구간의 Google Maps 버튼에서 실시간 경로와 운임을 확인하세요.'
+      : 'Por ahora son estimaciones DAMDA. Abre cada trayecto en Google Maps para confirmar tiempo y tarifa.';
+  }
+  status.classList.toggle('google-data', googleSegments > 0);
+  status.innerHTML = `<i class="${icon}"></i><span>${escapeHTML(message)}</span>`;
 }
 
 function updateModalPlanButton(tourId) {
@@ -3295,6 +3402,7 @@ function createPlanFromSaved() {
     duration,
     tourIds: ids,
     regionIds,
+    source: 'saved_places',
     title: currentLanguage === 'ko' ? '저장한 장소로 만든 여행' : 'Ruta con tus lugares guardados'
   });
 }
@@ -3314,6 +3422,7 @@ function applyRecommendedCourse(index) {
     duration,
     tourIds: ids,
     regionIds,
+    source: 'recommended_course',
     title: currentLanguage === 'ko' ? course.title : (COURSE_ES[index]?.title || course.title)
   });
 }

@@ -26,6 +26,8 @@
 - 응답은 Sites D1의 `travel_demand` 테이블에 저장합니다. 구조는 `drizzle/0000_travel_demand.sql`과 `db/schema.ts`에서 관리합니다.
 - 화면 행동은 별도의 `product_event` 테이블에 익명 세션 단위로 기록합니다. 검색어 원문·국가·연락처 같은 개인정보는 행동 이벤트에 넣지 않습니다.
 - 퍼널 열기·단계 이동·건너뛰기·검증 오류·완료와 탐색·저장·플래너·Google Maps 전환을 분리해 측정합니다.
+- 영상·SNS 링크에는 `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`와 `episode`(또는 `video`, `content_id`)를 붙일 수 있습니다. 첫 유입값은 세션 동안 각 익명 행동 이벤트에 함께 기록됩니다.
+- 캠페인 값은 길이와 제어문자를 제한하고, 일반 유입은 전체 주소가 아닌 리퍼러 호스트명만 기록합니다. 검색어 원문은 수집하지 않습니다.
 
 ## 데이터와 신뢰도
 
@@ -42,12 +44,14 @@
 - 그 외에는 `js/app.js`의 `getRecommendedStay()`에서 장소 유형별 범위를 계산하고 `예상/Estimación`으로 표시합니다.
 - 운영시간·휴무일·요금·행사일정은 변동될 수 있으므로 상세 화면의 공식 출처에서 재확인해야 합니다.
 - `node scripts/audit_catalog_quality.mjs`로 이미지·주소·좌표·공식 출처·스페인어 편집 번역의 누락 현황을 `scripts/catalog_quality_audit.json`에 기록합니다.
+- 기본 `추천순`은 DAMDA Picks, 에디터가 다듬은 스페인어 소개, 공식 출처와 장소별 사진이 확인된 콘텐츠를 우선 노출합니다. 전체 관광정보는 검색·필터로 계속 접근할 수 있습니다.
 
 ## 경로·교통비 데이터
 
 - API 키가 없을 때는 직선거리와 이동수단별 평균 속도를 바탕으로 계산한 값을 `DAMDA 예상/Estimación DAMDA`로 명확히 표시합니다.
 - Sites 운영 환경에 `GOOGLE_MAPS_API_KEY`를 등록하면 `/api/route-estimate`가 Google Routes API의 실제 경로 시간·거리와 제공 가능한 대중교통 운임을 우선 사용합니다.
 - Google 응답을 받을 수 없거나 운임이 제공되지 않으면 기존 DAMDA 예상값을 유지합니다. 키를 클라이언트 코드에 넣지 않습니다.
+- 생성된 일정 상단에 Google 경로가 적용된 구간 수와 DAMDA 예상 구간을 명시해 실제 데이터와 추정치를 혼동하지 않도록 합니다.
 
 ## 성능 구조
 

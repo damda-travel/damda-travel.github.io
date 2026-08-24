@@ -34,7 +34,7 @@
 
   <!-- CSS Stylesheet -->
   <link rel="stylesheet" href="css/style.css?v=39">
-  <link rel="stylesheet" href="css/polish.css?v=14">
+  <link rel="stylesheet" href="css/polish.css?v=15">
 </head>
 <body>
 
@@ -102,16 +102,10 @@
     <section class="travel-profile-invite" id="travelProfileInvite" aria-labelledby="travelProfileInviteTitle" hidden>
       <div>
         <span class="profile-invite-kicker" data-i18n="profileInviteKicker">Recomendaciones que empiezan contigo</span>
-        <h2 id="travelProfileInviteTitle" data-i18n="profileInviteTitle">¿Qué momento de tu viaje estás viviendo?</h2>
-        <p data-i18n="profileInviteDesc">Responde una sola pregunta ahora. Podrás completar tu perfil cuando quieras una ruta personalizada.</p>
+        <h2 id="travelProfileInviteTitle" data-i18n="profileInviteTitle">Haz que DAMDA elija mejor para ti</h2>
+        <p data-i18n="profileInviteDesc">Completa un perfil breve para recibir lugares y rutas según tu forma de viajar.</p>
       </div>
-      <div class="profile-invite-options" role="group" aria-label="Situación del viaje">
-        <button type="button" data-journey-status="planning_first" onclick="startTravelProfile('planning_first')"><i class="fa-regular fa-map"></i><span data-i18n="profileInviteFirst">Mi primer viaje</span></button>
-        <button type="button" data-journey-status="planning_return" onclick="startTravelProfile('planning_return')"><i class="fa-solid fa-rotate"></i><span data-i18n="profileInviteReturn">Quiero volver</span></button>
-        <button type="button" data-journey-status="living_in_korea" onclick="startTravelProfile('living_in_korea')"><i class="fa-solid fa-house"></i><span data-i18n="profileInviteResident">Vivo en Corea</span></button>
-        <button type="button" data-journey-status="visited_before" onclick="startTravelProfile('visited_before')"><i class="fa-solid fa-plane-arrival"></i><span data-i18n="profileInviteVisited">Ya conozco Corea</span></button>
-      </div>
-      <button type="button" class="profile-invite-continue" id="profileInviteContinue" onclick="continueTravelProfile()" hidden><span data-i18n="profileInviteContinue">Personalizar mis recomendaciones</span><i class="fa-solid fa-arrow-right"></i></button>
+      <button type="button" class="profile-invite-continue" id="profileInviteContinue" onclick="continueTravelProfile()"><span data-i18n="profileInviteContinue">Completar mi perfil</span><i class="fa-solid fa-arrow-right"></i></button>
     </section>
 
     <!-- 2. TOUR SPOTS SECTION -->
@@ -690,6 +684,6 @@
   <script src="js/tourImages.js?v=25"></script>
   <script src="js/tourDetails.js?v=25"></script>
   <script src="js/tourApi.js?v=25"></script>
-  <script src="js/app.js?v=53"></script>
+  <script src="js/app.js?v=54"></script>
 </body>
 </html>
