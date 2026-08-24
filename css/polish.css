@@ -2825,6 +2825,10 @@ html[lang='ko'] .hero-title {
 }
 
 @media (max-width: 768px) {
+  .tour-section {
+    padding-top: 1.5rem;
+  }
+
   .travel-profile-invite {
     width: 100%;
     padding: 1.25rem 1rem;
