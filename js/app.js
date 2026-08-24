@@ -174,6 +174,7 @@ const COURSE_ES = [
 const DAMDA_COLLECTIONS = [
   {
     id: 'first-jeonbuk',
+    tone: 'heritage',
     icon: 'fa-solid fa-compass',
     es: { title: 'Mi primera vez en Jeonbuk', desc: 'Hanok, patrimonio y sabores locales sin intentar verlo todo.' },
     ko: { title: '첫 전북 여행', desc: '한옥·역사·로컬 미식을 무리하지 않는 동선으로 만나요.' },
@@ -181,6 +182,7 @@ const DAMDA_COLLECTIONS = [
   },
   {
     id: 'seoul-day',
+    tone: 'daytrip',
     coverId: 'jj-2',
     icon: 'fa-solid fa-train-subway',
     es: { title: 'Una escapada desde Seúl', desc: 'Una ruta compacta para descubrir otra Corea en un solo día.' },
@@ -189,6 +191,7 @@ const DAMDA_COLLECTIONS = [
   },
   {
     id: 'local-flavors',
+    tone: 'flavor',
     coverId: 'sc-2',
     icon: 'fa-solid fa-utensils',
     es: { title: 'Sabores que cuentan Jeonbuk', desc: 'Mercados, fermentación y especialidades con una historia local.' },
@@ -197,6 +200,7 @@ const DAMDA_COLLECTIONS = [
   },
   {
     id: 'rainy-day',
+    tone: 'rain',
     coverId: 'gs-2',
     icon: 'fa-solid fa-cloud-rain',
     es: { title: 'Jeonbuk para un día de lluvia', desc: 'Museos, arquitectura y experiencias que no dependen del clima.' },
@@ -204,6 +208,30 @@ const DAMDA_COLLECTIONS = [
     spotIds: ['gs-2', 'jj-2', 'im-1']
   }
 ];
+
+const DAMDA_STORY_ROUTES = {
+  'hanok-table': {
+    es: 'Hanok, mesa y memoria',
+    ko: '한옥과 식탁, 오래 남는 기억',
+    duration: 2,
+    regionIds: ['jeonju', 'wanju'],
+    tourIds: ['wj-1', 'jj-1', 'jj-5']
+  },
+  'west-coast': {
+    es: 'La costa oeste a otro ritmo',
+    ko: '천천히 만나는 전북 서해안',
+    duration: 2,
+    regionIds: ['buan', 'gunsan'],
+    tourIds: ['ba-1', 'ba-2', 'gs-1']
+  },
+  'winter-muju': {
+    es: 'Invierno en las montañas de Muju',
+    ko: '무주의 산에서 만나는 겨울',
+    duration: 1,
+    regionIds: ['muju'],
+    tourIds: ['mj-1', 'mj-2']
+  }
+};
 
 const I18N = {
   es: {
@@ -276,6 +304,28 @@ const I18N = {
     profileInviteResident: 'Vivo en Corea',
     profileInviteVisited: 'Ya conozco Corea',
     profileInviteContinue: 'Completar mi perfil',
+    storiesKicker: 'Historias en camino',
+    storiesTitle: 'Jeonbuk, contado por DAMDA',
+    storiesDesc: 'No queremos enseñarte una lista. Queremos llevarte a las calles, mesas y paisajes que hacen que un viaje se quede contigo.',
+    storyBadge: 'PRÓXIMA HISTORIA',
+    story1Meta: 'Jeonju · Wanju · Tradición',
+    story1Title: 'La Corea que despierta entre hanok',
+    story2Meta: 'Buan · Gunsan · Mar',
+    story2Title: 'La costa donde el día baja despacio',
+    story3Meta: 'Muju · Invierno · Montaña',
+    story3Title: 'Invierno y otra forma de Corea',
+    storyRouteCta: 'Seguir esta ruta',
+    storiesNote: 'Tres historias para mirar Jeonbuk con más tiempo y menos prisa.',
+    featuredRegionsKicker: 'Cuatro puertas de entrada',
+    featuredRegionsTitle: 'Elige primero por la atmósfera',
+    featuredRegionTradition: 'Hanok y tradición',
+    featuredRegionWinter: 'Nieve y montaña',
+    featuredRegionCoast: 'Costa y atardecer',
+    featuredRegionTime: 'Puerto y tiempo',
+    regionJeonju: 'Jeonju',
+    regionMuju: 'Muju',
+    regionBuan: 'Buan',
+    regionGunsan: 'Gunsan',
     picksKicker: 'Selección editorial',
     picksTitle: 'DAMDA Picks',
     picksDesc: 'No es una lista de popularidad. Son lugares elegidos por el tipo de viaje que quieres vivir.',
@@ -477,6 +527,28 @@ const I18N = {
     profileInviteResident: '한국 거주 중',
     profileInviteVisited: '한국 여행 경험 있음',
     profileInviteContinue: '여행 성향 입력하기',
+    storiesKicker: '곧 만날 DAMDA 이야기',
+    storiesTitle: 'DAMDA의 시선으로 담은 전북',
+    storiesDesc: '장소 목록만 보여주지 않습니다. 여행 뒤에도 오래 남을 골목과 식탁, 풍경 속으로 안내합니다.',
+    storyBadge: 'COMING STORY',
+    story1Meta: '전주 · 완주 · 전통',
+    story1Title: '한옥 사이에서 깨어나는 또 다른 한국',
+    story2Meta: '부안 · 군산 · 바다',
+    story2Title: '하루가 천천히 내려앉는 서해안',
+    story3Meta: '무주 · 겨울 · 산',
+    story3Title: '겨울, 그리고 한국의 또 다른 표정',
+    storyRouteCta: '이 동선 따라가기',
+    storiesNote: '서두르지 않을 때 더 잘 보이는 전북의 세 가지 장면입니다.',
+    featuredRegionsKicker: '네 개의 여행 입구',
+    featuredRegionsTitle: '분위기로 먼저 골라보세요',
+    featuredRegionTradition: '한옥과 전통',
+    featuredRegionWinter: '눈과 산',
+    featuredRegionCoast: '해안과 노을',
+    featuredRegionTime: '항구와 시간',
+    regionJeonju: '전주',
+    regionMuju: '무주',
+    regionBuan: '부안',
+    regionGunsan: '군산',
     picksKicker: 'DAMDA 에디터 셀렉션',
     picksTitle: 'DAMDA Picks',
     picksDesc: '인기순 목록이 아니라, 여행의 상황과 취향에 맞춰 직접 고른 장소입니다.',
@@ -720,6 +792,38 @@ window.addEventListener('pageshow', event => {
   if (event.persisted) window.scrollTo(0, 0);
 });
 
+let editorialRevealObserver = null;
+
+function initEditorialMotion(root = document) {
+  const elements = [...root.querySelectorAll('[data-reveal]:not([data-reveal-bound])')];
+  if (!elements.length) return;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.classList.add('editorial-motion-ready');
+
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    elements.forEach(element => {
+      element.dataset.revealBound = 'true';
+      element.classList.add('is-visible');
+    });
+    return;
+  }
+
+  if (!editorialRevealObserver) {
+    editorialRevealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        editorialRevealObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
+  }
+
+  elements.forEach(element => {
+    element.dataset.revealBound = 'true';
+    editorialRevealObserver.observe(element);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const today = new Date();
   const toLocalDateInput = date => new Date(date.getTime() - date.getTimezoneOffset() * 60 * 1000).toISOString().slice(0, 10);
@@ -740,6 +844,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderPersonalizedPanel();
   openSharedTourFromUrl();
   openSharedPlanFromUrl();
+  requestAnimationFrame(() => initEditorialMotion());
   trackEvent('page_view');
 });
 
@@ -978,12 +1083,12 @@ function getPersonalizedReason(tour, profile) {
 
 function renderDamdaPicks() {
   if (!damdaPicksGrid) return;
-  damdaPicksGrid.innerHTML = DAMDA_COLLECTIONS.map(collection => {
+  damdaPicksGrid.innerHTML = DAMDA_COLLECTIONS.map((collection, index) => {
     const localized = collection[currentLanguage === 'ko' ? 'ko' : 'es'];
     const spots = collection.spotIds.map(findTourById).filter(Boolean);
     const cover = findTourById(collection.coverId) || spots[0];
     return `
-      <article class="damda-pick-card">
+      <article class="damda-pick-card tone-${escapeHTML(collection.tone || 'heritage')}" data-reveal style="--reveal-delay: ${index * 65}ms">
         <button type="button" onclick="applyDamdaCollection('${escapeHTML(collection.id)}')">
           <span class="damda-pick-image${cover?.image ? '' : ' image-unavailable'}">
             ${cover?.image ? `<img src="${escapeHTML(cover.image)}" alt="" loading="lazy" decoding="async" onerror="handleImageError(this)">` : ''}
@@ -999,6 +1104,23 @@ function renderDamdaPicks() {
         </button>
       </article>`;
   }).join('');
+  requestAnimationFrame(() => initEditorialMotion(damdaPicksGrid));
+}
+
+function openDamdaStory(storyId) {
+  const story = DAMDA_STORY_ROUTES[storyId];
+  if (!story) return;
+  selectedPlannerRegions = new Set(story.regionIds);
+  renderPlannerRegionOptions();
+  generateTravelPlan({
+    duration: story.duration,
+    pace: 3,
+    tourIds: story.tourIds,
+    regionIds: story.regionIds,
+    source: 'damda_story',
+    title: story[currentLanguage === 'ko' ? 'ko' : 'es']
+  });
+  trackEvent('damda_story_open', { story: storyId, regions: story.regionIds.length });
 }
 
 function applyDamdaCollection(collectionId) {
@@ -2016,6 +2138,11 @@ function selectRegion(regionId) {
   updateUI();
   trackEvent('region_select', { region: currentSelectedRegion || 'all' });
   if (window.innerWidth <= 1100) scrollToResults();
+}
+
+function openFeaturedRegion(regionId) {
+  trackEvent('featured_region_open', { region: regionId });
+  selectRegion(regionId);
 }
 
 function resetSelection() {

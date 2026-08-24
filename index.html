@@ -34,7 +34,7 @@
 
   <!-- CSS Stylesheet -->
   <link rel="stylesheet" href="css/style.css?v=39">
-  <link rel="stylesheet" href="css/polish.css?v=15">
+  <link rel="stylesheet" href="css/polish.css?v=16">
 </head>
 <body>
 
@@ -99,6 +99,55 @@
       </div>
     </section>
 
+    <section class="damda-stories" id="damdaStories" aria-labelledby="damdaStoriesTitle">
+      <div class="damda-stories-heading" data-reveal>
+        <div>
+          <span class="stories-kicker" data-i18n="storiesKicker">Historias en camino</span>
+          <h2 id="damdaStoriesTitle" data-i18n="storiesTitle">Jeonbuk, contado por DAMDA</h2>
+        </div>
+        <p data-i18n="storiesDesc">No queremos enseñarte una lista. Queremos llevarte a las calles, mesas y paisajes que hacen que un viaje se quede contigo.</p>
+      </div>
+      <div class="damda-stories-grid">
+        <article class="damda-story-card story-hanok" data-reveal style="--reveal-delay: 40ms">
+          <button type="button" onclick="openDamdaStory('hanok-table')">
+            <img src="images/spots/wj-1.webp" alt="" width="720" height="439" loading="lazy" decoding="async">
+            <span class="story-shade" aria-hidden="true"></span>
+            <span class="story-copy">
+              <small data-i18n="storyBadge">PRÓXIMA HISTORIA</small>
+              <em data-i18n="story1Meta">Jeonju · Wanju · Tradición</em>
+              <strong data-i18n="story1Title">La Corea que despierta entre hanok</strong>
+              <span class="story-action"><span data-i18n="storyRouteCta">Seguir esta ruta</span><i class="fa-solid fa-arrow-right"></i></span>
+            </span>
+          </button>
+        </article>
+        <article class="damda-story-card story-coast" data-reveal style="--reveal-delay: 100ms">
+          <button type="button" onclick="openDamdaStory('west-coast')">
+            <img src="images/spots/ba-1.webp" alt="" width="720" height="439" loading="lazy" decoding="async">
+            <span class="story-shade" aria-hidden="true"></span>
+            <span class="story-copy">
+              <small data-i18n="storyBadge">PRÓXIMA HISTORIA</small>
+              <em data-i18n="story2Meta">Buan · Gunsan · Mar</em>
+              <strong data-i18n="story2Title">La costa donde el día baja despacio</strong>
+              <span class="story-action"><span data-i18n="storyRouteCta">Seguir esta ruta</span><i class="fa-solid fa-arrow-right"></i></span>
+            </span>
+          </button>
+        </article>
+        <article class="damda-story-card story-winter" data-reveal style="--reveal-delay: 160ms">
+          <button type="button" onclick="openDamdaStory('winter-muju')">
+            <img src="images/hero-muju-ski.webp" alt="" width="1000" height="666" loading="lazy" decoding="async">
+            <span class="story-shade" aria-hidden="true"></span>
+            <span class="story-copy">
+              <small data-i18n="storyBadge">PRÓXIMA HISTORIA</small>
+              <em data-i18n="story3Meta">Muju · Invierno · Montaña</em>
+              <strong data-i18n="story3Title">Invierno y otra forma de Corea</strong>
+              <span class="story-action"><span data-i18n="storyRouteCta">Seguir esta ruta</span><i class="fa-solid fa-arrow-right"></i></span>
+            </span>
+          </button>
+        </article>
+      </div>
+      <p class="damda-editor-note" data-reveal data-i18n="storiesNote">Tres historias para mirar Jeonbuk con más tiempo y menos prisa.</p>
+    </section>
+
     <section class="travel-profile-invite" id="travelProfileInvite" aria-labelledby="travelProfileInviteTitle" hidden>
       <div>
         <span class="profile-invite-kicker" data-i18n="profileInviteKicker">Recomendaciones que empiezan contigo</span>
@@ -136,6 +185,31 @@
           <p class="banner-desc" id="bannerDesc">
             Compara lugares, comida, cafés y festivales de los 14 municipios.
           </p>
+        </div>
+
+        <div class="featured-region-strip" aria-labelledby="featuredRegionsTitle">
+          <div class="featured-regions-heading" data-reveal>
+            <span class="section-kicker" data-i18n="featuredRegionsKicker">Cuatro puertas de entrada</span>
+            <h3 id="featuredRegionsTitle" data-i18n="featuredRegionsTitle">Elige primero por la atmósfera</h3>
+          </div>
+          <div class="featured-regions-grid">
+            <button type="button" class="featured-region-card" onclick="openFeaturedRegion('jeonju')" data-reveal style="--reveal-delay: 30ms">
+              <img src="images/hero-jeonju-hanok.webp" alt="" width="1240" height="644" loading="lazy" decoding="async">
+              <span><small data-i18n="featuredRegionTradition">Hanok y tradición</small><strong data-i18n="regionJeonju">Jeonju</strong></span>
+            </button>
+            <button type="button" class="featured-region-card" onclick="openFeaturedRegion('muju')" data-reveal style="--reveal-delay: 70ms">
+              <img src="images/hero-muju-ski.webp" alt="" width="1000" height="666" loading="lazy" decoding="async">
+              <span><small data-i18n="featuredRegionWinter">Nieve y montaña</small><strong data-i18n="regionMuju">Muju</strong></span>
+            </button>
+            <button type="button" class="featured-region-card" onclick="openFeaturedRegion('buan')" data-reveal style="--reveal-delay: 110ms">
+              <img src="images/spots/ba-1.webp" alt="" width="720" height="439" loading="lazy" decoding="async">
+              <span><small data-i18n="featuredRegionCoast">Costa y atardecer</small><strong data-i18n="regionBuan">Buan</strong></span>
+            </button>
+            <button type="button" class="featured-region-card" onclick="openFeaturedRegion('gunsan')" data-reveal style="--reveal-delay: 150ms">
+              <img src="images/spots/gs-1.webp" alt="" width="720" height="439" loading="lazy" decoding="async">
+              <span><small data-i18n="featuredRegionTime">Puerto y tiempo</small><strong data-i18n="regionGunsan">Gunsan</strong></span>
+            </button>
+          </div>
         </div>
 
         <div class="region-selector-panel" id="regionSelector">
@@ -684,6 +758,6 @@
   <script src="js/tourImages.js?v=25"></script>
   <script src="js/tourDetails.js?v=25"></script>
   <script src="js/tourApi.js?v=25"></script>
-  <script src="js/app.js?v=54"></script>
+  <script src="js/app.js?v=55"></script>
 </body>
 </html>

@@ -67,7 +67,7 @@ async function post(path, body, env, origin = 'https://damda-travel.github.io') 
     'funnel_skip', 'funnel_back', 'funnel_validation_error', 'funnel_submit_error',
     'saved_panel_open', 'saved_filter_toggle', 'sort_change', 'filter_reset',
     'planner_preset_select', 'planner_region_toggle', 'planner_regions_toggle',
-    'planner_route_mode_open', 'route_provider_summary', 'plan_clear'
+    'planner_route_mode_open', 'route_provider_summary', 'damda_story_open', 'featured_region_open', 'plan_clear'
   ];
   for (const eventName of events) {
     const response = await post('/api/product-event', {
