@@ -1392,6 +1392,22 @@ function initTravelFunnel() {
   updateTravelFunnelContactField();
 
   renderTravelProfileInvite();
+  scheduleAutomaticTravelFunnel();
+}
+
+function shouldOpenTravelFunnelAutomatically() {
+  if (localStorage.getItem('damda_travel_profile_completed')) return false;
+  const snoozedUntil = Number(localStorage.getItem('damda_travel_profile_snoozed_until') || 0);
+  if (Number.isFinite(snoozedUntil) && snoozedUntil > Date.now()) return false;
+  if (snoozedUntil) localStorage.removeItem('damda_travel_profile_snoozed_until');
+  return true;
+}
+
+function scheduleAutomaticTravelFunnel() {
+  if (!shouldOpenTravelFunnelAutomatically()) return;
+  window.setTimeout(() => {
+    if (!travelFunnel?.classList.contains('active')) openTravelFunnel(false);
+  }, 450);
 }
 
 function openTravelFunnel(manual = false) {
