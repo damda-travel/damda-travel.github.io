@@ -1,7 +1,7 @@
 {
-  "name": "DAMDA | K-Travel",
+  "name": "DAMDA — Viajes por Jeonbuk, Corea del Sur",
   "short_name": "DAMDA",
-  "description": "Guía de Jeonbuk en español con lugares, rutas y consejos prácticos.",
+  "description": "Descubre Jeonbuk en español con lugares, cultura, comida local, rutas y consejos prácticos de DAMDA.",
   "lang": "es-419",
   "start_url": "./",
   "scope": "./",

@@ -4524,3 +4524,48 @@ p {
     padding: 0.55rem;
   }
 }
+
+/* Official DAMDA channels: visible identity links complement JSON-LD sameAs. */
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 38px;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+.footer-social a:hover,
+.footer-social a:focus-visible {
+  border-color: rgba(255, 255, 255, 0.54);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.footer-social a:focus-visible {
+  outline: 2px solid var(--damda-lime);
+  outline-offset: 3px;
+}
+
+.footer-social i {
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .footer-social {
+    justify-content: center;
+  }
+}
