@@ -14,6 +14,7 @@ const [html, robots, sitemap] = await Promise.all([
 assert.match(html, /<html lang="es">/);
 assert.match(html, /<link rel="canonical" href="https:\/\/damda-travel\.github\.io\/">/);
 assert.match(html, /<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">/);
+assert.match(html, /<meta name="google-site-verification" content="a-yW2V2ZB86EKE2MzIup_Ncw0pub2IDaZ8bkM8PZ1gI">/);
 assert.match(html, /<meta property="og:image:width" content="1200">/);
 assert.match(html, /<meta property="og:image:height" content="630">/);
 assert.match(html, new RegExp(instagramUrl.replaceAll('/', '\\/')));
